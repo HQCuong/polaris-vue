@@ -1,0 +1,9 @@
+/* Minimal global reset. Polaris web components style themselves via shadow DOM. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--p-color-bg, #f1f1f1);
+}
