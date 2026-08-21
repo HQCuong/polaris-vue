@@ -1,10 +1,50 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "vue", "vitest"],
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "vue", "vitest", "import", "promise"],
   "env": {
-    "browser": true
+    "browser": true,
+    "es2024": true
   },
   "categories": {
-    "correctness": "error"
-  }
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "eqeqeq": ["error", "smart"],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "no-var": "error",
+    "prefer-const": "warn",
+    "typescript/no-explicit-any": "warn",
+    "typescript/consistent-type-imports": ["error", { "fixStyle": "inline-type-imports" }],
+    "typescript/no-non-null-assertion": "warn",
+    "unicorn/prefer-node-protocol": "error",
+    "promise/no-nesting": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["src/**/__tests__/**", "**/*.{test,spec}.{ts,tsx}"],
+      "rules": {
+        "no-console": "off",
+        "typescript/no-explicit-any": "off",
+        "typescript/no-non-null-assertion": "off"
+      }
+    },
+    {
+      "files": ["*.config.{ts,mts}", "vite.config.ts", "vitest.config.ts"],
+      "env": {
+        "node": true
+      }
+    }
+  ],
+  "ignorePatterns": ["dist", "dist-ssr", "coverage", "node_modules"]
 }
