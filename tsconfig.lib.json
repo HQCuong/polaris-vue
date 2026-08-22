@@ -1,0 +1,23 @@
+{
+  // Standalone config for generating the published package's `.d.ts` files via
+  // `vue-tsc -p tsconfig.lib.json`. Deliberately NOT wired into the root tsconfig.json's
+  // project-reference graph (used by `vue-tsc --build` for type-checking): that graph is
+  // composite/incremental and geared at `noEmit`, whereas this one emits declarations
+  // only for the library's public surface. Keeping it separate avoids fighting
+  // `--build`'s composite/tsBuildInfo bookkeeping for a one-off declaration emit.
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["src/lib/**/*.ts"],
+  "exclude": ["src/lib/**/__tests__/**"],
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "src/lib",
+    "outDir": "dist",
+
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

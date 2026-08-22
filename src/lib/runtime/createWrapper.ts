@@ -27,14 +27,33 @@ export interface ComponentMeta {
 type UnknownRecord = Record<string, unknown>
 
 /**
+ * Derives `onX` event-listener props from an events shape `E` (e.g.
+ * `{ click: CustomEvent }` -> `{ onClick?: (event: CustomEvent) => void }`), the way Vue's
+ * template compiler maps `@click` to an `onClick` prop.
+ */
+export type EventListenerProps<E> = {
+  [K in keyof E as `on${Capitalize<string & K>}`]?: (event: E[K]) => void
+}
+
+/**
  * A lightweight constructor-shaped type for the props of a generated wrapper component,
  * used purely so callers (and template type-checking) see the manifest-derived prop
- * types. Deliberately not `DefineComponent<...>` — casting to that type here trips a TS
- * "two different types with this name" recursion error, since the concrete component
- * defined below is itself a `DefineComponent` instantiated with different type args.
+ * and event-listener types. Deliberately not `DefineComponent<...>` — casting to that
+ * type here trips a TS "two different types with this name" recursion error, since the
+ * concrete component defined below is itself a `DefineComponent` instantiated with
+ * different type args.
  */
-export type WrapperComponent<P> = {
-  new (): { $props: Partial<P> & { modelValue?: unknown } }
+export type WrapperComponent<P, E = UnknownRecord, El extends HTMLElement = HTMLElement> = {
+  new (): {
+    $props: Partial<P> & EventListenerProps<E> & { modelValue?: unknown }
+    /**
+     * The wrapped custom element's root DOM node, typed to include any imperative
+     * methods declared on it (e.g. `ModalElement#showOverlay`). Vue single-root
+     * components' `$el` IS the root element at runtime, so this is truthful typing —
+     * no runtime shim is involved.
+     */
+    $el: El
+  }
 }
 
 function applyElementProperties(el: unknown, bindings: Array<[string, unknown]>): void {
@@ -57,9 +76,11 @@ function applyElementProperties(el: unknown, bindings: Array<[string, unknown]>)
  * - When the tag has a v-model mapping in `overrides.ts`, a `modelValue` prop is
  *   accepted and an `update:modelValue` event is emitted from the mapped DOM event.
  */
-export function createWrapper<P extends object = UnknownRecord>(
-  meta: ComponentMeta,
-): WrapperComponent<P> {
+export function createWrapper<
+  P extends object = UnknownRecord,
+  E extends object = UnknownRecord,
+  El extends HTMLElement = HTMLElement,
+>(meta: ComponentMeta): WrapperComponent<P, E, El> {
   const vModel = vModelOverrides[meta.tagName]
 
   const propsDef: Record<string, { type: null; default: undefined }> = {}
@@ -130,8 +151,16 @@ export function createWrapper<P extends object = UnknownRecord>(
 
         const children: VNode[] = []
         if (slots.default) children.push(...slots.default())
-        for (const slotName of meta.slots) {
-          if (!slotName || slotName === 'default') continue
+        // Forward every user-provided named slot verbatim (as Vue's `#name` spells it),
+        // rather than gating on `meta.slots` (the manifest-derived slot-name list). The
+        // manifest's slot names can drift from what the live custom element actually
+        // accepts (e.g. Shopify Polaris expects camelCase `primaryAction`, not the
+        // manifest's kebab-case `primary-action`, for `s-modal`'s slot), which silently
+        // dropped user content when forwarding was gated on that list. Driving off the
+        // actual slots the caller passed makes this robust to manifest drift and also
+        // supports slots the manifest doesn't document at all.
+        for (const slotName of Object.keys(slots)) {
+          if (slotName === 'default') continue
           const slotFn = slots[slotName]
           if (!slotFn) continue
           for (const vnode of slotFn()) {
@@ -144,5 +173,5 @@ export function createWrapper<P extends object = UnknownRecord>(
     },
   })
 
-  return component as unknown as WrapperComponent<P>
+  return component as unknown as WrapperComponent<P, E, El>
 }

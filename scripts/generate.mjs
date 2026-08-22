@@ -117,7 +117,15 @@ for (const raw of rawComponents) {
     attributesByFieldName.set(fieldName.toLowerCase(), attr)
   }
 
+  // A field whose type text is a function signature (e.g. `() => void`) is a method on
+  // the custom element's JS interface, not a settable property — the manifest's
+  // `members` list makes no distinction between the two ("field" covers both class
+  // properties and class methods), so we detect it here by shape and route it to
+  // `methods` instead of `props`. Setting an HTML attribute for a method does nothing.
+  const FUNCTION_TYPE_RE = /=>/
+
   const props = []
+  const methods = []
   for (const field of fields) {
     // Skip synthetic/private/static members that aren't real instance props
     // (e.g. `[internals]`, inherited static flags, or unnamed members).
@@ -125,9 +133,14 @@ for (const raw of rawComponents) {
     if (field.privacy === 'private' || field.privacy === 'protected') continue
     if (field.static) continue
 
-    const attr = attributesByFieldName.get(field.name.toLowerCase())
     const typeText = field.type && typeof field.type.text === 'string' ? field.type.text : 'string'
 
+    if (FUNCTION_TYPE_RE.test(typeText)) {
+      methods.push({ name: field.name, type: typeText })
+      continue
+    }
+
+    const attr = attributesByFieldName.get(field.name.toLowerCase())
     props.push({
       name: field.name,
       attribute: attr ? attr.name : null,
@@ -135,12 +148,14 @@ for (const raw of rawComponents) {
     })
   }
   props.sort((a, b) => a.name.localeCompare(b.name))
+  methods.sort((a, b) => a.name.localeCompare(b.name))
 
   const events = (raw.events ?? []).map((e) => {
     assert(typeof e.name === 'string', `component "${raw.tagName}" has an event with no name`)
-    return e.name
+    const typeText = e.type && typeof e.type.text === 'string' ? e.type.text : 'CustomEvent'
+    return { name: e.name, type: typeText }
   })
-  events.sort((a, b) => a.localeCompare(b))
+  events.sort((a, b) => a.name.localeCompare(b.name))
 
   const slots = (raw.slots ?? []).map((s) => (typeof s.name === 'string' ? s.name : ''))
   slots.sort((a, b) => a.localeCompare(b))
@@ -152,6 +167,7 @@ for (const raw of rawComponents) {
     props,
     events,
     slots,
+    methods,
   })
 }
 
@@ -193,6 +209,31 @@ function convertTypeText(typeText) {
   }
 
   return { ts: 'string', embeddable: false, original: typeText }
+}
+
+// An event type is embeddable as-is only when it is a bare `Event` or `CustomEvent`
+// reference (no generics, no unions) — anything else (e.g. a `CallbackEventListener<...>`
+// generic) falls back to `CustomEvent`, with the original manifest text preserved in a
+// comment, consistent with how prop types fall back above.
+const EMBEDDABLE_EVENT_TYPES = new Set(['Event', 'CustomEvent'])
+
+function convertEventTypeText(typeText) {
+  if (EMBEDDABLE_EVENT_TYPES.has(typeText)) {
+    return { ts: typeText, embeddable: true }
+  }
+  return { ts: 'CustomEvent', embeddable: false, original: typeText }
+}
+
+// A method type is embeddable as a zero-arg `(): void` signature only when it is
+// exactly `() => void` — the only shape the manifest currently produces (see
+// `s-modal`'s `hideOverlay`/`showOverlay`/`toggleOverlay`). Anything else falls back to
+// a generic call signature, with the original manifest text preserved in a comment,
+// consistent with the prop/event type fallbacks above.
+function convertMethodTypeText(typeText) {
+  if (typeText === '() => void') {
+    return { ts: '(): void', embeddable: true }
+  }
+  return { ts: '(...args: unknown[]): unknown', embeddable: false, original: typeText }
 }
 
 // ---------------------------------------------------------------------------
@@ -237,7 +278,7 @@ function renderMetadata() {
       )
     }
     lines.push('    ],')
-    lines.push(`    events: ${jsonLiteral(c.events)},`)
+    lines.push(`    events: ${jsonLiteral(c.events.map((e) => e.name))},`)
     lines.push(`    slots: ${jsonLiteral(c.slots)},`)
     lines.push('  },')
   }
@@ -266,6 +307,37 @@ function renderTypes() {
     }
     lines.push('}')
     lines.push('')
+
+    if (c.events.length === 0) {
+      // An empty interface would allow any non-nullish value (and trip
+      // @typescript-eslint/no-empty-object-type), so components with no manifest events
+      // get a type alias that has no keys instead.
+      lines.push(`export type ${c.typeName}Events = Record<string, never>`)
+    } else {
+      lines.push(`export interface ${c.typeName}Events {`)
+      for (const e of c.events) {
+        const converted = convertEventTypeText(e.type)
+        if (!converted.embeddable) {
+          lines.push(`  /** original manifest type: ${converted.original.replace(/\*\//g, '*\\/')} */`)
+        }
+        lines.push(`  ${e.name}: ${converted.ts}`)
+      }
+      lines.push('}')
+    }
+    lines.push('')
+
+    if (c.methods.length > 0) {
+      lines.push(`export interface ${c.typeName}Element extends HTMLElement {`)
+      for (const m of c.methods) {
+        const converted = convertMethodTypeText(m.type)
+        if (!converted.embeddable) {
+          lines.push(`  /** original manifest type: ${converted.original.replace(/\*\//g, '*\\/')} */`)
+        }
+        lines.push(`  ${m.name}${converted.ts}`)
+      }
+      lines.push('}')
+      lines.push('')
+    }
   }
   return lines.join('\n')
 }
@@ -279,11 +351,20 @@ function renderComponents() {
   lines.push(banner())
   lines.push("import { createWrapper } from '../runtime/createWrapper'")
   lines.push("import { metadata } from './metadata'")
-  lines.push(`import type { ${components.map((c) => `${c.typeName}Props`).join(', ')} } from './types'`)
+  const typeImports = components.flatMap((c) =>
+    c.methods.length > 0
+      ? [`${c.typeName}Props`, `${c.typeName}Events`, `${c.typeName}Element`]
+      : [`${c.typeName}Props`, `${c.typeName}Events`],
+  )
+  lines.push(`import type { ${typeImports.join(', ')} } from './types'`)
   lines.push('')
   for (const c of components) {
+    const typeArgs =
+      c.methods.length > 0
+        ? `${c.typeName}Props, ${c.typeName}Events, ${c.typeName}Element`
+        : `${c.typeName}Props, ${c.typeName}Events`
     lines.push(
-      `export const ${c.exportName} = createWrapper<${c.typeName}Props>(metadata.${c.exportName})`,
+      `export const ${c.exportName} = createWrapper<${typeArgs}>(metadata.${c.exportName})`,
     )
   }
   lines.push('')

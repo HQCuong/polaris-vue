@@ -2,13 +2,27 @@
   "name": "polaris-vue",
   "version": "0.0.0",
   "private": true,
+  "description": "Vue 3 wrapper components for Shopify Polaris web components.",
+  "keywords": ["shopify", "polaris", "web-components", "vue", "wrapper"],
   "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
+    "build:lib": "vite build --config vite.lib.config.ts && vue-tsc -p tsconfig.lib.json",
     "type-check": "vue-tsc --build",
     "lint": "run-s \"lint:*\"",
     "lint:oxlint": "oxlint . --fix",
@@ -16,10 +30,11 @@
     "format": "oxfmt src/",
     "generate": "node scripts/generate.mjs"
   },
-  "dependencies": {
-    "vue": "^3.5.40"
+  "peerDependencies": {
+    "vue": "^3.5.0"
   },
   "devDependencies": {
+    "vue": "^3.5.40",
     "@shopify/polaris-types": "^1.0.7",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.3",

@@ -1,0 +1,128 @@
+name: Sync @shopify/polaris-types
+
+on:
+  schedule:
+    # 03:17 UTC daily - off-peak, minute offset to avoid the top-of-hour stampede.
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    name: Check for polaris-types update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compare installed vs. latest version
+        id: versions
+        run: |
+          CURRENT=$(node -p "require('./node_modules/@shopify/polaris-types/package.json').version")
+          LATEST=$(npm view @shopify/polaris-types version)
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" = "$LATEST" ]; then
+            echo "up to date ($CURRENT)"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "update available: $CURRENT -> $LATEST"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install latest @shopify/polaris-types
+        if: steps.versions.outputs.changed == 'true'
+        run: npm install -D @shopify/polaris-types@latest
+
+      - name: Regenerate wrappers
+        if: steps.versions.outputs.changed == 'true'
+        run: npm run generate
+
+      - name: oxlint
+        id: check_oxlint
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx oxlint .
+
+      - name: eslint
+        id: check_eslint
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx eslint .
+
+      - name: Type-check
+        id: check_typecheck
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run type-check
+
+      - name: Unit tests
+        id: check_vitest
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx vitest run
+
+      - name: Build PR summary
+        id: summary
+        if: steps.versions.outputs.changed == 'true'
+        run: |
+          status() {
+            case "$1" in
+              success) echo "passed" ;;
+              failure) echo "FAILED" ;;
+              skipped) echo "skipped" ;;
+              *) echo "$1" ;;
+            esac
+          }
+
+          OXLINT_STATUS=$(status "${{ steps.check_oxlint.outcome }}")
+          ESLINT_STATUS=$(status "${{ steps.check_eslint.outcome }}")
+          TYPECHECK_STATUS=$(status "${{ steps.check_typecheck.outcome }}")
+          VITEST_STATUS=$(status "${{ steps.check_vitest.outcome }}")
+
+          {
+            echo "Automated sync of \`@shopify/polaris-types\` from \`${{ steps.versions.outputs.current }}\` to \`${{ steps.versions.outputs.latest }}\`."
+            echo ""
+            echo "Generated with \`npm run generate\` and pushed here for review."
+            echo ""
+            echo "### Check results"
+            echo ""
+            echo "| Check | Result |"
+            echo "| --- | --- |"
+            echo "| oxlint | ${OXLINT_STATUS} |"
+            echo "| eslint | ${ESLINT_STATUS} |"
+            echo "| type-check | ${TYPECHECK_STATUS} |"
+            echo "| vitest | ${VITEST_STATUS} |"
+            echo ""
+            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ]; then
+              echo "All checks passed. This should be safe to review and merge."
+            else
+              echo "One or more checks FAILED. Investigate before merging - a common cause is a new form-like component missing a \`v-model\` override in \`src/lib/overrides.ts\`."
+            fi
+          } > "$RUNNER_TEMP/pr-body.md"
+
+          cat "$RUNNER_TEMP/pr-body.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update pull request
+        if: steps.versions.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: sync @shopify/polaris-types to ${{ steps.versions.outputs.latest }}"
+          title: "chore: sync @shopify/polaris-types to ${{ steps.versions.outputs.latest }}"
+          body-path: ${{ runner.temp }}/pr-body.md
+          branch: sync/polaris-types
+          base: main
+          delete-branch: true

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import {
   SPage,
   SSection,
@@ -15,6 +15,9 @@ import {
   SSwitch,
   SSelect,
   SOption,
+  SModal,
+  SPopover,
+  STooltip,
 } from '@/lib'
 
 const count = ref(0)
@@ -29,6 +32,22 @@ const bio = ref('Writes playground demos for polaris-vue.')
 const acceptsMarketing = ref(true)
 const notificationsEnabled = ref(false)
 const favoriteFruit = ref('apple')
+
+// Overlays: modal/popover/tooltip demo state.
+const modalRef = useTemplateRef<InstanceType<typeof SModal>>('modal')
+const modalStatus = ref('never opened')
+
+function openModalImperatively(): void {
+  modalRef.value?.$el.showOverlay()
+}
+
+function onModalAftershow(): void {
+  modalStatus.value = 'open'
+}
+
+function onModalAfterhide(): void {
+  modalStatus.value = 'closed'
+}
 </script>
 
 <template>
@@ -76,6 +95,39 @@ const favoriteFruit = ref('apple')
       </SStack>
     </SSection>
 
+    <SSection heading="Overlays">
+      <SStack direction="block" gap="base">
+        <SStack direction="inline" gap="base" alignItems="center">
+          <SButton commandFor="demo-modal" command="--show">Open modal (declarative)</SButton>
+          <SButton @click="openModalImperatively">Open modal (imperative)</SButton>
+          <SButton commandFor="demo-popover" command="--toggle">Toggle popover</SButton>
+          <SButton interestFor="demo-tooltip">Hover me for a tooltip</SButton>
+        </SStack>
+
+        <SPopover id="demo-popover">
+          <SText>Popover content, opened via commandFor/command on a button.</SText>
+        </SPopover>
+
+        <STooltip id="demo-tooltip">Tooltip content, activated via interestFor.</STooltip>
+
+        <SModal
+          ref="modal"
+          id="demo-modal"
+          heading="Demo modal"
+          @aftershow="onModalAftershow"
+          @afterhide="onModalAfterhide"
+        >
+          <SText>This modal is controlled both declaratively (commandFor/command) and imperatively (typed $el methods).</SText>
+          <template #primary-action>
+            <SButton variant="primary" command="--hide" commandFor="demo-modal">Close</SButton>
+          </template>
+          <template #secondary-actions>
+            <SButton variant="secondary" command="--hide" commandFor="demo-modal">Cancel</SButton>
+          </template>
+        </SModal>
+      </SStack>
+    </SSection>
+
     <SSection heading="State">
       <SStack direction="block" gap="small">
         <SText>name: {{ name }}</SText>
@@ -83,6 +135,7 @@ const favoriteFruit = ref('apple')
         <SText>acceptsMarketing: {{ acceptsMarketing }}</SText>
         <SText>notificationsEnabled: {{ notificationsEnabled }}</SText>
         <SText>favoriteFruit: {{ favoriteFruit }}</SText>
+        <SText>modalStatus: {{ modalStatus }}</SText>
       </SStack>
     </SSection>
   </SPage>

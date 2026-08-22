@@ -8,6 +8,11 @@ export interface AvatarProps {
   src?: string
 }
 
+export interface AvatarEvents {
+  error: Event
+  load: Event
+}
+
 export interface BadgeProps {
   color?: "base" | "strong"
   icon?: "color" | "info" | "adjust" | "affiliate" | "airplane" | "alert-bubble" | "alert-circle" | "alert-diamond" | "alert-location" | "alert-octagon" | "alert-octagon-filled" | "alert-triangle" | "align-horizontal-centers" | "app-extension" | "apps" | "archive" | "arrow-down" | "arrow-down-circle" | "arrow-left" | "arrow-left-circle" | "arrow-right" | "arrow-right-circle" | "arrow-up" | "arrow-up-circle" | "arrow-up-right" | "arrows-in-horizontal" | "arrows-out-horizontal" | "asterisk" | "attachment" | "automation" | "backspace" | "bag" | "bank" | "barcode" | "bill" | "blank" | "blog" | "bolt" | "bolt-filled" | "book" | "book-open" | "brain" | "bug" | "bullet" | "business-entity" | "button" | "button-press" | "calculator" | "calendar" | "calendar-check" | "calendar-compare" | "calendar-list" | "calendar-time" | "camera" | "camera-flip" | "caret-down" | "caret-left" | "caret-right" | "caret-up" | "cart" | "cart-abandoned" | "cart-discount" | "cart-down" | "cart-sale" | "cart-up" | "cash-dollar" | "cash-euro" | "cash-pound" | "cash-rupee" | "cash-yen" | "catalog-product" | "categories" | "channels" | "channels-filled" | "chart-cohort" | "chart-donut" | "chart-funnel" | "chart-histogram-first" | "chart-histogram-first-last" | "chart-histogram-flat" | "chart-histogram-full" | "chart-histogram-growth" | "chart-histogram-last" | "chart-histogram-second-last" | "chart-horizontal" | "chart-line" | "chart-popular" | "chart-stacked" | "chart-vertical" | "chat" | "chat-new" | "chat-referral" | "check" | "check-circle" | "check-circle-filled" | "checkbox" | "chevron-down" | "chevron-down-circle" | "chevron-left" | "chevron-left-circle" | "chevron-right" | "chevron-right-circle" | "chevron-up" | "chevron-up-circle" | "circle" | "circle-dashed" | "clipboard" | "clipboard-check" | "clipboard-checklist" | "clock" | "clock-list" | "clock-revert" | "code" | "code-add" | "collection" | "collection-featured" | "collection-list" | "collection-reference" | "color-none" | "compass" | "compose" | "confetti" | "connect" | "content" | "contract" | "corner-pill" | "corner-round" | "corner-square" | "credit-card" | "credit-card-cancel" | "credit-card-percent" | "credit-card-reader" | "credit-card-reader-chip" | "credit-card-reader-tap" | "credit-card-secure" | "credit-card-tap-chip" | "crop" | "currency-convert" | "cursor" | "cursor-banner" | "cursor-option" | "data-presentation" | "data-table" | "database" | "database-add" | "database-connect" | "delete" | "delivery" | "desktop" | "disabled" | "discount" | "discount-add" | "discount-code" | "dns-settings" | "dock-floating" | "dock-side" | "domain" | "domain-landing-page" | "domain-new" | "domain-redirect" | "download" | "drag-drop" | "drag-handle" | "duplicate" | "edit" | "email" | "email-follow-up" | "email-newsletter" | "enabled" | "enter" | "envelope" | "envelope-soft-pack" | "eraser" | "exchange" | "exit" | "export" | "external" | "eye-check-mark" | "eye-dropper" | "eye-dropper-list" | "eye-first" | "eyeglasses" | "favicon" | "file" | "file-list" | "filter" | "filter-active" | "flag" | "flip-horizontal" | "flip-vertical" | "flower" | "folder" | "folder-add" | "folder-down" | "folder-remove" | "folder-up" | "food" | "foreground" | "forklift" | "forms" | "games" | "gauge" | "gift-card" | "git-branch" | "git-commit" | "git-repository" | "globe" | "globe-asia" | "globe-europe" | "globe-lines" | "globe-list" | "grid" | "hashtag" | "hashtag-decimal" | "hashtag-list" | "heart" | "hide" | "hide-filled" | "home" | "icons" | "identity-card" | "image" | "image-add" | "image-alt" | "image-explore" | "image-magic" | "image-none" | "image-with-text-overlay" | "images" | "import" | "in-progress" | "incentive" | "incoming" | "incomplete" | "inheritance" | "inventory" | "inventory-updated" | "iq" | "key" | "keyboard" | "keyboard-filled" | "keyboard-hide" | "label-printer" | "language" | "language-translate" | "layer" | "layout-block" | "layout-buy-button" | "layout-buy-button-horizontal" | "layout-buy-button-vertical" | "layout-column-1" | "layout-columns-2" | "layout-columns-3" | "layout-footer" | "layout-header" | "layout-logo-block" | "layout-popup" | "layout-rows-2" | "layout-section" | "layout-sidebar-left" | "layout-sidebar-right" | "lightbulb" | "link" | "link-list" | "list-bulleted" | "list-numbered" | "live" | "location" | "location-none" | "lock" | "map" | "markets" | "markets-euro" | "markets-rupee" | "markets-yen" | "maximize" | "measurement-size" | "measurement-size-list" | "measurement-volume" | "measurement-volume-list" | "measurement-weight" | "measurement-weight-list" | "media-receiver" | "megaphone" | "mention" | "menu" | "menu-horizontal" | "menu-vertical" | "merge" | "metafields" | "metaobject" | "metaobject-list" | "metaobject-reference" | "microphone" | "microphone-muted" | "minimize" | "minus" | "minus-circle" | "mobile" | "money" | "money-none" | "moon" | "nature" | "note" | "note-add" | "notification" | "number-one" | "order" | "order-batches" | "order-draft" | "order-first" | "order-fulfilled" | "order-repeat" | "order-unfulfilled" | "orders-status" | "organization" | "outdent" | "outgoing" | "package" | "package-fulfilled" | "package-on-hold" | "package-returned" | "page" | "page-add" | "page-attachment" | "page-clock" | "page-down" | "page-heart" | "page-list" | "page-reference" | "page-remove" | "page-report" | "page-up" | "pagination-end" | "pagination-start" | "paint-brush-flat" | "paint-brush-round" | "paper-check" | "passkey" | "paste" | "pause-circle" | "payment" | "payment-capture" | "payout" | "payout-dollar" | "payout-euro" | "payout-pound" | "payout-rupee" | "payout-yen" | "person" | "person-add" | "person-exit" | "person-list" | "person-lock" | "person-remove" | "person-segment" | "personalized-text" | "phone" | "phone-down" | "phone-down-filled" | "phone-in" | "phone-out" | "pin" | "pin-remove" | "plan" | "play" | "play-circle" | "plus" | "plus-circle" | "plus-circle-down" | "plus-circle-filled" | "plus-circle-up" | "point-of-sale" | "price-list" | "print" | "product" | "product-add" | "product-cost" | "product-list" | "product-reference" | "product-remove" | "product-return" | "product-unavailable" | "profile" | "profile-filled" | "question-circle" | "question-circle-filled" | "radio-control" | "receipt" | "receipt-dollar" | "receipt-euro" | "receipt-paid" | "receipt-pound" | "receipt-refund" | "receipt-rupee" | "receipt-yen" | "receivables" | "redo" | "referral-code" | "refresh" | "remove-background" | "replace" | "replay" | "reset" | "return" | "reward" | "rocket" | "rotate-left" | "rotate-right" | "sandbox" | "save" | "search" | "search-add" | "search-list" | "search-recent" | "search-resource" | "select" | "send" | "settings" | "share" | "shield-check-mark" | "shield-none" | "shield-pending" | "shield-person" | "shipping-label" | "shopcodes" | "slideshow" | "smiley-happy" | "smiley-joy" | "smiley-neutral" | "smiley-sad" | "social-ad" | "social-post" | "sort" | "sort-ascending" | "sort-descending" | "sound" | "split" | "sports" | "star" | "star-filled" | "star-list" | "status" | "status-active" | "stop-circle" | "store" | "store-import" | "store-managed" | "store-online" | "sun" | "table" | "table-masonry" | "tablet" | "target" | "tax" | "team" | "text" | "text-align-center" | "text-align-left" | "text-align-right" | "text-block" | "text-bold" | "text-color" | "text-font" | "text-font-list" | "text-grammar" | "text-in-columns" | "text-in-rows" | "text-indent" | "text-italic" | "text-quote" | "text-title" | "text-underline" | "text-with-image" | "theme" | "theme-cart" | "theme-edit" | "theme-store" | "theme-template" | "three-d-environment" | "thumbs-down" | "thumbs-up" | "tip-jar" | "toggle-off" | "toggle-on" | "transaction" | "transaction-fee-dollar" | "transaction-fee-euro" | "transaction-fee-pound" | "transaction-fee-rupee" | "transaction-fee-yen" | "transfer" | "transfer-in" | "transfer-internal" | "transfer-out" | "undo" | "unknown-device" | "unlock" | "upload" | "variant" | "variant-list" | "video" | "video-list" | "view" | "viewport-narrow" | "viewport-short" | "viewport-tall" | "viewport-wide" | "wallet" | "wand" | "watch" | "wifi" | "work" | "work-list" | "wrench" | "x" | "x-circle" | "empty"
@@ -15,11 +20,18 @@ export interface BadgeProps {
   tone?: "auto" | "neutral" | "info" | "success" | "caution" | "warning" | "critical"
 }
 
+export type BadgeEvents = Record<string, never>
+
 export interface BannerProps {
   dismissible?: boolean
   heading?: string
   hidden?: boolean
   tone?: "auto" | "info" | "success" | "warning" | "critical"
+}
+
+export interface BannerEvents {
+  afterhide: CustomEvent
+  dismiss: CustomEvent
 }
 
 export interface BoxProps {
@@ -56,6 +68,8 @@ export interface BoxProps {
   paddingInlineStart?: "base" | "small" | "small-500" | "small-400" | "small-300" | "small-200" | "small-100" | "large" | "large-100" | "large-200" | "large-300" | "large-400" | "large-500" | "none"
 }
 
+export type BoxEvents = Record<string, never>
+
 export interface ButtonProps {
   accessibilityLabel?: string
   command?: "--auto" | "--show" | "--hide" | "--toggle" | "--copy"
@@ -74,10 +88,18 @@ export interface ButtonProps {
   variant?: "auto" | "primary" | "secondary" | "tertiary"
 }
 
+export interface ButtonEvents {
+  blur: CustomEvent
+  click: CustomEvent
+  focus: CustomEvent
+}
+
 export interface ButtonGroupProps {
   accessibilityLabel?: string
   gap?: "base" | "none"
 }
+
+export type ButtonGroupEvents = Record<string, never>
 
 export interface CheckboxProps {
   accessibilityLabel?: string
@@ -98,10 +120,20 @@ export interface CheckboxProps {
   value?: string
 }
 
+export interface CheckboxEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  input: CustomEvent
+}
+
 export interface ChipProps {
   accessibilityLabel?: string
   color?: "subdued" | "base" | "strong"
   removable?: boolean
+}
+
+export interface ChipEvents {
+  remove: CustomEvent
 }
 
 export interface ChoiceProps {
@@ -111,6 +143,8 @@ export interface ChoiceProps {
   selected?: boolean
   value?: string
 }
+
+export type ChoiceEvents = Record<string, never>
 
 export interface ChoiceListProps {
   /** original manifest type: any */
@@ -124,6 +158,11 @@ export interface ChoiceListProps {
   multiple?: boolean
   name?: string
   values?: string[]
+}
+
+export interface ChoiceListEvents {
+  change: CustomEvent
+  input: CustomEvent
 }
 
 export interface ClickableProps {
@@ -170,6 +209,12 @@ export interface ClickableProps {
   type?: "button" | "reset" | "submit"
 }
 
+export interface ClickableEvents {
+  blur: CustomEvent
+  click: CustomEvent
+  focus: CustomEvent
+}
+
 export interface ClickableChipProps {
   accessibilityLabel?: string
   color?: "subdued" | "base" | "strong"
@@ -180,6 +225,12 @@ export interface ClickableChipProps {
   href?: string
   interestFor?: string
   removable?: boolean
+}
+
+export interface ClickableChipEvents {
+  afterhide: CustomEvent
+  click: CustomEvent
+  remove: CustomEvent
 }
 
 export interface ColorFieldProps {
@@ -202,12 +253,24 @@ export interface ColorFieldProps {
   value?: string
 }
 
+export interface ColorFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+}
+
 export interface ColorPickerProps {
   alpha?: boolean
   defaultValue?: string
   id?: string
   name?: string
   value?: string
+}
+
+export interface ColorPickerEvents {
+  change: CustomEvent
+  input: CustomEvent
 }
 
 export interface DateFieldProps {
@@ -235,6 +298,15 @@ export interface DateFieldProps {
   view?: string
 }
 
+export interface DateFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+  invalid: CustomEvent
+  viewchange: CustomEvent
+}
+
 export interface DatePickerProps {
   allow?: string
   allowDays?: string
@@ -248,10 +320,20 @@ export interface DatePickerProps {
   view?: string
 }
 
+export interface DatePickerEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+  viewchange: CustomEvent
+}
+
 export interface DividerProps {
   color?: "base" | "strong"
   direction?: "block" | "inline"
 }
+
+export type DividerEvents = Record<string, never>
 
 export interface DropZoneProps {
   accept?: string
@@ -268,6 +350,12 @@ export interface DropZoneProps {
   name?: string
   required?: boolean
   value?: string
+}
+
+export interface DropZoneEvents {
+  change: CustomEvent
+  droprejected: CustomEvent
+  input: CustomEvent
 }
 
 export interface EmailFieldProps {
@@ -289,6 +377,13 @@ export interface EmailFieldProps {
   readOnly?: boolean
   required?: boolean
   value?: string
+}
+
+export interface EmailFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
 }
 
 export interface GridProps {
@@ -339,6 +434,8 @@ export interface GridProps {
   rowGap?: "base" | "small" | "small-500" | "small-400" | "small-300" | "small-200" | "small-100" | "large" | "large-100" | "large-200" | "large-300" | "large-400" | "large-500" | "none"
 }
 
+export type GridEvents = Record<string, never>
+
 export interface GridItemProps {
   accessibilityLabel?: string
   accessibilityRole?: "generic" | "status" | "main" | "header" | "footer" | "section" | "region" | "aside" | "navigation" | "ordered-list" | "list-item" | "list-item-separator" | "unordered-list" | "separator" | "alert" | "presentation" | "none"
@@ -375,11 +472,15 @@ export interface GridItemProps {
   paddingInlineStart?: "base" | "small" | "small-500" | "small-400" | "small-300" | "small-200" | "small-100" | "large" | "large-100" | "large-200" | "large-300" | "large-400" | "large-500" | "none"
 }
 
+export type GridItemEvents = Record<string, never>
+
 export interface HeadingProps {
   accessibilityRole?: "heading" | "presentation" | "none"
   accessibilityVisibility?: "visible" | "hidden" | "exclusive"
   lineClamp?: number
 }
+
+export type HeadingEvents = Record<string, never>
 
 export interface IconProps {
   color?: "subdued" | "base"
@@ -388,6 +489,8 @@ export interface IconProps {
   tone?: "auto" | "neutral" | "info" | "success" | "caution" | "warning" | "critical"
   type?: "color" | "info" | "adjust" | "affiliate" | "airplane" | "alert-bubble" | "alert-circle" | "alert-diamond" | "alert-location" | "alert-octagon" | "alert-octagon-filled" | "alert-triangle" | "align-horizontal-centers" | "app-extension" | "apps" | "archive" | "arrow-down" | "arrow-down-circle" | "arrow-left" | "arrow-left-circle" | "arrow-right" | "arrow-right-circle" | "arrow-up" | "arrow-up-circle" | "arrow-up-right" | "arrows-in-horizontal" | "arrows-out-horizontal" | "asterisk" | "attachment" | "automation" | "backspace" | "bag" | "bank" | "barcode" | "bill" | "blank" | "blog" | "bolt" | "bolt-filled" | "book" | "book-open" | "brain" | "bug" | "bullet" | "business-entity" | "button" | "button-press" | "calculator" | "calendar" | "calendar-check" | "calendar-compare" | "calendar-list" | "calendar-time" | "camera" | "camera-flip" | "caret-down" | "caret-left" | "caret-right" | "caret-up" | "cart" | "cart-abandoned" | "cart-discount" | "cart-down" | "cart-sale" | "cart-up" | "cash-dollar" | "cash-euro" | "cash-pound" | "cash-rupee" | "cash-yen" | "catalog-product" | "categories" | "channels" | "channels-filled" | "chart-cohort" | "chart-donut" | "chart-funnel" | "chart-histogram-first" | "chart-histogram-first-last" | "chart-histogram-flat" | "chart-histogram-full" | "chart-histogram-growth" | "chart-histogram-last" | "chart-histogram-second-last" | "chart-horizontal" | "chart-line" | "chart-popular" | "chart-stacked" | "chart-vertical" | "chat" | "chat-new" | "chat-referral" | "check" | "check-circle" | "check-circle-filled" | "checkbox" | "chevron-down" | "chevron-down-circle" | "chevron-left" | "chevron-left-circle" | "chevron-right" | "chevron-right-circle" | "chevron-up" | "chevron-up-circle" | "circle" | "circle-dashed" | "clipboard" | "clipboard-check" | "clipboard-checklist" | "clock" | "clock-list" | "clock-revert" | "code" | "code-add" | "collection" | "collection-featured" | "collection-list" | "collection-reference" | "color-none" | "compass" | "compose" | "confetti" | "connect" | "content" | "contract" | "corner-pill" | "corner-round" | "corner-square" | "credit-card" | "credit-card-cancel" | "credit-card-percent" | "credit-card-reader" | "credit-card-reader-chip" | "credit-card-reader-tap" | "credit-card-secure" | "credit-card-tap-chip" | "crop" | "currency-convert" | "cursor" | "cursor-banner" | "cursor-option" | "data-presentation" | "data-table" | "database" | "database-add" | "database-connect" | "delete" | "delivery" | "desktop" | "disabled" | "discount" | "discount-add" | "discount-code" | "dns-settings" | "dock-floating" | "dock-side" | "domain" | "domain-landing-page" | "domain-new" | "domain-redirect" | "download" | "drag-drop" | "drag-handle" | "duplicate" | "edit" | "email" | "email-follow-up" | "email-newsletter" | "enabled" | "enter" | "envelope" | "envelope-soft-pack" | "eraser" | "exchange" | "exit" | "export" | "external" | "eye-check-mark" | "eye-dropper" | "eye-dropper-list" | "eye-first" | "eyeglasses" | "favicon" | "file" | "file-list" | "filter" | "filter-active" | "flag" | "flip-horizontal" | "flip-vertical" | "flower" | "folder" | "folder-add" | "folder-down" | "folder-remove" | "folder-up" | "food" | "foreground" | "forklift" | "forms" | "games" | "gauge" | "gift-card" | "git-branch" | "git-commit" | "git-repository" | "globe" | "globe-asia" | "globe-europe" | "globe-lines" | "globe-list" | "grid" | "hashtag" | "hashtag-decimal" | "hashtag-list" | "heart" | "hide" | "hide-filled" | "home" | "icons" | "identity-card" | "image" | "image-add" | "image-alt" | "image-explore" | "image-magic" | "image-none" | "image-with-text-overlay" | "images" | "import" | "in-progress" | "incentive" | "incoming" | "incomplete" | "inheritance" | "inventory" | "inventory-updated" | "iq" | "key" | "keyboard" | "keyboard-filled" | "keyboard-hide" | "label-printer" | "language" | "language-translate" | "layer" | "layout-block" | "layout-buy-button" | "layout-buy-button-horizontal" | "layout-buy-button-vertical" | "layout-column-1" | "layout-columns-2" | "layout-columns-3" | "layout-footer" | "layout-header" | "layout-logo-block" | "layout-popup" | "layout-rows-2" | "layout-section" | "layout-sidebar-left" | "layout-sidebar-right" | "lightbulb" | "link" | "link-list" | "list-bulleted" | "list-numbered" | "live" | "location" | "location-none" | "lock" | "map" | "markets" | "markets-euro" | "markets-rupee" | "markets-yen" | "maximize" | "measurement-size" | "measurement-size-list" | "measurement-volume" | "measurement-volume-list" | "measurement-weight" | "measurement-weight-list" | "media-receiver" | "megaphone" | "mention" | "menu" | "menu-horizontal" | "menu-vertical" | "merge" | "metafields" | "metaobject" | "metaobject-list" | "metaobject-reference" | "microphone" | "microphone-muted" | "minimize" | "minus" | "minus-circle" | "mobile" | "money" | "money-none" | "moon" | "nature" | "note" | "note-add" | "notification" | "number-one" | "order" | "order-batches" | "order-draft" | "order-first" | "order-fulfilled" | "order-repeat" | "order-unfulfilled" | "orders-status" | "organization" | "outdent" | "outgoing" | "package" | "package-fulfilled" | "package-on-hold" | "package-returned" | "page" | "page-add" | "page-attachment" | "page-clock" | "page-down" | "page-heart" | "page-list" | "page-reference" | "page-remove" | "page-report" | "page-up" | "pagination-end" | "pagination-start" | "paint-brush-flat" | "paint-brush-round" | "paper-check" | "passkey" | "paste" | "pause-circle" | "payment" | "payment-capture" | "payout" | "payout-dollar" | "payout-euro" | "payout-pound" | "payout-rupee" | "payout-yen" | "person" | "person-add" | "person-exit" | "person-list" | "person-lock" | "person-remove" | "person-segment" | "personalized-text" | "phone" | "phone-down" | "phone-down-filled" | "phone-in" | "phone-out" | "pin" | "pin-remove" | "plan" | "play" | "play-circle" | "plus" | "plus-circle" | "plus-circle-down" | "plus-circle-filled" | "plus-circle-up" | "point-of-sale" | "price-list" | "print" | "product" | "product-add" | "product-cost" | "product-list" | "product-reference" | "product-remove" | "product-return" | "product-unavailable" | "profile" | "profile-filled" | "question-circle" | "question-circle-filled" | "radio-control" | "receipt" | "receipt-dollar" | "receipt-euro" | "receipt-paid" | "receipt-pound" | "receipt-refund" | "receipt-rupee" | "receipt-yen" | "receivables" | "redo" | "referral-code" | "refresh" | "remove-background" | "replace" | "replay" | "reset" | "return" | "reward" | "rocket" | "rotate-left" | "rotate-right" | "sandbox" | "save" | "search" | "search-add" | "search-list" | "search-recent" | "search-resource" | "select" | "send" | "settings" | "share" | "shield-check-mark" | "shield-none" | "shield-pending" | "shield-person" | "shipping-label" | "shopcodes" | "slideshow" | "smiley-happy" | "smiley-joy" | "smiley-neutral" | "smiley-sad" | "social-ad" | "social-post" | "sort" | "sort-ascending" | "sort-descending" | "sound" | "split" | "sports" | "star" | "star-filled" | "star-list" | "status" | "status-active" | "stop-circle" | "store" | "store-import" | "store-managed" | "store-online" | "sun" | "table" | "table-masonry" | "tablet" | "target" | "tax" | "team" | "text" | "text-align-center" | "text-align-left" | "text-align-right" | "text-block" | "text-bold" | "text-color" | "text-font" | "text-font-list" | "text-grammar" | "text-in-columns" | "text-in-rows" | "text-indent" | "text-italic" | "text-quote" | "text-title" | "text-underline" | "text-with-image" | "theme" | "theme-cart" | "theme-edit" | "theme-store" | "theme-template" | "three-d-environment" | "thumbs-down" | "thumbs-up" | "tip-jar" | "toggle-off" | "toggle-on" | "transaction" | "transaction-fee-dollar" | "transaction-fee-euro" | "transaction-fee-pound" | "transaction-fee-rupee" | "transaction-fee-yen" | "transfer" | "transfer-in" | "transfer-internal" | "transfer-out" | "undo" | "unknown-device" | "unlock" | "upload" | "variant" | "variant-list" | "video" | "video-list" | "view" | "viewport-narrow" | "viewport-short" | "viewport-tall" | "viewport-wide" | "wallet" | "wand" | "watch" | "wifi" | "work" | "work-list" | "wrench" | "x" | "x-circle" | "empty"
 }
+
+export type IconEvents = Record<string, never>
 
 export interface ImageProps {
   accessibilityRole?: "presentation" | "none" | "img"
@@ -411,6 +514,11 @@ export interface ImageProps {
   srcSet?: string
 }
 
+export interface ImageEvents {
+  error: CustomEvent
+  load: CustomEvent
+}
+
 export interface LinkProps {
   accessibilityLabel?: string
   command?: "--auto" | "--show" | "--hide" | "--toggle" | "--copy"
@@ -423,29 +531,44 @@ export interface LinkProps {
   tone?: "auto" | "neutral" | "critical"
 }
 
+export interface LinkEvents {
+  click: CustomEvent
+}
+
 export interface ListItemProps {
   /** original manifest type: any */
   children?: string
   id?: string
 }
 
+export type ListItemEvents = Record<string, never>
+
 export interface MenuProps {
   accessibilityLabel?: string
   id?: string
 }
 
+export type MenuEvents = Record<string, never>
+
 export interface ModalProps {
   accessibilityLabel?: string
   alignSelf?: "center" | "start"
   heading?: string
-  /** original manifest type: () => void */
-  hideOverlay?: string
   padding?: "base" | "none"
-  /** original manifest type: () => void */
-  showOverlay?: string
   size?: "base" | "small" | "small-100" | "large" | "large-100"
-  /** original manifest type: () => void */
-  toggleOverlay?: string
+}
+
+export interface ModalEvents {
+  afterhide: CustomEvent
+  aftershow: CustomEvent
+  hide: CustomEvent
+  show: CustomEvent
+}
+
+export interface ModalElement extends HTMLElement {
+  hideOverlay(): void
+  showOverlay(): void
+  toggleOverlay(): void
 }
 
 export interface MoneyFieldProps {
@@ -468,6 +591,13 @@ export interface MoneyFieldProps {
   readOnly?: boolean
   required?: boolean
   value?: string
+}
+
+export interface MoneyFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
 }
 
 export interface NumberFieldProps {
@@ -495,6 +625,13 @@ export interface NumberFieldProps {
   value?: string
 }
 
+export interface NumberFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+}
+
 export interface OptionProps {
   defaultSelected?: boolean
   disabled?: boolean
@@ -502,10 +639,14 @@ export interface OptionProps {
   value?: string
 }
 
+export type OptionEvents = Record<string, never>
+
 export interface OptionGroupProps {
   disabled?: boolean
   label?: string
 }
+
+export type OptionGroupEvents = Record<string, never>
 
 export interface OrderedListProps {
   /** original manifest type: any */
@@ -513,10 +654,14 @@ export interface OrderedListProps {
   id?: string
 }
 
+export type OrderedListEvents = Record<string, never>
+
 export interface PageProps {
   heading?: string
   inlineSize?: "base" | "small" | "large"
 }
+
+export type PageEvents = Record<string, never>
 
 export interface ParagraphProps {
   accessibilityVisibility?: "visible" | "hidden" | "exclusive"
@@ -526,6 +671,8 @@ export interface ParagraphProps {
   lineClamp?: number
   tone?: "auto" | "neutral" | "info" | "success" | "caution" | "warning" | "critical"
 }
+
+export type ParagraphEvents = Record<string, never>
 
 export interface PasswordFieldProps {
   autocomplete?: "current-password" | "new-password" | "on" | "off" | "shipping current-password" | "shipping new-password" | "billing current-password" | "billing new-password"
@@ -548,6 +695,13 @@ export interface PasswordFieldProps {
   value?: string
 }
 
+export interface PasswordFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+}
+
 export interface PopoverProps {
   blockSize?: "auto" | "0"
   inlineSize?: "auto" | "0"
@@ -555,6 +709,15 @@ export interface PopoverProps {
   maxInlineSize?: "none" | "0"
   minBlockSize?: "0"
   minInlineSize?: "0"
+}
+
+export interface PopoverEvents {
+  afterhide: CustomEvent
+  aftershow: CustomEvent
+  aftertoggle: Event
+  hide: CustomEvent
+  show: CustomEvent
+  toggle: Event
 }
 
 export interface PressButtonProps {
@@ -570,10 +733,18 @@ export interface PressButtonProps {
   variant?: "secondary" | "tertiary"
 }
 
+export interface PressButtonEvents {
+  blur: CustomEvent
+  click: CustomEvent
+  focus: CustomEvent
+}
+
 export interface QueryContainerProps {
   containerName?: string
   id?: string
 }
+
+export type QueryContainerEvents = Record<string, never>
 
 export interface ScrollBoxProps {
   accessibilityLabel?: string
@@ -612,6 +783,11 @@ export interface ScrollBoxProps {
   snapType?: "none" | "mandatory" | "proximity"
 }
 
+export interface ScrollBoxEvents {
+  scroll: CustomEvent
+  scrolltoedge: CustomEvent
+}
+
 export interface SearchFieldProps {
   autocomplete?: "language" | "organization" | "name" | "additional-name" | "address-level1" | "address-level2" | "address-level3" | "address-level4" | "address-line1" | "address-line2" | "address-line3" | "country-name" | "country" | "family-name" | "given-name" | "honorific-prefix" | "honorific-suffix" | "nickname" | "one-time-code" | "organization-title" | "postal-code" | "sex" | "street-address" | "transaction-currency" | "username" | "cc-additional-name" | "cc-family-name" | "cc-given-name" | "cc-name" | "cc-type" | "on" | "off" | "shipping language" | "shipping organization" | "shipping name" | "shipping additional-name" | "shipping address-level1" | "shipping address-level2" | "shipping address-level3" | "shipping address-level4" | "shipping address-line1" | "shipping address-line2" | "shipping address-line3" | "shipping country-name" | "shipping country" | "shipping family-name" | "shipping given-name" | "shipping honorific-prefix" | "shipping honorific-suffix" | "shipping nickname" | "shipping one-time-code" | "shipping organization-title" | "shipping postal-code" | "shipping sex" | "shipping street-address" | "shipping transaction-currency" | "shipping username" | "shipping cc-additional-name" | "shipping cc-family-name" | "shipping cc-given-name" | "shipping cc-name" | "shipping cc-type" | "billing language" | "billing organization" | "billing name" | "billing additional-name" | "billing address-level1" | "billing address-level2" | "billing address-level3" | "billing address-level4" | "billing address-line1" | "billing address-line2" | "billing address-line3" | "billing country-name" | "billing country" | "billing family-name" | "billing given-name" | "billing honorific-prefix" | "billing honorific-suffix" | "billing nickname" | "billing one-time-code" | "billing organization-title" | "billing postal-code" | "billing sex" | "billing street-address" | "billing transaction-currency" | "billing username" | "billing cc-additional-name" | "billing cc-family-name" | "billing cc-given-name" | "billing cc-name" | "billing cc-type"
   defaultValue?: string
@@ -633,11 +809,20 @@ export interface SearchFieldProps {
   value?: string
 }
 
+export interface SearchFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+}
+
 export interface SectionProps {
   accessibilityLabel?: string
   heading?: string
   padding?: "base" | "none"
 }
+
+export type SectionEvents = Record<string, never>
 
 export interface SelectProps {
   /** original manifest type: any */
@@ -656,10 +841,19 @@ export interface SelectProps {
   value?: string
 }
 
+export interface SelectEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+}
+
 export interface SpinnerProps {
   accessibilityLabel?: string
   size?: "base" | "large" | "large-100"
 }
+
+export type SpinnerEvents = Record<string, never>
 
 export interface StackProps {
   accessibilityLabel?: string
@@ -703,6 +897,8 @@ export interface StackProps {
   rowGap?: "base" | "small" | "small-500" | "small-400" | "small-300" | "small-200" | "small-100" | "large" | "large-100" | "large-200" | "large-300" | "large-400" | "large-500" | "none"
 }
 
+export type StackEvents = Record<string, never>
+
 export interface SwitchProps {
   accessibilityLabel?: string
   checked?: boolean
@@ -720,6 +916,12 @@ export interface SwitchProps {
   value?: string
 }
 
+export interface SwitchEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  input: CustomEvent
+}
+
 export interface TableProps {
   hasNextPage?: boolean
   hasPreviousPage?: boolean
@@ -728,11 +930,18 @@ export interface TableProps {
   variant?: "auto" | "list"
 }
 
+export interface TableEvents {
+  nextpage: Event
+  previouspage: Event
+}
+
 export interface TableBodyProps {
   /** original manifest type: any */
   children?: string
   id?: string
 }
+
+export type TableBodyEvents = Record<string, never>
 
 export interface TableCellProps {
   /** original manifest type: any */
@@ -740,10 +949,14 @@ export interface TableCellProps {
   id?: string
 }
 
+export type TableCellEvents = Record<string, never>
+
 export interface TableHeaderProps {
   format?: "base" | "numeric" | "currency"
   listSlot?: "primary" | "secondary" | "inline" | "kicker" | "labeled"
 }
+
+export type TableHeaderEvents = Record<string, never>
 
 export interface TableHeaderRowProps {
   /** original manifest type: any */
@@ -751,11 +964,15 @@ export interface TableHeaderRowProps {
   id?: string
 }
 
+export type TableHeaderRowEvents = Record<string, never>
+
 export interface TableRowProps {
   /** original manifest type: any */
   children?: string
   clickDelegate?: string
 }
+
+export type TableRowEvents = Record<string, never>
 
 export interface TextProps {
   accessibilityVisibility?: "visible" | "hidden" | "exclusive"
@@ -766,6 +983,8 @@ export interface TextProps {
   tone?: "auto" | "neutral" | "info" | "success" | "caution" | "warning" | "critical"
   type?: "strong" | "address" | "redundant" | "generic"
 }
+
+export type TextEvents = Record<string, never>
 
 export interface TextAreaProps {
   autocomplete?: "language" | "organization" | "name" | "additional-name" | "address-level1" | "address-level2" | "address-level3" | "address-level4" | "address-line1" | "address-line2" | "address-line3" | "country-name" | "country" | "family-name" | "given-name" | "honorific-prefix" | "honorific-suffix" | "nickname" | "one-time-code" | "organization-title" | "postal-code" | "sex" | "street-address" | "transaction-currency" | "username" | "cc-additional-name" | "cc-family-name" | "cc-given-name" | "cc-name" | "cc-type" | "on" | "off" | "shipping language" | "shipping organization" | "shipping name" | "shipping additional-name" | "shipping address-level1" | "shipping address-level2" | "shipping address-level3" | "shipping address-level4" | "shipping address-line1" | "shipping address-line2" | "shipping address-line3" | "shipping country-name" | "shipping country" | "shipping family-name" | "shipping given-name" | "shipping honorific-prefix" | "shipping honorific-suffix" | "shipping nickname" | "shipping one-time-code" | "shipping organization-title" | "shipping postal-code" | "shipping sex" | "shipping street-address" | "shipping transaction-currency" | "shipping username" | "shipping cc-additional-name" | "shipping cc-family-name" | "shipping cc-given-name" | "shipping cc-name" | "shipping cc-type" | "billing language" | "billing organization" | "billing name" | "billing additional-name" | "billing address-level1" | "billing address-level2" | "billing address-level3" | "billing address-level4" | "billing address-line1" | "billing address-line2" | "billing address-line3" | "billing country-name" | "billing country" | "billing family-name" | "billing given-name" | "billing honorific-prefix" | "billing honorific-suffix" | "billing nickname" | "billing one-time-code" | "billing organization-title" | "billing postal-code" | "billing sex" | "billing street-address" | "billing transaction-currency" | "billing username" | "billing cc-additional-name" | "billing cc-family-name" | "billing cc-given-name" | "billing cc-name" | "billing cc-type"
@@ -787,6 +1006,13 @@ export interface TextAreaProps {
   required?: boolean
   rows?: number
   value?: string
+}
+
+export interface TextAreaEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
 }
 
 export interface TextFieldProps {
@@ -813,21 +1039,37 @@ export interface TextFieldProps {
   value?: string
 }
 
+export interface TextFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
+}
+
 export interface ThumbnailProps {
   alt?: string
   size?: "base" | "small" | "small-200" | "small-100" | "large" | "large-100"
   src?: string
 }
 
+export interface ThumbnailEvents {
+  error: CustomEvent
+  load: CustomEvent
+}
+
 export interface TooltipProps {
   id?: string
 }
+
+export type TooltipEvents = Record<string, never>
 
 export interface UnorderedListProps {
   /** original manifest type: any */
   children?: string
   id?: string
 }
+
+export type UnorderedListEvents = Record<string, never>
 
 export interface UrlFieldProps {
   autocomplete?: "photo" | "url" | "impp" | "home impp" | "mobile impp" | "fax impp" | "pager impp" | "on" | "off" | "shipping photo" | "shipping url" | "shipping impp" | "shipping home impp" | "shipping mobile impp" | "shipping fax impp" | "shipping pager impp" | "billing photo" | "billing url" | "billing impp" | "billing home impp" | "billing mobile impp" | "billing fax impp" | "billing pager impp"
@@ -848,4 +1090,11 @@ export interface UrlFieldProps {
   readOnly?: boolean
   required?: boolean
   value?: string
+}
+
+export interface UrlFieldEvents {
+  blur: CustomEvent
+  change: CustomEvent
+  focus: CustomEvent
+  input: CustomEvent
 }
