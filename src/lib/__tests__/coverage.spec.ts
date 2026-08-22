@@ -4,10 +4,10 @@ import { readManifestComponents } from './manifest-helpers'
 
 describe('generated component coverage', () => {
   const manifestComponents = readManifestComponents()
-  const manifestTags = manifestComponents.map((c) => c.tagName).slice().sort()
+  const manifestTags = manifestComponents.map((c) => c.tagName).toSorted()
 
   it('has a componentTags entry for every manifest tag, and only those', () => {
-    const generatedTags = [...components.componentTags].sort()
+    const generatedTags = [...components.componentTags].toSorted()
     expect(generatedTags).toEqual(manifestTags)
   })
 

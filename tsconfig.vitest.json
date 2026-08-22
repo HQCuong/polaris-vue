@@ -8,8 +8,9 @@
 
   "compilerOptions": {
     // Vitest runs in a different environment than the application code.
-    // Adjust lib and types accordingly.
-    "lib": [],
+    // Adjust lib and types accordingly. Tests run on Node 24, which supports
+    // ES2023 (e.g. Array#toSorted), but no DOM beyond what jsdom's types add.
+    "lib": ["ES2023"],
     "types": ["node", "jsdom"],
 
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.

@@ -28,7 +28,8 @@
     "typescript/consistent-type-imports": ["error", { "fixStyle": "inline-type-imports" }],
     "typescript/no-non-null-assertion": "warn",
     "unicorn/prefer-node-protocol": "error",
-    "promise/no-nesting": "warn"
+    "promise/no-nesting": "warn",
+    "import/no-unassigned-import": ["warn", { "allow": ["**/*.css"] }]
   },
   "overrides": [
     {
@@ -36,7 +37,8 @@
       "rules": {
         "no-console": "off",
         "typescript/no-explicit-any": "off",
-        "typescript/no-non-null-assertion": "off"
+        "typescript/no-non-null-assertion": "off",
+        "unicorn/consistent-function-scoping": "off"
       }
     },
     {

@@ -15,6 +15,7 @@ export default defineConfig({
   description: 'Typed Vue 3 wrapper components for Shopify Polaris web components.',
 
   head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
     // Loads the real Polaris custom element definitions so that live examples
     // in the docs (and the components used to render this site itself) work
     // exactly as they would in a consuming app.
