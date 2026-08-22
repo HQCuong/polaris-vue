@@ -2,7 +2,11 @@
 import STextDemo from './demos/STextDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <STextDemo />
+
+</div>
 
 ```vue
 <script setup>

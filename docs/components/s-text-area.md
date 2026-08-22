@@ -12,7 +12,11 @@ import { STextArea } from 'polaris-vue-elements'
 import STextAreaDemo from '../examples/demos/STextAreaDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <STextAreaDemo />
+
+</div>
 
 ```vue
 <script setup>

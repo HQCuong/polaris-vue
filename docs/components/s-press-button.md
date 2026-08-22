@@ -12,7 +12,11 @@ import { SPressButton } from 'polaris-vue-elements'
 import SPressButtonDemo from '../examples/demos/SPressButtonDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SPressButtonDemo />
+
+</div>
 
 ```vue
 <script setup>

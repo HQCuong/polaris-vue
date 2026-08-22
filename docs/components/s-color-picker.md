@@ -12,7 +12,11 @@ import { SColorPicker } from 'polaris-vue-elements'
 import SColorPickerDemo from '../examples/demos/SColorPickerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SColorPickerDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -12,7 +12,11 @@ import { SCheckbox } from 'polaris-vue-elements'
 import SCheckboxDemo from '../examples/demos/SCheckboxDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SCheckboxDemo />
+
+</div>
 
 ```vue
 <script setup>

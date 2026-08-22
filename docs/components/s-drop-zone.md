@@ -12,7 +12,11 @@ import { SDropZone } from 'polaris-vue-elements'
 import SDropZoneDemo from '../examples/demos/SDropZoneDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDropZoneDemo />
+
+</div>
 
 ```vue
 <script setup>

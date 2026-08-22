@@ -12,7 +12,11 @@ import { STextField } from 'polaris-vue-elements'
 import STextFieldDemo from '../examples/demos/STextFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <STextFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -12,7 +12,11 @@ import { SPasswordField } from 'polaris-vue-elements'
 import SPasswordFieldDemo from '../examples/demos/SPasswordFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SPasswordFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

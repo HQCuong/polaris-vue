@@ -12,7 +12,11 @@ import { SMenu } from 'polaris-vue-elements'
 import SMenuDemo from '../examples/demos/SMenuDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SMenuDemo />
+
+</div>
 
 ```vue
 <script setup>

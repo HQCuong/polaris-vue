@@ -2,7 +2,11 @@
 import SNumberFieldDemo from './demos/SNumberFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SNumberFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

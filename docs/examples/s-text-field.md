@@ -2,7 +2,11 @@
 import STextFieldDemo from './demos/STextFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <STextFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

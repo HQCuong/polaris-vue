@@ -2,7 +2,11 @@
 import SScrollBoxDemo from './demos/SScrollBoxDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SScrollBoxDemo />
+
+</div>
 
 ```vue
 <script setup>

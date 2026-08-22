@@ -2,7 +2,11 @@
 import SSearchFieldDemo from './demos/SSearchFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSearchFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

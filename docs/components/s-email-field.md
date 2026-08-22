@@ -12,7 +12,11 @@ import { SEmailField } from 'polaris-vue-elements'
 import SEmailFieldDemo from '../examples/demos/SEmailFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SEmailFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

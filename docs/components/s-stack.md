@@ -12,7 +12,11 @@ import { SStack } from 'polaris-vue-elements'
 import SStackDemo from '../examples/demos/SStackDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SStackDemo />
+
+</div>
 
 ```vue
 <script setup>

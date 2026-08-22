@@ -2,7 +2,11 @@
 import SChoiceListDemo from './demos/SChoiceListDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SChoiceListDemo />
+
+</div>
 
 ```vue
 <script setup>

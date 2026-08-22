@@ -4,7 +4,11 @@ import SSelectDemo from './demos/SSelectDemo.vue'
 
 `<SOption>` doesn't render on its own — it's an option within an `<SSelect>` (optionally grouped by `<SOptionGroup>`). Its `value` prop is what gets bound into the parent's `v-model`, and its default slot is the visible option label.
 
+<div class="demo-surface">
+
 <SSelectDemo />
+
+</div>
 
 ```vue
 <script setup>

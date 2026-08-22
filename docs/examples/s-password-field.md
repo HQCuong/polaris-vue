@@ -2,7 +2,11 @@
 import SPasswordFieldDemo from './demos/SPasswordFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SPasswordFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

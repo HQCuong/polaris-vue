@@ -12,7 +12,11 @@ import { SSwitch } from 'polaris-vue-elements'
 import SSwitchDemo from '../examples/demos/SSwitchDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSwitchDemo />
+
+</div>
 
 ```vue
 <script setup>

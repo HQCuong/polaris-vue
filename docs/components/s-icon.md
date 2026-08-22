@@ -12,7 +12,11 @@ import { SIcon } from 'polaris-vue-elements'
 import SIconDemo from '../examples/demos/SIconDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SIconDemo />
+
+</div>
 
 ```vue
 <script setup>

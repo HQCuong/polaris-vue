@@ -2,7 +2,11 @@
 import SColorFieldDemo from './demos/SColorFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SColorFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

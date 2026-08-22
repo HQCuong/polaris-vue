@@ -2,7 +2,11 @@
 import SIconDemo from './demos/SIconDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SIconDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -2,7 +2,11 @@
 import SListsDemo from './demos/SListsDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SListsDemo />
+
+</div>
 
 ```vue
 <script setup>

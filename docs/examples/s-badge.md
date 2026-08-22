@@ -2,7 +2,11 @@
 import SBadgeDemo from './demos/SBadgeDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SBadgeDemo />
+
+</div>
 
 ```vue
 <script setup>

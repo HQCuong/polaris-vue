@@ -12,7 +12,11 @@ import { SSearchField } from 'polaris-vue-elements'
 import SSearchFieldDemo from '../examples/demos/SSearchFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSearchFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

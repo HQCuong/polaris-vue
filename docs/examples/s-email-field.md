@@ -2,7 +2,11 @@
 import SEmailFieldDemo from './demos/SEmailFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SEmailFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -2,7 +2,11 @@
 import SLinkDemo from './demos/SLinkDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SLinkDemo />
+
+</div>
 
 ```vue
 <script setup>

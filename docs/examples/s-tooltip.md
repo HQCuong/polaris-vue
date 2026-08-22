@@ -4,7 +4,11 @@ import STooltipDemo from './demos/STooltipDemo.vue'
 
 Hover or focus the button below to reveal the tooltip — it activates via `interestFor`, not a click.
 
+<div class="demo-surface">
+
 <STooltipDemo />
+
+</div>
 
 ```vue
 <script setup>

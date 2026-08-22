@@ -2,7 +2,11 @@
 import SDividerDemo from './demos/SDividerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDividerDemo />
+
+</div>
 
 ```vue
 <script setup>

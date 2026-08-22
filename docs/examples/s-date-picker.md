@@ -2,7 +2,11 @@
 import SDatePickerDemo from './demos/SDatePickerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDatePickerDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -2,7 +2,11 @@
 import SMoneyFieldDemo from './demos/SMoneyFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SMoneyFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

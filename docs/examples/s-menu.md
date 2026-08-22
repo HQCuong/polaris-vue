@@ -2,7 +2,11 @@
 import SMenuDemo from './demos/SMenuDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SMenuDemo />
+
+</div>
 
 ```vue
 <script setup>

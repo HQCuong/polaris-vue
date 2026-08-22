@@ -2,7 +2,11 @@
 import SPressButtonDemo from './demos/SPressButtonDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SPressButtonDemo />
+
+</div>
 
 ```vue
 <script setup>

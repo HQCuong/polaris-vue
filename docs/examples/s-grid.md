@@ -2,7 +2,11 @@
 import SGridDemo from './demos/SGridDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SGridDemo />
+
+</div>
 
 ```vue
 <script setup>

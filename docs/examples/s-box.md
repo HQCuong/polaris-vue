@@ -2,7 +2,11 @@
 import SBoxDemo from './demos/SBoxDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SBoxDemo />
+
+</div>
 
 ```vue
 <script setup>

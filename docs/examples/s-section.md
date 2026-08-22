@@ -2,7 +2,11 @@
 import SSectionDemo from './demos/SSectionDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSectionDemo />
+
+</div>
 
 ```vue
 <script setup>

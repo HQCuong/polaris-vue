@@ -12,7 +12,11 @@ import { SSection } from 'polaris-vue-elements'
 import SSectionDemo from '../examples/demos/SSectionDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSectionDemo />
+
+</div>
 
 ```vue
 <script setup>

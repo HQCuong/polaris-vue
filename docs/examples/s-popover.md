@@ -2,7 +2,11 @@
 import SPopoverDemo from './demos/SPopoverDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SPopoverDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -2,7 +2,11 @@
 import SStackDemo from './demos/SStackDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SStackDemo />
+
+</div>
 
 ```vue
 <script setup>

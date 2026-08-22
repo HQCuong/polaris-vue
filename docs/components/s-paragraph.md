@@ -12,7 +12,11 @@ import { SParagraph } from 'polaris-vue-elements'
 import SParagraphDemo from '../examples/demos/SParagraphDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SParagraphDemo />
+
+</div>
 
 ```vue
 <script setup>

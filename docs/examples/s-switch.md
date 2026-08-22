@@ -2,7 +2,11 @@
 import SSwitchDemo from './demos/SSwitchDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSwitchDemo />
+
+</div>
 
 ```vue
 <script setup>

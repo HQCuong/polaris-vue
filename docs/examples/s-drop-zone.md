@@ -2,7 +2,11 @@
 import SDropZoneDemo from './demos/SDropZoneDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDropZoneDemo />
+
+</div>
 
 ```vue
 <script setup>

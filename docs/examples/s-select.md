@@ -2,7 +2,11 @@
 import SSelectDemo from './demos/SSelectDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSelectDemo />
+
+</div>
 
 ```vue
 <script setup>

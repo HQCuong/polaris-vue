@@ -2,7 +2,11 @@
 import STableDemo from './demos/STableDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <STableDemo />
+
+</div>
 
 ```vue
 <script setup>

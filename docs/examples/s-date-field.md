@@ -2,7 +2,11 @@
 import SDateFieldDemo from './demos/SDateFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDateFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

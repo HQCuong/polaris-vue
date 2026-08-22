@@ -12,7 +12,11 @@ import { SDatePicker } from 'polaris-vue-elements'
 import SDatePickerDemo from '../examples/demos/SDatePickerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDatePickerDemo />
+
+</div>
 
 ```vue
 <script setup>

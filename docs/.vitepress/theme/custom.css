@@ -1,0 +1,30 @@
+/*
+ * Live-example surface.
+ *
+ * The Polaris web components loaded from cdn.shopify.com ship light-mode
+ * styles only (they're built for the Shopify admin, which has no dark theme):
+ * shadow-DOM text such as field labels is hard-coded to dark gray. On the
+ * docs site's dark background those labels are unreadable, so every live
+ * example is rendered on a light admin-like card in BOTH themes rather than
+ * trying to re-theme the components.
+ */
+.demo-surface {
+  color-scheme: light;
+  background: #ffffff;
+  color: rgb(48, 48, 48);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+/* Plain-prose output inside demos (e.g. "Value: …") would otherwise inherit
+ * VitePress's dark-mode text color and vanish on the white card. */
+.demo-surface p {
+  color: rgb(48, 48, 48);
+}
+
+.dark .demo-surface code {
+  color: #3451b2;
+  background-color: rgba(0, 0, 0, 0.06);
+}

@@ -2,7 +2,11 @@
 import SBannerDemo from './demos/SBannerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SBannerDemo />
+
+</div>
 
 ```vue
 <script setup>

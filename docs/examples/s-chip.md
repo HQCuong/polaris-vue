@@ -2,7 +2,11 @@
 import SChipDemo from './demos/SChipDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SChipDemo />
+
+</div>
 
 ```vue
 <script setup>

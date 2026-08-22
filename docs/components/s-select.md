@@ -12,7 +12,11 @@ import { SSelect } from 'polaris-vue-elements'
 import SSelectDemo from '../examples/demos/SSelectDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSelectDemo />
+
+</div>
 
 ```vue
 <script setup>

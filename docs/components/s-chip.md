@@ -12,7 +12,11 @@ import { SChip } from 'polaris-vue-elements'
 import SChipDemo from '../examples/demos/SChipDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SChipDemo />
+
+</div>
 
 ```vue
 <script setup>

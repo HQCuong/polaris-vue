@@ -4,7 +4,11 @@ import SChoiceListDemo from './demos/SChoiceListDemo.vue'
 
 `<SChoice>` doesn't render on its own — it's an individual choice within an `<SChoiceList>`. Its `value` prop is what feeds the parent's `values` array (bound via `v-model`), and its default slot is the choice label.
 
+<div class="demo-surface">
+
 <SChoiceListDemo />
+
+</div>
 
 ```vue
 <script setup>

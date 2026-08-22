@@ -12,7 +12,11 @@ import { SDivider } from 'polaris-vue-elements'
 import SDividerDemo from '../examples/demos/SDividerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SDividerDemo />
+
+</div>
 
 ```vue
 <script setup>

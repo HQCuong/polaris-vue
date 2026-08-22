@@ -14,7 +14,11 @@ import SImageDemo from '../examples/demos/SImageDemo.vue'
 
 The image below loads from [picsum.photos](https://picsum.photos), a third-party placeholder image service, purely for demo purposes.
 
+<div class="demo-surface">
+
 <SImageDemo />
+
+</div>
 
 ```vue
 <script setup>

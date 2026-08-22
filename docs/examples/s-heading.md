@@ -2,7 +2,11 @@
 import SHeadingDemo from './demos/SHeadingDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SHeadingDemo />
+
+</div>
 
 ```vue
 <script setup>

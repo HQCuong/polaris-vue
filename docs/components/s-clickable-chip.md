@@ -12,7 +12,11 @@ import { SClickableChip } from 'polaris-vue-elements'
 import SClickableChipDemo from '../examples/demos/SClickableChipDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SClickableChipDemo />
+
+</div>
 
 ```vue
 <script setup>

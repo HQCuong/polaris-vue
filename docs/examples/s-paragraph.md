@@ -2,7 +2,11 @@
 import SParagraphDemo from './demos/SParagraphDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SParagraphDemo />
+
+</div>
 
 ```vue
 <script setup>

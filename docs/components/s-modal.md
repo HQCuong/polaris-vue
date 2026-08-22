@@ -12,7 +12,11 @@ import { SModal } from 'polaris-vue-elements'
 import SModalDemo from '../examples/demos/SModalDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SModalDemo />
+
+</div>
 
 ```vue
 <script setup>

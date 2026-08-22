@@ -12,7 +12,11 @@ import { SClickable } from 'polaris-vue-elements'
 import SClickableDemo from '../examples/demos/SClickableDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SClickableDemo />
+
+</div>
 
 ```vue
 <script setup>

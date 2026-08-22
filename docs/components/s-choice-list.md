@@ -12,7 +12,11 @@ import { SChoiceList } from 'polaris-vue-elements'
 import SChoiceListDemo from '../examples/demos/SChoiceListDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SChoiceListDemo />
+
+</div>
 
 ```vue
 <script setup>

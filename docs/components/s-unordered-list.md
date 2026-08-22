@@ -12,7 +12,11 @@ import { SUnorderedList } from 'polaris-vue-elements'
 import SListsDemo from '../examples/demos/SListsDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SListsDemo />
+
+</div>
 
 ```vue
 <script setup>

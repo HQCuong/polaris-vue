@@ -2,7 +2,11 @@
 import SColorPickerDemo from './demos/SColorPickerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SColorPickerDemo />
+
+</div>
 
 ```vue
 <script setup>

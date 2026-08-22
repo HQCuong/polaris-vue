@@ -4,7 +4,11 @@ import SQueryContainerDemo from './demos/SQueryContainerDemo.vue'
 
 <!-- Drag the bottom-right handle of the dashed box to resize it and watch the text
      inside switch based on container inline-size, not viewport width. -->
+<div class="demo-surface">
+
 <SQueryContainerDemo />
+
+</div>
 
 ```vue
 <script setup>

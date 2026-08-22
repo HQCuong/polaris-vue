@@ -4,7 +4,11 @@ import SThumbnailDemo from './demos/SThumbnailDemo.vue'
 
 The images below load from [picsum.photos](https://picsum.photos), a third-party placeholder image service, purely for demo purposes.
 
+<div class="demo-surface">
+
 <SThumbnailDemo />
+
+</div>
 
 ```vue
 <script setup>

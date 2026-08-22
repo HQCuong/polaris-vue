@@ -2,7 +2,11 @@
 import SModalDemo from './demos/SModalDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SModalDemo />
+
+</div>
 
 ```vue
 <script setup>

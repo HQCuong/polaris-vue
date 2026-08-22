@@ -12,7 +12,11 @@ import { SUrlField } from 'polaris-vue-elements'
 import SUrlFieldDemo from '../examples/demos/SUrlFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SUrlFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

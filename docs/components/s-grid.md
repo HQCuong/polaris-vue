@@ -12,7 +12,11 @@ import { SGrid } from 'polaris-vue-elements'
 import SGridDemo from '../examples/demos/SGridDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SGridDemo />
+
+</div>
 
 ```vue
 <script setup>

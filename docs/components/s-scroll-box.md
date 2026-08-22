@@ -12,7 +12,11 @@ import { SScrollBox } from 'polaris-vue-elements'
 import SScrollBoxDemo from '../examples/demos/SScrollBoxDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SScrollBoxDemo />
+
+</div>
 
 ```vue
 <script setup>

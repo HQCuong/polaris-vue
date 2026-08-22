@@ -4,7 +4,11 @@ import SSelectDemo from './demos/SSelectDemo.vue'
 
 `<SOptionGroup>` doesn't render on its own — it groups related `<SOption>` children under a `label` inside an `<SSelect>`.
 
+<div class="demo-surface">
+
 <SSelectDemo />
+
+</div>
 
 ```vue
 <script setup>

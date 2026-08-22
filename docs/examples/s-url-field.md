@@ -2,7 +2,11 @@
 import SUrlFieldDemo from './demos/SUrlFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SUrlFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

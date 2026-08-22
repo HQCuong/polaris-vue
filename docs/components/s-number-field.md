@@ -12,7 +12,11 @@ import { SNumberField } from 'polaris-vue-elements'
 import SNumberFieldDemo from '../examples/demos/SNumberFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SNumberFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

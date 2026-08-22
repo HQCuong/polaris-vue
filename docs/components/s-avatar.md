@@ -14,7 +14,11 @@ import SAvatarDemo from '../examples/demos/SAvatarDemo.vue'
 
 The images below load from [picsum.photos](https://picsum.photos), a third-party placeholder image service, purely for demo purposes.
 
+<div class="demo-surface">
+
 <SAvatarDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -12,7 +12,11 @@ import { SPopover } from 'polaris-vue-elements'
 import SPopoverDemo from '../examples/demos/SPopoverDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SPopoverDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -12,7 +12,11 @@ import { SMoneyField } from 'polaris-vue-elements'
 import SMoneyFieldDemo from '../examples/demos/SMoneyFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SMoneyFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

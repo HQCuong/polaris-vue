@@ -2,7 +2,11 @@
 import SButtonDemo from './demos/SButtonDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SButtonDemo />
+
+</div>
 
 ```vue
 <script setup>

@@ -12,7 +12,11 @@ import { SBanner } from 'polaris-vue-elements'
 import SBannerDemo from '../examples/demos/SBannerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SBannerDemo />
+
+</div>
 
 ```vue
 <script setup>

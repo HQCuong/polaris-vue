@@ -2,7 +2,11 @@
 import SClickableChipDemo from './demos/SClickableChipDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SClickableChipDemo />
+
+</div>
 
 ```vue
 <script setup>

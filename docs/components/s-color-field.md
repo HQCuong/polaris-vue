@@ -12,7 +12,11 @@ import { SColorField } from 'polaris-vue-elements'
 import SColorFieldDemo from '../examples/demos/SColorFieldDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SColorFieldDemo />
+
+</div>
 
 ```vue
 <script setup>

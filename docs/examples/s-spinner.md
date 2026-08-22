@@ -2,7 +2,11 @@
 import SSpinnerDemo from './demos/SSpinnerDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SSpinnerDemo />
+
+</div>
 
 ```vue
 <script setup>

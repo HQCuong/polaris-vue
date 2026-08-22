@@ -12,7 +12,11 @@ import { SLink } from 'polaris-vue-elements'
 import SLinkDemo from '../examples/demos/SLinkDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SLinkDemo />
+
+</div>
 
 ```vue
 <script setup>

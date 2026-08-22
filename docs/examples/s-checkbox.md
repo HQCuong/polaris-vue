@@ -2,7 +2,11 @@
 import SCheckboxDemo from './demos/SCheckboxDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SCheckboxDemo />
+
+</div>
 
 ```vue
 <script setup>

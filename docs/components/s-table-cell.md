@@ -12,7 +12,11 @@ import { STableCell } from 'polaris-vue-elements'
 import STableDemo from '../examples/demos/STableDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <STableDemo />
+
+</div>
 
 ```vue
 <script setup>

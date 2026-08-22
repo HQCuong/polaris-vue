@@ -12,7 +12,11 @@ import { SButtonGroup } from 'polaris-vue-elements'
 import SButtonGroupDemo from '../examples/demos/SButtonGroupDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SButtonGroupDemo />
+
+</div>
 
 ```vue
 <script setup>

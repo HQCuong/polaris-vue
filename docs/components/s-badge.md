@@ -12,7 +12,11 @@ import { SBadge } from 'polaris-vue-elements'
 import SBadgeDemo from '../examples/demos/SBadgeDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SBadgeDemo />
+
+</div>
 
 ```vue
 <script setup>

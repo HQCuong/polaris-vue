@@ -12,7 +12,11 @@ import { SBox } from 'polaris-vue-elements'
 import SBoxDemo from '../examples/demos/SBoxDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SBoxDemo />
+
+</div>
 
 ```vue
 <script setup>

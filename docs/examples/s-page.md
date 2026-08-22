@@ -5,7 +5,11 @@ import SPageDemo from './demos/SPageDemo.vue'
 <!-- SPage is typically the root of a whole app screen. It's wrapped in a bordered,
      scrollable box here purely so the docs preview stays compact; a real app renders
      it directly at the top level, unconstrained. -->
+<div class="demo-surface">
+
 <SPageDemo />
+
+</div>
 
 ```vue
 <script setup>

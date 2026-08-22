@@ -2,7 +2,11 @@
 import SClickableDemo from './demos/SClickableDemo.vue'
 </script>
 
+<div class="demo-surface">
+
 <SClickableDemo />
+
+</div>
 
 ```vue
 <script setup>
