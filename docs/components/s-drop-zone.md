@@ -6,6 +6,28 @@
 import { SDropZone } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SDropZoneDemo from '../examples/demos/SDropZoneDemo.vue'
+</script>
+
+<SDropZoneDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SDropZone } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SDropZone label="Upload a file" accept="image/*" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SDropZone>` binds to the `value` property and listens for the `input` DOM event.

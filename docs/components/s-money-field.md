@@ -6,6 +6,28 @@
 import { SMoneyField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SMoneyFieldDemo from '../examples/demos/SMoneyFieldDemo.vue'
+</script>
+
+<SMoneyFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SMoneyField } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SMoneyField label="Price" currencyCode="USD" placeholder="0.00" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SMoneyField>` binds to the `value` property and listens for the `input` DOM event.

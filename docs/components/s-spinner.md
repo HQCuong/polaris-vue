@@ -9,10 +9,10 @@ import { SSpinner } from 'polaris-vue'
 ## Example
 
 <script setup>
-import { SSpinner } from '@lib'
+import SSpinnerDemo from '../examples/demos/SSpinnerDemo.vue'
 </script>
 
-<SSpinner>Example SSpinner content</SSpinner>
+<SSpinnerDemo />
 
 ```vue
 <script setup>
@@ -20,7 +20,9 @@ import { SSpinner } from 'polaris-vue'
 </script>
 
 <template>
-  <SSpinner>Example SSpinner content</SSpinner>
+  <SSpinner accessibilityLabel="Loading, small" size="base" />
+  <SSpinner accessibilityLabel="Loading, large" size="large" />
+  <SSpinner accessibilityLabel="Loading, extra large" size="large-100" />
 </template>
 ```
 

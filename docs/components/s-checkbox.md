@@ -6,6 +6,28 @@
 import { SCheckbox } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SCheckboxDemo from '../examples/demos/SCheckboxDemo.vue'
+</script>
+
+<SCheckboxDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SCheckbox } from 'polaris-vue'
+
+const value = ref(false)
+</script>
+
+<template>
+  <SCheckbox label="Send me marketing emails" v-model="value" />
+  <p>Checked: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SCheckbox>` binds to the `checked` property and listens for the `change` DOM event.

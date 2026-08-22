@@ -6,6 +6,28 @@
 import { SColorPicker } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SColorPickerDemo from '../examples/demos/SColorPickerDemo.vue'
+</script>
+
+<SColorPickerDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SColorPicker } from 'polaris-vue'
+
+const value = ref('#008060')
+</script>
+
+<template>
+  <SColorPicker v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SColorPicker>` binds to the `value` property and listens for the `input` DOM event.

@@ -6,6 +6,28 @@
 import { SUrlField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SUrlFieldDemo from '../examples/demos/SUrlFieldDemo.vue'
+</script>
+
+<SUrlFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SUrlField } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SUrlField label="Website" placeholder="https://example.com" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SUrlField>` binds to the `value` property and listens for the `input` DOM event.

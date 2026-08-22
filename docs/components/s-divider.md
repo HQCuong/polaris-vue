@@ -9,18 +9,22 @@ import { SDivider } from 'polaris-vue'
 ## Example
 
 <script setup>
-import { SDivider } from '@lib'
+import SDividerDemo from '../examples/demos/SDividerDemo.vue'
 </script>
 
-<SDivider>Example SDivider content</SDivider>
+<SDividerDemo />
 
 ```vue
 <script setup>
-import { SDivider } from 'polaris-vue'
+import { SDivider, SParagraph } from 'polaris-vue'
 </script>
 
 <template>
-  <SDivider>Example SDivider content</SDivider>
+  <SParagraph>Content above the divider.</SParagraph>
+  <SDivider />
+  <SParagraph>Content below the divider.</SParagraph>
+  <SDivider color="strong" />
+  <SParagraph color="subdued">A stronger divider variant.</SParagraph>
 </template>
 ```
 

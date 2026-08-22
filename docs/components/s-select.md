@@ -6,6 +6,37 @@
 import { SSelect } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SSelectDemo from '../examples/demos/SSelectDemo.vue'
+</script>
+
+<SSelectDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SSelect, SOption, SOptionGroup } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SSelect label="Shipping region" placeholder="Select a region" v-model="value">
+    <SOptionGroup label="North America">
+      <SOption value="us">United States</SOption>
+      <SOption value="ca">Canada</SOption>
+    </SOptionGroup>
+    <SOptionGroup label="Europe">
+      <SOption value="fr">France</SOption>
+      <SOption value="de">Germany</SOption>
+    </SOptionGroup>
+  </SSelect>
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SSelect>` binds to the `value` property and listens for the `change` DOM event.

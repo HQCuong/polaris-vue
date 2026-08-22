@@ -6,6 +6,28 @@
 import { SPasswordField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SPasswordFieldDemo from '../examples/demos/SPasswordFieldDemo.vue'
+</script>
+
+<SPasswordFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SPasswordField } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SPasswordField label="Password" placeholder="Enter your password" v-model="value" />
+  <p>Length: {{ value.length }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SPasswordField>` binds to the `value` property and listens for the `input` DOM event.

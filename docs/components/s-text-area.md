@@ -6,6 +6,28 @@
 import { STextArea } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import STextAreaDemo from '../examples/demos/STextAreaDemo.vue'
+</script>
+
+<STextAreaDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { STextArea } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <STextArea label="Bio" placeholder="Tell us about yourself" :rows="3" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<STextArea>` binds to the `value` property and listens for the `input` DOM event.

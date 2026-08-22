@@ -6,6 +6,28 @@
 import { SSwitch } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SSwitchDemo from '../examples/demos/SSwitchDemo.vue'
+</script>
+
+<SSwitchDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SSwitch } from 'polaris-vue'
+
+const value = ref(false)
+</script>
+
+<template>
+  <SSwitch label="Enable notifications" v-model="value" />
+  <p>On: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SSwitch>` binds to the `checked` property and listens for the `change` DOM event.

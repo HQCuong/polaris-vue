@@ -6,6 +6,28 @@
 import { SSearchField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SSearchFieldDemo from '../examples/demos/SSearchFieldDemo.vue'
+</script>
+
+<SSearchFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SSearchField } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SSearchField label="Search products" placeholder="Search" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SSearchField>` binds to the `value` property and listens for the `input` DOM event.

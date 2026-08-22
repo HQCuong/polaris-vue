@@ -6,6 +6,28 @@
 import { SColorField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SColorFieldDemo from '../examples/demos/SColorFieldDemo.vue'
+</script>
+
+<SColorFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SColorField } from 'polaris-vue'
+
+const value = ref('#008060')
+</script>
+
+<template>
+  <SColorField label="Brand color" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SColorField>` binds to the `value` property and listens for the `input` DOM event.

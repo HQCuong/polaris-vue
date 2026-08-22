@@ -9,18 +9,26 @@ import { SHeading } from 'polaris-vue'
 ## Example
 
 <script setup>
-import { SHeading } from '@lib'
+import SHeadingDemo from '../examples/demos/SHeadingDemo.vue'
 </script>
 
-<SHeading>Example SHeading content</SHeading>
+<SHeadingDemo />
 
 ```vue
 <script setup>
-import { SHeading } from 'polaris-vue'
+import { SHeading, SParagraph } from 'polaris-vue'
 </script>
 
 <template>
-  <SHeading>Example SHeading content</SHeading>
+  <SHeading>Default heading</SHeading>
+  <SParagraph>Renders as a semantic heading element by default.</SParagraph>
+
+  <SHeading accessibilityRole="presentation">Presentational heading</SHeading>
+  <SParagraph>Same visual style, but stripped from the accessibility tree's heading structure.</SParagraph>
+
+  <SHeading :lineClamp="1" style="max-width: 220px">
+    A long heading that gets truncated to a single line via lineClamp
+  </SHeading>
 </template>
 ```
 

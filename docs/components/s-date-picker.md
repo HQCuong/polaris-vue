@@ -6,6 +6,28 @@
 import { SDatePicker } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SDatePickerDemo from '../examples/demos/SDatePickerDemo.vue'
+</script>
+
+<SDatePickerDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SDatePicker } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SDatePicker type="single" v-model="value" />
+  <p>Selected: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SDatePicker>` binds to the `value` property and listens for the `input` DOM event.

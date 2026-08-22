@@ -6,6 +6,28 @@
 import { SNumberField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SNumberFieldDemo from '../examples/demos/SNumberFieldDemo.vue'
+</script>
+
+<SNumberFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SNumberField } from 'polaris-vue'
+
+const value = ref('1')
+</script>
+
+<template>
+  <SNumberField label="Quantity" :min="0" :max="100" :step="1" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SNumberField>` binds to the `value` property and listens for the `input` DOM event.

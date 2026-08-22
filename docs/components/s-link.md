@@ -9,10 +9,10 @@ import { SLink } from 'polaris-vue'
 ## Example
 
 <script setup>
-import { SLink } from '@lib'
+import SLinkDemo from '../examples/demos/SLinkDemo.vue'
 </script>
 
-<SLink>Example SLink content</SLink>
+<SLinkDemo />
 
 ```vue
 <script setup>
@@ -20,7 +20,8 @@ import { SLink } from 'polaris-vue'
 </script>
 
 <template>
-  <SLink>Example SLink content</SLink>
+  <SLink href="https://polaris.shopify.com" target="_blank">Neutral link</SLink>
+  <SLink href="https://polaris.shopify.com" target="_blank" tone="critical">Critical link</SLink>
 </template>
 ```
 

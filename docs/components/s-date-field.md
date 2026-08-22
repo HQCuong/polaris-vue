@@ -6,6 +6,28 @@
 import { SDateField } from 'polaris-vue'
 ```
 
+## Example
+
+<script setup>
+import SDateFieldDemo from '../examples/demos/SDateFieldDemo.vue'
+</script>
+
+<SDateFieldDemo />
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import { SDateField } from 'polaris-vue'
+
+const value = ref('')
+</script>
+
+<template>
+  <SDateField label="Delivery date" placeholder="YYYY-MM-DD" v-model="value" />
+  <p>Value: {{ value }}</p>
+</template>
+```
+
 ## v-model
 
 `v-model` on `<SDateField>` binds to the `value` property and listens for the `input` DOM event.

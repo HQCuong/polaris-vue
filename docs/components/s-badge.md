@@ -9,10 +9,10 @@ import { SBadge } from 'polaris-vue'
 ## Example
 
 <script setup>
-import { SBadge } from '@lib'
+import SBadgeDemo from '../examples/demos/SBadgeDemo.vue'
 </script>
 
-<SBadge>Example SBadge content</SBadge>
+<SBadgeDemo />
 
 ```vue
 <script setup>
@@ -20,7 +20,16 @@ import { SBadge } from 'polaris-vue'
 </script>
 
 <template>
-  <SBadge>Example SBadge content</SBadge>
+  <SBadge tone="neutral">Neutral</SBadge>
+  <SBadge tone="info">Info</SBadge>
+  <SBadge tone="success">Success</SBadge>
+  <SBadge tone="caution">Caution</SBadge>
+  <SBadge tone="warning">Warning</SBadge>
+  <SBadge tone="critical">Critical</SBadge>
+
+  <SBadge tone="success" icon="check-circle">With icon</SBadge>
+  <SBadge tone="info" size="large">Large</SBadge>
+  <SBadge tone="info" color="strong">Strong color</SBadge>
 </template>
 ```
 
