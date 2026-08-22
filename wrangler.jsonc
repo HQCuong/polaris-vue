@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers config — serves the built VitePress docs as static assets.
+  // The git-connected Workers Build runs the build command, then `npx wrangler deploy`
+  // reads this file and uploads the assets directory.
+  "name": "polaris-vue-docs",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./docs/.vitepress/dist",
+    // Serve 404.html VitePress generates for unknown paths instead of a bare 404.
+    "not_found_handling": "404-page"
+  }
+}
