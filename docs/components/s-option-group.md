@@ -3,7 +3,7 @@
 # SOptionGroup `<s-option-group>`
 
 ```ts
-import { SOptionGroup } from 'polaris-vue'
+import { SOptionGroup } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -19,7 +19,7 @@ import SSelectDemo from '../examples/demos/SSelectDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SSelect, SOption, SOptionGroup } from 'polaris-vue'
+import { SSelect, SOption, SOptionGroup } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

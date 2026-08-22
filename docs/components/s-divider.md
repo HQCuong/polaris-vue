@@ -3,7 +3,7 @@
 # SDivider `<s-divider>`
 
 ```ts
-import { SDivider } from 'polaris-vue'
+import { SDivider } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SDividerDemo from '../examples/demos/SDividerDemo.vue'
 
 ```vue
 <script setup>
-import { SDivider, SParagraph } from 'polaris-vue'
+import { SDivider, SParagraph } from 'polaris-vue-elements'
 </script>
 
 <template>

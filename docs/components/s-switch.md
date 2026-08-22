@@ -3,7 +3,7 @@
 # SSwitch `<s-switch>`
 
 ```ts
-import { SSwitch } from 'polaris-vue'
+import { SSwitch } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SSwitchDemo from '../examples/demos/SSwitchDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SSwitch } from 'polaris-vue'
+import { SSwitch } from 'polaris-vue-elements'
 
 const value = ref(false)
 </script>

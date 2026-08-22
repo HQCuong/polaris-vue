@@ -3,7 +3,7 @@
 # SGridItem `<s-grid-item>`
 
 ```ts
-import { SGridItem } from 'polaris-vue'
+import { SGridItem } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SGridDemo from '../examples/demos/SGridDemo.vue'
 
 ```vue
 <script setup>
-import { SGrid, SGridItem, SBox, SText } from 'polaris-vue'
+import { SGrid, SGridItem, SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

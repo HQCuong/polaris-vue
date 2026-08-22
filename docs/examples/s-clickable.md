@@ -7,7 +7,7 @@ import SClickableDemo from './demos/SClickableDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SClickable, SText } from 'polaris-vue'
+import { SClickable, SText } from 'polaris-vue-elements'
 
 const clicks = ref(0)
 </script>

@@ -3,7 +3,7 @@
 # SPopover `<s-popover>`
 
 ```ts
-import { SPopover } from 'polaris-vue'
+import { SPopover } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SPopoverDemo from '../examples/demos/SPopoverDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SPopover, SText } from 'polaris-vue'
+import { SButton, SPopover, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

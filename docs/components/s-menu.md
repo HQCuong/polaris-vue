@@ -3,7 +3,7 @@
 # SMenu `<s-menu>`
 
 ```ts
-import { SMenu } from 'polaris-vue'
+import { SMenu } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SMenuDemo from '../examples/demos/SMenuDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SMenu, SSection } from 'polaris-vue'
+import { SButton, SMenu, SSection } from 'polaris-vue-elements'
 </script>
 
 <template>

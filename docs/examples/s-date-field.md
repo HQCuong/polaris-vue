@@ -7,7 +7,7 @@ import SDateFieldDemo from './demos/SDateFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SDateField } from 'polaris-vue'
+import { SDateField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

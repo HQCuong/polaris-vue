@@ -3,7 +3,7 @@
 # SAvatar `<s-avatar>`
 
 ```ts
-import { SAvatar } from 'polaris-vue'
+import { SAvatar } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -18,7 +18,7 @@ The images below load from [picsum.photos](https://picsum.photos), a third-party
 
 ```vue
 <script setup>
-import { SAvatar } from 'polaris-vue'
+import { SAvatar } from 'polaris-vue-elements'
 </script>
 
 <template>

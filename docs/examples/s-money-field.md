@@ -7,7 +7,7 @@ import SMoneyFieldDemo from './demos/SMoneyFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SMoneyField } from 'polaris-vue'
+import { SMoneyField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

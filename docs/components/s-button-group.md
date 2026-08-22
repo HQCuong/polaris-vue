@@ -3,7 +3,7 @@
 # SButtonGroup `<s-button-group>`
 
 ```ts
-import { SButtonGroup } from 'polaris-vue'
+import { SButtonGroup } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SButtonGroupDemo from '../examples/demos/SButtonGroupDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SButtonGroup, SPressButton } from 'polaris-vue'
+import { SButton, SButtonGroup, SPressButton } from 'polaris-vue-elements'
 </script>
 
 <template>

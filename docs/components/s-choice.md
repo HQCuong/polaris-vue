@@ -3,7 +3,7 @@
 # SChoice `<s-choice>`
 
 ```ts
-import { SChoice } from 'polaris-vue'
+import { SChoice } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -19,7 +19,7 @@ import SChoiceListDemo from '../examples/demos/SChoiceListDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SChoiceList, SChoice } from 'polaris-vue'
+import { SChoiceList, SChoice } from 'polaris-vue-elements'
 
 const value = ref([])
 </script>

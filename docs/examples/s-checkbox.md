@@ -7,7 +7,7 @@ import SCheckboxDemo from './demos/SCheckboxDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SCheckbox } from 'polaris-vue'
+import { SCheckbox } from 'polaris-vue-elements'
 
 const value = ref(false)
 </script>

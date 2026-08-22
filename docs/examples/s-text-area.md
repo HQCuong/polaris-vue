@@ -7,7 +7,7 @@ import STextAreaDemo from './demos/STextAreaDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { STextArea } from 'polaris-vue'
+import { STextArea } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

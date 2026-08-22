@@ -3,7 +3,7 @@
 # STableRow `<s-table-row>`
 
 ```ts
-import { STableRow } from 'polaris-vue'
+import { STableRow } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -24,7 +24,7 @@ import {
   STableRow,
   STableCell,
   SBadge,
-} from 'polaris-vue'
+} from 'polaris-vue-elements'
 </script>
 
 <template>

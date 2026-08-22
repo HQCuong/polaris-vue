@@ -7,7 +7,7 @@ import SEmailFieldDemo from './demos/SEmailFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SEmailField } from 'polaris-vue'
+import { SEmailField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

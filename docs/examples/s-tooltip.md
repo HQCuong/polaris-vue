@@ -8,7 +8,7 @@ Hover or focus the button below to reveal the tooltip — it activates via `inte
 
 ```vue
 <script setup>
-import { SButton, SText, STooltip } from 'polaris-vue'
+import { SButton, SText, STooltip } from 'polaris-vue-elements'
 </script>
 
 <template>

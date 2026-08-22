@@ -3,7 +3,7 @@
 # SBox `<s-box>`
 
 ```ts
-import { SBox } from 'polaris-vue'
+import { SBox } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SBoxDemo from '../examples/demos/SBoxDemo.vue'
 
 ```vue
 <script setup>
-import { SBox, SText } from 'polaris-vue'
+import { SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

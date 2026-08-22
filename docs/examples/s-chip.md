@@ -7,7 +7,7 @@ import SChipDemo from './demos/SChipDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SChip, SIcon } from 'polaris-vue'
+import { SChip, SIcon } from 'polaris-vue-elements'
 
 const removed = ref(false)
 </script>

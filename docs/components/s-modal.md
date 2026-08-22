@@ -3,7 +3,7 @@
 # SModal `<s-modal>`
 
 ```ts
-import { SModal } from 'polaris-vue'
+import { SModal } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SModalDemo from '../examples/demos/SModalDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SModal } from 'polaris-vue'
+import { SButton, SModal } from 'polaris-vue-elements'
 </script>
 
 <template>
@@ -69,7 +69,7 @@ Listen for these with `@afterhide`-style listeners on `<SModal>`.
 ```vue
 <script setup>
 import { useTemplateRef } from 'vue'
-import { SModal } from 'polaris-vue'
+import { SModal } from 'polaris-vue-elements'
 
 const modal = useTemplateRef<InstanceType<typeof SModal>>('modal')
 

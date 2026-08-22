@@ -3,7 +3,7 @@
 # SImage `<s-image>`
 
 ```ts
-import { SImage } from 'polaris-vue'
+import { SImage } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -18,7 +18,7 @@ The image below loads from [picsum.photos](https://picsum.photos), a third-party
 
 ```vue
 <script setup>
-import { SImage } from 'polaris-vue'
+import { SImage } from 'polaris-vue-elements'
 </script>
 
 <template>

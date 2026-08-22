@@ -3,7 +3,7 @@
 # SHeading `<s-heading>`
 
 ```ts
-import { SHeading } from 'polaris-vue'
+import { SHeading } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SHeadingDemo from '../examples/demos/SHeadingDemo.vue'
 
 ```vue
 <script setup>
-import { SHeading, SParagraph } from 'polaris-vue'
+import { SHeading, SParagraph } from 'polaris-vue-elements'
 </script>
 
 <template>

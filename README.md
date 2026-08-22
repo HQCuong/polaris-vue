@@ -2,6 +2,8 @@
 
 Typed Vue 3 wrapper components for [Shopify Polaris web components](https://shopify.dev/docs/api/app-home/web-components) — the `s-*` custom elements used to build Shopify App Home (embedded admin) apps.
 
+**📖 Documentation: [polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** — guides, known quirks, and live examples for all 59 components.
+
 The Polaris runtime itself is loaded from Shopify's CDN and always evergreen. This library gives you an idiomatic, fully typed Vue surface on top of it:
 
 - **Typed props & events for all 59 components**, generated from Shopify's official Custom Elements Manifest (`@shopify/polaris-types`) — union-typed props like `variant`, autocomplete in templates, typed `@click`/`@aftershow` listeners.
@@ -11,10 +13,8 @@ The Polaris runtime itself is loaded from Shopify's CDN and always evergreen. Th
 
 ## Installation
 
-> **Not published to npm yet.** Until it is, consume it from a git checkout or `npm link`. The final package name is still to be decided.
-
 ```sh
-npm install polaris-vue
+npm install polaris-vue-elements
 ```
 
 Vue `^3.5` is a peer dependency.
@@ -44,7 +44,7 @@ vue({
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { SButton, STextField } from 'polaris-vue'
+import { SButton, STextField } from 'polaris-vue-elements'
 
 const name = ref('')
 </script>
@@ -55,7 +55,7 @@ const name = ref('')
 </template>
 ```
 
-Full documentation — guides, known quirks, and generated reference pages for all 59 components — lives in `docs/` (`npm run docs:dev`).
+Full documentation — guides, known quirks, and generated reference pages with live examples for all 59 components — is at **[polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** (source in `docs/`, `npm run docs:dev` to run locally).
 
 ## Architecture
 

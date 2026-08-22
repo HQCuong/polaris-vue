@@ -6,7 +6,7 @@ import SMenuDemo from './demos/SMenuDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SMenu, SSection } from 'polaris-vue'
+import { SButton, SMenu, SSection } from 'polaris-vue-elements'
 </script>
 
 <template>

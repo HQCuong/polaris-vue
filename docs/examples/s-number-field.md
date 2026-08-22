@@ -7,7 +7,7 @@ import SNumberFieldDemo from './demos/SNumberFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SNumberField } from 'polaris-vue'
+import { SNumberField } from 'polaris-vue-elements'
 
 const value = ref('1')
 </script>

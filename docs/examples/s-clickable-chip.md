@@ -7,7 +7,7 @@ import SClickableChipDemo from './demos/SClickableChipDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SClickableChip, SIcon } from 'polaris-vue'
+import { SClickableChip, SIcon } from 'polaris-vue-elements'
 
 const removed = ref(false)
 </script>

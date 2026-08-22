@@ -3,7 +3,7 @@
 # SPage `<s-page>`
 
 ```ts
-import { SPage } from 'polaris-vue'
+import { SPage } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -19,7 +19,7 @@ import SPageDemo from '../examples/demos/SPageDemo.vue'
 
 ```vue
 <script setup>
-import { SPage, SSection, SParagraph, SButton } from 'polaris-vue'
+import { SPage, SSection, SParagraph, SButton } from 'polaris-vue-elements'
 </script>
 
 <template>

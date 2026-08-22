@@ -7,7 +7,7 @@ import SDropZoneDemo from './demos/SDropZoneDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SDropZone } from 'polaris-vue'
+import { SDropZone } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

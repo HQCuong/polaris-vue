@@ -3,7 +3,7 @@
 # SDateField `<s-date-field>`
 
 ```ts
-import { SDateField } from 'polaris-vue'
+import { SDateField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SDateFieldDemo from '../examples/demos/SDateFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SDateField } from 'polaris-vue'
+import { SDateField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

@@ -3,7 +3,7 @@
 # SPasswordField `<s-password-field>`
 
 ```ts
-import { SPasswordField } from 'polaris-vue'
+import { SPasswordField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SPasswordFieldDemo from '../examples/demos/SPasswordFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SPasswordField } from 'polaris-vue'
+import { SPasswordField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

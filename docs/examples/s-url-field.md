@@ -7,7 +7,7 @@ import SUrlFieldDemo from './demos/SUrlFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SUrlField } from 'polaris-vue'
+import { SUrlField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

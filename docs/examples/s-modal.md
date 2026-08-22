@@ -6,7 +6,7 @@ import SModalDemo from './demos/SModalDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SModal } from 'polaris-vue'
+import { SButton, SModal } from 'polaris-vue-elements'
 </script>
 
 <template>

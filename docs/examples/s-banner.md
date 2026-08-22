@@ -7,7 +7,7 @@ import SBannerDemo from './demos/SBannerDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SBanner, SButton, SText } from 'polaris-vue'
+import { SBanner, SButton, SText } from 'polaris-vue-elements'
 
 const showCritical = ref(true)
 </script>

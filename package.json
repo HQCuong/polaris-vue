@@ -1,9 +1,13 @@
 {
-  "name": "polaris-vue",
-  "version": "0.0.0",
-  "private": true,
-  "description": "Vue 3 wrapper components for Shopify Polaris web components.",
+  "name": "polaris-vue-elements",
+  "version": "0.1.0",
+  "description": "Typed Vue 3 wrapper components for Shopify Polaris web components.",
   "license": "MIT",
+  "homepage": "https://polaris-vue.vict0r.net",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HQCuong/polaris-vue.git"
+  },
   "keywords": [
     "shopify",
     "polaris",
@@ -26,6 +30,7 @@
   ],
   "sideEffects": false,
   "scripts": {
+    "prepublishOnly": "npm run type-check && vitest run && npm run build:lib",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",

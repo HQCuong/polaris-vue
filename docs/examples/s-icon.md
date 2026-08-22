@@ -6,7 +6,7 @@ import SIconDemo from './demos/SIconDemo.vue'
 
 ```vue
 <script setup>
-import { SIcon } from 'polaris-vue'
+import { SIcon } from 'polaris-vue-elements'
 </script>
 
 <template>

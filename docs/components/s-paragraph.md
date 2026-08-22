@@ -3,7 +3,7 @@
 # SParagraph `<s-paragraph>`
 
 ```ts
-import { SParagraph } from 'polaris-vue'
+import { SParagraph } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SParagraphDemo from '../examples/demos/SParagraphDemo.vue'
 
 ```vue
 <script setup>
-import { SParagraph } from 'polaris-vue'
+import { SParagraph } from 'polaris-vue-elements'
 </script>
 
 <template>

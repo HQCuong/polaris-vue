@@ -7,7 +7,7 @@ import SButtonDemo from './demos/SButtonDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SButton } from 'polaris-vue'
+import { SButton } from 'polaris-vue-elements'
 
 const clicks = ref(0)
 </script>

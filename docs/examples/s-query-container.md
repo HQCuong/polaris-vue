@@ -8,7 +8,7 @@ import SQueryContainerDemo from './demos/SQueryContainerDemo.vue'
 
 ```vue
 <script setup>
-import { SQueryContainer, SText } from 'polaris-vue'
+import { SQueryContainer, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

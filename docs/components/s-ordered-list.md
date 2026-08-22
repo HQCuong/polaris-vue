@@ -3,7 +3,7 @@
 # SOrderedList `<s-ordered-list>`
 
 ```ts
-import { SOrderedList } from 'polaris-vue'
+import { SOrderedList } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SListsDemo from '../examples/demos/SListsDemo.vue'
 
 ```vue
 <script setup>
-import { SUnorderedList, SOrderedList, SListItem, SStack } from 'polaris-vue'
+import { SUnorderedList, SOrderedList, SListItem, SStack } from 'polaris-vue-elements'
 </script>
 
 <template>

@@ -3,7 +3,7 @@
 # SDropZone `<s-drop-zone>`
 
 ```ts
-import { SDropZone } from 'polaris-vue'
+import { SDropZone } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SDropZoneDemo from '../examples/demos/SDropZoneDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SDropZone } from 'polaris-vue'
+import { SDropZone } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

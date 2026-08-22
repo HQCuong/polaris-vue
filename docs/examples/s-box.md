@@ -6,7 +6,7 @@ import SBoxDemo from './demos/SBoxDemo.vue'
 
 ```vue
 <script setup>
-import { SBox, SText } from 'polaris-vue'
+import { SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

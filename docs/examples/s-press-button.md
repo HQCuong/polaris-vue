@@ -7,7 +7,7 @@ import SPressButtonDemo from './demos/SPressButtonDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SPressButton } from 'polaris-vue'
+import { SPressButton } from 'polaris-vue-elements'
 
 const pressed = ref(false)
 </script>

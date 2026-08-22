@@ -3,7 +3,7 @@
 # SStack `<s-stack>`
 
 ```ts
-import { SStack } from 'polaris-vue'
+import { SStack } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SStackDemo from '../examples/demos/SStackDemo.vue'
 
 ```vue
 <script setup>
-import { SStack, SBox, SText } from 'polaris-vue'
+import { SStack, SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

@@ -6,7 +6,7 @@ import SBadgeDemo from './demos/SBadgeDemo.vue'
 
 ```vue
 <script setup>
-import { SBadge } from 'polaris-vue'
+import { SBadge } from 'polaris-vue-elements'
 </script>
 
 <template>

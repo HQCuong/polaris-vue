@@ -6,7 +6,7 @@ import SHeadingDemo from './demos/SHeadingDemo.vue'
 
 ```vue
 <script setup>
-import { SHeading, SParagraph } from 'polaris-vue'
+import { SHeading, SParagraph } from 'polaris-vue-elements'
 </script>
 
 <template>

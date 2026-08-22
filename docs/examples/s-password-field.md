@@ -7,7 +7,7 @@ import SPasswordFieldDemo from './demos/SPasswordFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SPasswordField } from 'polaris-vue'
+import { SPasswordField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

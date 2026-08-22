@@ -3,7 +3,7 @@
 # SUrlField `<s-url-field>`
 
 ```ts
-import { SUrlField } from 'polaris-vue'
+import { SUrlField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SUrlFieldDemo from '../examples/demos/SUrlFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SUrlField } from 'polaris-vue'
+import { SUrlField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

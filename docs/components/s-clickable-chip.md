@@ -3,7 +3,7 @@
 # SClickableChip `<s-clickable-chip>`
 
 ```ts
-import { SClickableChip } from 'polaris-vue'
+import { SClickableChip } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SClickableChipDemo from '../examples/demos/SClickableChipDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SClickableChip, SIcon } from 'polaris-vue'
+import { SClickableChip, SIcon } from 'polaris-vue-elements'
 
 const removed = ref(false)
 </script>

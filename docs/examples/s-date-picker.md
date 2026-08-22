@@ -7,7 +7,7 @@ import SDatePickerDemo from './demos/SDatePickerDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SDatePicker } from 'polaris-vue'
+import { SDatePicker } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

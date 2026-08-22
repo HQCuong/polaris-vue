@@ -6,7 +6,7 @@ import SSectionDemo from './demos/SSectionDemo.vue'
 
 ```vue
 <script setup>
-import { SSection, SParagraph, SDivider } from 'polaris-vue'
+import { SSection, SParagraph, SDivider } from 'polaris-vue-elements'
 </script>
 
 <template>

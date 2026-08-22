@@ -6,7 +6,7 @@ import SDividerDemo from './demos/SDividerDemo.vue'
 
 ```vue
 <script setup>
-import { SDivider, SParagraph } from 'polaris-vue'
+import { SDivider, SParagraph } from 'polaris-vue-elements'
 </script>
 
 <template>

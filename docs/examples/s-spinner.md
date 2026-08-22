@@ -6,7 +6,7 @@ import SSpinnerDemo from './demos/SSpinnerDemo.vue'
 
 ```vue
 <script setup>
-import { SSpinner } from 'polaris-vue'
+import { SSpinner } from 'polaris-vue-elements'
 </script>
 
 <template>

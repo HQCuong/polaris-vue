@@ -7,13 +7,8 @@ a typed, idiomatic Vue surface (props, events, v-model) around them.
 
 ## 1. Install
 
-> [!WARNING]
-> This package is not published to npm yet. The install command below is a
-> placeholder for when it is — until then, consume it from a git checkout or a
-> local `npm link`.
-
 ```sh
-npm install polaris-vue
+npm install polaris-vue-elements
 ```
 
 ## 2. Load the Polaris runtime
@@ -68,7 +63,7 @@ component — props and events are fully typed:
 
 ```vue
 <script setup lang="ts">
-import { SButton } from 'polaris-vue'
+import { SButton } from 'polaris-vue-elements'
 
 function handleClick(): void {
   console.log('clicked')
@@ -90,7 +85,7 @@ mapping — text-likes use `value`/`input`, `SCheckbox`/`SSwitch` use
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { STextField } from 'polaris-vue'
+import { STextField } from 'polaris-vue-elements'
 
 const name = ref('')
 </script>
@@ -126,7 +121,7 @@ element's method through `$el`:
 ```vue
 <script setup lang="ts">
 import { useTemplateRef } from 'vue'
-import { SModal } from 'polaris-vue'
+import { SModal } from 'polaris-vue-elements'
 
 const modalRef = useTemplateRef<InstanceType<typeof SModal>>('modal')
 

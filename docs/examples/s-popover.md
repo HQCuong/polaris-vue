@@ -6,7 +6,7 @@ import SPopoverDemo from './demos/SPopoverDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SPopover, SText } from 'polaris-vue'
+import { SButton, SPopover, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

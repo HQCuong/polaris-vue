@@ -3,7 +3,7 @@
 # STableBody `<s-table-body>`
 
 ```ts
-import { STableBody } from 'polaris-vue'
+import { STableBody } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -24,7 +24,7 @@ import {
   STableRow,
   STableCell,
   SBadge,
-} from 'polaris-vue'
+} from 'polaris-vue-elements'
 </script>
 
 <template>

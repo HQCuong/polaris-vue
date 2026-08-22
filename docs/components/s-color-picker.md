@@ -3,7 +3,7 @@
 # SColorPicker `<s-color-picker>`
 
 ```ts
-import { SColorPicker } from 'polaris-vue'
+import { SColorPicker } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SColorPickerDemo from '../examples/demos/SColorPickerDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SColorPicker } from 'polaris-vue'
+import { SColorPicker } from 'polaris-vue-elements'
 
 const value = ref('#008060')
 </script>

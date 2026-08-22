@@ -6,7 +6,7 @@ import SStackDemo from './demos/SStackDemo.vue'
 
 ```vue
 <script setup>
-import { SStack, SBox, SText } from 'polaris-vue'
+import { SStack, SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

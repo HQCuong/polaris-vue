@@ -8,7 +8,7 @@ The images below load from [picsum.photos](https://picsum.photos), a third-party
 
 ```vue
 <script setup>
-import { SThumbnail } from 'polaris-vue'
+import { SThumbnail } from 'polaris-vue-elements'
 </script>
 
 <template>

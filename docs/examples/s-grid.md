@@ -6,7 +6,7 @@ import SGridDemo from './demos/SGridDemo.vue'
 
 ```vue
 <script setup>
-import { SGrid, SGridItem, SBox, SText } from 'polaris-vue'
+import { SGrid, SGridItem, SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

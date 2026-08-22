@@ -3,7 +3,7 @@
 # SBanner `<s-banner>`
 
 ```ts
-import { SBanner } from 'polaris-vue'
+import { SBanner } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SBannerDemo from '../examples/demos/SBannerDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SBanner, SButton, SText } from 'polaris-vue'
+import { SBanner, SButton, SText } from 'polaris-vue-elements'
 
 const showCritical = ref(true)
 </script>

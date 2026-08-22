@@ -3,7 +3,7 @@
 # SNumberField `<s-number-field>`
 
 ```ts
-import { SNumberField } from 'polaris-vue'
+import { SNumberField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SNumberFieldDemo from '../examples/demos/SNumberFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SNumberField } from 'polaris-vue'
+import { SNumberField } from 'polaris-vue-elements'
 
 const value = ref('1')
 </script>

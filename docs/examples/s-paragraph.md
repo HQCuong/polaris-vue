@@ -6,7 +6,7 @@ import SParagraphDemo from './demos/SParagraphDemo.vue'
 
 ```vue
 <script setup>
-import { SParagraph } from 'polaris-vue'
+import { SParagraph } from 'polaris-vue-elements'
 </script>
 
 <template>

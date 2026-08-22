@@ -3,7 +3,7 @@
 # SSpinner `<s-spinner>`
 
 ```ts
-import { SSpinner } from 'polaris-vue'
+import { SSpinner } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SSpinnerDemo from '../examples/demos/SSpinnerDemo.vue'
 
 ```vue
 <script setup>
-import { SSpinner } from 'polaris-vue'
+import { SSpinner } from 'polaris-vue-elements'
 </script>
 
 <template>

@@ -3,7 +3,7 @@
 # SChip `<s-chip>`
 
 ```ts
-import { SChip } from 'polaris-vue'
+import { SChip } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SChipDemo from '../examples/demos/SChipDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SChip, SIcon } from 'polaris-vue'
+import { SChip, SIcon } from 'polaris-vue-elements'
 
 const removed = ref(false)
 </script>

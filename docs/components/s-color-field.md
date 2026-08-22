@@ -3,7 +3,7 @@
 # SColorField `<s-color-field>`
 
 ```ts
-import { SColorField } from 'polaris-vue'
+import { SColorField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SColorFieldDemo from '../examples/demos/SColorFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SColorField } from 'polaris-vue'
+import { SColorField } from 'polaris-vue-elements'
 
 const value = ref('#008060')
 </script>

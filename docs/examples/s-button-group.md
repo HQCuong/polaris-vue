@@ -6,7 +6,7 @@ import SButtonGroupDemo from './demos/SButtonGroupDemo.vue'
 
 ```vue
 <script setup>
-import { SButton, SButtonGroup, SPressButton } from 'polaris-vue'
+import { SButton, SButtonGroup, SPressButton } from 'polaris-vue-elements'
 </script>
 
 <template>

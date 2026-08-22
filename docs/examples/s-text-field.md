@@ -7,7 +7,7 @@ import STextFieldDemo from './demos/STextFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { STextField } from 'polaris-vue'
+import { STextField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

@@ -3,7 +3,7 @@
 # SSearchField `<s-search-field>`
 
 ```ts
-import { SSearchField } from 'polaris-vue'
+import { SSearchField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SSearchFieldDemo from '../examples/demos/SSearchFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SSearchField } from 'polaris-vue'
+import { SSearchField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

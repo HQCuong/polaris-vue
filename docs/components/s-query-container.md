@@ -3,7 +3,7 @@
 # SQueryContainer `<s-query-container>`
 
 ```ts
-import { SQueryContainer } from 'polaris-vue'
+import { SQueryContainer } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -18,7 +18,7 @@ import SQueryContainerDemo from '../examples/demos/SQueryContainerDemo.vue'
 
 ```vue
 <script setup>
-import { SQueryContainer, SText } from 'polaris-vue'
+import { SQueryContainer, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

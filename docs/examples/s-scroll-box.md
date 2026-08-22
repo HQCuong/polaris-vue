@@ -6,7 +6,7 @@ import SScrollBoxDemo from './demos/SScrollBoxDemo.vue'
 
 ```vue
 <script setup>
-import { SScrollBox, SBox, SText } from 'polaris-vue'
+import { SScrollBox, SBox, SText } from 'polaris-vue-elements'
 </script>
 
 <template>

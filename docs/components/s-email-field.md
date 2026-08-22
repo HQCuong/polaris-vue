@@ -3,7 +3,7 @@
 # SEmailField `<s-email-field>`
 
 ```ts
-import { SEmailField } from 'polaris-vue'
+import { SEmailField } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -17,7 +17,7 @@ import SEmailFieldDemo from '../examples/demos/SEmailFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SEmailField } from 'polaris-vue'
+import { SEmailField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

@@ -7,7 +7,7 @@ import SSearchFieldDemo from './demos/SSearchFieldDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SSearchField } from 'polaris-vue'
+import { SSearchField } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

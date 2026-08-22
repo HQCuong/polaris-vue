@@ -9,7 +9,7 @@ import SSelectDemo from './demos/SSelectDemo.vue'
 ```vue
 <script setup>
 import { ref } from 'vue'
-import { SSelect, SOption, SOptionGroup } from 'polaris-vue'
+import { SSelect, SOption, SOptionGroup } from 'polaris-vue-elements'
 
 const value = ref('')
 </script>

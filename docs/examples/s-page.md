@@ -9,7 +9,7 @@ import SPageDemo from './demos/SPageDemo.vue'
 
 ```vue
 <script setup>
-import { SPage, SSection, SParagraph, SButton } from 'polaris-vue'
+import { SPage, SSection, SParagraph, SButton } from 'polaris-vue-elements'
 </script>
 
 <template>

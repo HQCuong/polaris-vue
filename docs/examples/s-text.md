@@ -6,7 +6,7 @@ import STextDemo from './demos/STextDemo.vue'
 
 ```vue
 <script setup>
-import { SText } from 'polaris-vue'
+import { SText } from 'polaris-vue-elements'
 </script>
 
 <template>

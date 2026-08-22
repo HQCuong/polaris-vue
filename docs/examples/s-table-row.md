@@ -14,7 +14,7 @@ import {
   STableRow,
   STableCell,
   SBadge,
-} from 'polaris-vue'
+} from 'polaris-vue-elements'
 </script>
 
 <template>

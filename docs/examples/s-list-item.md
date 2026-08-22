@@ -6,7 +6,7 @@ import SListsDemo from './demos/SListsDemo.vue'
 
 ```vue
 <script setup>
-import { SUnorderedList, SOrderedList, SListItem, SStack } from 'polaris-vue'
+import { SUnorderedList, SOrderedList, SListItem, SStack } from 'polaris-vue-elements'
 </script>
 
 <template>

@@ -6,7 +6,7 @@ import SLinkDemo from './demos/SLinkDemo.vue'
 
 ```vue
 <script setup>
-import { SLink } from 'polaris-vue'
+import { SLink } from 'polaris-vue-elements'
 </script>
 
 <template>

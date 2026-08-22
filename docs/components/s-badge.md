@@ -3,7 +3,7 @@
 # SBadge `<s-badge>`
 
 ```ts
-import { SBadge } from 'polaris-vue'
+import { SBadge } from 'polaris-vue-elements'
 ```
 
 ## Example
@@ -16,7 +16,7 @@ import SBadgeDemo from '../examples/demos/SBadgeDemo.vue'
 
 ```vue
 <script setup>
-import { SBadge } from 'polaris-vue'
+import { SBadge } from 'polaris-vue-elements'
 </script>
 
 <template>

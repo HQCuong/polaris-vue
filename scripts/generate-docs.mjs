@@ -25,6 +25,8 @@ const polarisTypesDir = path.join(repoRoot, 'node_modules', '@shopify', 'polaris
 const manifestPath = path.join(polarisTypesDir, 'dist', 'custom-elements.json')
 const pkgPath = path.join(polarisTypesDir, 'package.json')
 
+const repoPkgPath = path.join(repoRoot, 'package.json')
+
 const overridesPath = path.join(repoRoot, 'src', 'lib', 'overrides.ts')
 const examplesDir = path.join(repoRoot, 'docs', 'examples')
 const componentsDir = path.join(repoRoot, 'docs', 'components')
@@ -70,6 +72,20 @@ const polarisTypesVersion = polarisTypesPkg.version
 assert(
   typeof polarisTypesVersion === 'string' && polarisTypesVersion.length > 0,
   '@shopify/polaris-types package.json is missing a "version" field',
+)
+
+// The published package name — used in every import example so docs always
+// match what consumers actually install.
+let repoPkg
+try {
+  repoPkg = JSON.parse(readFileSync(repoPkgPath, 'utf8'))
+} catch (error) {
+  fail(`could not read ${repoPkgPath}: ${error.message}`)
+}
+const packageName = repoPkg.name
+assert(
+  typeof packageName === 'string' && packageName.length > 0,
+  'root package.json is missing a "name" field',
 )
 
 let overridesRaw
@@ -312,7 +328,7 @@ function renderExampleSection(component) {
   lines.push('')
   lines.push('```vue')
   lines.push('<script setup>')
-  lines.push(`import { ${component.exportName} } from 'polaris-vue'`)
+  lines.push(`import { ${component.exportName} } from '${packageName}'`)
   lines.push('</script>')
   lines.push('')
   lines.push('<template>')
@@ -407,7 +423,7 @@ function renderMethodsSection(component) {
   lines.push('```vue')
   lines.push('<script setup>')
   lines.push("import { useTemplateRef } from 'vue'")
-  lines.push(`import { ${component.exportName} } from 'polaris-vue'`)
+  lines.push(`import { ${component.exportName} } from '${packageName}'`)
   lines.push('')
   lines.push(
     `const ${refName} = useTemplateRef<InstanceType<typeof ${component.exportName}>>('${refName}')`,
@@ -451,7 +467,7 @@ function renderComponentPage(component) {
     `# ${component.exportName} \`<${component.tagName}>\``,
     '',
     '```ts',
-    `import { ${component.exportName} } from 'polaris-vue'`,
+    `import { ${component.exportName} } from '${packageName}'`,
     '```',
   ].join('\n')
 
