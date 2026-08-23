@@ -270,3 +270,31 @@
 .vp-doc div[class*='language-'] {
   border-radius: 10px;
 }
+
+/* ==========================================================================
+ * Local search results
+ *
+ * VitePress de-emphasises unselected results with `opacity: 50%` on the
+ * excerpt. Opacity blends text toward the result background, so on the dark
+ * theme's #1b1b1f the body text lands around 4:1 contrast and table headers
+ * — which `.vp-doc th` above paints --vp-c-text-2 — drop to ~2.4:1. Both are
+ * below AA at the 0.8rem the excerpt forces. 90% keeps the "not selected"
+ * cue while staying legible; the selected result is restored to full opacity.
+ *
+ * Three-class chains out-specify the theme's scoped `.excerpt[data-v-<hash>]`
+ * rules without hard-coding a hash that changes on every VitePress upgrade.
+ * ========================================================================== */
+
+.VPLocalSearchBox .result .excerpt {
+  opacity: 0.9;
+}
+
+.VPLocalSearchBox .result.selected .excerpt {
+  opacity: 1;
+}
+
+/* Reference-table headings are the worst offenders: uppercase 12px shrunk to
+ * 0.8rem by the excerpt, in the muted --vp-c-text-2. Full-strength text here. */
+.VPLocalSearchBox .excerpt th {
+  color: var(--vp-c-text-1);
+}
