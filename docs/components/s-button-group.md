@@ -24,15 +24,11 @@ import { SButton, SButtonGroup, SPressButton } from 'polaris-vue-elements'
 </script>
 
 <template>
-  <!-- Default slot: a plain segmented group of PressButtons -->
-  <SButtonGroup>
-    <SPressButton>List</SPressButton>
-    <SPressButton pressed>Grid</SPressButton>
-  </SButtonGroup>
-
-  <!-- primary-action/secondary-actions slots follow the same variant rules as SModal:
-       primary-action accepts a single variant="primary" button, secondary-actions
-       accepts variant="secondary" (or "auto") buttons. -->
+  <!-- primary-action accepts a single variant="primary" button; secondary-actions
+       accepts Button (variant "secondary" or "auto") and PressButton (variant
+       "secondary", its default) elements. The default slot is NOT rendered by the
+       underlying <s-button-group> — content without one of these slots silently
+       disappears. -->
   <SButtonGroup>
     <template #primary-action>
       <SButton variant="primary">Save</SButton>
@@ -40,6 +36,15 @@ import { SButton, SButtonGroup, SPressButton } from 'polaris-vue-elements'
     <template #secondary-actions>
       <SButton variant="secondary">Cancel</SButton>
       <SButton variant="secondary">Discard</SButton>
+    </template>
+  </SButtonGroup>
+
+  <!-- Segmented toggle: gap="none" joins the buttons. primary-action is not
+       supported with gap="none", so every button goes in secondary-actions. -->
+  <SButtonGroup gap="none" accessibilityLabel="View style">
+    <template #secondary-actions>
+      <SPressButton>List</SPressButton>
+      <SPressButton pressed>Grid</SPressButton>
     </template>
   </SButtonGroup>
 </template>
