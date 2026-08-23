@@ -31,6 +31,7 @@ const overridesPath = path.join(repoRoot, 'src', 'lib', 'overrides.ts')
 const examplesDir = path.join(repoRoot, 'docs', 'examples')
 const componentsDir = path.join(repoRoot, 'docs', 'components')
 const sidebarPath = path.join(repoRoot, 'docs', '.vitepress', 'components-sidebar.json')
+const indexPath = path.join(componentsDir, 'index.md')
 
 function fail(message) {
   console.error(`[generate-docs] ${message}`)
@@ -254,6 +255,123 @@ for (const tag of SAFE_PREVIEW_TAGS) {
     `SAFE_PREVIEW_TAGS references unknown tag "${tag}" (not found in the manifest)`,
   )
 }
+
+// ---------------------------------------------------------------------------
+// Categories
+// ---------------------------------------------------------------------------
+
+// Shopify's Custom Elements Manifest carries no category information, so this map is
+// the one piece of docs taxonomy that cannot be derived from it. The category names and
+// membership mirror the grouping Shopify uses on
+// https://shopify.dev/docs/api/app-home/polaris-web-components so the sidebar reads the
+// same way as the upstream reference.
+//
+// Sub-components that Shopify documents inside a parent's page rather than as their own
+// sidebar entry (s-table-cell, s-option, s-grid-item, ...) are filed under the same
+// category as their parent.
+//
+// The two assertions below keep this map honest in both directions: a tag listed here
+// that no longer exists upstream, or a newly shipped Polaris component nobody has filed
+// yet, fails `npm run docs:generate` loudly instead of silently skewing the sidebar.
+const CATEGORIES = [
+  {
+    text: 'Actions',
+    tags: [
+      's-button',
+      's-button-group',
+      's-clickable',
+      's-clickable-chip',
+      's-link',
+      's-menu',
+      's-press-button',
+    ],
+  },
+  {
+    text: 'Feedback and status',
+    tags: ['s-badge', 's-banner', 's-spinner'],
+  },
+  {
+    text: 'Forms',
+    tags: [
+      's-checkbox',
+      's-choice',
+      's-choice-list',
+      's-color-field',
+      's-color-picker',
+      's-date-field',
+      's-date-picker',
+      's-drop-zone',
+      's-email-field',
+      's-money-field',
+      's-number-field',
+      's-option',
+      's-option-group',
+      's-password-field',
+      's-search-field',
+      's-select',
+      's-switch',
+      's-text-area',
+      's-text-field',
+      's-url-field',
+    ],
+  },
+  {
+    text: 'Layout and structure',
+    tags: [
+      's-box',
+      's-divider',
+      's-grid',
+      's-grid-item',
+      's-list-item',
+      's-ordered-list',
+      's-page',
+      's-query-container',
+      's-scroll-box',
+      's-section',
+      's-stack',
+      's-table',
+      's-table-body',
+      's-table-cell',
+      's-table-header',
+      's-table-header-row',
+      's-table-row',
+      's-unordered-list',
+    ],
+  },
+  {
+    text: 'Media and visuals',
+    tags: ['s-avatar', 's-icon', 's-image', 's-thumbnail'],
+  },
+  {
+    text: 'Overlays',
+    tags: ['s-modal', 's-popover'],
+  },
+  {
+    text: 'Typography and content',
+    tags: ['s-chip', 's-heading', 's-paragraph', 's-text', 's-tooltip'],
+  },
+]
+
+const categoryByTag = new Map()
+for (const category of CATEGORIES) {
+  for (const tag of category.tags) {
+    assert(
+      !categoryByTag.has(tag),
+      `tag "${tag}" is listed in more than one category ("${categoryByTag.get(tag)}" and "${category.text}")`,
+    )
+    assert(
+      components.some((c) => c.tagName === tag),
+      `category "${category.text}" references unknown tag "${tag}" (not found in the manifest). Has Shopify removed it?`,
+    )
+    categoryByTag.set(tag, category.text)
+  }
+}
+
+const uncategorized = components.filter((c) => !categoryByTag.has(c.tagName)).map((c) => c.tagName)
+assert(
+  uncategorized.length === 0,
+  `these manifest tags are not assigned to a category in CATEGORIES: ${uncategorized.join(', ')}. Add them (see https://shopify.dev/docs/api/app-home/polaris-web-components for where Shopify files them).`,
+)
 
 // ---------------------------------------------------------------------------
 // Markdown rendering helpers
@@ -495,16 +613,54 @@ for (const component of components) {
   writeFileSync(path.join(componentsDir, `${component.tagName}.md`), renderComponentPage(component))
 }
 
-const sidebar = components
-  .map((c) => ({
-    text: `${c.exportName} (${c.tagName})`,
-    link: `/components/${c.tagName}`,
-  }))
-  .toSorted((a, b) => a.text.localeCompare(b.text))
+const componentByTag = new Map(components.map((c) => [c.tagName, c]))
+
+// One VitePress sidebar group per category, in the order CATEGORIES declares them, with
+// components sorted by export name inside each group. Groups start collapsed — VitePress
+// auto-expands whichever one contains the page you're on, so the sidebar stays short.
+const sidebar = CATEGORIES.map((category) => ({
+  text: category.text,
+  collapsed: true,
+  items: category.tags
+    .map((tag) => componentByTag.get(tag))
+    .toSorted((a, b) => a.exportName.localeCompare(b.exportName))
+    .map((c) => ({ text: c.exportName, link: `/components/${c.tagName}` })),
+}))
 
 mkdirSync(path.dirname(sidebarPath), { recursive: true })
 writeFileSync(sidebarPath, JSON.stringify(sidebar, null, 2) + '\n')
 
+// docs/components/index.md — the target of the "Components" nav link, and a
+// browse-by-category overview of every wrapper.
+function renderComponentsIndex() {
+  const lines = [banner(), '', '# Components', '']
+  lines.push(
+    `${components.length} typed Vue wrappers, one per Polaris web component, grouped the way [Shopify's own reference](https://shopify.dev/docs/api/app-home/polaris-web-components) groups them.`,
+  )
+  lines.push('')
+
+  for (const category of CATEGORIES) {
+    lines.push(`## ${category.text}`)
+    lines.push('')
+    lines.push('<div class="component-grid">')
+    lines.push('')
+    for (const c of category.tags
+      .map((tag) => componentByTag.get(tag))
+      .toSorted((a, b) => a.exportName.localeCompare(b.exportName))) {
+      lines.push(
+        `- [**${c.exportName}**<span class="component-grid-tag">&lt;${c.tagName}&gt;</span>](/components/${c.tagName})`,
+      )
+    }
+    lines.push('')
+    lines.push('</div>')
+    lines.push('')
+  }
+
+  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n'
+}
+
+writeFileSync(indexPath, renderComponentsIndex())
+
 console.warn(
-  `[generate-docs] wrote ${components.length} component pages to ${path.relative(repoRoot, componentsDir)} and ${path.relative(repoRoot, sidebarPath)}`,
+  `[generate-docs] wrote ${components.length} component pages in ${CATEGORIES.length} categories to ${path.relative(repoRoot, componentsDir)}, plus ${path.relative(repoRoot, indexPath)} and ${path.relative(repoRoot, sidebarPath)}`,
 )

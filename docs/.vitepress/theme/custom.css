@@ -1,5 +1,216 @@
-/*
- * Live-example surface.
+/* ==========================================================================
+ * Theme tokens
+ *
+ * The default VitePress theme is driven almost entirely by CSS custom
+ * properties, so re-skinning it means overriding variables — not fighting
+ * its selectors. Only the tokens below change; every component that reads
+ * them (buttons, links, active sidebar item, hero, search box, custom
+ * containers) follows automatically and keeps working across VitePress
+ * upgrades.
+ *
+ * The accent is Polaris green rather than VitePress blue so the docs read as
+ * belonging to the Shopify ecosystem the library wraps.
+ * ========================================================================== */
+
+:root {
+  --vp-c-brand-1: #007a5c;
+  --vp-c-brand-2: #00614a;
+  --vp-c-brand-3: #008060;
+  --vp-c-brand-soft: rgba(0, 128, 96, 0.14);
+
+  --vp-button-brand-bg: #008060;
+  --vp-button-brand-hover-bg: #00694e;
+  --vp-button-brand-active-bg: #00553f;
+
+  /* Hero headline gradient — the one deliberately vivid moment on the site. */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(78deg, #008060 12%, #2aa47c 58%, #4fb8a0 100%);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #008060 45%, #4fb8a0 55%);
+  --vp-home-hero-image-filter: blur(52px) opacity(0.28);
+
+  --vp-custom-block-tip-border: rgba(0, 128, 96, 0.28);
+}
+
+.dark {
+  /* Green desaturates badly on dark backgrounds; shift toward mint so links
+   * keep AA contrast against --vp-c-bg without glowing. */
+  --vp-c-brand-1: #5fd0ab;
+  --vp-c-brand-2: #7cdcbb;
+  --vp-c-brand-3: #2f9c78;
+  --vp-c-brand-soft: rgba(95, 208, 171, 0.16);
+
+  --vp-button-brand-bg: #1f8a68;
+  --vp-button-brand-hover-bg: #26a37c;
+  --vp-button-brand-active-bg: #197154;
+
+  --vp-home-hero-name-background: linear-gradient(78deg, #4fd6ae 12%, #6fe0c4 58%, #a6ecd8 100%);
+}
+
+/* ==========================================================================
+ * Home page
+ * ========================================================================== */
+
+.VPHero .name {
+  letter-spacing: -0.02em;
+}
+
+/* Feature cards: flat by default, lifting only on hover. Motion is the cheapest
+ * way to make a static docs page feel alive without adding visual noise. */
+.VPFeature {
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.VPFeature:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.dark .VPFeature:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+}
+
+/* ==========================================================================
+ * Sidebar
+ *
+ * Component pages are grouped by category (see CATEGORIES in
+ * scripts/generate-docs.mjs). With 7 groups on screen the group headings do
+ * the navigating, so they get small-caps treatment to separate them from the
+ * component links underneath.
+ * ========================================================================== */
+
+.VPSidebarItem.level-0 > .item > .text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-2);
+}
+
+.VPSidebarItem.level-1 .link .text {
+  transition: color 0.15s ease;
+}
+
+/* Extra weight on the active item: when every entry looks alike (SButton,
+ * SButtonGroup, SChip, ...) brand color alone is easy to lose track of. */
+.VPSidebarItem.level-1.is-active > .item .link .text {
+  font-weight: 600;
+}
+
+/* ==========================================================================
+ * Components overview (docs/components/index.md)
+ *
+ * The generated index wraps each category's list in `.component-grid`. The
+ * markdown list is turned into a responsive card grid; `auto-fill` keeps it
+ * from stretching two cards across a wide screen.
+ * ========================================================================== */
+
+.vp-doc .component-grid ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+/* VitePress ships `.vp-doc li + li { margin-top: 8px }`, which out-specifies a
+ * bare `.component-grid li` selector and staggers the cards inside the grid. */
+.vp-doc .component-grid li,
+.vp-doc .component-grid li + li {
+  margin: 0;
+}
+
+.vp-doc .component-grid li a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.vp-doc .component-grid li a:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  transform: translateY(-1px);
+}
+
+.vp-doc .component-grid li a strong {
+  font-weight: 600;
+}
+
+.component-grid-tag {
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  color: var(--vp-c-text-3);
+}
+
+/* ==========================================================================
+ * Document width
+ *
+ * Every component page is dominated by three-column reference tables, which
+ * are cramped at the default 688px content width. 816px gives the type and
+ * description columns room without pushing prose lines past a comfortable
+ * measure. Only applied where there's an aside to sit next to.
+ * ========================================================================== */
+
+@media (min-width: 1280px) {
+  /* `.VPContent` is prepended purely for specificity: VitePress's own rule is
+   * `.VPDoc.has-aside .content-container[data-v-<hash>]`, and the scoped-style
+   * attribute out-specifies a plain class chain. Matching its weight and
+   * relying on load order (custom.css comes after the theme) avoids hard-coding
+   * a build hash that changes on every VitePress upgrade. */
+  .VPContent .VPDoc.has-aside .content-container {
+    max-width: 816px;
+  }
+}
+
+/* ==========================================================================
+ * Reference tables
+ *
+ * Every component page is mostly Props/Events/Slots tables, so a little
+ * typographic hierarchy here pays off across all 59 pages.
+ * ========================================================================== */
+
+.vp-doc th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc tr {
+  transition: background-color 0.15s ease;
+}
+
+.vp-doc tbody tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+/* Type columns hold long unions; wrapping them beats a horizontal scrollbar.
+ * Scoped away from the first column — prop/event/slot names are single
+ * identifiers and breaking them mid-word ("autoco / mplete") is unreadable. */
+.vp-doc td:not(:first-child) code {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+ * Live examples
  *
  * The Polaris web components loaded from cdn.shopify.com ship light-mode
  * styles only (they're built for the Shopify admin, which has no dark theme):
@@ -7,15 +218,33 @@
  * docs site's dark background those labels are unreadable, so every live
  * example is rendered on a light admin-like card in BOTH themes rather than
  * trying to re-theme the components.
- */
+ * ========================================================================== */
+
 .demo-surface {
   color-scheme: light;
+  position: relative;
   background: #ffffff;
   color: rgb(48, 48, 48);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 34px 20px 20px;
   margin: 16px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Labels the card as a running example rather than a screenshot, and gives the
+ * eye an anchor when a demo sits directly above its source snippet. */
+.demo-surface::before {
+  content: 'Live example';
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgb(138, 138, 138);
 }
 
 /* Plain-prose output inside demos (e.g. "Value: …") would otherwise inherit
@@ -27,4 +256,17 @@
 .dark .demo-surface code {
   color: #3451b2;
   background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+ * Misc
+ * ========================================================================== */
+
+.vp-doc a {
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.vp-doc div[class*='language-'] {
+  border-radius: 10px;
 }
