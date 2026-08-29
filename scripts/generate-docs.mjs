@@ -578,8 +578,30 @@ function renderSlotsSection(component) {
   return lines.join('\n')
 }
 
+// One-line `<meta name="description">` per component page. The manifest carries no
+// component-level prose, so this is templated from what the page actually documents.
+function componentDescription(component) {
+  const parts = [`Props, events and slots reference for the ${component.exportName} Vue 3 component`]
+  parts.push(`a typed wrapper around the Shopify Polaris ${component.tagName} web component`)
+  const vModel = vModelOverrides.get(component.tagName)
+  if (vModel) parts.push(`with v-model support via ${vModel.prop}/${vModel.event}`)
+  return parts.join(', ') + '.'
+}
+
+// YAML front matter. Descriptions are double-quoted so `<s-tag>`, colons and
+// commas never need escaping beyond `"` and `\`.
+function frontmatter(fields) {
+  const lines = ['---']
+  for (const [key, value] of Object.entries(fields)) {
+    lines.push(`${key}: ${JSON.stringify(value)}`)
+  }
+  lines.push('---')
+  return lines.join('\n')
+}
+
 function renderComponentPage(component) {
   const header = [
+    frontmatter({ description: componentDescription(component) }),
     banner(),
     '',
     `# ${component.exportName} \`<${component.tagName}>\``,
@@ -633,7 +655,15 @@ writeFileSync(sidebarPath, JSON.stringify(sidebar, null, 2) + '\n')
 // docs/components/index.md — the target of the "Components" nav link, and a
 // browse-by-category overview of every wrapper.
 function renderComponentsIndex() {
-  const lines = [banner(), '', '# Components', '']
+  const lines = [
+    frontmatter({
+      description: `Browse all ${components.length} typed Vue 3 wrappers for Shopify Polaris web components, grouped by category — actions, forms, layout, feedback, tables and more.`,
+    }),
+    banner(),
+    '',
+    '# Components',
+    '',
+  ]
   lines.push(
     `${components.length} typed Vue wrappers, one per Polaris web component, grouped the way [Shopify's own reference](https://shopify.dev/docs/api/app-home/polaris-web-components) groups them.`,
   )

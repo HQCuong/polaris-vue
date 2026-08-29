@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://polaris-vue.vict0r.net/sitemap.xml

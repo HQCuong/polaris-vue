@@ -1,3 +1,7 @@
+---
+description: Browser-verified quirks of Shopify Polaris web components when used from Vue 3 — slot requirements, event timing and v-model behaviors that differ from typical Vue component libraries.
+---
+
 # Known quirks & gotchas
 
 These are real, browser-verified behaviors of the underlying Polaris web

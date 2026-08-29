@@ -1,5 +1,7 @@
 ---
 layout: home
+title: Vue 3 wrappers for Shopify Polaris web components
+description: polaris-vue gives you typed Vue 3 components (props, events, v-model) around Shopify Polaris web components like s-button, s-text-field and s-modal — generated from the official Custom Elements Manifest.
 
 hero:
   name: polaris-vue

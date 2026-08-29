@@ -1,3 +1,7 @@
+---
+description: Install polaris-vue-elements, load the Polaris web components runtime, and use typed Vue 3 wrappers like SButton and STextField with v-model in a Vue app.
+---
+
 # Getting started
 
 `polaris-vue` is a set of typed Vue 3 components that wrap Shopify's Polaris web
