@@ -62,7 +62,7 @@ export default defineConfig({
     // Loads the real Polaris custom element definitions so that live examples
     // in the docs (and the components used to render this site itself) work
     // exactly as they would in a consuming app.
-    ['script', { src: 'https://cdn.shopify.com/shopifycloud/polaris.js' }],
+    ['script', { src: 'https://cdn.shopify.com/shopifycloud/polaris-1.js' }],
   ],
 
   // Per-page tags that need the page's own title/description/URL: canonical,

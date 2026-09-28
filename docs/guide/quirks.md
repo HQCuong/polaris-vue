@@ -77,12 +77,29 @@ it (e.g. with `v-if`/`:key`) rather than mutating `slot` reactively.
 <SButton :key="isPrimary" :slot="isPrimary ? 'primary-action' : 'secondary-actions'">...</SButton>
 ```
 
-## 5. The Polaris runtime is evergreen — this library's version is not the runtime's version
+## 5. The Polaris runtime is versioned on the CDN — this library's version is not the runtime's version
 
-`https://cdn.shopify.com/shopifycloud/polaris.js` always serves Shopify's
-latest Polaris build, regardless of which version of `polaris-vue` you have
-installed. This library's version only reflects the freshness of its
-generated **types and wrappers**:
+Since August 2026 the Polaris CDN follows semantic versioning
+([changelog](https://shopify.dev/changelog/the-polaris-cdn-is-adopting-semantic-versioning)).
+Pick the channel that fits your release process:
+
+| URL | What it serves |
+| --- | --- |
+| `polaris-1.js` | Stable 1.x channel — receives compatible (minor) updates automatically. **Recommended.** |
+| `polaris-1.1.js` | Pinned release — no feature, fix or visual changes until you move the pin. |
+| `polaris-2.0-rc.js` | Polaris 2.0 release candidate — the new Shopify admin visual style. For testing. |
+| `polaris.js` | Legacy URL — currently serves the same build as `polaris-1.js` and never moves to a new major on its own. |
+
+A new major (such as 2.0) is always opt-in: you change the script URL. The
+Polaris 2.0 release candidate
+([changelog](https://shopify.dev/changelog/polaris-2-0-release-candidate))
+is announced as a visual update: its Custom Elements Manifest
+(`@shopify/polaris-types@2.0.0-rc.0`) declares the same tags, props, events and
+slots as 1.1, so these wrappers type-check the same against `polaris-2.0-rc.js`.
+
+Whichever channel you load, the runtime updates independently of the version
+of `polaris-vue-elements` you have installed. This library's version only
+reflects the freshness of its generated **types and wrappers**:
 
 - A stale wrapper never breaks components that already exist — it just may be
   missing typed props/events for features Shopify added after the wrapper was

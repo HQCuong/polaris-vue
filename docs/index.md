@@ -23,5 +23,5 @@ features:
   - title: Degrades gracefully
     details: Unknown props pass straight through via $attrs, and slot content is forwarded verbatim. A stale wrapper version never breaks existing usage — it just lacks types for newer features.
   - title: Synced with the manifest
-    details: Component and type definitions are generated directly from Shopify's Custom Elements Manifest, keeping the wrapper surface aligned with the evergreen Polaris runtime.
+    details: Component and type definitions are generated directly from Shopify's Custom Elements Manifest, keeping the wrapper surface aligned with the Polaris runtime on the CDN.
 ---

@@ -4,7 +4,7 @@ Typed Vue 3 wrapper components for [Shopify Polaris web components](https://shop
 
 **📖 Documentation: [polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** — guides, known quirks, and live examples for all 59 components.
 
-The Polaris runtime itself is loaded from Shopify's CDN and always evergreen. This library gives you an idiomatic, fully typed Vue surface on top of it:
+The Polaris runtime itself is loaded from Shopify's CDN (the `polaris-1.js` stable channel receives compatible updates automatically). This library gives you an idiomatic, fully typed Vue surface on top of it:
 
 - **Typed props & events for all 59 components**, generated from Shopify's official Custom Elements Manifest (`@shopify/polaris-types`) — union-typed props like `variant`, autocomplete in templates, typed `@click`/`@aftershow` listeners.
 - **`v-model` on 18 form components** (`STextField`, `SCheckbox`, `SSelect`, `SChoiceList`, …) with the correct property/event pair for each.
@@ -25,7 +25,7 @@ The wrappers are presentational only — your host app must load the Polaris run
 
 ```html
 <!-- index.html -->
-<script src="https://cdn.shopify.com/shopifycloud/polaris.js"></script>
+<script src="https://cdn.shopify.com/shopifycloud/polaris-1.js"></script>
 ```
 
 ```ts

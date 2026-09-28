@@ -26,7 +26,7 @@ script, which registers `<s-*>` elements globally:
 <!doctype html>
 <html>
   <head>
-    <script src="https://cdn.shopify.com/shopifycloud/polaris.js"></script>
+    <script src="https://cdn.shopify.com/shopifycloud/polaris-1.js"></script>
   </head>
   <body>
     <div id="app"></div>
