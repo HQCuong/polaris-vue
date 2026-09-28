@@ -128,6 +128,15 @@ function toComponentName(tagName) {
   return `S${toPascalCase(tagName.slice(2))}`
 }
 
+// Manifest descriptions link to Shopify's own docs with root-relative markdown links
+// (e.g. `[responsive values](/docs/api/polaris/using-polaris-web-components)`). On this
+// site those resolve to nonexistent pages and fail the VitePress dead-link check, so
+// point them back at shopify.dev.
+function manifestDescription(value) {
+  if (typeof value !== 'string') return ''
+  return value.trim().replace(/\]\(\/(?!\/)/g, '](https://shopify.dev/')
+}
+
 const components = []
 
 for (const raw of rawComponents) {
@@ -146,7 +155,7 @@ for (const raw of rawComponents) {
     if (field.static) continue
 
     const typeText = field.type && typeof field.type.text === 'string' ? field.type.text : 'string'
-    const description = typeof field.description === 'string' ? field.description.trim() : ''
+    const description = manifestDescription(field.description)
 
     if (FUNCTION_TYPE_RE.test(typeText)) {
       methods.push({ name: field.name, type: typeText, description })
@@ -167,7 +176,7 @@ for (const raw of rawComponents) {
 
   const slots = (raw.slots ?? []).map((s) => ({
     name: typeof s.name === 'string' ? s.name : '',
-    description: typeof s.description === 'string' ? s.description.trim() : '',
+    description: manifestDescription(s.description),
   }))
   slots.sort((a, b) => a.name.localeCompare(b.name))
 
@@ -288,7 +297,7 @@ const CATEGORIES = [
   },
   {
     text: 'Feedback and status',
-    tags: ['s-badge', 's-banner', 's-spinner'],
+    tags: ['s-badge', 's-banner', 's-empty-state', 's-progress', 's-spinner'],
   },
   {
     text: 'Forms',
@@ -348,7 +357,7 @@ const CATEGORIES = [
   },
   {
     text: 'Typography and content',
-    tags: ['s-chip', 's-heading', 's-paragraph', 's-text', 's-tooltip'],
+    tags: ['s-chip', 's-heading', 's-number', 's-paragraph', 's-text', 's-tooltip'],
   },
 ]
 
