@@ -22,6 +22,8 @@ export default defineConfigWithVueTs(
     '**/coverage/**',
     'docs/.vitepress/cache/**',
     'docs/.vitepress/dist/**',
+    // Local GitNexus code-graph index (git-excluded, generated per machine).
+    '.gitnexus/**',
   ]),
 
   ...pluginVue.configs['flat/essential'],
