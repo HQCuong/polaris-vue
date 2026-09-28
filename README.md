@@ -28,6 +28,8 @@ The wrappers are presentational only — your host app must load the Polaris run
 <script src="https://cdn.shopify.com/shopifycloud/polaris-1.js"></script>
 ```
 
+`polaris-1.js` is Shopify's stable channel. To try the admin's new look, load the [Polaris 2.0 release candidate](https://shopify.dev/changelog/polaris-2-0-release-candidate) (`polaris-2.0-rc.js`) instead — the component API is unchanged, so the wrappers work as-is. See [Trying Polaris 2.0](https://polaris-vue.vict0r.net/guide/getting-started#trying-polaris-2-0-release-candidate).
+
 ```ts
 // vite.config.ts
 vue({
