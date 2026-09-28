@@ -67,6 +67,14 @@ jobs:
         continue-on-error: true
         run: npm run docs:generate
 
+      # Manifest descriptions feed the docs pages verbatim, so a new release can break the
+      # VitePress build (e.g. dead links) and with it the Cloudflare deploy after merge.
+      - name: Build docs
+        id: check_docsbuild
+        if: steps.versions.outputs.changed == 'true' && steps.check_docs.outcome == 'success'
+        continue-on-error: true
+        run: npm run docs:build
+
       - name: oxlint
         id: check_oxlint
         if: steps.versions.outputs.changed == 'true'
@@ -109,6 +117,7 @@ jobs:
           TYPECHECK_STATUS=$(status "${{ steps.check_typecheck.outcome }}")
           VITEST_STATUS=$(status "${{ steps.check_vitest.outcome }}")
           DOCS_STATUS=$(status "${{ steps.check_docs.outcome }}")
+          DOCSBUILD_STATUS=$(status "${{ steps.check_docsbuild.outcome }}")
 
           {
             if [ "${{ steps.versions.outputs.major }}" = "true" ]; then
@@ -129,11 +138,12 @@ jobs:
             echo "| type-check | ${TYPECHECK_STATUS} |"
             echo "| vitest | ${VITEST_STATUS} |"
             echo "| docs:generate | ${DOCS_STATUS} |"
+            echo "| docs:build | ${DOCSBUILD_STATUS} |"
             echo ""
-            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ] && [ "$DOCS_STATUS" = "passed" ]; then
+            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ] && [ "$DOCS_STATUS" = "passed" ] && [ "$DOCSBUILD_STATUS" = "passed" ]; then
               echo "All checks passed. This should be safe to review and merge."
             else
-              echo "One or more checks FAILED. Investigate before merging - a common cause is a new form-like component missing a \`v-model\` override in \`src/lib/overrides.ts\`, or a new component missing from \`CATEGORIES\` in \`scripts/generate-docs.mjs\` (docs:generate)."
+              echo "One or more checks FAILED. Investigate before merging - a common cause is a new form-like component missing a \`v-model\` override in \`src/lib/overrides.ts\`, or a new component missing from \`CATEGORIES\` in \`scripts/generate-docs.mjs\` (docs:generate), or manifest text that breaks the VitePress build (docs:build)."
             fi
           } > "$RUNNER_TEMP/pr-body.md"
 
