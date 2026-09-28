@@ -1,0 +1,100 @@
+name: Release
+
+# Publishes polaris-vue-elements to npm and creates a GitHub Release when a version tag is
+# pushed. To cut a release: move the `## [Unreleased]` entries in CHANGELOG.md under a new
+# `## [x.y.z] - YYYY-MM-DD` heading, bump `version` in package.json, commit, then push the
+# tag `vx.y.z`. See "Releasing" in README.md.
+#
+# npm auth uses Trusted Publishing (OIDC) — no token is stored. The package must list this
+# repo + `release.yml` as its trusted publisher on npmjs.com.
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write # create the GitHub Release
+  id-token: write # npm Trusted Publishing (OIDC) + provenance
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Publish ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: Check npm supports Trusted Publishing
+        run: |
+          # Trusted Publishing needs npm >= 11.5.1.
+          npm --version
+          node -e "const [a,b,c]=process.argv[1].split('.').map(Number); process.exit(a>11||(a===11&&(b>5||(b===5&&c>=1)))?0:1)" "$(npm --version)" \
+            || npm install -g npm@^11.5.1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify tag matches package.json
+        id: meta
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [ "v$VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json version $VERSION"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          case "$VERSION" in
+            *-*) echo "prerelease=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "prerelease=false" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Extract release notes from CHANGELOG.md
+        run: node scripts/changelog.mjs notes "${{ steps.meta.outputs.version }}" > "$RUNNER_TEMP/notes.md"
+
+      - name: Lint
+        run: |
+          npx oxlint .
+          npx eslint .
+
+      - name: Verify generated code is up to date
+        run: |
+          npm run generate
+          npm run docs:generate
+          git diff --exit-code
+
+      # `prepublishOnly` also runs type-check, vitest and build:lib right before publishing.
+      - name: Publish to npm
+        run: |
+          if npm view "polaris-vue-elements@${{ steps.meta.outputs.version }}" version >/dev/null 2>&1; then
+            echo "polaris-vue-elements@${{ steps.meta.outputs.version }} is already on npm, skipping publish (re-run)."
+            exit 0
+          fi
+          if [ "${{ steps.meta.outputs.prerelease }}" = "true" ]; then
+            npm publish --access public --tag next
+          else
+            npm publish --access public
+          fi
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "Release $GITHUB_REF_NAME already exists, skipping."
+            exit 0
+          fi
+          FLAGS=""
+          if [ "${{ steps.meta.outputs.prerelease }}" = "true" ]; then FLAGS="--prerelease"; fi
+          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag $FLAGS

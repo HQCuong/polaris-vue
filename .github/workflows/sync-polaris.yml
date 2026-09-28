@@ -58,6 +58,22 @@ jobs:
         if: steps.versions.outputs.changed == 'true'
         run: npm run generate
 
+      # Component-level changes are recorded automatically; prop/slot/icon-level changes
+      # still need a human pass over the diff before release (see the PR body).
+      - name: Record the sync in CHANGELOG.md
+        if: steps.versions.outputs.changed == 'true'
+        env:
+          CURRENT: ${{ steps.versions.outputs.current }}
+          LATEST: ${{ steps.versions.outputs.latest }}
+        run: |
+          node scripts/changelog.mjs add Changed "Regenerated from \`@shopify/polaris-types\` ${LATEST} (was ${CURRENT})."
+          for name in $(git diff -U0 -- src/lib/generated/components.ts | sed -n 's/^+export const \(S[A-Za-z0-9]*\) = .*/\1/p'); do
+            node scripts/changelog.mjs add Added "\`${name}\` wrapper (new in \`@shopify/polaris-types\` ${LATEST})."
+          done
+          for name in $(git diff -U0 -- src/lib/generated/components.ts | sed -n 's/^-export const \(S[A-Za-z0-9]*\) = .*/\1/p'); do
+            node scripts/changelog.mjs add Removed "**Breaking:** \`${name}\` wrapper — the component was removed in \`@shopify/polaris-types\` ${LATEST}."
+          done
+
       # Fails by design when Shopify ships a new component: scripts/generate-docs.mjs
       # requires every tag to be filed in its hand-maintained CATEGORIES map. Report it
       # on the PR instead of blocking the sync.
@@ -127,7 +143,7 @@ jobs:
             fi
             echo "Automated sync of \`@shopify/polaris-types\` from \`${{ steps.versions.outputs.current }}\` to \`${{ steps.versions.outputs.latest }}\`."
             echo ""
-            echo "Generated with \`npm run generate\` and pushed here for review."
+            echo "Generated with \`npm run generate\` and pushed here for review. New and removed components were added to the \`## [Unreleased]\` section of \`CHANGELOG.md\`; before the next release, review \`src/lib/generated/types.ts\` in this diff and note prop, slot and icon changes there too (especially removals, which are breaking)."
             echo ""
             echo "### Check results"
             echo ""

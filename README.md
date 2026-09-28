@@ -76,7 +76,7 @@ When Shopify ships a new Polaris version:
 npm update @shopify/polaris-types
 npm run generate          # regenerate wrappers + types
 npm run docs:generate     # regenerate component reference docs
-git diff                  # the diff IS the changelog
+git diff                  # review, then note API changes in CHANGELOG.md
 ```
 
 Drift-guard tests make forgetting impossible: CI fails if generated code is stale, if a manifest component lacks a wrapper, or if a new form-like component is missing a v-model override. A scheduled GitHub Actions workflow (`sync-polaris.yml`) opens a sync PR automatically when a new `@shopify/polaris-types` is published.
@@ -102,6 +102,14 @@ npm run build:lib      # build the publishable package into dist/
 3. **Curated docs example?** Add `docs/examples/<tag>.md` (complex live demos go in `docs/examples/demos/*.vue` — SFCs are immune to markdown-it mangling); the docs generator inlines it automatically.
 4. Before opening a PR, make sure the full suite passes: `npm run generate && npm run docs:generate && npx vitest run && npm run type-check && npx oxlint . && npx eslint .` — CI runs the same checks plus a codegen-freshness diff.
 5. Behavioral claims about Polaris components (slot rules, rendering quirks) should be verified against the real CDN runtime in a browser, not just jsdom — see `docs/guide/quirks.md` for previously verified findings.
+
+## Releasing
+
+Releases are cut from `main` by pushing a version tag; [`release.yml`](.github/workflows/release.yml) does the rest (checks, `npm publish` with provenance via npm Trusted Publishing, and a GitHub Release whose notes come from `CHANGELOG.md`).
+
+1. In [`CHANGELOG.md`](./CHANGELOG.md), move the `## [Unreleased]` entries under a new `## [x.y.z] - YYYY-MM-DD` heading and update the compare links at the bottom. The polaris-types sync PRs record new/removed components there automatically; add prop, slot and icon changes by hand (removals are breaking).
+2. `npm version x.y.z --no-git-tag-version`, commit both files, and push to `main`.
+3. `git tag vx.y.z && git push origin vx.y.z`. Tags with a pre-release suffix (e.g. `v0.3.0-rc.0`) publish under the `next` dist-tag.
 
 ## License
 
