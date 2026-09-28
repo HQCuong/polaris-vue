@@ -46,6 +46,14 @@
         "link": "/components/s-banner"
       },
       {
+        "text": "SEmptyState",
+        "link": "/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/components/s-progress"
+      },
+      {
         "text": "SSpinner",
         "link": "/components/s-spinner"
       }
@@ -262,6 +270,10 @@
       {
         "text": "SHeading",
         "link": "/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/components/s-number"
       },
       {
         "text": "SParagraph",
