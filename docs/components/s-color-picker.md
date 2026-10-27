@@ -65,7 +65,7 @@ is equivalent to:
 
 | Event | Type |
 | --- | --- |
-| `change` | `CustomEvent` |
-| `input` | `CustomEvent` |
+| `change` | `Event` |
+| `input` | `Event` |
 
 Listen for these with `@change`-style listeners on `<SColorPicker>`.

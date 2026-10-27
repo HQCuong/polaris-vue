@@ -167,6 +167,47 @@ function openModal(): void {
 </template>
 ```
 
+## 7. Typing raw `<s-*>` tags (optional)
+
+If you'd rather keep writing Polaris's own tags (`<s-button>`, `<s-text-field>`, …)
+than switch to the wrappers, the package can still type them. Opt in once, in your
+`tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["polaris-vue-elements/elements"]
+  }
+}
+```
+
+or with a reference in a `.d.ts` file such as `env.d.ts`:
+
+```ts
+/// <reference types="polaris-vue-elements/elements" />
+```
+
+This adds every Polaris tag to Vue's `GlobalComponents`, so Volar and `vue-tsc` check
+raw tags the same way they check the wrappers: union-typed props, typed `@click` /
+`@aftershow` listeners, and a typed element for imperative methods.
+
+```vue
+<template>
+  <!-- error: Type '"bogus"' is not assignable to type '"auto" | "primary" | … ' -->
+  <s-button variant="bogus">Save</s-button>
+</template>
+```
+
+It's types only: nothing is registered at runtime, so keep the `isCustomElement`
+setting from step 3. Two differences from the wrappers:
+
+- **No `v-model` on raw tags.** Bind `:value` and listen for `@input` / `@change`
+  yourself, or use the wrapper component, which maps each form field's property and
+  event for you.
+- **Don't combine it with a hand-written shim** for the same tags in your project —
+  two declarations of `GlobalComponents['s-button']` with different types conflict.
+  Remove the shim when you opt in.
+
 ## Next steps
 
 Browse the [component reference](/components/) for the full prop/event list

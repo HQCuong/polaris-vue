@@ -71,9 +71,9 @@ is equivalent to:
 
 | Event | Type |
 | --- | --- |
-| `change` | `CustomEvent` |
+| `change` | `Event` |
 | `droprejected` | `CustomEvent` |
-| `input` | `CustomEvent` |
+| `input` | `Event` |
 
 Listen for these with `@change`-style listeners on `<SDropZone>`.
 

@@ -18,6 +18,8 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
+import { domEventType } from './dom-event-types.mjs'
+
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '..')
 
@@ -170,7 +172,7 @@ for (const raw of rawComponents) {
   const events = (raw.events ?? []).map((e) => {
     assert(typeof e.name === 'string', `component "${raw.tagName}" has an event with no name`)
     const typeText = e.type && typeof e.type.text === 'string' ? e.type.text : 'CustomEvent'
-    return { name: e.name, type: typeText }
+    return { name: e.name, type: domEventType(raw.tagName, e.name, typeText) }
   })
   events.sort((a, b) => a.name.localeCompare(b.name))
 

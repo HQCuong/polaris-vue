@@ -74,9 +74,9 @@ const clicks = ref(0)
 
 | Event | Type |
 | --- | --- |
-| `blur` | `CustomEvent` |
-| `click` | `CustomEvent` |
-| `focus` | `CustomEvent` |
+| `blur` | `FocusEvent` |
+| `click` | `MouseEvent` |
+| `focus` | `FocusEvent` |
 
 Listen for these with `@blur`-style listeners on `<SButton>`.
 

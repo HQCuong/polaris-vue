@@ -73,9 +73,9 @@ is equivalent to:
 
 | Event | Type |
 | --- | --- |
-| `blur` | `CustomEvent` |
-| `change` | `CustomEvent` |
-| `input` | `CustomEvent` |
+| `blur` | `FocusEvent` |
+| `change` | `Event` |
+| `input` | `Event` |
 
 Listen for these with `@blur`-style listeners on `<SCheckbox>`.
 

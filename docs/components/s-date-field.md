@@ -79,10 +79,10 @@ is equivalent to:
 
 | Event | Type |
 | --- | --- |
-| `blur` | `CustomEvent` |
-| `change` | `CustomEvent` |
-| `focus` | `CustomEvent` |
-| `input` | `CustomEvent` |
+| `blur` | `Event` |
+| `change` | `Event` |
+| `focus` | `Event` |
+| `input` | `Event` |
 | `invalid` | `CustomEvent` |
 | `viewchange` | `CustomEvent` |
 

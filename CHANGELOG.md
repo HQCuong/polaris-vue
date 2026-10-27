@@ -11,6 +11,22 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Added
+
+- Opt-in types for raw `<s-*>` tags: add `"types": ["polaris-vue-elements/elements"]` to
+  `tsconfig.json` and Volar / vue-tsc type-check `<s-button variant="…">` in templates the
+  same way they check the `SButton` wrapper, by augmenting Vue's `GlobalComponents` for
+  every Polaris tag. Types only; `v-model` remains wrapper-only.
+
+### Fixed
+
+- `click`, `focus`, `blur`, `input` and `change` listeners are typed with the events the
+  Polaris runtime actually fires (`MouseEvent`, `FocusEvent`, `Event`) instead of the
+  manifest's blanket `CustomEvent`. An ordinary `@click="(e: MouseEvent) => …"` handler
+  previously failed vue-tsc. **Breaking (types):** handlers annotated with `CustomEvent`,
+  or reading `event.detail` (always `undefined` at runtime for these events), no longer
+  type-check.
+
 ## [0.3.0] - 2026-10-27
 
 Generated from `@shopify/polaris-types` 2.0.0 (was 1.1.0). No props, slots or icons were

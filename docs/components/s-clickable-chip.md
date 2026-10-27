@@ -67,7 +67,7 @@ const removed = ref(false)
 | Event | Type |
 | --- | --- |
 | `afterhide` | `CustomEvent` |
-| `click` | `CustomEvent` |
+| `click` | `MouseEvent` |
 | `remove` | `CustomEvent` |
 
 Listen for these with `@afterhide`-style listeners on `<SClickableChip>`.

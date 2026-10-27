@@ -57,6 +57,8 @@ const name = ref('')
 </template>
 ```
 
+Prefer writing Polaris's own `<s-button>` tags? Add `"types": ["polaris-vue-elements/elements"]` to your `tsconfig.json` and Volar / `vue-tsc` type-check raw `<s-*>` tags too (types only; `v-model` stays wrapper-only). See [Typing raw `<s-*>` tags](https://polaris-vue.vict0r.net/guide/getting-started#_7-typing-raw-s-tags-optional).
+
 Full documentation — guides, known quirks, and generated reference pages with live examples for all 62 components — is at **[polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** (source in `docs/`, `npm run docs:dev` to run locally).
 
 ## Architecture

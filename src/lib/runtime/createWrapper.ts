@@ -28,7 +28,7 @@ type UnknownRecord = Record<string, unknown>
 
 /**
  * Derives `onX` event-listener props from an events shape `E` (e.g.
- * `{ click: CustomEvent }` -> `{ onClick?: (event: CustomEvent) => void }`), the way Vue's
+ * `{ click: MouseEvent }` -> `{ onClick?: (event: MouseEvent) => void }`), the way Vue's
  * template compiler maps `@click` to an `onClick` prop.
  */
 export type EventListenerProps<E> = {
@@ -52,6 +52,20 @@ export type WrapperComponent<P, E = UnknownRecord, El extends HTMLElement = HTML
      * components' `$el` IS the root element at runtime, so this is truthful typing —
      * no runtime shim is involved.
      */
+    $el: El
+  }
+}
+
+/**
+ * The type of a raw `<s-*>` tag in a Vue template, used by the opt-in
+ * `polaris-vue-elements/elements` augmentation of Vue's `GlobalComponents`. Same props
+ * and event listeners as the wrapper, but no `modelValue`: `v-model` on a raw custom
+ * element doesn't go through the wrapper's property/event mapping, so only the wrapper
+ * components support it.
+ */
+export type PolarisElementTag<P, E = UnknownRecord, El extends HTMLElement = HTMLElement> = {
+  new (): {
+    $props: Partial<P> & EventListenerProps<E>
     $el: El
   }
 }

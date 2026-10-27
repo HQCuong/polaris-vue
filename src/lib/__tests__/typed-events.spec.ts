@@ -1,5 +1,5 @@
 import { describe, expectTypeOf, it } from 'vitest'
-import type { SButton } from '../generated/components'
+import type { SButton, SDateField, STextField } from '../generated/components'
 
 // Type-only assertions: these verify the `onX` event-listener props derived from a
 // component's `*Events` shape (see `EventListenerProps` in `runtime/createWrapper.ts`).
@@ -9,16 +9,36 @@ import type { SButton } from '../generated/components'
 describe('typed event listeners', () => {
   type Props = InstanceType<typeof SButton>['$props']
 
-  it('accepts a correctly-typed onClick handler on SButton props', () => {
+  it('types native events with their DOM types, not the manifest CustomEvent', () => {
+    // scripts/dom-event-types.mjs: the manifest says CustomEvent, the runtime fires
+    // PointerEvent / FocusEvent / Event.
     expectTypeOf<Props>().toHaveProperty('onClick')
-    expectTypeOf<Props['onClick']>().toEqualTypeOf<((event: CustomEvent) => void) | undefined>()
+    expectTypeOf<Props['onClick']>().toEqualTypeOf<((event: MouseEvent) => void) | undefined>()
+    expectTypeOf<Props['onFocus']>().toEqualTypeOf<((event: FocusEvent) => void) | undefined>()
+
+    type FieldProps = InstanceType<typeof STextField>['$props']
+    expectTypeOf<FieldProps['onInput']>().toEqualTypeOf<((event: Event) => void) | undefined>()
+    expectTypeOf<FieldProps['onChange']>().toEqualTypeOf<((event: Event) => void) | undefined>()
+
+    // <s-date-field> also re-dispatches focus/blur as plain Events.
+    type DateFieldProps = InstanceType<typeof SDateField>['$props']
+    expectTypeOf<DateFieldProps['onFocus']>().toEqualTypeOf<((event: Event) => void) | undefined>()
+  })
+
+  it('accepts ordinary MouseEvent and Event click handlers', () => {
+    type OnClick = Props['onClick']
+
+    const mouseHandler: OnClick = (event: MouseEvent) => event.clientX
+    const eventHandler: OnClick = (event: Event) => event.type
+
+    expectTypeOf(mouseHandler).not.toBeUndefined()
+    expectTypeOf(eventHandler).not.toBeUndefined()
   })
 
   it('rejects a handler with an incompatible parameter type', () => {
     type OnClick = Props['onClick']
 
-    // A handler expecting `string` is not assignable to `(event: CustomEvent) => void`.
-    // @ts-expect-error a handler expecting `string` is not assignable to `(event: CustomEvent) => void`
+    // @ts-expect-error a handler expecting `string` is not assignable to `(event: MouseEvent) => void`
     const badHandler: OnClick = (event: string) => event
 
     expectTypeOf(badHandler).not.toBeUndefined()

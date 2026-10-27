@@ -30,12 +30,14 @@ function pageUrl(relativePath: string): string {
 // `<lastmod>`) with the same date, and Google learns to ignore lastmod. Fetch the
 // full history when we can; if that fails, omit the dates rather than publish
 // wrong ones.
+function isShallowClone(): boolean {
+  return execSync('git rev-parse --is-shallow-repository', { encoding: 'utf8' }).trim() === 'true'
+}
+
 function hasFullGitHistory(): boolean {
-  const isShallow = () =>
-    execSync('git rev-parse --is-shallow-repository', { encoding: 'utf8' }).trim() === 'true'
   try {
-    if (isShallow()) execSync('git fetch --unshallow --quiet', { stdio: 'ignore' })
-    return !isShallow()
+    if (isShallowClone()) execSync('git fetch --unshallow --quiet', { stdio: 'ignore' })
+    return !isShallowClone()
   } catch {
     return false
   }

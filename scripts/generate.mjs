@@ -13,6 +13,8 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
+import { domEventType } from './dom-event-types.mjs'
+
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '..')
 
@@ -153,7 +155,7 @@ for (const raw of rawComponents) {
   const events = (raw.events ?? []).map((e) => {
     assert(typeof e.name === 'string', `component "${raw.tagName}" has an event with no name`)
     const typeText = e.type && typeof e.type.text === 'string' ? e.type.text : 'CustomEvent'
-    return { name: e.name, type: typeText }
+    return { name: e.name, type: domEventType(raw.tagName, e.name, typeText) }
   })
   events.sort((a, b) => a.name.localeCompare(b.name))
 
@@ -211,11 +213,12 @@ function convertTypeText(typeText) {
   return { ts: 'string', embeddable: false, original: typeText }
 }
 
-// An event type is embeddable as-is only when it is a bare `Event` or `CustomEvent`
-// reference (no generics, no unions) — anything else (e.g. a `CallbackEventListener<...>`
-// generic) falls back to `CustomEvent`, with the original manifest text preserved in a
-// comment, consistent with how prop types fall back above.
-const EMBEDDABLE_EVENT_TYPES = new Set(['Event', 'CustomEvent'])
+// An event type is embeddable as-is only when it is a bare DOM event type reference
+// (`Event`, `CustomEvent`, or a `domEventType` correction such as `MouseEvent`) — no
+// generics, no unions. Anything else (e.g. a `CallbackEventListener<...>` generic) falls
+// back to `CustomEvent`, with the original manifest text preserved in a comment,
+// consistent with how prop types fall back above.
+const EMBEDDABLE_EVENT_TYPES = new Set(['Event', 'CustomEvent', 'MouseEvent', 'FocusEvent'])
 
 function convertEventTypeText(typeText) {
   if (EMBEDDABLE_EVENT_TYPES.has(typeText)) {
@@ -378,6 +381,47 @@ function renderComponents() {
 }
 
 // ---------------------------------------------------------------------------
+// elements.ts — opt-in types for raw <s-*> tags
+// ---------------------------------------------------------------------------
+
+// Augments Vue's `GlobalComponents` so Volar / vue-tsc type-check and autocomplete raw
+// `<s-button variant="…">` tags, not just the `SButton` wrappers. Published as the
+// types-only subpath `polaris-vue-elements/elements`, never imported by index.ts: users
+// opt in explicitly, because a global augmentation would collide with any hand-written
+// shim of the same tags already in their project.
+function renderElements() {
+  const lines = []
+  lines.push(banner())
+  lines.push("import type { PolarisElementTag } from '../runtime/createWrapper'")
+  const typeImports = components.flatMap((c) =>
+    c.methods.length > 0
+      ? [`${c.typeName}Props`, `${c.typeName}Events`, `${c.typeName}Element`]
+      : [`${c.typeName}Props`, `${c.typeName}Events`],
+  )
+  lines.push(`import type { ${typeImports.join(', ')} } from './types'`)
+  lines.push('')
+  lines.push("declare module 'vue' {")
+  lines.push('  interface GlobalComponents {')
+  for (const c of components) {
+    const typeArgs =
+      c.methods.length > 0
+        ? `${c.typeName}Props, ${c.typeName}Events, ${c.typeName}Element`
+        : `${c.typeName}Props, ${c.typeName}Events`
+    lines.push(`    ${jsonLiteral(c.tagName)}: PolarisElementTag<${typeArgs}>`)
+  }
+  lines.push('  }')
+  lines.push('}')
+  lines.push('')
+  lines.push('/** Every Polaris tag this augmentation types. */')
+  lines.push('export type PolarisElementTagName =')
+  for (const c of components) {
+    lines.push(`  | ${jsonLiteral(c.tagName)}`)
+  }
+  lines.push('')
+  return lines.join('\n')
+}
+
+// ---------------------------------------------------------------------------
 // Write files
 // ---------------------------------------------------------------------------
 
@@ -386,6 +430,7 @@ mkdirSync(outDir, { recursive: true })
 writeFileSync(path.join(outDir, 'metadata.ts'), renderMetadata())
 writeFileSync(path.join(outDir, 'types.ts'), renderTypes())
 writeFileSync(path.join(outDir, 'components.ts'), renderComponents())
+writeFileSync(path.join(outDir, 'elements.ts'), renderElements())
 
 const manifestHash = createHash('sha256').update(manifestRaw).digest('hex')
 writeFileSync(

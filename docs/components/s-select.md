@@ -82,10 +82,10 @@ is equivalent to:
 
 | Event | Type |
 | --- | --- |
-| `blur` | `CustomEvent` |
-| `change` | `CustomEvent` |
-| `focus` | `CustomEvent` |
-| `input` | `CustomEvent` |
+| `blur` | `FocusEvent` |
+| `change` | `Event` |
+| `focus` | `FocusEvent` |
+| `input` | `Event` |
 
 Listen for these with `@blur`-style listeners on `<SSelect>`.
 

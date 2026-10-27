@@ -62,9 +62,9 @@ const pressed = ref(false)
 
 | Event | Type |
 | --- | --- |
-| `blur` | `CustomEvent` |
-| `click` | `CustomEvent` |
-| `focus` | `CustomEvent` |
+| `blur` | `FocusEvent` |
+| `click` | `MouseEvent` |
+| `focus` | `FocusEvent` |
 
 Listen for these with `@blur`-style listeners on `<SPressButton>`.
 

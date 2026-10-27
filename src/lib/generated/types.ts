@@ -89,9 +89,9 @@ export interface ButtonProps {
 }
 
 export interface ButtonEvents {
-  blur: CustomEvent
-  click: CustomEvent
-  focus: CustomEvent
+  blur: FocusEvent
+  click: MouseEvent
+  focus: FocusEvent
 }
 
 export interface ButtonGroupProps {
@@ -121,9 +121,9 @@ export interface CheckboxProps {
 }
 
 export interface CheckboxEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  input: Event
 }
 
 export interface ChipProps {
@@ -161,8 +161,8 @@ export interface ChoiceListProps {
 }
 
 export interface ChoiceListEvents {
-  change: CustomEvent
-  input: CustomEvent
+  change: Event
+  input: Event
 }
 
 export interface ClickableProps {
@@ -210,9 +210,9 @@ export interface ClickableProps {
 }
 
 export interface ClickableEvents {
-  blur: CustomEvent
-  click: CustomEvent
-  focus: CustomEvent
+  blur: FocusEvent
+  click: MouseEvent
+  focus: FocusEvent
 }
 
 export interface ClickableChipProps {
@@ -229,7 +229,7 @@ export interface ClickableChipProps {
 
 export interface ClickableChipEvents {
   afterhide: CustomEvent
-  click: CustomEvent
+  click: MouseEvent
   remove: CustomEvent
 }
 
@@ -254,10 +254,10 @@ export interface ColorFieldProps {
 }
 
 export interface ColorFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface ColorPickerProps {
@@ -269,8 +269,8 @@ export interface ColorPickerProps {
 }
 
 export interface ColorPickerEvents {
-  change: CustomEvent
-  input: CustomEvent
+  change: Event
+  input: Event
 }
 
 export interface DateFieldProps {
@@ -299,10 +299,10 @@ export interface DateFieldProps {
 }
 
 export interface DateFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: Event
+  change: Event
+  focus: Event
+  input: Event
   invalid: CustomEvent
   viewchange: CustomEvent
 }
@@ -322,10 +322,10 @@ export interface DatePickerProps {
 }
 
 export interface DatePickerEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
   viewchange: CustomEvent
 }
 
@@ -354,9 +354,9 @@ export interface DropZoneProps {
 }
 
 export interface DropZoneEvents {
-  change: CustomEvent
+  change: Event
   droprejected: CustomEvent
-  input: CustomEvent
+  input: Event
 }
 
 export interface EmailFieldProps {
@@ -381,10 +381,10 @@ export interface EmailFieldProps {
 }
 
 export interface EmailFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface EmptyStateProps {
@@ -540,7 +540,7 @@ export interface LinkProps {
 }
 
 export interface LinkEvents {
-  click: CustomEvent
+  click: MouseEvent
 }
 
 export interface ListItemProps {
@@ -601,10 +601,10 @@ export interface MoneyFieldProps {
 }
 
 export interface MoneyFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface NumberProps {
@@ -644,10 +644,10 @@ export interface NumberFieldProps {
 }
 
 export interface NumberFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface OptionProps {
@@ -716,10 +716,10 @@ export interface PasswordFieldProps {
 }
 
 export interface PasswordFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface PopoverProps {
@@ -754,9 +754,9 @@ export interface PressButtonProps {
 }
 
 export interface PressButtonEvents {
-  blur: CustomEvent
-  click: CustomEvent
-  focus: CustomEvent
+  blur: FocusEvent
+  click: MouseEvent
+  focus: FocusEvent
 }
 
 export interface ProgressProps {
@@ -839,10 +839,10 @@ export interface SearchFieldProps {
 }
 
 export interface SearchFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface SectionProps {
@@ -872,10 +872,10 @@ export interface SelectProps {
 }
 
 export interface SelectEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface SpinnerProps {
@@ -947,9 +947,9 @@ export interface SwitchProps {
 }
 
 export interface SwitchEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  input: Event
 }
 
 export interface TableProps {
@@ -1041,10 +1041,10 @@ export interface TextAreaProps {
 }
 
 export interface TextAreaEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface TextFieldProps {
@@ -1072,10 +1072,10 @@ export interface TextFieldProps {
 }
 
 export interface TextFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }
 
 export interface ThumbnailProps {
@@ -1126,8 +1126,8 @@ export interface UrlFieldProps {
 }
 
 export interface UrlFieldEvents {
-  blur: CustomEvent
-  change: CustomEvent
-  focus: CustomEvent
-  input: CustomEvent
+  blur: FocusEvent
+  change: Event
+  focus: FocusEvent
+  input: Event
 }

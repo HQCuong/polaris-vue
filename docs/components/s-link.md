@@ -52,7 +52,7 @@ import { SLink } from 'polaris-vue-elements'
 
 | Event | Type |
 | --- | --- |
-| `click` | `CustomEvent` |
+| `click` | `MouseEvent` |
 
 Listen for these with `@click`-style listeners on `<SLink>`.
 
