@@ -11,6 +11,10 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Changed
+
+- Regenerated from `@shopify/polaris-types` 2.0.0 (was 1.1.0).
+
 ## [0.2.0] - 2026-09-28
 
 Generated from `@shopify/polaris-types` 1.1.0 (was 1.0.7).
