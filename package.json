@@ -74,7 +74,7 @@
     "jiti": "^2.7.0",
     "jsdom": "^29.1.1",
     "npm-run-all2": "^9.0.2",
-    "oxfmt": "^0.59.0",
+    "oxfmt": "^0.75.0",
     "oxlint": "~1.79.0",
     "simple-git-hooks": "^2.13.1",
     "typescript": "~6.0.0",
@@ -94,6 +94,11 @@
       "name": "node",
       "version": "^22.23.4 || ^24.22.1 || >=26.12.1",
       "onFail": "error"
+    }
+  },
+  "overrides": {
+    "vitepress": {
+      "vite": "^6.4.5"
     }
   }
 }
