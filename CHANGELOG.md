@@ -11,6 +11,11 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-27
+
+Generated from `@shopify/polaris-types` 2.0.0 (was 1.1.0). No props, slots or icons were
+removed.
+
 ### Added
 
 - `SThumbnail` `loading` prop (`"eager" | "lazy"`).
@@ -19,8 +24,6 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ### Changed
 
-- Regenerated from `@shopify/polaris-types` 2.0.0 (was 1.1.0). No props, slots or icons
-  were removed.
 - **Docs and examples now load the stable Polaris 2 runtime**
   (`https://cdn.shopify.com/shopifycloud/polaris-2.js`) instead of `polaris-1.js`. Apps
   that stay on `polaris-1.js` keep working with these wrappers; only the additions above
@@ -73,6 +76,7 @@ Initial release: typed Vue 3 wrappers for the 59 Shopify Polaris web components 
   `showOverlay()` / `hideOverlay()` / `toggleOverlay()`).
 - ESM build with bundled type declarations; `vue` ^3.5 as a peer dependency.
 
-[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/HQCuong/polaris-vue/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/HQCuong/polaris-vue/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/HQCuong/polaris-vue/releases/tag/v0.1.0
