@@ -4,7 +4,7 @@ description: Install polaris-vue-elements, load the Polaris web components runti
 
 # Getting started
 
-`polaris-vue` is a set of typed Vue 3 components that wrap Shopify's Polaris web
+`polaris-vue-elements` is a set of typed Vue 3 components that wrap Shopify's Polaris web
 components (`<s-button>`, `<s-text-field>`, `<s-modal>`, ...). The web components
 themselves are loaded at runtime from Shopify's CDN — this library just gives you
 a typed, idiomatic Vue surface (props, events, v-model) around them.
@@ -88,7 +88,7 @@ export default defineConfig({
 
 ## 4. Your first component
 
-Import components from `polaris-vue` and use them like any other Vue
+Import components from `polaris-vue-elements` and use them like any other Vue
 component — props and events are fully typed:
 
 ```vue

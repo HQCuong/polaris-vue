@@ -382,6 +382,88 @@ assert(
   `these manifest tags are not assigned to a category in CATEGORIES: ${uncategorized.join(', ')}. Add them (see https://shopify.dev/docs/api/app-home/polaris-web-components for where Shopify files them).`,
 )
 
+// Hand-written one-sentence summary per component. The manifest has no component-level
+// prose (its descriptions are boilerplate like "Configure the following properties on the
+// avatar component."), so this is the only place a page says what the component is for.
+// It becomes the page's lead paragraph, the start of its meta description, and the card
+// text on the components index. Like CATEGORIES, every manifest tag must have exactly one.
+const SUMMARIES = {
+  's-button': 'Triggers an action or navigates, with primary, secondary and tertiary variants, icons and a loading state.',
+  's-button-group': 'Lays out a set of related buttons together, such as a primary action and its secondary actions.',
+  's-clickable': 'Makes any content clickable as a button or link, without imposing button styling.',
+  's-clickable-chip': 'An interactive chip that can be clicked, followed as a link or removed — useful for filters and applied tags.',
+  's-link': 'A text link that navigates to another page or URL, or runs a command.',
+  's-menu': 'A list of actions shown in an overlay, opened from a button.',
+  's-press-button': 'A toggle button that stays pressed or unpressed, for turning a mode or filter on and off.',
+  's-badge': 'A small label that shows the status of an object, such as an order, payment or fulfillment.',
+  's-banner': 'A prominent message that surfaces important information, warnings or errors at the top of a page or section.',
+  's-empty-state': 'Explains why a view has no content yet and points merchants to the first action to take.',
+  's-progress': 'A progress bar that shows how far a task has advanced toward its maximum value.',
+  's-spinner': 'An animated indicator that content or an action is loading.',
+  's-checkbox': 'A single checkbox for a yes/no choice, bound to its checked state with v-model.',
+  's-choice': 'One option inside a choice list.',
+  's-choice-list': 'A group of radio buttons or checkboxes for picking one or several options.',
+  's-color-field': 'A text input for entering a color value, with an optional alpha channel.',
+  's-color-picker': 'A visual control for picking a color.',
+  's-date-field': 'An input for entering a date.',
+  's-date-picker': 'A calendar for selecting a single date or a date range.',
+  's-drop-zone': 'A file upload area that accepts files by drag and drop or from a file picker.',
+  's-email-field': 'A text input for email addresses.',
+  's-money-field': 'A numeric input for monetary amounts.',
+  's-number-field': 'A numeric input with optional minimum, maximum and step.',
+  's-option': 'One option inside a select.',
+  's-option-group': 'Groups related options inside a select under a shared label.',
+  's-password-field': 'A text input for passwords that masks what is typed.',
+  's-search-field': 'A text input for search queries.',
+  's-select': 'A dropdown for choosing one option from a list.',
+  's-switch': 'A toggle switch that turns a setting on or off.',
+  's-text-area': 'A multi-line text input for longer content such as notes or descriptions.',
+  's-text-field': 'A single-line text input with label, placeholder, validation error and help text.',
+  's-url-field': 'A text input for web addresses.',
+  's-box': 'A generic container for padding, background, border, radius and sizing.',
+  's-divider': 'A horizontal or vertical line that separates content.',
+  's-grid': 'A CSS grid container for laying out content in rows and columns.',
+  's-grid-item': 'A child of a grid that can span several columns or rows.',
+  's-list-item': 'One item inside an ordered or unordered list.',
+  's-ordered-list': 'A numbered list.',
+  's-page': 'The top-level page layout, with a heading, page actions and content areas.',
+  's-query-container': 'Turns an element into a size container so its children can adapt to its width with container queries.',
+  's-scroll-box': 'A container that scrolls its content when it overflows.',
+  's-section': 'Groups related content, with an optional heading, subheading and actions.',
+  's-stack': 'Arranges its children in a row or column with consistent spacing and alignment.',
+  's-table': 'A table for structured data, with optional pagination, a loading state and a list layout on small screens.',
+  's-table-body': 'The body of a table, holding its data rows.',
+  's-table-cell': 'One cell in a table row.',
+  's-table-header': 'One column header in a table.',
+  's-table-header-row': 'The row of column headers at the top of a table.',
+  's-table-row': 'One row of data in a table.',
+  's-unordered-list': 'A bulleted list.',
+  's-avatar': "Shows a person's or business's image, or their initials when there is no image.",
+  's-icon': 'Displays an icon from the Polaris icon set by name.',
+  's-image': 'Displays an image with control over aspect ratio, fit, borders and lazy loading.',
+  's-thumbnail': 'A small, fixed-size preview image of a product or file.',
+  's-modal': 'A dialog overlay for focused tasks and confirmations, opened by a command or a method call.',
+  's-popover': 'Floating content anchored to the button that opens it.',
+  's-chip': 'A static label for a tag or attribute, optionally removable.',
+  's-heading': 'A heading that titles a page section.',
+  's-number': 'Displays a number you have already formatted, with typography, tone and color styling.',
+  's-paragraph': 'A block of body text.',
+  's-text': 'Inline text with tone, weight and emphasis styling.',
+  's-tooltip': 'A short label that appears when another element is hovered or focused.',
+}
+
+for (const tag of Object.keys(SUMMARIES)) {
+  assert(
+    components.some((c) => c.tagName === tag),
+    `SUMMARIES has an entry for unknown tag "${tag}" (not found in the manifest). Has Shopify removed it?`,
+  )
+}
+const unsummarized = components.filter((c) => !SUMMARIES[c.tagName]).map((c) => c.tagName)
+assert(
+  unsummarized.length === 0,
+  `these manifest tags have no one-sentence entry in SUMMARIES: ${unsummarized.join(', ')}.`,
+)
+
 // ---------------------------------------------------------------------------
 // Markdown rendering helpers
 // ---------------------------------------------------------------------------
@@ -587,14 +669,11 @@ function renderSlotsSection(component) {
   return lines.join('\n')
 }
 
-// One-line `<meta name="description">` per component page. The manifest carries no
-// component-level prose, so this is templated from what the page actually documents.
+// One-line `<meta name="description">` per component page: the hand-written summary,
+// which makes each page's snippet distinct, followed by what the reference documents.
 function componentDescription(component) {
-  const parts = [`Props, events and slots reference for the ${component.exportName} Vue 3 component`]
-  parts.push(`a typed wrapper around the Shopify Polaris ${component.tagName} web component`)
-  const vModel = vModelOverrides.get(component.tagName)
-  if (vModel) parts.push(`with v-model support via ${vModel.prop}/${vModel.event}`)
-  return parts.join(', ') + '.'
+  const vModel = vModelOverrides.has(component.tagName) ? ', v-model' : ''
+  return `${component.exportName}: ${SUMMARIES[component.tagName]} Typed Vue 3 wrapper for Shopify Polaris <${component.tagName}> — props, events${vModel} and slots.`
 }
 
 // YAML front matter. Descriptions are double-quoted so `<s-tag>`, colons and
@@ -614,6 +693,8 @@ function renderComponentPage(component) {
     banner(),
     '',
     `# ${component.exportName} \`<${component.tagName}>\``,
+    '',
+    `${SUMMARIES[component.tagName]} \`${component.exportName}\` is the typed Vue 3 wrapper for Shopify's Polaris \`<${component.tagName}>\` web component.`,
     '',
     '```ts',
     `import { ${component.exportName} } from '${packageName}'`,
@@ -687,7 +768,7 @@ function renderComponentsIndex() {
       .map((tag) => componentByTag.get(tag))
       .toSorted((a, b) => a.exportName.localeCompare(b.exportName))) {
       lines.push(
-        `- [**${c.exportName}**<span class="component-grid-tag">&lt;${c.tagName}&gt;</span>](/components/${c.tagName})`,
+        `- [**${c.exportName}**<span class="component-grid-tag">&lt;${c.tagName}&gt;</span><span class="component-grid-summary">${SUMMARIES[c.tagName]}</span>](/components/${c.tagName})`,
       )
     }
     lines.push('')

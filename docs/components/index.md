@@ -11,13 +11,13 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SButton**<span class="component-grid-tag">&lt;s-button&gt;</span>](/components/s-button)
-- [**SButtonGroup**<span class="component-grid-tag">&lt;s-button-group&gt;</span>](/components/s-button-group)
-- [**SClickable**<span class="component-grid-tag">&lt;s-clickable&gt;</span>](/components/s-clickable)
-- [**SClickableChip**<span class="component-grid-tag">&lt;s-clickable-chip&gt;</span>](/components/s-clickable-chip)
-- [**SLink**<span class="component-grid-tag">&lt;s-link&gt;</span>](/components/s-link)
-- [**SMenu**<span class="component-grid-tag">&lt;s-menu&gt;</span>](/components/s-menu)
-- [**SPressButton**<span class="component-grid-tag">&lt;s-press-button&gt;</span>](/components/s-press-button)
+- [**SButton**<span class="component-grid-tag">&lt;s-button&gt;</span><span class="component-grid-summary">Triggers an action or navigates, with primary, secondary and tertiary variants, icons and a loading state.</span>](/components/s-button)
+- [**SButtonGroup**<span class="component-grid-tag">&lt;s-button-group&gt;</span><span class="component-grid-summary">Lays out a set of related buttons together, such as a primary action and its secondary actions.</span>](/components/s-button-group)
+- [**SClickable**<span class="component-grid-tag">&lt;s-clickable&gt;</span><span class="component-grid-summary">Makes any content clickable as a button or link, without imposing button styling.</span>](/components/s-clickable)
+- [**SClickableChip**<span class="component-grid-tag">&lt;s-clickable-chip&gt;</span><span class="component-grid-summary">An interactive chip that can be clicked, followed as a link or removed — useful for filters and applied tags.</span>](/components/s-clickable-chip)
+- [**SLink**<span class="component-grid-tag">&lt;s-link&gt;</span><span class="component-grid-summary">A text link that navigates to another page or URL, or runs a command.</span>](/components/s-link)
+- [**SMenu**<span class="component-grid-tag">&lt;s-menu&gt;</span><span class="component-grid-summary">A list of actions shown in an overlay, opened from a button.</span>](/components/s-menu)
+- [**SPressButton**<span class="component-grid-tag">&lt;s-press-button&gt;</span><span class="component-grid-summary">A toggle button that stays pressed or unpressed, for turning a mode or filter on and off.</span>](/components/s-press-button)
 
 </div>
 
@@ -25,11 +25,11 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SBadge**<span class="component-grid-tag">&lt;s-badge&gt;</span>](/components/s-badge)
-- [**SBanner**<span class="component-grid-tag">&lt;s-banner&gt;</span>](/components/s-banner)
-- [**SEmptyState**<span class="component-grid-tag">&lt;s-empty-state&gt;</span>](/components/s-empty-state)
-- [**SProgress**<span class="component-grid-tag">&lt;s-progress&gt;</span>](/components/s-progress)
-- [**SSpinner**<span class="component-grid-tag">&lt;s-spinner&gt;</span>](/components/s-spinner)
+- [**SBadge**<span class="component-grid-tag">&lt;s-badge&gt;</span><span class="component-grid-summary">A small label that shows the status of an object, such as an order, payment or fulfillment.</span>](/components/s-badge)
+- [**SBanner**<span class="component-grid-tag">&lt;s-banner&gt;</span><span class="component-grid-summary">A prominent message that surfaces important information, warnings or errors at the top of a page or section.</span>](/components/s-banner)
+- [**SEmptyState**<span class="component-grid-tag">&lt;s-empty-state&gt;</span><span class="component-grid-summary">Explains why a view has no content yet and points merchants to the first action to take.</span>](/components/s-empty-state)
+- [**SProgress**<span class="component-grid-tag">&lt;s-progress&gt;</span><span class="component-grid-summary">A progress bar that shows how far a task has advanced toward its maximum value.</span>](/components/s-progress)
+- [**SSpinner**<span class="component-grid-tag">&lt;s-spinner&gt;</span><span class="component-grid-summary">An animated indicator that content or an action is loading.</span>](/components/s-spinner)
 
 </div>
 
@@ -37,26 +37,26 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SCheckbox**<span class="component-grid-tag">&lt;s-checkbox&gt;</span>](/components/s-checkbox)
-- [**SChoice**<span class="component-grid-tag">&lt;s-choice&gt;</span>](/components/s-choice)
-- [**SChoiceList**<span class="component-grid-tag">&lt;s-choice-list&gt;</span>](/components/s-choice-list)
-- [**SColorField**<span class="component-grid-tag">&lt;s-color-field&gt;</span>](/components/s-color-field)
-- [**SColorPicker**<span class="component-grid-tag">&lt;s-color-picker&gt;</span>](/components/s-color-picker)
-- [**SDateField**<span class="component-grid-tag">&lt;s-date-field&gt;</span>](/components/s-date-field)
-- [**SDatePicker**<span class="component-grid-tag">&lt;s-date-picker&gt;</span>](/components/s-date-picker)
-- [**SDropZone**<span class="component-grid-tag">&lt;s-drop-zone&gt;</span>](/components/s-drop-zone)
-- [**SEmailField**<span class="component-grid-tag">&lt;s-email-field&gt;</span>](/components/s-email-field)
-- [**SMoneyField**<span class="component-grid-tag">&lt;s-money-field&gt;</span>](/components/s-money-field)
-- [**SNumberField**<span class="component-grid-tag">&lt;s-number-field&gt;</span>](/components/s-number-field)
-- [**SOption**<span class="component-grid-tag">&lt;s-option&gt;</span>](/components/s-option)
-- [**SOptionGroup**<span class="component-grid-tag">&lt;s-option-group&gt;</span>](/components/s-option-group)
-- [**SPasswordField**<span class="component-grid-tag">&lt;s-password-field&gt;</span>](/components/s-password-field)
-- [**SSearchField**<span class="component-grid-tag">&lt;s-search-field&gt;</span>](/components/s-search-field)
-- [**SSelect**<span class="component-grid-tag">&lt;s-select&gt;</span>](/components/s-select)
-- [**SSwitch**<span class="component-grid-tag">&lt;s-switch&gt;</span>](/components/s-switch)
-- [**STextArea**<span class="component-grid-tag">&lt;s-text-area&gt;</span>](/components/s-text-area)
-- [**STextField**<span class="component-grid-tag">&lt;s-text-field&gt;</span>](/components/s-text-field)
-- [**SUrlField**<span class="component-grid-tag">&lt;s-url-field&gt;</span>](/components/s-url-field)
+- [**SCheckbox**<span class="component-grid-tag">&lt;s-checkbox&gt;</span><span class="component-grid-summary">A single checkbox for a yes/no choice, bound to its checked state with v-model.</span>](/components/s-checkbox)
+- [**SChoice**<span class="component-grid-tag">&lt;s-choice&gt;</span><span class="component-grid-summary">One option inside a choice list.</span>](/components/s-choice)
+- [**SChoiceList**<span class="component-grid-tag">&lt;s-choice-list&gt;</span><span class="component-grid-summary">A group of radio buttons or checkboxes for picking one or several options.</span>](/components/s-choice-list)
+- [**SColorField**<span class="component-grid-tag">&lt;s-color-field&gt;</span><span class="component-grid-summary">A text input for entering a color value, with an optional alpha channel.</span>](/components/s-color-field)
+- [**SColorPicker**<span class="component-grid-tag">&lt;s-color-picker&gt;</span><span class="component-grid-summary">A visual control for picking a color.</span>](/components/s-color-picker)
+- [**SDateField**<span class="component-grid-tag">&lt;s-date-field&gt;</span><span class="component-grid-summary">An input for entering a date.</span>](/components/s-date-field)
+- [**SDatePicker**<span class="component-grid-tag">&lt;s-date-picker&gt;</span><span class="component-grid-summary">A calendar for selecting a single date or a date range.</span>](/components/s-date-picker)
+- [**SDropZone**<span class="component-grid-tag">&lt;s-drop-zone&gt;</span><span class="component-grid-summary">A file upload area that accepts files by drag and drop or from a file picker.</span>](/components/s-drop-zone)
+- [**SEmailField**<span class="component-grid-tag">&lt;s-email-field&gt;</span><span class="component-grid-summary">A text input for email addresses.</span>](/components/s-email-field)
+- [**SMoneyField**<span class="component-grid-tag">&lt;s-money-field&gt;</span><span class="component-grid-summary">A numeric input for monetary amounts.</span>](/components/s-money-field)
+- [**SNumberField**<span class="component-grid-tag">&lt;s-number-field&gt;</span><span class="component-grid-summary">A numeric input with optional minimum, maximum and step.</span>](/components/s-number-field)
+- [**SOption**<span class="component-grid-tag">&lt;s-option&gt;</span><span class="component-grid-summary">One option inside a select.</span>](/components/s-option)
+- [**SOptionGroup**<span class="component-grid-tag">&lt;s-option-group&gt;</span><span class="component-grid-summary">Groups related options inside a select under a shared label.</span>](/components/s-option-group)
+- [**SPasswordField**<span class="component-grid-tag">&lt;s-password-field&gt;</span><span class="component-grid-summary">A text input for passwords that masks what is typed.</span>](/components/s-password-field)
+- [**SSearchField**<span class="component-grid-tag">&lt;s-search-field&gt;</span><span class="component-grid-summary">A text input for search queries.</span>](/components/s-search-field)
+- [**SSelect**<span class="component-grid-tag">&lt;s-select&gt;</span><span class="component-grid-summary">A dropdown for choosing one option from a list.</span>](/components/s-select)
+- [**SSwitch**<span class="component-grid-tag">&lt;s-switch&gt;</span><span class="component-grid-summary">A toggle switch that turns a setting on or off.</span>](/components/s-switch)
+- [**STextArea**<span class="component-grid-tag">&lt;s-text-area&gt;</span><span class="component-grid-summary">A multi-line text input for longer content such as notes or descriptions.</span>](/components/s-text-area)
+- [**STextField**<span class="component-grid-tag">&lt;s-text-field&gt;</span><span class="component-grid-summary">A single-line text input with label, placeholder, validation error and help text.</span>](/components/s-text-field)
+- [**SUrlField**<span class="component-grid-tag">&lt;s-url-field&gt;</span><span class="component-grid-summary">A text input for web addresses.</span>](/components/s-url-field)
 
 </div>
 
@@ -64,24 +64,24 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SBox**<span class="component-grid-tag">&lt;s-box&gt;</span>](/components/s-box)
-- [**SDivider**<span class="component-grid-tag">&lt;s-divider&gt;</span>](/components/s-divider)
-- [**SGrid**<span class="component-grid-tag">&lt;s-grid&gt;</span>](/components/s-grid)
-- [**SGridItem**<span class="component-grid-tag">&lt;s-grid-item&gt;</span>](/components/s-grid-item)
-- [**SListItem**<span class="component-grid-tag">&lt;s-list-item&gt;</span>](/components/s-list-item)
-- [**SOrderedList**<span class="component-grid-tag">&lt;s-ordered-list&gt;</span>](/components/s-ordered-list)
-- [**SPage**<span class="component-grid-tag">&lt;s-page&gt;</span>](/components/s-page)
-- [**SQueryContainer**<span class="component-grid-tag">&lt;s-query-container&gt;</span>](/components/s-query-container)
-- [**SScrollBox**<span class="component-grid-tag">&lt;s-scroll-box&gt;</span>](/components/s-scroll-box)
-- [**SSection**<span class="component-grid-tag">&lt;s-section&gt;</span>](/components/s-section)
-- [**SStack**<span class="component-grid-tag">&lt;s-stack&gt;</span>](/components/s-stack)
-- [**STable**<span class="component-grid-tag">&lt;s-table&gt;</span>](/components/s-table)
-- [**STableBody**<span class="component-grid-tag">&lt;s-table-body&gt;</span>](/components/s-table-body)
-- [**STableCell**<span class="component-grid-tag">&lt;s-table-cell&gt;</span>](/components/s-table-cell)
-- [**STableHeader**<span class="component-grid-tag">&lt;s-table-header&gt;</span>](/components/s-table-header)
-- [**STableHeaderRow**<span class="component-grid-tag">&lt;s-table-header-row&gt;</span>](/components/s-table-header-row)
-- [**STableRow**<span class="component-grid-tag">&lt;s-table-row&gt;</span>](/components/s-table-row)
-- [**SUnorderedList**<span class="component-grid-tag">&lt;s-unordered-list&gt;</span>](/components/s-unordered-list)
+- [**SBox**<span class="component-grid-tag">&lt;s-box&gt;</span><span class="component-grid-summary">A generic container for padding, background, border, radius and sizing.</span>](/components/s-box)
+- [**SDivider**<span class="component-grid-tag">&lt;s-divider&gt;</span><span class="component-grid-summary">A horizontal or vertical line that separates content.</span>](/components/s-divider)
+- [**SGrid**<span class="component-grid-tag">&lt;s-grid&gt;</span><span class="component-grid-summary">A CSS grid container for laying out content in rows and columns.</span>](/components/s-grid)
+- [**SGridItem**<span class="component-grid-tag">&lt;s-grid-item&gt;</span><span class="component-grid-summary">A child of a grid that can span several columns or rows.</span>](/components/s-grid-item)
+- [**SListItem**<span class="component-grid-tag">&lt;s-list-item&gt;</span><span class="component-grid-summary">One item inside an ordered or unordered list.</span>](/components/s-list-item)
+- [**SOrderedList**<span class="component-grid-tag">&lt;s-ordered-list&gt;</span><span class="component-grid-summary">A numbered list.</span>](/components/s-ordered-list)
+- [**SPage**<span class="component-grid-tag">&lt;s-page&gt;</span><span class="component-grid-summary">The top-level page layout, with a heading, page actions and content areas.</span>](/components/s-page)
+- [**SQueryContainer**<span class="component-grid-tag">&lt;s-query-container&gt;</span><span class="component-grid-summary">Turns an element into a size container so its children can adapt to its width with container queries.</span>](/components/s-query-container)
+- [**SScrollBox**<span class="component-grid-tag">&lt;s-scroll-box&gt;</span><span class="component-grid-summary">A container that scrolls its content when it overflows.</span>](/components/s-scroll-box)
+- [**SSection**<span class="component-grid-tag">&lt;s-section&gt;</span><span class="component-grid-summary">Groups related content, with an optional heading, subheading and actions.</span>](/components/s-section)
+- [**SStack**<span class="component-grid-tag">&lt;s-stack&gt;</span><span class="component-grid-summary">Arranges its children in a row or column with consistent spacing and alignment.</span>](/components/s-stack)
+- [**STable**<span class="component-grid-tag">&lt;s-table&gt;</span><span class="component-grid-summary">A table for structured data, with optional pagination, a loading state and a list layout on small screens.</span>](/components/s-table)
+- [**STableBody**<span class="component-grid-tag">&lt;s-table-body&gt;</span><span class="component-grid-summary">The body of a table, holding its data rows.</span>](/components/s-table-body)
+- [**STableCell**<span class="component-grid-tag">&lt;s-table-cell&gt;</span><span class="component-grid-summary">One cell in a table row.</span>](/components/s-table-cell)
+- [**STableHeader**<span class="component-grid-tag">&lt;s-table-header&gt;</span><span class="component-grid-summary">One column header in a table.</span>](/components/s-table-header)
+- [**STableHeaderRow**<span class="component-grid-tag">&lt;s-table-header-row&gt;</span><span class="component-grid-summary">The row of column headers at the top of a table.</span>](/components/s-table-header-row)
+- [**STableRow**<span class="component-grid-tag">&lt;s-table-row&gt;</span><span class="component-grid-summary">One row of data in a table.</span>](/components/s-table-row)
+- [**SUnorderedList**<span class="component-grid-tag">&lt;s-unordered-list&gt;</span><span class="component-grid-summary">A bulleted list.</span>](/components/s-unordered-list)
 
 </div>
 
@@ -89,10 +89,10 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SAvatar**<span class="component-grid-tag">&lt;s-avatar&gt;</span>](/components/s-avatar)
-- [**SIcon**<span class="component-grid-tag">&lt;s-icon&gt;</span>](/components/s-icon)
-- [**SImage**<span class="component-grid-tag">&lt;s-image&gt;</span>](/components/s-image)
-- [**SThumbnail**<span class="component-grid-tag">&lt;s-thumbnail&gt;</span>](/components/s-thumbnail)
+- [**SAvatar**<span class="component-grid-tag">&lt;s-avatar&gt;</span><span class="component-grid-summary">Shows a person's or business's image, or their initials when there is no image.</span>](/components/s-avatar)
+- [**SIcon**<span class="component-grid-tag">&lt;s-icon&gt;</span><span class="component-grid-summary">Displays an icon from the Polaris icon set by name.</span>](/components/s-icon)
+- [**SImage**<span class="component-grid-tag">&lt;s-image&gt;</span><span class="component-grid-summary">Displays an image with control over aspect ratio, fit, borders and lazy loading.</span>](/components/s-image)
+- [**SThumbnail**<span class="component-grid-tag">&lt;s-thumbnail&gt;</span><span class="component-grid-summary">A small, fixed-size preview image of a product or file.</span>](/components/s-thumbnail)
 
 </div>
 
@@ -100,8 +100,8 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SModal**<span class="component-grid-tag">&lt;s-modal&gt;</span>](/components/s-modal)
-- [**SPopover**<span class="component-grid-tag">&lt;s-popover&gt;</span>](/components/s-popover)
+- [**SModal**<span class="component-grid-tag">&lt;s-modal&gt;</span><span class="component-grid-summary">A dialog overlay for focused tasks and confirmations, opened by a command or a method call.</span>](/components/s-modal)
+- [**SPopover**<span class="component-grid-tag">&lt;s-popover&gt;</span><span class="component-grid-summary">Floating content anchored to the button that opens it.</span>](/components/s-popover)
 
 </div>
 
@@ -109,11 +109,11 @@ description: "Browse all 62 typed Vue 3 wrappers for Shopify Polaris web compone
 
 <div class="component-grid">
 
-- [**SChip**<span class="component-grid-tag">&lt;s-chip&gt;</span>](/components/s-chip)
-- [**SHeading**<span class="component-grid-tag">&lt;s-heading&gt;</span>](/components/s-heading)
-- [**SNumber**<span class="component-grid-tag">&lt;s-number&gt;</span>](/components/s-number)
-- [**SParagraph**<span class="component-grid-tag">&lt;s-paragraph&gt;</span>](/components/s-paragraph)
-- [**SText**<span class="component-grid-tag">&lt;s-text&gt;</span>](/components/s-text)
-- [**STooltip**<span class="component-grid-tag">&lt;s-tooltip&gt;</span>](/components/s-tooltip)
+- [**SChip**<span class="component-grid-tag">&lt;s-chip&gt;</span><span class="component-grid-summary">A static label for a tag or attribute, optionally removable.</span>](/components/s-chip)
+- [**SHeading**<span class="component-grid-tag">&lt;s-heading&gt;</span><span class="component-grid-summary">A heading that titles a page section.</span>](/components/s-heading)
+- [**SNumber**<span class="component-grid-tag">&lt;s-number&gt;</span><span class="component-grid-summary">Displays a number you have already formatted, with typography, tone and color styling.</span>](/components/s-number)
+- [**SParagraph**<span class="component-grid-tag">&lt;s-paragraph&gt;</span><span class="component-grid-summary">A block of body text.</span>](/components/s-paragraph)
+- [**SText**<span class="component-grid-tag">&lt;s-text&gt;</span><span class="component-grid-summary">Inline text with tone, weight and emphasis styling.</span>](/components/s-text)
+- [**STooltip**<span class="component-grid-tag">&lt;s-tooltip&gt;</span><span class="component-grid-summary">A short label that appears when another element is hovered or focused.</span>](/components/s-tooltip)
 
 </div>

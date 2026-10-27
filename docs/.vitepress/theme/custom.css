@@ -127,6 +127,7 @@
 .vp-doc .component-grid li a {
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 2px;
   padding: 12px 14px;
   border: 1px solid var(--vp-c-divider);
@@ -155,6 +156,14 @@
   font-family: var(--vp-font-family-mono);
   font-size: 11px;
   color: var(--vp-c-text-3);
+}
+
+.component-grid-summary {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--vp-c-text-2);
 }
 
 /* ==========================================================================

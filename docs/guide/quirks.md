@@ -110,7 +110,7 @@ reflects the freshness of its generated **types and wrappers**:
 
 ```vue
 <template>
-  <!-- A brand-new Polaris component with no polaris-vue wrapper yet still works -->
+  <!-- A brand-new Polaris component with no polaris-vue-elements wrapper yet still works -->
   <s-new-component some-new-prop="value" />
 </template>
 ```

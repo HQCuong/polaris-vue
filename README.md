@@ -1,4 +1,4 @@
-# polaris-vue
+# polaris-vue-elements
 
 Typed Vue 3 wrapper components for [Shopify Polaris web components](https://shopify.dev/docs/api/app-home/web-components) — the `s-*` custom elements used to build Shopify App Home (embedded admin) apps.
 
