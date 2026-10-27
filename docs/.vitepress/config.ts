@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process'
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig, type HeadConfig } from 'vitepress'
@@ -24,6 +25,22 @@ function pageUrl(relativePath: string): string {
   return `${SITE_URL}/${pathname}`
 }
 
+// Cloudflare Workers Builds checks out a shallow clone, where every file's last
+// commit is the tip — so `lastUpdated` would stamp all pages (and every sitemap
+// `<lastmod>`) with the same date, and Google learns to ignore lastmod. Fetch the
+// full history when we can; if that fails, omit the dates rather than publish
+// wrong ones.
+function hasFullGitHistory(): boolean {
+  const isShallow = () =>
+    execSync('git rev-parse --is-shallow-repository', { encoding: 'utf8' }).trim() === 'true'
+  try {
+    if (isShallow()) execSync('git fetch --unshallow --quiet', { stdio: 'ignore' })
+    return !isShallow()
+  } catch {
+    return false
+  }
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'en-US',
@@ -36,7 +53,7 @@ export default defineConfig({
   cleanUrls: true,
 
   // Git-based "last updated" per page; also feeds `<lastmod>` in the sitemap.
-  lastUpdated: true,
+  lastUpdated: hasFullGitHistory(),
 
   // Emits /sitemap.xml at build time from every routed page.
   sitemap: {

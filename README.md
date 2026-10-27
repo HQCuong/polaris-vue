@@ -2,12 +2,12 @@
 
 Typed Vue 3 wrapper components for [Shopify Polaris web components](https://shopify.dev/docs/api/app-home/web-components) — the `s-*` custom elements used to build Shopify App Home (embedded admin) apps.
 
-**📖 Documentation: [polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** — guides, known quirks, and live examples for all 59 components.
+**📖 Documentation: [polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** — guides, known quirks, and live examples for all 62 components.
 
 The Polaris runtime itself is loaded from Shopify's CDN (the `polaris-2.js` stable channel receives compatible updates automatically). This library gives you an idiomatic, fully typed Vue surface on top of it:
 
-- **Typed props & events for all 59 components**, generated from Shopify's official Custom Elements Manifest (`@shopify/polaris-types`) — union-typed props like `variant`, autocomplete in templates, typed `@click`/`@aftershow` listeners.
-- **`v-model` on 18 form components** (`STextField`, `SCheckbox`, `SSelect`, `SChoiceList`, …) with the correct property/event pair for each.
+- **Typed props & events for all 62 components**, generated from Shopify's official Custom Elements Manifest (`@shopify/polaris-types`) — union-typed props like `variant`, autocomplete in templates, typed `@click`/`@aftershow` listeners.
+- **`v-model` on 17 form components** (`STextField`, `SCheckbox`, `SSelect`, `SChoiceList`, …) with the correct property/event pair for each.
 - **Imperative overlay control** — `SModal` exposes a typed `$el` (`ModalElement`) so `modal.value?.$el.showOverlay()` type-checks, alongside Polaris's declarative `commandFor`/`command` pattern.
 - **Degrades gracefully, never blocks** — unknown props pass through via `$attrs`, user-provided slots are forwarded verbatim, and brand-new Polaris components can always be used as raw `s-*` tags. A stale wrapper means missing types for new features, never broken existing ones.
 
@@ -57,7 +57,7 @@ const name = ref('')
 </template>
 ```
 
-Full documentation — guides, known quirks, and generated reference pages with live examples for all 59 components — is at **[polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** (source in `docs/`, `npm run docs:dev` to run locally).
+Full documentation — guides, known quirks, and generated reference pages with live examples for all 62 components — is at **[polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** (source in `docs/`, `npm run docs:dev` to run locally).
 
 ## Architecture
 
@@ -68,7 +68,7 @@ Everything derivable from Shopify's manifest is machine-generated; human judgmen
         │  npm run generate
         ▼
 src/lib/generated/        ← metadata, Props/Events/Element types, components (DO NOT EDIT)
-src/lib/runtime/          ← createWrapper: one generic factory for all 59 components
+src/lib/runtime/          ← createWrapper: one generic factory for all 62 components
 src/lib/overrides.ts      ← hand-written: v-model mappings only
 ```
 
