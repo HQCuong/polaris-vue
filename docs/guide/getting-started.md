@@ -26,7 +26,7 @@ script, which registers `<s-*>` elements globally:
 <!doctype html>
 <html>
   <head>
-    <script src="https://cdn.shopify.com/shopifycloud/polaris-1.js"></script>
+    <script src="https://cdn.shopify.com/shopifycloud/polaris-2.js"></script>
   </head>
   <body>
     <div id="app"></div>
@@ -37,26 +37,21 @@ script, which registers `<s-*>` elements globally:
 This works in any Vue app, not just inside Shopify Admin — the components are
 plain custom elements and render wherever the script is loaded.
 
-`polaris-1.js` is Shopify's stable channel and what we recommend for production.
+`polaris-2.js` is Shopify's stable channel and what we recommend for production.
 To pin an exact release instead, or to understand how the runtime version relates
 to this library's version, see
 [Known quirks & gotchas](./quirks#_5-the-polaris-runtime-is-versioned-on-the-cdn-—-this-library-s-version-is-not-the-runtime-s-version).
 
-### Trying Polaris 2.0 (release candidate)
+### Polaris 2.0 and the new admin design
 
 Polaris 2.0 brings the Shopify admin's new visual design (color, typography,
-spacing and icons). It is currently a
-[release candidate](https://shopify.dev/changelog/polaris-2-0-release-candidate),
-and adopting it is opt-in: swap the script tag.
-
-```html
-<script src="https://cdn.shopify.com/shopifycloud/polaris-2.0-rc.js"></script>
-```
+spacing and icons). Moving from 1.x is opt-in: swap `polaris-1.js` for
+`polaris-2.js`.
 
 - **No code changes needed.** 2.0 is a visual update: its components, props,
-  events and slots are the same as 1.1, so every `polaris-vue-elements` wrapper
-  and type works unchanged. The live examples on this site were checked against
-  `polaris-2.0-rc.js`.
+  events and slots are the same as 1.1, plus a few additions (such as
+  `SThumbnail`'s `loading` prop). Apps that stay on `polaris-1.js` keep working
+  with these wrappers; only the additions need 2.x at runtime.
 - **It follows each store's design.** Inside the Shopify admin, a store that has
   the new admin design gets the new look, and a store on the previous design keeps
   the 1.x look. Outside the admin, the new look is used by default, which makes it
@@ -65,9 +60,6 @@ and adopting it is opt-in: swap the script tag.
   with the `--shopify-safe-area-inset-bottom` CSS variable
   ([environment API](https://shopify.dev/docs/api/app-home/latest/apis/authentication-and-data/environment-api)),
   so the floating Sidekick bar doesn't cover it.
-- **Use it for testing, not production.** The release candidate is updated in
-  place at the same URL. When 2.0 becomes stable it will be published as
-  `polaris-2.js`, and a matching `polaris-vue-elements` release will follow.
 - **Built for Shopify apps** must match the admin's new visual style by
   **May 1, 2027**.
 

@@ -11,6 +11,21 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Added
+
+- `SThumbnail` `loading` prop (`"eager" | "lazy"`).
+- `STextField` `icon` accepts 41 more icon names, mostly `*-filled` variants (such as
+  `globe-filled` and `file-filled`) plus `magic`, `text-magic`, `rank-top` and others.
+
+### Changed
+
+- Regenerated from `@shopify/polaris-types` 2.0.0 (was 1.1.0). No props, slots or icons
+  were removed.
+- **Docs and examples now load the stable Polaris 2 runtime**
+  (`https://cdn.shopify.com/shopifycloud/polaris-2.js`) instead of `polaris-1.js`. Apps
+  that stay on `polaris-1.js` keep working with these wrappers; only the additions above
+  need the 2.x runtime.
+
 ## [0.2.0] - 2026-09-28
 
 Generated from `@shopify/polaris-types` 1.1.0 (was 1.0.7).
