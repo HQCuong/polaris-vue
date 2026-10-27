@@ -85,17 +85,16 @@ Pick the channel that fits your release process:
 
 | URL | What it serves |
 | --- | --- |
-| `polaris-1.js` | Stable 1.x channel — receives compatible (minor) updates automatically. **Recommended.** |
-| `polaris-1.1.js` | Pinned release — no feature, fix or visual changes until you move the pin. |
-| `polaris-2.0-rc.js` | Polaris 2.0 release candidate — the new Shopify admin visual style. For testing. |
+| `polaris-2.js` | Stable 2.x channel — the new Shopify admin visual style; receives compatible (minor) updates automatically. **Recommended.** |
+| `polaris-2.0.js` | Pinned release — no feature, fix or visual changes until you move the pin. |
+| `polaris-1.js` | Previous stable 1.x channel. |
 | `polaris.js` | Legacy URL — currently serves the same build as `polaris-1.js` and never moves to a new major on its own. |
 
-A new major (such as 2.0) is always opt-in: you change the script URL. The
-Polaris 2.0 release candidate
-([changelog](https://shopify.dev/changelog/polaris-2-0-release-candidate))
-is announced as a visual update: its Custom Elements Manifest
-(`@shopify/polaris-types@2.0.0-rc.0`) declares the same tags, props, events and
-slots as 1.1, so these wrappers type-check the same against `polaris-2.0-rc.js`.
+A new major (such as 2.0) is always opt-in: you change the script URL. Polaris
+2.0 is a visual update: its Custom Elements Manifest
+(`@shopify/polaris-types@2.0.0`) declares the same tags, props, events and slots
+as 1.1 plus a few additions (`SThumbnail`'s `loading` prop, more `STextField`
+icons), so these wrappers also work against `polaris-1.js`.
 
 Whichever channel you load, the runtime updates independently of the version
 of `polaris-vue-elements` you have installed. This library's version only

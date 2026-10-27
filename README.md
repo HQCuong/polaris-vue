@@ -4,7 +4,7 @@ Typed Vue 3 wrapper components for [Shopify Polaris web components](https://shop
 
 **📖 Documentation: [polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** — guides, known quirks, and live examples for all 59 components.
 
-The Polaris runtime itself is loaded from Shopify's CDN (the `polaris-1.js` stable channel receives compatible updates automatically). This library gives you an idiomatic, fully typed Vue surface on top of it:
+The Polaris runtime itself is loaded from Shopify's CDN (the `polaris-2.js` stable channel receives compatible updates automatically). This library gives you an idiomatic, fully typed Vue surface on top of it:
 
 - **Typed props & events for all 59 components**, generated from Shopify's official Custom Elements Manifest (`@shopify/polaris-types`) — union-typed props like `variant`, autocomplete in templates, typed `@click`/`@aftershow` listeners.
 - **`v-model` on 18 form components** (`STextField`, `SCheckbox`, `SSelect`, `SChoiceList`, …) with the correct property/event pair for each.
@@ -25,10 +25,10 @@ The wrappers are presentational only — your host app must load the Polaris run
 
 ```html
 <!-- index.html -->
-<script src="https://cdn.shopify.com/shopifycloud/polaris-1.js"></script>
+<script src="https://cdn.shopify.com/shopifycloud/polaris-2.js"></script>
 ```
 
-`polaris-1.js` is Shopify's stable channel. To try the admin's new look, load the [Polaris 2.0 release candidate](https://shopify.dev/changelog/polaris-2-0-release-candidate) (`polaris-2.0-rc.js`) instead — the component API is unchanged, so the wrappers work as-is. See [Trying Polaris 2.0](https://polaris-vue.vict0r.net/guide/getting-started#trying-polaris-2-0-release-candidate).
+`polaris-2.js` is Shopify's stable channel and brings the admin's new visual design. Apps still on `polaris-1.js` keep working — 2.0's component API is the same as 1.1 apart from a few additions. See [Polaris 2.0 and the new admin design](https://polaris-vue.vict0r.net/guide/getting-started#polaris-2-0-and-the-new-admin-design).
 
 ```ts
 // vite.config.ts
