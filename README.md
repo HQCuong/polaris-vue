@@ -101,11 +101,7 @@ npm run build:lib      # build the publishable package into dist/
 
 ## Contributing
 
-1. **Never edit `src/lib/generated/` or `docs/components/` by hand** — they are overwritten by the generators. Change `scripts/generate.mjs` / `scripts/generate-docs.mjs` instead.
-2. **New form component needs v-model?** Add one line to `src/lib/overrides.ts` (the `overrides.spec.ts` drift guard will point at exactly what's missing).
-3. **Curated docs example?** Add `docs/examples/<tag>.md` (complex live demos go in `docs/examples/demos/*.vue` — SFCs are immune to markdown-it mangling); the docs generator inlines it automatically.
-4. Before opening a PR, make sure the full suite passes: `npm run generate && npm run docs:generate && npx vitest run && npm run type-check && npx oxlint . && npx eslint .` — CI runs the same checks plus a codegen-freshness diff.
-5. Behavioral claims about Polaris components (slot rules, rendering quirks) should be verified against the real CDN runtime in a browser, not just jsdom — see `docs/guide/quirks.md` for previously verified findings.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup, ground rules and the pre-PR checklist.
 
 ## Releasing
 

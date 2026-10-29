@@ -1,0 +1,48 @@
+name: Bug report
+description: A wrapper renders, types or behaves differently from what you expect.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: The smallest template or code that shows the problem.
+      render: vue
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: polaris-vue-elements version
+      placeholder: 0.4.0
+    validations:
+      required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: Polaris runtime
+      description: Which CDN script your app loads.
+      options:
+        - polaris-2.js
+        - polaris-1.js
+        - Other / not sure
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Vue version and browser
+      placeholder: Vue 3.5.44, Chrome 141
+  - type: checkboxes
+    id: raw-tag
+    attributes:
+      label: Raw tag check
+      options:
+        - label: The same markup works with the raw `<s-*>` tag (the bug is in the wrapper, not in Polaris itself)
