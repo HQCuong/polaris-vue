@@ -2,6 +2,8 @@
 
 Thanks for helping out. Bug reports, docs fixes and pull requests are all welcome.
 
+Everyone taking part is expected to follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
+
 ## Before you start
 
 - **Bug or small fix?** Open a pull request directly, or an issue if you're not sure it's a bug.
