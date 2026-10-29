@@ -2,7 +2,7 @@
 
 Typed Vue 3 wrapper components for [Shopify Polaris web components](https://shopify.dev/docs/api/app-home/web-components) — the `s-*` custom elements used to build Shopify App Home (embedded admin) apps.
 
-**📖 Documentation: [polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** — guides, known quirks, and live examples for all 62 components.
+**📖 Documentation: [polaris-vue-elements.dev](https://polaris-vue-elements.dev/)** — guides, known quirks, and live examples for all 62 components.
 
 The Polaris runtime itself is loaded from Shopify's CDN (the `polaris-2.js` stable channel receives compatible updates automatically). This library gives you an idiomatic, fully typed Vue surface on top of it:
 
@@ -28,7 +28,7 @@ The wrappers are presentational only — your host app must load the Polaris run
 <script src="https://cdn.shopify.com/shopifycloud/polaris-2.js"></script>
 ```
 
-`polaris-2.js` is Shopify's stable channel and brings the admin's new visual design. Apps still on `polaris-1.js` keep working — 2.0's component API is the same as 1.1 apart from a few additions. See [Polaris 2.0 and the new admin design](https://polaris-vue.vict0r.net/guide/getting-started#polaris-2-0-and-the-new-admin-design).
+`polaris-2.js` is Shopify's stable channel and brings the admin's new visual design. Apps still on `polaris-1.js` keep working — 2.0's component API is the same as 1.1 apart from a few additions. See [Polaris 2.0 and the new admin design](https://polaris-vue-elements.dev/guide/getting-started#polaris-2-0-and-the-new-admin-design).
 
 ```ts
 // vite.config.ts
@@ -57,9 +57,9 @@ const name = ref('')
 </template>
 ```
 
-Prefer writing Polaris's own `<s-button>` tags? Add `"types": ["polaris-vue-elements/elements"]` to your `tsconfig.json` and Volar / `vue-tsc` type-check raw `<s-*>` tags too (types only; `v-model` stays wrapper-only). See [Typing raw `<s-*>` tags](https://polaris-vue.vict0r.net/guide/getting-started#_7-typing-raw-s-tags-optional).
+Prefer writing Polaris's own `<s-button>` tags? Add `"types": ["polaris-vue-elements/elements"]` to your `tsconfig.json` and Volar / `vue-tsc` type-check raw `<s-*>` tags too (types only; `v-model` stays wrapper-only). See [Typing raw `<s-*>` tags](https://polaris-vue-elements.dev/guide/getting-started#_7-typing-raw-s-tags-optional).
 
-Full documentation — guides, known quirks, and generated reference pages with live examples for all 62 components — is at **[polaris-vue.vict0r.net](https://polaris-vue.vict0r.net/)** (source in `docs/`, `npm run docs:dev` to run locally).
+Full documentation — guides, known quirks, and generated reference pages with live examples for all 62 components — is at **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/)** (source in `docs/`, `npm run docs:dev` to run locally).
 
 ## Architecture
 

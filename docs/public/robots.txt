@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://polaris-vue.vict0r.net/sitemap.xml
+Sitemap: https://polaris-vue-elements.dev/sitemap.xml

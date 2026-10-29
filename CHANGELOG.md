@@ -6,7 +6,7 @@ All notable changes to `polaris-vue-elements` are documented here. The format is
 minor releases may include breaking changes, which are always called out below.
 
 Wrapper and type changes follow `@shopify/polaris-types`, whose major version matches the
-[Polaris CDN](https://polaris-vue.vict0r.net/guide/quirks)
+[Polaris CDN](https://polaris-vue-elements.dev/guide/quirks)
 major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]

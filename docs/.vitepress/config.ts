@@ -12,7 +12,7 @@ import componentsSidebar from './components-sidebar.json'
 
 // Public origin of the deployed docs. Used for canonical URLs, Open Graph tags,
 // JSON-LD and the generated sitemap — keep it in sync with the Cloudflare route.
-const SITE_URL = 'https://polaris-vue.vict0r.net'
+const SITE_URL = 'https://polaris-vue-elements.dev'
 const SITE_NAME = 'polaris-vue-elements'
 const SITE_DESCRIPTION =
   'Typed Vue 3 wrapper components for Shopify Polaris web components — props, events and v-model generated from the official Custom Elements Manifest.'
