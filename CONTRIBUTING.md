@@ -42,6 +42,7 @@ npm run generate && npm run docs:generate   # generated code must be up to date
 npm run check                               # oxlint + eslint + vue-tsc
 npx vitest run
 npm run build:lib
+npm run docs:build                          # if you touched docs or the docs generator
 ```
 
 Then:
@@ -60,6 +61,10 @@ Then:
   That's a GitHub safeguard for pull requests from forks, not a judgment on your change.
 - The maintainer reviews, merges, and ships the change in the next release. Releases are cut by
   the maintainer (see [Releasing](./README.md#releasing)).
+
+## Security
+
+Found a vulnerability? Don't open an issue; see [SECURITY.md](./SECURITY.md).
 
 ## License
 

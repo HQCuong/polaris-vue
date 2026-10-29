@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -44,7 +44,13 @@ jobs:
       - name: Build library
         run: npm run build:lib
 
+      # Same freshness check release.yml runs, so a PR can't pass here and then fail the release.
       - name: Verify generated code is up to date
         run: |
           npm run generate
+          npm run docs:generate
           git diff --exit-code
+
+      # The Cloudflare deploy runs this after merge; catch dead links and broken pages first.
+      - name: Build docs
+        run: npm run docs:build

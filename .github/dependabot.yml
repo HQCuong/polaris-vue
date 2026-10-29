@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # @shopify/polaris-types is excluded: sync-polaris.yml bumps it and regenerates the wrappers.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: "@shopify/polaris-types"
+    groups:
+      dev-dependencies:
+        dependency-type: development
+        update-types: [minor, patch]
+
+  # Keeps the SHA-pinned actions in .github/workflows up to date.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]

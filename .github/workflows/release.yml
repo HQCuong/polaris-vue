@@ -7,6 +7,10 @@ name: Release
 #
 # npm auth uses Trusted Publishing (OIDC) — no token is stored. The package must list this
 # repo + `release.yml` as its trusted publisher on npmjs.com.
+#
+# Two jobs: `build` installs dependencies (running their install scripts), checks and packs
+# the tarball with no write access; `publish` never installs dependencies, and is the only
+# job that can mint an OIDC token or write to the repo.
 
 on:
   push:
@@ -14,34 +18,28 @@ on:
       - "v*.*.*"
 
 permissions:
-  contents: write # create the GitHub Release
-  id-token: write # npm Trusted Publishing (OIDC) + provenance
+  contents: read
 
 concurrency:
   group: release
   cancel-in-progress: false
 
 jobs:
-  release:
-    name: Publish ${{ github.ref_name }}
+  build:
+    name: Build ${{ github.ref_name }}
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.meta.outputs.version }}
+      prerelease: ${{ steps.meta.outputs.prerelease }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: .nvmrc
           cache: npm
-          registry-url: https://registry.npmjs.org
-
-      - name: Check npm supports Trusted Publishing
-        run: |
-          # Trusted Publishing needs npm >= 11.5.1.
-          npm --version
-          node -e "const [a,b,c]=process.argv[1].split('.').map(Number); process.exit(a>11||(a===11&&(b>5||(b===5&&c>=1)))?0:1)" "$(npm --version)" \
-            || npm install -g npm@^11.5.1
 
       - name: Install dependencies
         run: npm ci
@@ -61,7 +59,7 @@ jobs:
           esac
 
       - name: Extract release notes from CHANGELOG.md
-        run: node scripts/changelog.mjs notes "${{ steps.meta.outputs.version }}" > "$RUNNER_TEMP/notes.md"
+        run: node scripts/changelog.mjs notes "${{ steps.meta.outputs.version }}" > notes.md
 
       - name: Lint
         run: |
@@ -74,27 +72,76 @@ jobs:
           npm run docs:generate
           git diff --exit-code
 
-      # `prepublishOnly` also runs type-check, vitest and build:lib right before publishing.
+      # Same checks as `prepublishOnly`, which does not run when publishing a tarball.
+      - name: Type-check, test and build
+        run: |
+          npm run type-check
+          npx vitest run
+          npm run build:lib
+
+      - name: Pack
+        run: |
+          npm pack
+          mv polaris-vue-elements-*.tgz package.tgz
+
+      - name: Upload tarball and release notes
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: release
+          path: |
+            package.tgz
+            notes.md
+          if-no-files-found: error
+
+  publish:
+    name: Publish ${{ github.ref_name }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the GitHub Release
+      id-token: write # npm Trusted Publishing (OIDC) + provenance
+    env:
+      VERSION: ${{ needs.build.outputs.version }}
+      PRERELEASE: ${{ needs.build.outputs.prerelease }}
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+
+      - name: Check npm supports Trusted Publishing
+        run: |
+          # Trusted Publishing needs npm >= 11.5.1.
+          npm --version
+          node -e "const [a,b,c]=process.argv[1].split('.').map(Number); process.exit(a>11||(a===11&&(b>5||(b===5&&c>=1)))?0:1)" "$(npm --version)" \
+            || npm install -g npm@^11.5.1
+
+      - name: Download tarball and release notes
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: release
+
       - name: Publish to npm
         run: |
-          if npm view "polaris-vue-elements@${{ steps.meta.outputs.version }}" version >/dev/null 2>&1; then
-            echo "polaris-vue-elements@${{ steps.meta.outputs.version }} is already on npm, skipping publish (re-run)."
+          if npm view "polaris-vue-elements@$VERSION" version >/dev/null 2>&1; then
+            echo "polaris-vue-elements@$VERSION is already on npm, skipping publish (re-run)."
             exit 0
           fi
-          if [ "${{ steps.meta.outputs.prerelease }}" = "true" ]; then
-            npm publish --access public --tag next
+          if [ "$PRERELEASE" = "true" ]; then
+            npm publish package.tgz --access public --tag next
           else
-            npm publish --access public
+            npm publish package.tgz --access public
           fi
 
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+          if gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             echo "Release $GITHUB_REF_NAME already exists, skipping."
             exit 0
           fi
           FLAGS=""
-          if [ "${{ steps.meta.outputs.prerelease }}" = "true" ]; then FLAGS="--prerelease"; fi
-          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag $FLAGS
+          if [ "$PRERELEASE" = "true" ]; then FLAGS="--prerelease"; fi
+          gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --title "$GITHUB_REF_NAME" --notes-file notes.md --verify-tag $FLAGS
