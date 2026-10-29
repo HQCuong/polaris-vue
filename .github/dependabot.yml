@@ -7,6 +7,12 @@ updates:
       interval: weekly
     ignore:
       - dependency-name: "@shopify/polaris-types"
+      # Wait for typescript-eslint and vue-tsc to support the next TypeScript major.
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
+      # Stays on the Node major in .nvmrc, so types can't offer APIs the runtime lacks.
+      - dependency-name: "@types/node"
+        update-types: [version-update:semver-major]
     groups:
       dev-dependencies:
         dependency-type: development
