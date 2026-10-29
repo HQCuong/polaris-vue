@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
-import { SButton, STextField } from '../generated/components'
+import { SButton, SCheckbox, STextField } from '../generated/components'
 
 describe('SButton', () => {
   it('renders an s-button element', () => {
@@ -23,11 +23,24 @@ describe('SButton', () => {
     expect(wrapper.attributes('disabled')).toBe('')
   })
 
+  it('renders a bare boolean attribute (an empty string prop) as an empty attribute', () => {
+    // `<SButton disabled />` reaches the prop as ''
+    const wrapper = mount(SButton, { props: { disabled: '' as unknown as boolean } })
+    expect(wrapper.attributes('disabled')).toBe('')
+  })
+
   it('fires a click listener attached via @click', async () => {
     const onClick = vi.fn<() => void>()
     const wrapper = mount(SButton, { attrs: { onClick } })
     await wrapper.trigger('click')
     expect(onClick).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('SCheckbox v-model', () => {
+  it('renders a checked modelValue as an empty attribute and omits an unchecked one', () => {
+    expect(mount(SCheckbox, { props: { modelValue: true } }).attributes('checked')).toBe('')
+    expect(mount(SCheckbox, { props: { modelValue: false } }).attributes('checked')).toBeUndefined()
   })
 })
 

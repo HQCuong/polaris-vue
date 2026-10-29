@@ -11,6 +11,13 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Fixed
+
+- A boolean prop written as a bare attribute (`<SChip removable />`, `<SButton disabled />`) is
+  now on. Vue passes such an attribute to a prop declared without a Boolean type as `''`, which
+  the wrapper treated as falsy, so the attribute never reached the element and only
+  `:removable="true"` worked.
+
 ## [0.4.0] - 2026-10-27
 
 Still generated from `@shopify/polaris-types` 2.0.0.
