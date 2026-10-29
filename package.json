@@ -80,7 +80,7 @@
     "oxfmt": "^0.75.0",
     "oxlint": "~1.79.0",
     "simple-git-hooks": "^2.13.1",
-    "typescript": "~6.0.0",
+    "typescript": "~7.0.2",
     "vite": "^8.1.5",
     "vite-plugin-vue-devtools": "^8.1.5",
     "vitepress": "^1.6.4",
