@@ -70,6 +70,15 @@ export type PolarisElementTag<P, E = UnknownRecord, El extends HTMLElement = HTM
   }
 }
 
+/**
+ * A boolean prop is on for `true` and for the empty string. Vue hands a bare attribute
+ * (`<SButton disabled />`) to a prop declared without a Boolean type as `''`, which is falsy
+ * but means "present" under HTML's boolean-attribute rules.
+ */
+function isBooleanOn(value: unknown): boolean {
+  return value === '' || Boolean(value)
+}
+
 function applyElementProperties(el: unknown, bindings: Array<[string, unknown]>): void {
   const target = el as UnknownRecord
   for (const [key, value] of bindings) {
@@ -82,7 +91,8 @@ function applyElementProperties(el: unknown, bindings: Array<[string, unknown]>)
  *
  * - All manifest-derived props are declared so they don't leak into `$attrs`.
  * - Props that map to an HTML attribute are serialized onto the element as attributes
- *   (booleans render as an empty-string attribute when `true`, and are omitted otherwise).
+ *   (booleans render as an empty-string attribute when `true` or written as a bare attribute,
+ *   and are omitted otherwise).
  * - Props that are property-only (no matching attribute) are assigned directly as DOM
  *   properties on the element once it is mounted/updated.
  * - Any remaining `$attrs` (class, style, aria-*, native event listeners, arbitrary
@@ -121,7 +131,7 @@ export function createWrapper<
           if (value === undefined) continue
           if (prop.attribute) {
             if (prop.type === 'boolean') {
-              if (value) finalAttrs[prop.attribute] = ''
+              if (isBooleanOn(value)) finalAttrs[prop.attribute] = ''
             } else {
               finalAttrs[prop.attribute] = value
             }
@@ -136,7 +146,7 @@ export function createWrapper<
             const propMeta = meta.props.find((prop) => prop.name === vModel.prop)
             if (propMeta?.attribute) {
               if (propMeta.type === 'boolean') {
-                if (modelValue) finalAttrs[propMeta.attribute] = ''
+                if (isBooleanOn(modelValue)) finalAttrs[propMeta.attribute] = ''
               } else {
                 finalAttrs[propMeta.attribute] = modelValue
               }
