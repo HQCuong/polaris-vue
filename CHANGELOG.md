@@ -11,6 +11,10 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-10-29
+
+Still generated from `@shopify/polaris-types` 2.0.0.
+
 ### Fixed
 
 - A boolean prop written as a bare attribute (`<SChip removable />`, `<SButton disabled />`) is
@@ -103,7 +107,8 @@ Initial release: typed Vue 3 wrappers for the 59 Shopify Polaris web components 
   `showOverlay()` / `hideOverlay()` / `toggleOverlay()`).
 - ESM build with bundled type declarations; `vue` ^3.5 as a peer dependency.
 
-[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/HQCuong/polaris-vue/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/HQCuong/polaris-vue/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/HQCuong/polaris-vue/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/HQCuong/polaris-vue/compare/v0.1.0...v0.2.0
