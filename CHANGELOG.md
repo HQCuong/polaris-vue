@@ -11,6 +11,17 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-10-30
+
+Still generated from `@shopify/polaris-types` 2.0.0. No changes to the components.
+
+### Changed
+
+- The docs moved to [polaris-vue-elements.dev](https://polaris-vue-elements.dev). The old
+  `polaris-vue.vict0r.net` links redirect there. The package `homepage` now points to the new
+  domain, and the npm description and keywords mention Shopify apps.
+- New guide: [Build a Shopify embedded app with Vue 3](https://polaris-vue-elements.dev/guide/shopify-embedded-app).
+
 ## [0.4.1] - 2026-10-29
 
 Still generated from `@shopify/polaris-types` 2.0.0.
@@ -107,7 +118,8 @@ Initial release: typed Vue 3 wrappers for the 59 Shopify Polaris web components 
   `showOverlay()` / `hideOverlay()` / `toggleOverlay()`).
 - ESM build with bundled type declarations; `vue` ^3.5 as a peer dependency.
 
-[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.4.2...HEAD
+[0.4.2]: https://github.com/HQCuong/polaris-vue/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/HQCuong/polaris-vue/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/HQCuong/polaris-vue/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/HQCuong/polaris-vue/compare/v0.2.0...v0.3.0
