@@ -17,7 +17,8 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
   our own summary of Shopify's guidance for that component, with Vue snippets, and links
   to the full section on shopify.dev. Components Shopify publishes no guidance for have
   none.
-- Docs: a redesigned homepage, a frosted-glass nav bar and a back-to-top button.
+- Docs: a redesigned homepage, a frosted-glass nav bar, a back-to-top button and thin,
+  rounded scrollbars.
 
 ## [0.4.2] - 2026-10-30
 
