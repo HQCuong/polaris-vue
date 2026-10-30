@@ -62,11 +62,11 @@ export default defineConfig({
     hostname: SITE_URL,
   },
 
-  // `docs/examples/*.md` are hand-written snippets that `generate-docs.mjs`
-  // inlines into the component pages. They must live under `docs/` so the
-  // demos can import from `./demos/`, but they are not pages — building them
-  // would publish 60 duplicate-content URLs.
-  srcExclude: ['examples/**'],
+  // `docs/examples/*.md` and `docs/best-practices/*.md` are hand-written
+  // snippets that `generate-docs.mjs` inlines into the component pages. Examples
+  // must live under `docs/` so the demos can import from `./demos/`, but neither
+  // are pages — building them would publish duplicate-content URLs.
+  srcExclude: ['examples/**', 'best-practices/**'],
 
   head: [
     // Google Search wants a square icon at a multiple of 48px; browsers prefer the SVG.

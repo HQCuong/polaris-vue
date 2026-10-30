@@ -12,6 +12,12 @@ A text link that navigates to another page or URL, or runs a command. `SLink` is
 import { SLink } from 'polaris-vue-elements'
 ```
 
+## Best practices
+
+- **Open only external links in a new tab.** Set `target="_blank"` for URLs outside the admin, such as help docs or partner sites. Links within the admin should stay in the same tab so merchants keep their place in the workflow.
+
+See [Shopify's best practices for `<s-link>`](https://shopify.dev/docs/api/app-home/latest/web-components/actions/link#best-practices) for the full guidance.
+
 ## Example
 
 <script setup>

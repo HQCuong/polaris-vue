@@ -31,6 +31,7 @@ const repoPkgPath = path.join(repoRoot, 'package.json')
 
 const overridesPath = path.join(repoRoot, 'src', 'lib', 'overrides.ts')
 const examplesDir = path.join(repoRoot, 'docs', 'examples')
+const bestPracticesDir = path.join(repoRoot, 'docs', 'best-practices')
 const componentsDir = path.join(repoRoot, 'docs', 'components')
 const sidebarPath = path.join(repoRoot, 'docs', '.vitepress', 'components-sidebar.json')
 const indexPath = path.join(componentsDir, 'index.md')
@@ -245,6 +246,28 @@ const handWrittenExamples = new Map()
 for (const file of exampleFiles) {
   const tag = file.slice(0, -'.md'.length)
   handWrittenExamples.set(tag, readFileSync(path.join(examplesDir, file), 'utf8').trimEnd())
+}
+
+// ---------------------------------------------------------------------------
+// Hand-written best practices (docs/best-practices/<tag>.md)
+//
+// Our own wording of Shopify's guidance for each component, ending with a link
+// to the matching section on shopify.dev. Not every component has one: Shopify
+// doesn't publish best practices for all of them, and we don't invent any.
+// ---------------------------------------------------------------------------
+
+const bestPracticeFiles = existsSync(bestPracticesDir)
+  ? readdirSync(bestPracticesDir).filter((f) => f.endsWith('.md'))
+  : []
+
+const bestPractices = new Map()
+for (const file of bestPracticeFiles) {
+  const tag = file.slice(0, -'.md'.length)
+  assert(
+    components.some((c) => c.tagName === tag),
+    `docs/best-practices/${file} is for unknown tag "${tag}" (not found in the manifest). Has Shopify removed it?`,
+  )
+  bestPractices.set(tag, readFileSync(path.join(bestPracticesDir, file), 'utf8').trimEnd())
 }
 
 // Simple presentational components where a generic "render it with a text child" demo is
@@ -518,6 +541,11 @@ function rewriteRelativeImportsForInlining(content) {
   return content.replace(/(from\s+['"])\.\//g, "$1../examples/")
 }
 
+function renderBestPracticesSection(component) {
+  const content = bestPractices.get(component.tagName)
+  return content ? ['## Best practices', '', content, ''].join('\n') : ''
+}
+
 function renderExampleSection(component) {
   const handWritten = handWrittenExamples.get(component.tagName)
   if (handWritten) {
@@ -711,6 +739,7 @@ function renderComponentPage(component) {
   ].join('\n')
 
   const optionalSections = [
+    renderBestPracticesSection(component),
     renderExampleSection(component),
     renderVModelSection(component),
     renderPropsSection(component),

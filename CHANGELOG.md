@@ -11,6 +11,14 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Added
+
+- Docs: a "Best practices" section on 50 component pages, before the example. Each is
+  our own summary of Shopify's guidance for that component, with Vue snippets, and links
+  to the full section on shopify.dev. Components Shopify publishes no guidance for have
+  none.
+- Docs: a redesigned homepage, a frosted-glass nav bar and a back-to-top button.
+
 ## [0.4.2] - 2026-10-30
 
 Still generated from `@shopify/polaris-types` 2.0.0. No changes to the components.
