@@ -69,7 +69,12 @@ export default defineConfig({
   srcExclude: ['examples/**'],
 
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    // Google Search wants a square icon at a multiple of 48px; browsers prefer the SVG.
+    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' }],
+    ['link', { rel: 'icon', href: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' }],
+    ['link', { rel: 'icon', href: '/favicon.ico', sizes: '32x32' }],
+    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
     ['meta', { name: 'theme-color', content: '#008060' }],
     ['meta', { property: 'og:site_name', content: SITE_NAME }],
     ['meta', { property: 'og:type', content: 'website' }],
@@ -182,7 +187,8 @@ export default defineConfig({
     outline: [2, 3],
 
     footer: {
-      message: 'Released under the MIT License.',
+      message:
+        'Released under the MIT License. Vue logo by <a href="https://github.com/vuejs/art">Evan You</a>, CC BY-NC-SA 4.0.',
       copyright: 'Wrappers around Shopify Polaris web components — not affiliated with Shopify.',
     },
 
