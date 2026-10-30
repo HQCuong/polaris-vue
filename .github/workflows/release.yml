@@ -31,6 +31,7 @@ jobs:
     outputs:
       version: ${{ steps.meta.outputs.version }}
       prerelease: ${{ steps.meta.outputs.prerelease }}
+      node-version: ${{ steps.meta.outputs.node-version }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -53,6 +54,7 @@ jobs:
             exit 1
           fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "node-version=$(cat .nvmrc)" >> "$GITHUB_OUTPUT"
           case "$VERSION" in
             *-*) echo "prerelease=true" >> "$GITHUB_OUTPUT" ;;
             *) echo "prerelease=false" >> "$GITHUB_OUTPUT" ;;
@@ -104,10 +106,11 @@ jobs:
       VERSION: ${{ needs.build.outputs.version }}
       PRERELEASE: ${{ needs.build.outputs.prerelease }}
     steps:
+      # No checkout in this job, so .nvmrc is not on disk: take the version from build.
       - name: Setup Node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version-file: .nvmrc
+          node-version: ${{ needs.build.outputs.node-version }}
           registry-url: https://registry.npmjs.org
 
       - name: Check npm supports Trusted Publishing
