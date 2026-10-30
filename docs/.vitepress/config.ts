@@ -111,6 +111,18 @@ export default defineConfig({
     ]
 
     if (isHome) {
+      // Google picks the site name shown above the URL in results from this.
+      head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: SITE_NAME,
+          alternateName: 'Polaris Vue Elements',
+          url: `${SITE_URL}/`,
+        }),
+      ])
       head.push([
         'script',
         { type: 'application/ld+json' },
