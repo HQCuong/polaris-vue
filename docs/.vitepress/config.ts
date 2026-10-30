@@ -119,7 +119,7 @@ export default defineConfig({
           programmingLanguage: ['TypeScript', 'Vue'],
           runtimePlatform: 'Vue 3',
           license: 'https://opensource.org/licenses/MIT',
-          keywords: 'shopify, polaris, web components, vue, vue 3, typescript',
+          keywords: 'shopify, shopify app, shopify app home, polaris, web components, vue, vue 3, typescript',
         }),
       ])
     }

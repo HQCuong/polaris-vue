@@ -1,4 +1,5 @@
 ---
+title: Shopify Polaris web components in Vue — known quirks
 description: Browser-verified quirks of Shopify Polaris web components when used from Vue 3 — slot requirements, event timing and v-model behaviors that differ from typical Vue component libraries.
 ---
 

@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 
-// Library-mode build for the published `polaris-vue` package (src/lib/**).
+// Library-mode build for the published `polaris-vue-elements` package (src/lib/**).
 //
 // This is intentionally a separate config from vite.config.ts, which builds the dev
 // playground app. The library ships as ESM only, with `vue` external (the consumer

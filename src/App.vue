@@ -28,7 +28,7 @@ function increment(): void {
 
 // Form state, round-tripped through v-model on the wrapper components below.
 const name = ref('Ada Lovelace')
-const bio = ref('Writes playground demos for polaris-vue.')
+const bio = ref('Writes playground demos for polaris-vue-elements.')
 const acceptsMarketing = ref(true)
 const notificationsEnabled = ref(false)
 const favoriteFruit = ref('apple')
@@ -51,7 +51,7 @@ function onModalAfterhide(): void {
 </script>
 
 <template>
-  <SPage heading="polaris-vue playground">
+  <SPage heading="polaris-vue-elements playground">
     <SSection heading="Actions">
       <SStack direction="inline" gap="base" alignItems="center">
         <SButton variant="primary" @click="increment">Primary action</SButton>

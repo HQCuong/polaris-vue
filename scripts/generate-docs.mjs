@@ -689,9 +689,16 @@ function frontmatter(fields) {
   return lines.join('\n')
 }
 
+// `<title>` per component page. The H1 stays `SButton <s-button>`; the title adds the words
+// people search for (Shopify, Polaris, Vue) and the component's plain name.
+function componentTitle(component) {
+  const name = component.tagName.replace(/^s-/, '').replaceAll('-', ' ')
+  return `${component.exportName} (${component.tagName}) – Shopify Polaris ${name} for Vue 3`
+}
+
 function renderComponentPage(component) {
   const header = [
-    frontmatter({ description: componentDescription(component) }),
+    frontmatter({ title: componentTitle(component), description: componentDescription(component) }),
     banner(),
     '',
     `# ${component.exportName} \`<${component.tagName}>\``,
@@ -749,6 +756,7 @@ writeFileSync(sidebarPath, JSON.stringify(sidebar, null, 2) + '\n')
 function renderComponentsIndex() {
   const lines = [
     frontmatter({
+      title: 'Shopify Polaris web components for Vue 3',
       description: `Browse all ${components.length} typed Vue 3 wrappers for Shopify Polaris web components, grouped by category — actions, forms, layout, feedback, tables and more.`,
     }),
     banner(),
