@@ -1,5 +1,9 @@
 <div align="center">
 
+<sub>**English** | [Tiếng Việt](./i18n/vi/README.md)</sub>
+
+<br>
+
 <a href="https://polaris-vue-elements.dev/">
   <img src="https://polaris-vue-elements.dev/og.png" alt="polaris-vue-elements: typed Vue 3 wrappers for Shopify Polaris web components" width="720">
 </a>

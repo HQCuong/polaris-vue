@@ -1,3 +1,5 @@
+<sub>**English** | [Tiếng Việt](./i18n/vi/SECURITY.md)</sub>
+
 # Security policy
 
 ## Supported versions

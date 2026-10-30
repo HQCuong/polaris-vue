@@ -1,3 +1,5 @@
+<sub>**English** | [Tiếng Việt](./i18n/vi/CODE_OF_CONDUCT.md)</sub>
+
 
 # Contributor Covenant Code of Conduct
 

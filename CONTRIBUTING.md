@@ -1,3 +1,5 @@
+<sub>**English** | [Tiếng Việt](./i18n/vi/CONTRIBUTING.md)</sub>
+
 # Contributing
 
 Thanks for helping out. Bug reports, docs fixes and pull requests are all welcome.
@@ -29,7 +31,7 @@ npm run docs:dev       # documentation site
    `overrides.spec.ts` drift guard points at exactly what's missing).
 3. **Curated docs example?** Add `docs/examples/<tag>.md` (complex live demos go in
    `docs/examples/demos/*.vue`, since SFCs are immune to markdown-it mangling); the docs generator
-   inlines it automatically.
+   inlines it automatically. Hand-written best practices go in `docs/best-practices/<tag>.md`.
 4. **Verify Polaris behavior in a real browser.** Claims about Polaris components (slot rules,
    rendering quirks) must be checked against the real CDN runtime (`polaris-2.js`), not just
    jsdom. See [`docs/guide/quirks.md`](./docs/guide/quirks.md) for previously verified findings.
