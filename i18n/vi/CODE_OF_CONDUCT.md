@@ -1,4 +1,4 @@
-<sub>[English](../../CODE_OF_CONDUCT.md) | **Tiếng Việt**</sub>
+<sub>[English](../../CODE_OF_CONDUCT.md) | **Tiếng Việt** | [한국어](../ko/CODE_OF_CONDUCT.md) | [简体中文](../zh/CODE_OF_CONDUCT.md) | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md)</sub>
 
 > Bản dịch tiếng Việt chính thức của Contributor Covenant 2.1, lấy từ
 > [contributor-covenant.org](https://www.contributor-covenant.org/vi/version/2/1/code_of_conduct/).

@@ -1,0 +1,292 @@
+[
+  {
+    "text": "액션",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SButton",
+        "link": "/ko/components/s-button"
+      },
+      {
+        "text": "SButtonGroup",
+        "link": "/ko/components/s-button-group"
+      },
+      {
+        "text": "SClickable",
+        "link": "/ko/components/s-clickable"
+      },
+      {
+        "text": "SClickableChip",
+        "link": "/ko/components/s-clickable-chip"
+      },
+      {
+        "text": "SLink",
+        "link": "/ko/components/s-link"
+      },
+      {
+        "text": "SMenu",
+        "link": "/ko/components/s-menu"
+      },
+      {
+        "text": "SPressButton",
+        "link": "/ko/components/s-press-button"
+      }
+    ]
+  },
+  {
+    "text": "피드백 및 상태",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBadge",
+        "link": "/ko/components/s-badge"
+      },
+      {
+        "text": "SBanner",
+        "link": "/ko/components/s-banner"
+      },
+      {
+        "text": "SEmptyState",
+        "link": "/ko/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/ko/components/s-progress"
+      },
+      {
+        "text": "SSpinner",
+        "link": "/ko/components/s-spinner"
+      }
+    ]
+  },
+  {
+    "text": "폼",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SCheckbox",
+        "link": "/ko/components/s-checkbox"
+      },
+      {
+        "text": "SChoice",
+        "link": "/ko/components/s-choice"
+      },
+      {
+        "text": "SChoiceList",
+        "link": "/ko/components/s-choice-list"
+      },
+      {
+        "text": "SColorField",
+        "link": "/ko/components/s-color-field"
+      },
+      {
+        "text": "SColorPicker",
+        "link": "/ko/components/s-color-picker"
+      },
+      {
+        "text": "SDateField",
+        "link": "/ko/components/s-date-field"
+      },
+      {
+        "text": "SDatePicker",
+        "link": "/ko/components/s-date-picker"
+      },
+      {
+        "text": "SDropZone",
+        "link": "/ko/components/s-drop-zone"
+      },
+      {
+        "text": "SEmailField",
+        "link": "/ko/components/s-email-field"
+      },
+      {
+        "text": "SMoneyField",
+        "link": "/ko/components/s-money-field"
+      },
+      {
+        "text": "SNumberField",
+        "link": "/ko/components/s-number-field"
+      },
+      {
+        "text": "SOption",
+        "link": "/ko/components/s-option"
+      },
+      {
+        "text": "SOptionGroup",
+        "link": "/ko/components/s-option-group"
+      },
+      {
+        "text": "SPasswordField",
+        "link": "/ko/components/s-password-field"
+      },
+      {
+        "text": "SSearchField",
+        "link": "/ko/components/s-search-field"
+      },
+      {
+        "text": "SSelect",
+        "link": "/ko/components/s-select"
+      },
+      {
+        "text": "SSwitch",
+        "link": "/ko/components/s-switch"
+      },
+      {
+        "text": "STextArea",
+        "link": "/ko/components/s-text-area"
+      },
+      {
+        "text": "STextField",
+        "link": "/ko/components/s-text-field"
+      },
+      {
+        "text": "SUrlField",
+        "link": "/ko/components/s-url-field"
+      }
+    ]
+  },
+  {
+    "text": "레이아웃 및 구조",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBox",
+        "link": "/ko/components/s-box"
+      },
+      {
+        "text": "SDivider",
+        "link": "/ko/components/s-divider"
+      },
+      {
+        "text": "SGrid",
+        "link": "/ko/components/s-grid"
+      },
+      {
+        "text": "SGridItem",
+        "link": "/ko/components/s-grid-item"
+      },
+      {
+        "text": "SListItem",
+        "link": "/ko/components/s-list-item"
+      },
+      {
+        "text": "SOrderedList",
+        "link": "/ko/components/s-ordered-list"
+      },
+      {
+        "text": "SPage",
+        "link": "/ko/components/s-page"
+      },
+      {
+        "text": "SQueryContainer",
+        "link": "/ko/components/s-query-container"
+      },
+      {
+        "text": "SScrollBox",
+        "link": "/ko/components/s-scroll-box"
+      },
+      {
+        "text": "SSection",
+        "link": "/ko/components/s-section"
+      },
+      {
+        "text": "SStack",
+        "link": "/ko/components/s-stack"
+      },
+      {
+        "text": "STable",
+        "link": "/ko/components/s-table"
+      },
+      {
+        "text": "STableBody",
+        "link": "/ko/components/s-table-body"
+      },
+      {
+        "text": "STableCell",
+        "link": "/ko/components/s-table-cell"
+      },
+      {
+        "text": "STableHeader",
+        "link": "/ko/components/s-table-header"
+      },
+      {
+        "text": "STableHeaderRow",
+        "link": "/ko/components/s-table-header-row"
+      },
+      {
+        "text": "STableRow",
+        "link": "/ko/components/s-table-row"
+      },
+      {
+        "text": "SUnorderedList",
+        "link": "/ko/components/s-unordered-list"
+      }
+    ]
+  },
+  {
+    "text": "미디어 및 시각 요소",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SAvatar",
+        "link": "/ko/components/s-avatar"
+      },
+      {
+        "text": "SIcon",
+        "link": "/ko/components/s-icon"
+      },
+      {
+        "text": "SImage",
+        "link": "/ko/components/s-image"
+      },
+      {
+        "text": "SThumbnail",
+        "link": "/ko/components/s-thumbnail"
+      }
+    ]
+  },
+  {
+    "text": "오버레이",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SModal",
+        "link": "/ko/components/s-modal"
+      },
+      {
+        "text": "SPopover",
+        "link": "/ko/components/s-popover"
+      }
+    ]
+  },
+  {
+    "text": "타이포그래피 및 콘텐츠",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SChip",
+        "link": "/ko/components/s-chip"
+      },
+      {
+        "text": "SHeading",
+        "link": "/ko/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/ko/components/s-number"
+      },
+      {
+        "text": "SParagraph",
+        "link": "/ko/components/s-paragraph"
+      },
+      {
+        "text": "SText",
+        "link": "/ko/components/s-text"
+      },
+      {
+        "text": "STooltip",
+        "link": "/ko/components/s-tooltip"
+      }
+    ]
+  }
+]

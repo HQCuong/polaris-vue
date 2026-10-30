@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
+import { useStrings } from './i18n'
+
+const t = useStrings()
+
 // Floating "back to top" button on every page, shown once the reader has
 // scrolled past roughly one screen. Same frosted glass as the nav bar.
 const visible = ref(false)
@@ -27,7 +31,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
     class="BackToTop"
     :class="{ visible }"
     type="button"
-    aria-label="Back to top"
+    :aria-label="t.backToTop"
     :tabindex="visible ? 0 : -1"
     @click="toTop"
   >

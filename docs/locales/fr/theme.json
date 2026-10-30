@@ -1,0 +1,87 @@
+{
+  "label": "Français",
+  "lang": "fr-FR",
+  "hreflang": "fr",
+  "ogLocale": "fr_FR",
+  "siteDescription": "Composants wrapper Vue 3 typés pour les web components Shopify Polaris : props, events et v-model générés à partir du Custom Elements Manifest officiel.",
+  "home": {
+    "pill": {
+      "lead": "Le style Built for Shopify.",
+      "emphasis": "Prêt à l'emploi."
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Désormais typé pour Vue 3."
+    },
+    "tagline": {
+      "before": "Des composants Vue 3 typés autour des web components Polaris de Shopify (",
+      "after": ", ...), sans design system spécifique à Vue à apprendre en plus."
+    },
+    "getStarted": "Commencer",
+    "components": "Composants",
+    "codeLabel": "Exemple : STextField avec v-model et un SButton primary",
+    "kicker": "Wrappers Vue 3 pour Shopify Polaris",
+    "featuresLine": "Tout Polaris. Rien à réapprendre.",
+    "features": {
+      "typed": {
+        "title": "Props et events typés",
+        "details": "Les props et events de chaque wrapper sont générés à partir du Custom Elements Manifest officiel de Shopify : vous bénéficiez d'une autocomplétion et d'une vérification de types conformes à l'API réelle du composant."
+      },
+      "vModel": {
+        "title": "v-model sur 17 composants de formulaire",
+        "details": "Champs de texte, cases à cocher, interrupteurs, listes déroulantes, listes de choix, sélecteurs de date et bien d'autres prennent en charge v-model nativement, associé à la bonne paire prop/event sous-jacente de chaque élément."
+      },
+      "degrades": {
+        "title": "Dégradation en douceur",
+        "details": "Les props inconnues sont transmises telles quelles via $attrs, et le contenu des slots est relayé à l'identique. Une version obsolète du wrapper ne casse jamais le code existant : il lui manque simplement les types des nouvelles fonctionnalités."
+      },
+      "synced": {
+        "title": "Synchronisé avec le manifest",
+        "details": "Les définitions de composants et de types sont générées directement à partir du Custom Elements Manifest de Shopify, ce qui maintient les wrappers alignés sur le runtime Polaris servi par le CDN."
+      }
+    },
+    "typedWrappers": "{count} wrappers Vue typés",
+    "componentsLine": "{count} composants. Un seul import."
+  },
+  "backToTop": "Retour en haut",
+  "nav": {
+    "guide": "Guide",
+    "components": "Composants"
+  },
+  "sidebarGuide": {
+    "title": "Guide",
+    "gettingStarted": "Prise en main",
+    "embeddedApp": "Créer une app Shopify intégrée",
+    "quirks": "Particularités connues et pièges",
+    "allComponents": "Tous les composants"
+  },
+  "footer": {
+    "message": "Publié sous licence MIT. Logo Vue par <a href=\"https://github.com/vuejs/art\">Evan You</a>, CC BY-NC-SA 4.0.",
+    "copyright": "Wrappers autour des web components Shopify Polaris, sans affiliation avec Shopify."
+  },
+  "ui": {
+    "outlineLabel": "Sur cette page",
+    "prev": "Page précédente",
+    "next": "Page suivante",
+    "lastUpdated": "Dernière mise à jour",
+    "darkModeSwitchLabel": "Apparence",
+    "lightModeSwitchTitle": "Passer au thème clair",
+    "darkModeSwitchTitle": "Passer au thème sombre",
+    "sidebarMenuLabel": "Menu",
+    "returnToTopLabel": "Retour en haut",
+    "langMenuLabel": "Changer de langue",
+    "notFoundTitle": "PAGE INTROUVABLE",
+    "notFoundQuote": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "notFoundLink": "Retour à l'accueil"
+  },
+  "search": {
+    "buttonText": "Rechercher",
+    "displayDetails": "Afficher les détails",
+    "resetButtonTitle": "Effacer la recherche",
+    "backButtonTitle": "Fermer la recherche",
+    "noResultsText": "Aucun résultat pour",
+    "selectText": "sélectionner",
+    "navigateText": "naviguer",
+    "closeText": "fermer"
+  }
+}

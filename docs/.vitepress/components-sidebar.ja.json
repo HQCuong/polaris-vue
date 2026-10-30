@@ -1,0 +1,292 @@
+[
+  {
+    "text": "アクション",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SButton",
+        "link": "/ja/components/s-button"
+      },
+      {
+        "text": "SButtonGroup",
+        "link": "/ja/components/s-button-group"
+      },
+      {
+        "text": "SClickable",
+        "link": "/ja/components/s-clickable"
+      },
+      {
+        "text": "SClickableChip",
+        "link": "/ja/components/s-clickable-chip"
+      },
+      {
+        "text": "SLink",
+        "link": "/ja/components/s-link"
+      },
+      {
+        "text": "SMenu",
+        "link": "/ja/components/s-menu"
+      },
+      {
+        "text": "SPressButton",
+        "link": "/ja/components/s-press-button"
+      }
+    ]
+  },
+  {
+    "text": "フィードバックとステータス",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBadge",
+        "link": "/ja/components/s-badge"
+      },
+      {
+        "text": "SBanner",
+        "link": "/ja/components/s-banner"
+      },
+      {
+        "text": "SEmptyState",
+        "link": "/ja/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/ja/components/s-progress"
+      },
+      {
+        "text": "SSpinner",
+        "link": "/ja/components/s-spinner"
+      }
+    ]
+  },
+  {
+    "text": "フォーム",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SCheckbox",
+        "link": "/ja/components/s-checkbox"
+      },
+      {
+        "text": "SChoice",
+        "link": "/ja/components/s-choice"
+      },
+      {
+        "text": "SChoiceList",
+        "link": "/ja/components/s-choice-list"
+      },
+      {
+        "text": "SColorField",
+        "link": "/ja/components/s-color-field"
+      },
+      {
+        "text": "SColorPicker",
+        "link": "/ja/components/s-color-picker"
+      },
+      {
+        "text": "SDateField",
+        "link": "/ja/components/s-date-field"
+      },
+      {
+        "text": "SDatePicker",
+        "link": "/ja/components/s-date-picker"
+      },
+      {
+        "text": "SDropZone",
+        "link": "/ja/components/s-drop-zone"
+      },
+      {
+        "text": "SEmailField",
+        "link": "/ja/components/s-email-field"
+      },
+      {
+        "text": "SMoneyField",
+        "link": "/ja/components/s-money-field"
+      },
+      {
+        "text": "SNumberField",
+        "link": "/ja/components/s-number-field"
+      },
+      {
+        "text": "SOption",
+        "link": "/ja/components/s-option"
+      },
+      {
+        "text": "SOptionGroup",
+        "link": "/ja/components/s-option-group"
+      },
+      {
+        "text": "SPasswordField",
+        "link": "/ja/components/s-password-field"
+      },
+      {
+        "text": "SSearchField",
+        "link": "/ja/components/s-search-field"
+      },
+      {
+        "text": "SSelect",
+        "link": "/ja/components/s-select"
+      },
+      {
+        "text": "SSwitch",
+        "link": "/ja/components/s-switch"
+      },
+      {
+        "text": "STextArea",
+        "link": "/ja/components/s-text-area"
+      },
+      {
+        "text": "STextField",
+        "link": "/ja/components/s-text-field"
+      },
+      {
+        "text": "SUrlField",
+        "link": "/ja/components/s-url-field"
+      }
+    ]
+  },
+  {
+    "text": "レイアウトと構造",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBox",
+        "link": "/ja/components/s-box"
+      },
+      {
+        "text": "SDivider",
+        "link": "/ja/components/s-divider"
+      },
+      {
+        "text": "SGrid",
+        "link": "/ja/components/s-grid"
+      },
+      {
+        "text": "SGridItem",
+        "link": "/ja/components/s-grid-item"
+      },
+      {
+        "text": "SListItem",
+        "link": "/ja/components/s-list-item"
+      },
+      {
+        "text": "SOrderedList",
+        "link": "/ja/components/s-ordered-list"
+      },
+      {
+        "text": "SPage",
+        "link": "/ja/components/s-page"
+      },
+      {
+        "text": "SQueryContainer",
+        "link": "/ja/components/s-query-container"
+      },
+      {
+        "text": "SScrollBox",
+        "link": "/ja/components/s-scroll-box"
+      },
+      {
+        "text": "SSection",
+        "link": "/ja/components/s-section"
+      },
+      {
+        "text": "SStack",
+        "link": "/ja/components/s-stack"
+      },
+      {
+        "text": "STable",
+        "link": "/ja/components/s-table"
+      },
+      {
+        "text": "STableBody",
+        "link": "/ja/components/s-table-body"
+      },
+      {
+        "text": "STableCell",
+        "link": "/ja/components/s-table-cell"
+      },
+      {
+        "text": "STableHeader",
+        "link": "/ja/components/s-table-header"
+      },
+      {
+        "text": "STableHeaderRow",
+        "link": "/ja/components/s-table-header-row"
+      },
+      {
+        "text": "STableRow",
+        "link": "/ja/components/s-table-row"
+      },
+      {
+        "text": "SUnorderedList",
+        "link": "/ja/components/s-unordered-list"
+      }
+    ]
+  },
+  {
+    "text": "メディアとビジュアル",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SAvatar",
+        "link": "/ja/components/s-avatar"
+      },
+      {
+        "text": "SIcon",
+        "link": "/ja/components/s-icon"
+      },
+      {
+        "text": "SImage",
+        "link": "/ja/components/s-image"
+      },
+      {
+        "text": "SThumbnail",
+        "link": "/ja/components/s-thumbnail"
+      }
+    ]
+  },
+  {
+    "text": "オーバーレイ",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SModal",
+        "link": "/ja/components/s-modal"
+      },
+      {
+        "text": "SPopover",
+        "link": "/ja/components/s-popover"
+      }
+    ]
+  },
+  {
+    "text": "タイポグラフィとコンテンツ",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SChip",
+        "link": "/ja/components/s-chip"
+      },
+      {
+        "text": "SHeading",
+        "link": "/ja/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/ja/components/s-number"
+      },
+      {
+        "text": "SParagraph",
+        "link": "/ja/components/s-paragraph"
+      },
+      {
+        "text": "SText",
+        "link": "/ja/components/s-text"
+      },
+      {
+        "text": "STooltip",
+        "link": "/ja/components/s-tooltip"
+      }
+    ]
+  }
+]

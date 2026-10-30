@@ -17,6 +17,9 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
   our own summary of Shopify's guidance for that component, with Vue snippets, and links
   to the full section on shopify.dev. Components Shopify publishes no guidance for have
   none.
+- Docs: the whole site in Vietnamese, Korean, Simplified Chinese, Japanese, German and French
+  (`/vi/`, `/ko/`, `/zh/`, `/ja/`, `/de/`, `/fr/`), including every component page and
+  Shopify's prop and slot descriptions, with hreflang links between the two languages.
 - Docs: a redesigned homepage, a frosted-glass nav bar, a back-to-top button and thin,
   rounded scrollbars.
 

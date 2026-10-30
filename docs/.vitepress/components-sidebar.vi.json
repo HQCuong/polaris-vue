@@ -1,0 +1,292 @@
+[
+  {
+    "text": "Hành động",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SButton",
+        "link": "/vi/components/s-button"
+      },
+      {
+        "text": "SButtonGroup",
+        "link": "/vi/components/s-button-group"
+      },
+      {
+        "text": "SClickable",
+        "link": "/vi/components/s-clickable"
+      },
+      {
+        "text": "SClickableChip",
+        "link": "/vi/components/s-clickable-chip"
+      },
+      {
+        "text": "SLink",
+        "link": "/vi/components/s-link"
+      },
+      {
+        "text": "SMenu",
+        "link": "/vi/components/s-menu"
+      },
+      {
+        "text": "SPressButton",
+        "link": "/vi/components/s-press-button"
+      }
+    ]
+  },
+  {
+    "text": "Phản hồi và trạng thái",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBadge",
+        "link": "/vi/components/s-badge"
+      },
+      {
+        "text": "SBanner",
+        "link": "/vi/components/s-banner"
+      },
+      {
+        "text": "SEmptyState",
+        "link": "/vi/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/vi/components/s-progress"
+      },
+      {
+        "text": "SSpinner",
+        "link": "/vi/components/s-spinner"
+      }
+    ]
+  },
+  {
+    "text": "Form",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SCheckbox",
+        "link": "/vi/components/s-checkbox"
+      },
+      {
+        "text": "SChoice",
+        "link": "/vi/components/s-choice"
+      },
+      {
+        "text": "SChoiceList",
+        "link": "/vi/components/s-choice-list"
+      },
+      {
+        "text": "SColorField",
+        "link": "/vi/components/s-color-field"
+      },
+      {
+        "text": "SColorPicker",
+        "link": "/vi/components/s-color-picker"
+      },
+      {
+        "text": "SDateField",
+        "link": "/vi/components/s-date-field"
+      },
+      {
+        "text": "SDatePicker",
+        "link": "/vi/components/s-date-picker"
+      },
+      {
+        "text": "SDropZone",
+        "link": "/vi/components/s-drop-zone"
+      },
+      {
+        "text": "SEmailField",
+        "link": "/vi/components/s-email-field"
+      },
+      {
+        "text": "SMoneyField",
+        "link": "/vi/components/s-money-field"
+      },
+      {
+        "text": "SNumberField",
+        "link": "/vi/components/s-number-field"
+      },
+      {
+        "text": "SOption",
+        "link": "/vi/components/s-option"
+      },
+      {
+        "text": "SOptionGroup",
+        "link": "/vi/components/s-option-group"
+      },
+      {
+        "text": "SPasswordField",
+        "link": "/vi/components/s-password-field"
+      },
+      {
+        "text": "SSearchField",
+        "link": "/vi/components/s-search-field"
+      },
+      {
+        "text": "SSelect",
+        "link": "/vi/components/s-select"
+      },
+      {
+        "text": "SSwitch",
+        "link": "/vi/components/s-switch"
+      },
+      {
+        "text": "STextArea",
+        "link": "/vi/components/s-text-area"
+      },
+      {
+        "text": "STextField",
+        "link": "/vi/components/s-text-field"
+      },
+      {
+        "text": "SUrlField",
+        "link": "/vi/components/s-url-field"
+      }
+    ]
+  },
+  {
+    "text": "Bố cục và cấu trúc",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBox",
+        "link": "/vi/components/s-box"
+      },
+      {
+        "text": "SDivider",
+        "link": "/vi/components/s-divider"
+      },
+      {
+        "text": "SGrid",
+        "link": "/vi/components/s-grid"
+      },
+      {
+        "text": "SGridItem",
+        "link": "/vi/components/s-grid-item"
+      },
+      {
+        "text": "SListItem",
+        "link": "/vi/components/s-list-item"
+      },
+      {
+        "text": "SOrderedList",
+        "link": "/vi/components/s-ordered-list"
+      },
+      {
+        "text": "SPage",
+        "link": "/vi/components/s-page"
+      },
+      {
+        "text": "SQueryContainer",
+        "link": "/vi/components/s-query-container"
+      },
+      {
+        "text": "SScrollBox",
+        "link": "/vi/components/s-scroll-box"
+      },
+      {
+        "text": "SSection",
+        "link": "/vi/components/s-section"
+      },
+      {
+        "text": "SStack",
+        "link": "/vi/components/s-stack"
+      },
+      {
+        "text": "STable",
+        "link": "/vi/components/s-table"
+      },
+      {
+        "text": "STableBody",
+        "link": "/vi/components/s-table-body"
+      },
+      {
+        "text": "STableCell",
+        "link": "/vi/components/s-table-cell"
+      },
+      {
+        "text": "STableHeader",
+        "link": "/vi/components/s-table-header"
+      },
+      {
+        "text": "STableHeaderRow",
+        "link": "/vi/components/s-table-header-row"
+      },
+      {
+        "text": "STableRow",
+        "link": "/vi/components/s-table-row"
+      },
+      {
+        "text": "SUnorderedList",
+        "link": "/vi/components/s-unordered-list"
+      }
+    ]
+  },
+  {
+    "text": "Hình ảnh và media",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SAvatar",
+        "link": "/vi/components/s-avatar"
+      },
+      {
+        "text": "SIcon",
+        "link": "/vi/components/s-icon"
+      },
+      {
+        "text": "SImage",
+        "link": "/vi/components/s-image"
+      },
+      {
+        "text": "SThumbnail",
+        "link": "/vi/components/s-thumbnail"
+      }
+    ]
+  },
+  {
+    "text": "Overlay",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SModal",
+        "link": "/vi/components/s-modal"
+      },
+      {
+        "text": "SPopover",
+        "link": "/vi/components/s-popover"
+      }
+    ]
+  },
+  {
+    "text": "Chữ và nội dung",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SChip",
+        "link": "/vi/components/s-chip"
+      },
+      {
+        "text": "SHeading",
+        "link": "/vi/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/vi/components/s-number"
+      },
+      {
+        "text": "SParagraph",
+        "link": "/vi/components/s-paragraph"
+      },
+      {
+        "text": "SText",
+        "link": "/vi/components/s-text"
+      },
+      {
+        "text": "STooltip",
+        "link": "/vi/components/s-tooltip"
+      }
+    ]
+  }
+]

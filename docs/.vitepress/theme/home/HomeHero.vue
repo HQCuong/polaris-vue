@@ -5,6 +5,10 @@
 // headline itself.
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
+import { useStrings } from '../i18n'
+
+const t = useStrings()
+
 const BFS_REQUIREMENTS = 'https://shopify.dev/docs/apps/launch/built-for-shopify/requirements'
 
 // The code card types itself out. The server-rendered HTML has the full
@@ -31,7 +35,7 @@ const CODE: Token[] = [
   { text: 'Save' },
   { text: '</SButton>', cls: 'tag' },
 ]
-const TOTAL = CODE.reduce((n, t) => n + t.text.length, 0)
+const TOTAL = CODE.reduce((n, token) => n + token.text.length, 0)
 
 const typing = ref(false)
 const typed = ref(TOTAL)
@@ -81,31 +85,30 @@ onBeforeUnmount(() => clearTimeout(timer))
           <path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z" />
           <path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5" />
         </svg>
-        <span>The Built for Shopify look. <strong>Out of the box.</strong></span>
+        <span>{{ t.pill.lead }} <strong>{{ t.pill.emphasis }}</strong></span>
         <span class="chevron" aria-hidden="true">›</span>
       </a>
 
       <!-- No opacity animation on the <h1>: it is the LCP element, and an element
            at opacity 0 does not count as painted. -->
       <h1 class="headline">
-        Shopify Polaris.<br />
-        <span class="accent">Now typed for Vue 3.</span>
+        {{ t.headline.first }}<br />
+        <span class="accent">{{ t.headline.second }}</span>
       </h1>
 
       <p class="tagline rise">
-        Typed Vue 3 components around Shopify's Polaris web components (<span class="nowrap">s-button</span>,
-        <span class="nowrap">s-text-field</span>, <span class="nowrap">s-modal</span>, ...) — no separate
-        Vue-specific design system to learn.
+        {{ t.tagline.before }}<span class="nowrap">s-button</span>, <span class="nowrap">s-text-field</span>,
+        <span class="nowrap">s-modal</span>{{ t.tagline.after }}
       </p>
 
       <div class="actions rise">
-        <a class="action primary" href="/guide/getting-started">Get Started</a>
-        <a class="action link" href="/components/">Components <span aria-hidden="true">›</span></a>
+        <a class="action primary" :href="`${t.linkPrefix}/guide/getting-started`">{{ t.getStarted }}</a>
+        <a class="action link" :href="`${t.linkPrefix}/components/`">{{ t.components }} <span aria-hidden="true">›</span></a>
       </div>
 
-      <div class="code rise" :class="{ typing }" aria-label="Example: STextField with v-model and a primary SButton">
-        <pre class="ghost"><code><span v-for="(t, i) in CODE" :key="i" :class="t.cls">{{ t.text }}</span></code></pre>
-        <pre v-if="typing" class="typed" aria-hidden="true"><code><span v-for="(t, i) in visible" :key="i" :class="t.cls">{{ t.text }}</span><span class="cursor" /></code></pre>
+      <div class="code rise" :class="{ typing }" :aria-label="t.codeLabel">
+        <pre class="ghost"><code><span v-for="(tok, i) in CODE" :key="i" :class="tok.cls">{{ tok.text }}</span></code></pre>
+        <pre v-if="typing" class="typed" aria-hidden="true"><code><span v-for="(tok, i) in visible" :key="i" :class="tok.cls">{{ tok.text }}</span><span class="cursor" /></code></pre>
       </div>
     </div>
   </section>
@@ -230,6 +233,7 @@ onBeforeUnmount(() => clearTimeout(timer))
 /* --- Headline --- */
 .headline {
   margin: 24px 0 0;
+  text-wrap: balance;
   color: var(--vp-c-text-1);
   font-size: 44px;
   font-weight: 700;

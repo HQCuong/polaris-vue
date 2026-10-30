@@ -1,0 +1,87 @@
+{
+  "label": "Deutsch",
+  "lang": "de-DE",
+  "hreflang": "de",
+  "ogLocale": "de_DE",
+  "siteDescription": "Typisierte Vue-3-Wrapper-Komponenten für die Shopify Polaris Web Components: Props, Events und v-model, generiert aus dem offiziellen Custom Elements Manifest.",
+  "home": {
+    "pill": {
+      "lead": "Der Built-for-Shopify-Look.",
+      "emphasis": "Sofort einsatzbereit."
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Jetzt typisiert für Vue 3."
+    },
+    "tagline": {
+      "before": "Typisierte Vue-3-Komponenten für die Polaris Web Components von Shopify (",
+      "after": ", ...), ohne ein separates Vue-spezifisches Design-System lernen zu müssen."
+    },
+    "getStarted": "Loslegen",
+    "components": "Komponenten",
+    "codeLabel": "Beispiel: STextField mit v-model und ein primärer SButton",
+    "kicker": "Vue-3-Wrapper für Shopify Polaris",
+    "featuresLine": "Alles von Polaris. Nichts neu zu lernen.",
+    "features": {
+      "typed": {
+        "title": "Typisierte Props & Events",
+        "details": "Props und Events jedes Wrappers werden aus dem offiziellen Custom Elements Manifest von Shopify generiert. So erhalten Sie Autovervollständigung und Typprüfung, die der echten Komponenten-API entsprechen."
+      },
+      "vModel": {
+        "title": "v-model für 17 Formularkomponenten",
+        "details": "Textfelder, Checkboxen, Switches, Selects, Auswahllisten, Datumsauswahlen und mehr unterstützen v-model direkt, jeweils abgebildet auf das passende Prop/Event-Paar des zugrunde liegenden Elements."
+      },
+      "degrades": {
+        "title": "Robust bei Änderungen",
+        "details": "Unbekannte Props werden über $attrs direkt durchgereicht, Slot-Inhalte unverändert weitergegeben. Eine veraltete Wrapper-Version bricht bestehenden Code nie, ihr fehlen lediglich Typen für neuere Funktionen."
+      },
+      "synced": {
+        "title": "Synchron mit dem Manifest",
+        "details": "Komponenten- und Typdefinitionen werden direkt aus dem Custom Elements Manifest von Shopify generiert, sodass die Wrapper stets zur Polaris-Runtime auf dem CDN passen."
+      }
+    },
+    "typedWrappers": "{count} typisierte Vue-Wrapper",
+    "componentsLine": "{count} Komponenten. Ein Import."
+  },
+  "backToTop": "Nach oben",
+  "nav": {
+    "guide": "Leitfaden",
+    "components": "Komponenten"
+  },
+  "sidebarGuide": {
+    "title": "Leitfaden",
+    "gettingStarted": "Erste Schritte",
+    "embeddedApp": "Eine eingebettete Shopify-App bauen",
+    "quirks": "Bekannte Eigenheiten & Fallstricke",
+    "allComponents": "Alle Komponenten"
+  },
+  "footer": {
+    "message": "Veröffentlicht unter der MIT-Lizenz. Vue-Logo von <a href=\"https://github.com/vuejs/art\">Evan You</a>, CC BY-NC-SA 4.0.",
+    "copyright": "Wrapper für die Shopify Polaris Web Components, nicht mit Shopify verbunden."
+  },
+  "ui": {
+    "outlineLabel": "Auf dieser Seite",
+    "prev": "Vorherige Seite",
+    "next": "Nächste Seite",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "darkModeSwitchLabel": "Darstellung",
+    "lightModeSwitchTitle": "Zum hellen Design wechseln",
+    "darkModeSwitchTitle": "Zum dunklen Design wechseln",
+    "sidebarMenuLabel": "Menü",
+    "returnToTopLabel": "Nach oben",
+    "langMenuLabel": "Sprache ändern",
+    "notFoundTitle": "SEITE NICHT GEFUNDEN",
+    "notFoundQuote": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "notFoundLink": "Zur Startseite"
+  },
+  "search": {
+    "buttonText": "Suchen",
+    "displayDetails": "Details anzeigen",
+    "resetButtonTitle": "Suche zurücksetzen",
+    "backButtonTitle": "Suche schließen",
+    "noResultsText": "Keine Ergebnisse für",
+    "selectText": "auswählen",
+    "navigateText": "navigieren",
+    "closeText": "schließen"
+  }
+}

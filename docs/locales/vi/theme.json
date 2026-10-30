@@ -1,0 +1,87 @@
+{
+  "label": "Tiếng Việt",
+  "lang": "vi-VN",
+  "hreflang": "vi",
+  "ogLocale": "vi_VN",
+  "siteDescription": "Vue 3 wrapper có type cho Shopify Polaris web components: props, events và v-model được generate từ Custom Elements Manifest chính thức.",
+  "home": {
+    "pill": {
+      "lead": "Giao diện chuẩn Built for Shopify.",
+      "emphasis": "Có sẵn ngay."
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Có type cho Vue 3."
+    },
+    "tagline": {
+      "before": "Các component Vue 3 có type cho Polaris web components của Shopify (",
+      "after": ", ...), không cần học thêm một design system riêng cho Vue."
+    },
+    "getStarted": "Bắt đầu",
+    "components": "Components",
+    "codeLabel": "Ví dụ: STextField với v-model và một SButton primary",
+    "kicker": "Vue 3 wrapper cho Shopify Polaris",
+    "featuresLine": "Trọn vẹn Polaris. Không phải học lại.",
+    "features": {
+      "typed": {
+        "title": "Props & events có type",
+        "details": "Props và events của mọi wrapper được generate từ Custom Elements Manifest chính thức của Shopify, nên bạn có autocomplete và type-check khớp với API thật của component."
+      },
+      "vModel": {
+        "title": "v-model trên 17 form component",
+        "details": "Text field, checkbox, switch, select, choice list, date picker và nhiều component khác đều hỗ trợ v-model sẵn, được map đúng cặp prop/event bên dưới của từng element."
+      },
+      "degrades": {
+        "title": "Không bao giờ chặn bạn",
+        "details": "Prop lạ được truyền thẳng qua $attrs, nội dung slot được chuyển nguyên vẹn. Wrapper cũ không bao giờ làm hỏng code đang chạy, chỉ thiếu type cho tính năng mới."
+      },
+      "synced": {
+        "title": "Đồng bộ với manifest",
+        "details": "Định nghĩa component và type được generate trực tiếp từ Custom Elements Manifest của Shopify, giữ cho wrapper luôn khớp với runtime Polaris trên CDN."
+      }
+    },
+    "typedWrappers": "{count} Vue wrapper có type",
+    "componentsLine": "{count} component. Một lần import."
+  },
+  "backToTop": "Lên đầu trang",
+  "nav": {
+    "guide": "Hướng dẫn",
+    "components": "Components"
+  },
+  "sidebarGuide": {
+    "title": "Hướng dẫn",
+    "gettingStarted": "Bắt đầu",
+    "embeddedApp": "Xây dựng Shopify embedded app",
+    "quirks": "Các điểm bất thường & lưu ý",
+    "allComponents": "Tất cả components"
+  },
+  "footer": {
+    "message": "Phát hành theo giấy phép MIT. Logo Vue của <a href=\"https://github.com/vuejs/art\">Evan You</a>, CC BY-NC-SA 4.0.",
+    "copyright": "Wrapper cho Shopify Polaris web components, không liên kết với Shopify."
+  },
+  "ui": {
+    "outlineLabel": "Trên trang này",
+    "prev": "Trang trước",
+    "next": "Trang sau",
+    "lastUpdated": "Cập nhật lần cuối",
+    "darkModeSwitchLabel": "Giao diện",
+    "lightModeSwitchTitle": "Chuyển sang giao diện sáng",
+    "darkModeSwitchTitle": "Chuyển sang giao diện tối",
+    "sidebarMenuLabel": "Menu",
+    "returnToTopLabel": "Lên đầu trang",
+    "langMenuLabel": "Đổi ngôn ngữ",
+    "notFoundTitle": "KHÔNG TÌM THẤY TRANG",
+    "notFoundQuote": "Trang bạn tìm không tồn tại hoặc đã được chuyển đi.",
+    "notFoundLink": "Về trang chủ"
+  },
+  "search": {
+    "buttonText": "Tìm kiếm",
+    "displayDetails": "Hiện chi tiết",
+    "resetButtonTitle": "Xóa từ khóa",
+    "backButtonTitle": "Đóng tìm kiếm",
+    "noResultsText": "Không có kết quả cho",
+    "selectText": "chọn",
+    "navigateText": "di chuyển",
+    "closeText": "đóng"
+  }
+}

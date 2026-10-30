@@ -1,6 +1,6 @@
 <div align="center">
 
-<sub>**English** | [Tiếng Việt](./i18n/vi/README.md)</sub>
+<sub>**English** | [Tiếng Việt](./i18n/vi/README.md) | [한국어](./i18n/ko/README.md) | [简体中文](./i18n/zh/README.md) | [日本語](./i18n/ja/README.md) | [Deutsch](./i18n/de/README.md) | [Français](./i18n/fr/README.md)</sub>
 
 <br>
 

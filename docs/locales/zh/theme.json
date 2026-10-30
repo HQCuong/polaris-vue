@@ -1,0 +1,87 @@
+{
+  "label": "简体中文",
+  "lang": "zh-CN",
+  "hreflang": "zh-Hans",
+  "ogLocale": "zh_CN",
+  "siteDescription": "为 Shopify Polaris web components 提供带类型的 Vue 3 wrapper 组件：props、events 和 v-model 均由官方 Custom Elements Manifest 生成。",
+  "home": {
+    "pill": {
+      "lead": "Built for Shopify 的外观。",
+      "emphasis": "开箱即用。"
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "现已为 Vue 3 提供类型。"
+    },
+    "tagline": {
+      "before": "基于 Shopify Polaris web components（",
+      "after": ", ...）的带类型 Vue 3 组件，无需再学一套 Vue 专用的设计系统。"
+    },
+    "getStarted": "快速开始",
+    "components": "组件",
+    "codeLabel": "示例：使用 v-model 的 STextField 和一个 primary SButton",
+    "kicker": "Shopify Polaris 的 Vue 3 wrapper",
+    "featuresLine": "完整的 Polaris，无需重新学习。",
+    "features": {
+      "typed": {
+        "title": "带类型的 props 与 events",
+        "details": "每个 wrapper 的 props 和 events 都由 Shopify 官方的 Custom Elements Manifest 生成，因此自动补全和类型检查与真实的组件 API 完全一致。"
+      },
+      "vModel": {
+        "title": "17 个表单组件支持 v-model",
+        "details": "文本框、复选框、开关、下拉选择、选项列表、日期选择器等组件都开箱支持 v-model，并为每个元素映射到正确的底层 prop/event 组合。"
+      },
+      "degrades": {
+        "title": "平滑降级",
+        "details": "未知的 prop 会通过 $attrs 直接透传，slot 内容也会原样转发。旧版本的 wrapper 不会破坏现有用法，只是缺少新功能的类型。"
+      },
+      "synced": {
+        "title": "与 manifest 保持同步",
+        "details": "组件和类型定义直接由 Shopify 的 Custom Elements Manifest 生成，使 wrapper 的接口始终与 CDN 上的 Polaris runtime 保持一致。"
+      }
+    },
+    "typedWrappers": "{count} 个带类型的 Vue wrapper",
+    "componentsLine": "{count} 个组件，一次导入。"
+  },
+  "backToTop": "返回顶部",
+  "nav": {
+    "guide": "指南",
+    "components": "组件"
+  },
+  "sidebarGuide": {
+    "title": "指南",
+    "gettingStarted": "快速开始",
+    "embeddedApp": "构建 Shopify 嵌入式应用",
+    "quirks": "已知问题与注意事项",
+    "allComponents": "所有组件"
+  },
+  "footer": {
+    "message": "基于 MIT 许可证发布。Vue 标志由 <a href=\"https://github.com/vuejs/art\">Evan You</a> 设计，采用 CC BY-NC-SA 4.0 许可。",
+    "copyright": "Shopify Polaris web components 的 wrapper，与 Shopify 无关联。"
+  },
+  "ui": {
+    "outlineLabel": "本页内容",
+    "prev": "上一页",
+    "next": "下一页",
+    "lastUpdated": "最后更新于",
+    "darkModeSwitchLabel": "外观",
+    "lightModeSwitchTitle": "切换到浅色模式",
+    "darkModeSwitchTitle": "切换到深色模式",
+    "sidebarMenuLabel": "菜单",
+    "returnToTopLabel": "返回顶部",
+    "langMenuLabel": "切换语言",
+    "notFoundTitle": "页面未找到",
+    "notFoundQuote": "你要找的页面不存在或已被移动。",
+    "notFoundLink": "返回首页"
+  },
+  "search": {
+    "buttonText": "搜索",
+    "displayDetails": "显示详情",
+    "resetButtonTitle": "清除查询",
+    "backButtonTitle": "关闭搜索",
+    "noResultsText": "没有找到相关结果",
+    "selectText": "选择",
+    "navigateText": "切换",
+    "closeText": "关闭"
+  }
+}

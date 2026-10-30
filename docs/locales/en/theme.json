@@ -1,0 +1,62 @@
+{
+  "label": "English",
+  "lang": "en-US",
+  "hreflang": "en",
+  "ogLocale": "en_US",
+  "siteDescription": "Typed Vue 3 wrapper components for Shopify Polaris web components — props, events and v-model generated from the official Custom Elements Manifest.",
+  "home": {
+    "pill": {
+      "lead": "The Built for Shopify look.",
+      "emphasis": "Out of the box."
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Now typed for Vue 3."
+    },
+    "tagline": {
+      "before": "Typed Vue 3 components around Shopify's Polaris web components (",
+      "after": ", ...) — no separate Vue-specific design system to learn."
+    },
+    "getStarted": "Get Started",
+    "components": "Components",
+    "codeLabel": "Example: STextField with v-model and a primary SButton",
+    "kicker": "Vue 3 wrappers for Shopify Polaris",
+    "featuresLine": "Everything Polaris. Nothing to relearn.",
+    "features": {
+      "typed": {
+        "title": "Typed props & events",
+        "details": "Every wrapper's props and events are generated from Shopify's official Custom Elements Manifest, so you get autocomplete and type-checking that matches the real component API."
+      },
+      "vModel": {
+        "title": "v-model on 17 form components",
+        "details": "Text fields, checkboxes, switches, selects, choice lists, date pickers and more all support v-model out of the box, mapped to the correct underlying prop/event pair for each element."
+      },
+      "degrades": {
+        "title": "Degrades gracefully",
+        "details": "Unknown props pass straight through via $attrs, and slot content is forwarded verbatim. A stale wrapper version never breaks existing usage — it just lacks types for newer features."
+      },
+      "synced": {
+        "title": "Synced with the manifest",
+        "details": "Component and type definitions are generated directly from Shopify's Custom Elements Manifest, keeping the wrapper surface aligned with the Polaris runtime on the CDN."
+      }
+    },
+    "typedWrappers": "{count} typed Vue wrappers",
+    "componentsLine": "{count} components. One import."
+  },
+  "backToTop": "Back to top",
+  "nav": {
+    "guide": "Guide",
+    "components": "Components"
+  },
+  "sidebarGuide": {
+    "title": "Guide",
+    "gettingStarted": "Getting started",
+    "embeddedApp": "Build a Shopify embedded app",
+    "quirks": "Known quirks & gotchas",
+    "allComponents": "All components"
+  },
+  "footer": {
+    "message": "Released under the MIT License. Vue logo by <a href=\"https://github.com/vuejs/art\">Evan You</a>, CC BY-NC-SA 4.0.",
+    "copyright": "Wrappers around Shopify Polaris web components — not affiliated with Shopify."
+  }
+}

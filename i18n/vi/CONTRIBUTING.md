@@ -1,4 +1,4 @@
-<sub>[English](../../CONTRIBUTING.md) | **Tiếng Việt**</sub>
+<sub>[English](../../CONTRIBUTING.md) | **Tiếng Việt** | [한국어](../ko/CONTRIBUTING.md) | [简体中文](../zh/CONTRIBUTING.md) | [日本語](../ja/CONTRIBUTING.md) | [Deutsch](../de/CONTRIBUTING.md) | [Français](../fr/CONTRIBUTING.md)</sub>
 
 # Hướng dẫn đóng góp
 

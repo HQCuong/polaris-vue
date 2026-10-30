@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import componentsSidebar from '../../components-sidebar.json'
+import { useStrings } from '../i18n'
+
+const t = useStrings()
 
 // Same titles and details the default `features` frontmatter rendered, and the
 // titles stay <h2> as VPFeature had them, so the page's heading outline is
@@ -11,18 +14,15 @@ const componentCount = componentsSidebar.reduce((sum, group) => sum + group.item
   <section class="HomeFeatures">
     <!-- Keeps the old hero keyword phrase visible on the page (the new <h1> is
          the Apple-style headline). -->
-    <p class="kicker">Vue 3 wrappers for Shopify Polaris</p>
-    <p class="line">Everything Polaris. Nothing to relearn.</p>
+    <p class="kicker">{{ t.kicker }}</p>
+    <p class="line">{{ t.featuresLine }}</p>
 
     <div class="bento">
       <article class="tile wide">
         <div class="body">
           <div class="stat">{{ componentCount }}</div>
-          <h2 class="title">Typed props &amp; events</h2>
-          <p class="details">
-            Every wrapper's props and events are generated from Shopify's official Custom Elements
-            Manifest, so you get autocomplete and type-checking that matches the real component API.
-          </p>
+          <h2 class="title">{{ t.features.typed.title }}</h2>
+        <p class="details">{{ t.features.typed.details }}</p>
         </div>
         <!-- Editor autocomplete for SButton's real `variant` union. -->
         <div class="visual editor" aria-hidden="true">
@@ -40,30 +40,19 @@ const componentCount = componentsSidebar.reduce((sum, group) => sum + group.item
 
       <article class="tile">
         <div class="stat">17</div>
-        <h2 class="title">v-model on 17 form components</h2>
-        <p class="details">
-          Text fields, checkboxes, switches, selects, choice lists, date pickers and more all
-          support v-model out of the box, mapped to the correct underlying prop/event pair for each
-          element.
-        </p>
+        <h2 class="title">{{ t.features.vModel.title }}</h2>
+        <p class="details">{{ t.features.vModel.details }}</p>
       </article>
 
       <article class="tile">
-        <h2 class="title">Degrades gracefully</h2>
-        <p class="details">
-          Unknown props pass straight through via $attrs, and slot content is forwarded verbatim. A
-          stale wrapper version never breaks existing usage — it just lacks types for newer
-          features.
-        </p>
+        <h2 class="title">{{ t.features.degrades.title }}</h2>
+        <p class="details">{{ t.features.degrades.details }}</p>
       </article>
 
       <article class="tile wide">
         <div class="body">
-          <h2 class="title">Synced with the manifest</h2>
-          <p class="details">
-            Component and type definitions are generated directly from Shopify's Custom Elements
-            Manifest, keeping the wrapper surface aligned with the Polaris runtime on the CDN.
-          </p>
+          <h2 class="title">{{ t.features.synced.title }}</h2>
+        <p class="details">{{ t.features.synced.details }}</p>
         </div>
         <!-- The codegen pipeline, manifest to wrappers. -->
         <div class="visual flow" aria-hidden="true">
@@ -71,7 +60,7 @@ const componentCount = componentsSidebar.reduce((sum, group) => sum + group.item
           <span class="arrow">↓</span>
           <span class="node cmd">npm run generate</span>
           <span class="arrow">↓</span>
-          <span class="node out">{{ componentCount }} typed Vue wrappers</span>
+          <span class="node out">{{ t.typedWrappers(componentCount) }}</span>
         </div>
       </article>
     </div>

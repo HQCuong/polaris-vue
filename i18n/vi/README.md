@@ -1,10 +1,10 @@
 <div align="center">
 
-<sub>[English](../../README.md) | **Tiếng Việt**</sub>
+<sub>[English](../../README.md) | **Tiếng Việt** | [한국어](../ko/README.md) | [简体中文](../zh/README.md) | [日本語](../ja/README.md) | [Deutsch](../de/README.md) | [Français](../fr/README.md)</sub>
 
 <br>
 
-<a href="https://polaris-vue-elements.dev/">
+<a href="https://polaris-vue-elements.dev/vi/">
   <img src="https://polaris-vue-elements.dev/og.png" alt="polaris-vue-elements: Vue 3 wrapper có type cho Shopify Polaris web components" width="720">
 </a>
 
@@ -16,10 +16,10 @@
 [![CI](https://github.com/HQCuong/polaris-vue/actions/workflows/ci.yml/badge.svg)](https://github.com/HQCuong/polaris-vue/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/npm/l/polaris-vue-elements?color=008060)](../../LICENSE)
 
-**[Tài liệu](https://polaris-vue-elements.dev/)** ·
-[Bắt đầu](https://polaris-vue-elements.dev/guide/getting-started) ·
-[Components](https://polaris-vue-elements.dev/components/) ·
-[Hướng dẫn embedded app](https://polaris-vue-elements.dev/guide/shopify-embedded-app) ·
+**[Tài liệu](https://polaris-vue-elements.dev/vi/)** ·
+[Bắt đầu](https://polaris-vue-elements.dev/vi/guide/getting-started) ·
+[Components](https://polaris-vue-elements.dev/vi/components/) ·
+[Hướng dẫn embedded app](https://polaris-vue-elements.dev/vi/guide/shopify-embedded-app) ·
 [Changelog](../../CHANGELOG.md)
 
 </div>
@@ -67,7 +67,7 @@ vue({
 })
 ```
 
-> **Lưu ý:** `polaris-2.js` là kênh ổn định của Shopify, mang giao diện mới của trang admin. App vẫn dùng `polaris-1.js` vẫn chạy bình thường: API component của 2.0 giống 1.1, chỉ thêm vài thứ. Xem [Polaris 2.0 and the new admin design](https://polaris-vue-elements.dev/guide/getting-started#polaris-2-0-and-the-new-admin-design).
+> **Lưu ý:** `polaris-2.js` là kênh ổn định của Shopify, mang giao diện mới của trang admin. App vẫn dùng `polaris-1.js` vẫn chạy bình thường: API component của 2.0 giống 1.1, chỉ thêm vài thứ. Xem [Polaris 2.0 and the new admin design](https://polaris-vue-elements.dev/vi/guide/getting-started#polaris-2-0-and-the-new-admin-design).
 
 ## Bắt đầu nhanh
 
@@ -85,16 +85,16 @@ const name = ref('')
 </template>
 ```
 
-> **Mẹo:** thích viết thẳng thẻ `<s-button>` của Polaris hơn? Thêm `"types": ["polaris-vue-elements/elements"]` vào `tsconfig.json`, Volar / `vue-tsc` sẽ type-check cả thẻ `<s-*>` gốc (chỉ có type; `v-model` vẫn chỉ có ở wrapper). Xem [Typing raw `<s-*>` tags](https://polaris-vue-elements.dev/guide/getting-started#_7-typing-raw-s-tags-optional).
+> **Mẹo:** thích viết thẳng thẻ `<s-button>` của Polaris hơn? Thêm `"types": ["polaris-vue-elements/elements"]` vào `tsconfig.json`, Volar / `vue-tsc` sẽ type-check cả thẻ `<s-*>` gốc (chỉ có type; `v-model` vẫn chỉ có ở wrapper). Xem [Typing raw `<s-*>` tags](https://polaris-vue-elements.dev/vi/guide/getting-started#_7-typing-raw-s-tags-optional).
 
 ## Tài liệu
 
-Toàn bộ tài liệu (hiện bằng tiếng Anh) ở **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/)**:
+Toàn bộ tài liệu ở **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/vi/)**:
 
-- [Getting started](https://polaris-vue-elements.dev/guide/getting-started): thiết lập, `v-model`, overlay và type cho thẻ gốc.
-- [Build a Shopify embedded app with Vue 3](https://polaris-vue-elements.dev/guide/shopify-embedded-app): App Bridge, `fetch` có xác thực, điều hướng và save bar.
-- [Known quirks](https://polaris-vue-elements.dev/guide/quirks): các hành vi của Polaris đã được kiểm chứng trên trình duyệt thật.
-- [Component reference](https://polaris-vue-elements.dev/components/): props, events, slots, best practices và ví dụ chạy trực tiếp cho cả 62 component.
+- [Getting started](https://polaris-vue-elements.dev/vi/guide/getting-started): thiết lập, `v-model`, overlay và type cho thẻ gốc.
+- [Build a Shopify embedded app with Vue 3](https://polaris-vue-elements.dev/vi/guide/shopify-embedded-app): App Bridge, `fetch` có xác thực, điều hướng và save bar.
+- [Known quirks](https://polaris-vue-elements.dev/vi/guide/quirks): các hành vi của Polaris đã được kiểm chứng trên trình duyệt thật.
+- [Component reference](https://polaris-vue-elements.dev/vi/components/): props, events, slots, best practices và ví dụ chạy trực tiếp cho cả 62 component.
 
 Mã nguồn của site nằm trong [`docs/`](../../docs); chạy ở máy bằng `npm run docs:dev`.
 

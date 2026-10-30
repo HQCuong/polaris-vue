@@ -1,0 +1,292 @@
+[
+  {
+    "text": "操作",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SButton",
+        "link": "/zh/components/s-button"
+      },
+      {
+        "text": "SButtonGroup",
+        "link": "/zh/components/s-button-group"
+      },
+      {
+        "text": "SClickable",
+        "link": "/zh/components/s-clickable"
+      },
+      {
+        "text": "SClickableChip",
+        "link": "/zh/components/s-clickable-chip"
+      },
+      {
+        "text": "SLink",
+        "link": "/zh/components/s-link"
+      },
+      {
+        "text": "SMenu",
+        "link": "/zh/components/s-menu"
+      },
+      {
+        "text": "SPressButton",
+        "link": "/zh/components/s-press-button"
+      }
+    ]
+  },
+  {
+    "text": "反馈与状态",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBadge",
+        "link": "/zh/components/s-badge"
+      },
+      {
+        "text": "SBanner",
+        "link": "/zh/components/s-banner"
+      },
+      {
+        "text": "SEmptyState",
+        "link": "/zh/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/zh/components/s-progress"
+      },
+      {
+        "text": "SSpinner",
+        "link": "/zh/components/s-spinner"
+      }
+    ]
+  },
+  {
+    "text": "表单",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SCheckbox",
+        "link": "/zh/components/s-checkbox"
+      },
+      {
+        "text": "SChoice",
+        "link": "/zh/components/s-choice"
+      },
+      {
+        "text": "SChoiceList",
+        "link": "/zh/components/s-choice-list"
+      },
+      {
+        "text": "SColorField",
+        "link": "/zh/components/s-color-field"
+      },
+      {
+        "text": "SColorPicker",
+        "link": "/zh/components/s-color-picker"
+      },
+      {
+        "text": "SDateField",
+        "link": "/zh/components/s-date-field"
+      },
+      {
+        "text": "SDatePicker",
+        "link": "/zh/components/s-date-picker"
+      },
+      {
+        "text": "SDropZone",
+        "link": "/zh/components/s-drop-zone"
+      },
+      {
+        "text": "SEmailField",
+        "link": "/zh/components/s-email-field"
+      },
+      {
+        "text": "SMoneyField",
+        "link": "/zh/components/s-money-field"
+      },
+      {
+        "text": "SNumberField",
+        "link": "/zh/components/s-number-field"
+      },
+      {
+        "text": "SOption",
+        "link": "/zh/components/s-option"
+      },
+      {
+        "text": "SOptionGroup",
+        "link": "/zh/components/s-option-group"
+      },
+      {
+        "text": "SPasswordField",
+        "link": "/zh/components/s-password-field"
+      },
+      {
+        "text": "SSearchField",
+        "link": "/zh/components/s-search-field"
+      },
+      {
+        "text": "SSelect",
+        "link": "/zh/components/s-select"
+      },
+      {
+        "text": "SSwitch",
+        "link": "/zh/components/s-switch"
+      },
+      {
+        "text": "STextArea",
+        "link": "/zh/components/s-text-area"
+      },
+      {
+        "text": "STextField",
+        "link": "/zh/components/s-text-field"
+      },
+      {
+        "text": "SUrlField",
+        "link": "/zh/components/s-url-field"
+      }
+    ]
+  },
+  {
+    "text": "布局与结构",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBox",
+        "link": "/zh/components/s-box"
+      },
+      {
+        "text": "SDivider",
+        "link": "/zh/components/s-divider"
+      },
+      {
+        "text": "SGrid",
+        "link": "/zh/components/s-grid"
+      },
+      {
+        "text": "SGridItem",
+        "link": "/zh/components/s-grid-item"
+      },
+      {
+        "text": "SListItem",
+        "link": "/zh/components/s-list-item"
+      },
+      {
+        "text": "SOrderedList",
+        "link": "/zh/components/s-ordered-list"
+      },
+      {
+        "text": "SPage",
+        "link": "/zh/components/s-page"
+      },
+      {
+        "text": "SQueryContainer",
+        "link": "/zh/components/s-query-container"
+      },
+      {
+        "text": "SScrollBox",
+        "link": "/zh/components/s-scroll-box"
+      },
+      {
+        "text": "SSection",
+        "link": "/zh/components/s-section"
+      },
+      {
+        "text": "SStack",
+        "link": "/zh/components/s-stack"
+      },
+      {
+        "text": "STable",
+        "link": "/zh/components/s-table"
+      },
+      {
+        "text": "STableBody",
+        "link": "/zh/components/s-table-body"
+      },
+      {
+        "text": "STableCell",
+        "link": "/zh/components/s-table-cell"
+      },
+      {
+        "text": "STableHeader",
+        "link": "/zh/components/s-table-header"
+      },
+      {
+        "text": "STableHeaderRow",
+        "link": "/zh/components/s-table-header-row"
+      },
+      {
+        "text": "STableRow",
+        "link": "/zh/components/s-table-row"
+      },
+      {
+        "text": "SUnorderedList",
+        "link": "/zh/components/s-unordered-list"
+      }
+    ]
+  },
+  {
+    "text": "媒体与视觉",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SAvatar",
+        "link": "/zh/components/s-avatar"
+      },
+      {
+        "text": "SIcon",
+        "link": "/zh/components/s-icon"
+      },
+      {
+        "text": "SImage",
+        "link": "/zh/components/s-image"
+      },
+      {
+        "text": "SThumbnail",
+        "link": "/zh/components/s-thumbnail"
+      }
+    ]
+  },
+  {
+    "text": "浮层",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SModal",
+        "link": "/zh/components/s-modal"
+      },
+      {
+        "text": "SPopover",
+        "link": "/zh/components/s-popover"
+      }
+    ]
+  },
+  {
+    "text": "文字与内容",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SChip",
+        "link": "/zh/components/s-chip"
+      },
+      {
+        "text": "SHeading",
+        "link": "/zh/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/zh/components/s-number"
+      },
+      {
+        "text": "SParagraph",
+        "link": "/zh/components/s-paragraph"
+      },
+      {
+        "text": "SText",
+        "link": "/zh/components/s-text"
+      },
+      {
+        "text": "STooltip",
+        "link": "/zh/components/s-tooltip"
+      }
+    ]
+  }
+]

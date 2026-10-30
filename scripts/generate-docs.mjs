@@ -32,9 +32,7 @@ const repoPkgPath = path.join(repoRoot, 'package.json')
 const overridesPath = path.join(repoRoot, 'src', 'lib', 'overrides.ts')
 const examplesDir = path.join(repoRoot, 'docs', 'examples')
 const bestPracticesDir = path.join(repoRoot, 'docs', 'best-practices')
-const componentsDir = path.join(repoRoot, 'docs', 'components')
-const sidebarPath = path.join(repoRoot, 'docs', '.vitepress', 'components-sidebar.json')
-const indexPath = path.join(componentsDir, 'index.md')
+const localesDir = path.join(repoRoot, 'docs', 'locales')
 
 function fail(message) {
   console.error(`[generate-docs] ${message}`)
@@ -159,13 +157,14 @@ for (const raw of rawComponents) {
 
     const typeText = field.type && typeof field.type.text === 'string' ? field.type.text : 'string'
     const description = manifestDescription(field.description)
+    const source = typeof field.description === 'string' ? field.description.trim() : ''
 
     if (FUNCTION_TYPE_RE.test(typeText)) {
-      methods.push({ name: field.name, type: typeText, description })
+      methods.push({ name: field.name, type: typeText, description, source })
       continue
     }
 
-    props.push({ name: field.name, type: typeText, description })
+    props.push({ name: field.name, type: typeText, description, source })
   }
   props.sort((a, b) => a.name.localeCompare(b.name))
   methods.sort((a, b) => a.name.localeCompare(b.name))
@@ -180,6 +179,7 @@ for (const raw of rawComponents) {
   const slots = (raw.slots ?? []).map((s) => ({
     name: typeof s.name === 'string' ? s.name : '',
     description: manifestDescription(s.description),
+    source: typeof s.description === 'string' ? s.description.trim() : '',
   }))
   slots.sort((a, b) => a.name.localeCompare(b.name))
 
@@ -537,33 +537,150 @@ function renderTable(headers, rows) {
 // same specifier must become `from '../examples/demos/SButtonDemo.vue'` to keep
 // resolving to the same file. Only single-level `./`-relative specifiers are rewritten;
 // there are currently no `../`-relative imports in any example file.
-function rewriteRelativeImportsForInlining(content) {
-  return content.replace(/(from\s+['"])\.\//g, "$1../examples/")
+function rewriteRelativeImportsForInlining(content, examplesPath) {
+  return content.replace(/(from\s+['"])\.\//g, `$1${examplesPath}/`)
 }
 
-function renderBestPracticesSection(component) {
-  const content = bestPractices.get(component.tagName)
-  return content ? ['## Best practices', '', content, ''].join('\n') : ''
+// ---------------------------------------------------------------------------
+// Locales
+//
+// English is the source of truth and renders to docs/components/. Every other
+// locale renders the same pages under docs/<code>/components/ from its folder in
+// docs/locales/<code>/: generator.mjs (the generated prose), summaries.json,
+// manifest.json (Shopify's prop/slot descriptions keyed by their English text)
+// and best-practices/ / examples/ overrides. A description with no translation
+// yet (Shopify added or reworded one) falls back to English, so a polaris-types
+// sync never breaks the build; the count is reported below.
+// ---------------------------------------------------------------------------
+
+const EN = {
+  code: 'en',
+  linkPrefix: '',
+  componentsDir: path.join(repoRoot, 'docs', 'components'),
+  sidebarPath: path.join(repoRoot, 'docs', '.vitepress', 'components-sidebar.json'),
+  examplesPath: '../examples',
+  summaries: SUMMARIES,
+  bestPractices,
+  examples: handWrittenExamples,
+  translate: (item) => item.description,
+  t: {
+    categories: {},
+    headings: {
+      bestPractices: 'Best practices',
+      example: 'Example',
+      vModel: 'v-model',
+      props: 'Props',
+      events: 'Events',
+      methods: 'Methods',
+      slots: 'Slots',
+    },
+    table: { prop: 'Prop', type: 'Type', description: 'Description', event: 'Event', slot: 'Slot' },
+    defaultSlot: 'default',
+    exampleContent: (name) => `Example ${name} content`,
+    intro: (summary, name, tag) =>
+      `${summary} \`${name}\` is the typed Vue 3 wrapper for Shopify's Polaris \`<${tag}>\` web component.`,
+    // `<title>` per component page. The H1 stays `SButton <s-button>`; the title adds the
+    // words people search for (Shopify, Polaris, Vue) and the component's plain name.
+    title: (name, tag, plain) => `${name} (${tag}) – Shopify Polaris ${plain} for Vue 3`,
+    // One-line `<meta name="description">`: the hand-written summary, which makes each
+    // page's snippet distinct, followed by what the reference documents.
+    description: (name, summary, tag, vModel) =>
+      `${name}: ${summary} Typed Vue 3 wrapper for Shopify Polaris <${tag}> — props, events${vModel ? ', v-model' : ''} and slots.`,
+    vModel: (name, prop, event) =>
+      `\`v-model\` on \`<${name}>\` binds to the \`${prop}\` property and listens for the \`${event}\` DOM event.`,
+    vModelEquivalent: 'is equivalent to:',
+    truncatedTypes:
+      "> Some type columns above are truncated for readability; the full union is available in the library's generated TypeScript types (`src/lib/generated/types.ts`).",
+    eventsHint: (event, name) => `Listen for these with \`@${event}\`-style listeners on \`<${name}>\`.`,
+    methodsIntro: (name) =>
+      `\`<${name}>\` exposes the following methods on its underlying DOM element (accessible via a typed template ref):`,
+    index: {
+      title: 'Shopify Polaris web components for Vue 3',
+      description: (count) =>
+        `Browse all ${count} typed Vue 3 wrappers for Shopify Polaris web components, grouped by category — actions, forms, layout, feedback, tables and more.`,
+      heading: 'Components',
+      lead: (count) =>
+        `${count} typed Vue wrappers, one per Polaris web component, grouped the way [Shopify's own reference](https://shopify.dev/docs/api/app-home/polaris-web-components) groups them.`,
+    },
+  },
 }
 
-function renderExampleSection(component) {
-  const handWritten = handWrittenExamples.get(component.tagName)
+function readTagFiles(dir, label) {
+  const map = new Map()
+  if (!existsSync(dir)) return map
+  for (const file of readdirSync(dir).filter((f) => f.endsWith('.md'))) {
+    const tag = file.slice(0, -'.md'.length)
+    assert(
+      components.some((c) => c.tagName === tag),
+      `${label}/${file} is for unknown tag "${tag}" (not found in the manifest). Has Shopify removed it?`,
+    )
+    map.set(tag, readFileSync(path.join(dir, file), 'utf8').trimEnd())
+  }
+  return map
+}
+
+async function loadLocale(code) {
+  const dir = path.join(localesDir, code)
+  const rel = path.relative(repoRoot, dir)
+  const t = (await import(path.join(dir, 'generator.mjs'))).default
+  const summaries = JSON.parse(readFileSync(path.join(dir, 'summaries.json'), 'utf8'))
+  for (const tag of Object.keys(SUMMARIES)) {
+    assert(typeof summaries[tag] === 'string', `${rel}/summaries.json is missing "${tag}"`)
+  }
+  const catalogPath = path.join(dir, 'manifest.json')
+  const catalog = existsSync(catalogPath) ? JSON.parse(readFileSync(catalogPath, 'utf8')) : {}
+  const untranslated = new Set()
+  return {
+    code,
+    linkPrefix: `/${code}`,
+    componentsDir: path.join(repoRoot, 'docs', code, 'components'),
+    sidebarPath: path.join(repoRoot, 'docs', '.vitepress', `components-sidebar.${code}.json`),
+    examplesPath: '../../examples',
+    summaries,
+    // Untranslated best practices fall back to English rather than vanishing.
+    bestPractices: new Map([...bestPractices, ...readTagFiles(path.join(dir, 'best-practices'), `${rel}/best-practices`)]),
+    examples: new Map([...handWrittenExamples, ...readTagFiles(path.join(dir, 'examples'), `${rel}/examples`)]),
+    untranslated,
+    translate(item) {
+      if (!item.source) return item.description
+      const translated = catalog[item.source]
+      if (typeof translated === 'string' && translated.trim() !== '') return manifestDescription(translated)
+      untranslated.add(item.source)
+      return item.description
+    },
+    t,
+  }
+}
+
+function renderBestPracticesSection(component, loc) {
+  const content = loc.bestPractices.get(component.tagName)
+  return content ? [`## ${loc.t.headings.bestPractices}`, '', content, ''].join('\n') : ''
+}
+
+function renderExampleSection(component, loc) {
+  const handWritten = loc.examples.get(component.tagName)
   if (handWritten) {
-    return ['## Example', '', rewriteRelativeImportsForInlining(handWritten), ''].join('\n')
+    return [
+      `## ${loc.t.headings.example}`,
+      '',
+      rewriteRelativeImportsForInlining(handWritten, loc.examplesPath),
+      '',
+    ].join('\n')
   }
 
   if (!SAFE_PREVIEW_TAGS.has(component.tagName)) {
     return ''
   }
 
+  const content = loc.t.exampleContent(component.exportName)
   const lines = []
-  lines.push('## Example')
+  lines.push(`## ${loc.t.headings.example}`)
   lines.push('')
   lines.push('<script setup>')
   lines.push(`import { ${component.exportName} } from '@lib'`)
   lines.push('</script>')
   lines.push('')
-  lines.push(`<${component.exportName}>Example ${component.exportName} content</${component.exportName}>`)
+  lines.push(`<${component.exportName}>${content}</${component.exportName}>`)
   lines.push('')
   lines.push('```vue')
   lines.push('<script setup>')
@@ -571,29 +688,27 @@ function renderExampleSection(component) {
   lines.push('</script>')
   lines.push('')
   lines.push('<template>')
-  lines.push(`  <${component.exportName}>Example ${component.exportName} content</${component.exportName}>`)
+  lines.push(`  <${component.exportName}>${content}</${component.exportName}>`)
   lines.push('</template>')
   lines.push('```')
   lines.push('')
   return lines.join('\n')
 }
 
-function renderVModelSection(component) {
+function renderVModelSection(component, loc) {
   const override = vModelOverrides.get(component.tagName)
   if (!override) return ''
 
   const lines = []
-  lines.push('## v-model')
+  lines.push(`## ${loc.t.headings.vModel}`)
   lines.push('')
-  lines.push(
-    `\`v-model\` on \`<${component.exportName}>\` binds to the \`${override.prop}\` property and listens for the \`${override.event}\` DOM event.`,
-  )
+  lines.push(loc.t.vModel(component.exportName, override.prop, override.event))
   lines.push('')
   lines.push('```vue-html')
   lines.push(`<${component.exportName} v-model="value" />`)
   lines.push('```')
   lines.push('')
-  lines.push('is equivalent to:')
+  lines.push(loc.t.vModelEquivalent)
   lines.push('')
   lines.push('```vue-html')
   lines.push(
@@ -604,58 +719,55 @@ function renderVModelSection(component) {
   return lines.join('\n')
 }
 
-function renderPropsSection(component) {
+function renderPropsSection(component, loc) {
   if (component.props.length === 0) return ''
 
   let anyTruncated = false
   const rows = component.props.map((p) => {
     const { cell, truncated } = formatTypeCell(p.type)
     if (truncated) anyTruncated = true
-    const description = p.description ? escapeTableCell(p.description) : ''
-    return [`\`${p.name}\``, cell, description]
+    const description = loc.translate(p)
+    return [`\`${p.name}\``, cell, description ? escapeTableCell(description) : '']
   })
 
   const lines = []
-  lines.push('## Props')
+  lines.push(`## ${loc.t.headings.props}`)
   lines.push('')
-  lines.push(renderTable(['Prop', 'Type', 'Description'], rows))
+  lines.push(renderTable([loc.t.table.prop, loc.t.table.type, loc.t.table.description], rows))
   if (anyTruncated) {
     lines.push('')
-    lines.push(
-      '> Some type columns above are truncated for readability; the full union is available in the library\'s generated TypeScript types (`src/lib/generated/types.ts`).',
-    )
+    lines.push(loc.t.truncatedTypes)
   }
   lines.push('')
   return lines.join('\n')
 }
 
-function renderEventsSection(component) {
+function renderEventsSection(component, loc) {
   if (component.events.length === 0) return ''
 
   const rows = component.events.map((e) => [`\`${e.name}\``, `\`${escapeTableCell(e.type)}\``])
 
   const lines = []
-  lines.push('## Events')
+  lines.push(`## ${loc.t.headings.events}`)
   lines.push('')
-  lines.push(renderTable(['Event', 'Type'], rows))
+  lines.push(renderTable([loc.t.table.event, loc.t.table.type], rows))
   lines.push('')
-  lines.push(`Listen for these with \`@${component.events[0].name}\`-style listeners on \`<${component.exportName}>\`.`)
+  lines.push(loc.t.eventsHint(component.events[0].name, component.exportName))
   lines.push('')
   return lines.join('\n')
 }
 
-function renderMethodsSection(component) {
+function renderMethodsSection(component, loc) {
   if (component.methods.length === 0) return ''
 
   const lines = []
-  lines.push('## Methods')
+  lines.push(`## ${loc.t.headings.methods}`)
   lines.push('')
-  lines.push(
-    `\`<${component.exportName}>\` exposes the following methods on its underlying DOM element (accessible via a typed template ref):`,
-  )
+  lines.push(loc.t.methodsIntro(component.exportName))
   lines.push('')
   for (const m of component.methods) {
-    lines.push(`- \`${m.name}${m.type}\`${m.description ? ` — ${m.description}` : ''}`)
+    const description = loc.translate(m)
+    lines.push(`- \`${m.name}${m.type}\`${description ? ` — ${description}` : ''}`)
   }
   lines.push('')
   const refName = component.tagName.slice('s-'.length).replace(/-/g, '')
@@ -683,27 +795,23 @@ function renderMethodsSection(component) {
   return lines.join('\n')
 }
 
-function renderSlotsSection(component) {
+function renderSlotsSection(component, loc) {
   if (component.slots.length === 0) return ''
 
-  const rows = component.slots.map((s) => [
-    `\`${s.name === '' ? 'default' : s.name}\``,
-    s.description ? escapeTableCell(s.description) : '',
-  ])
+  const rows = component.slots.map((s) => {
+    const description = loc.translate(s)
+    return [
+      `\`${s.name === '' ? loc.t.defaultSlot : s.name}\``,
+      description ? escapeTableCell(description) : '',
+    ]
+  })
 
   const lines = []
-  lines.push('## Slots')
+  lines.push(`## ${loc.t.headings.slots}`)
   lines.push('')
-  lines.push(renderTable(['Slot', 'Description'], rows))
+  lines.push(renderTable([loc.t.table.slot, loc.t.table.description], rows))
   lines.push('')
   return lines.join('\n')
-}
-
-// One-line `<meta name="description">` per component page: the hand-written summary,
-// which makes each page's snippet distinct, followed by what the reference documents.
-function componentDescription(component) {
-  const vModel = vModelOverrides.has(component.tagName) ? ', v-model' : ''
-  return `${component.exportName}: ${SUMMARIES[component.tagName]} Typed Vue 3 wrapper for Shopify Polaris <${component.tagName}> — props, events${vModel} and slots.`
 }
 
 // YAML front matter. Descriptions are double-quoted so `<s-tag>`, colons and
@@ -717,21 +825,24 @@ function frontmatter(fields) {
   return lines.join('\n')
 }
 
-// `<title>` per component page. The H1 stays `SButton <s-button>`; the title adds the words
-// people search for (Shopify, Polaris, Vue) and the component's plain name.
-function componentTitle(component) {
-  const name = component.tagName.replace(/^s-/, '').replaceAll('-', ' ')
-  return `${component.exportName} (${component.tagName}) – Shopify Polaris ${name} for Vue 3`
-}
-
-function renderComponentPage(component) {
+function renderComponentPage(component, loc) {
+  const summary = loc.summaries[component.tagName]
+  const plainName = component.tagName.replace(/^s-/, '').replaceAll('-', ' ')
   const header = [
-    frontmatter({ title: componentTitle(component), description: componentDescription(component) }),
+    frontmatter({
+      title: loc.t.title(component.exportName, component.tagName, plainName),
+      description: loc.t.description(
+        component.exportName,
+        summary,
+        component.tagName,
+        vModelOverrides.has(component.tagName),
+      ),
+    }),
     banner(),
     '',
     `# ${component.exportName} \`<${component.tagName}>\``,
     '',
-    `${SUMMARIES[component.tagName]} \`${component.exportName}\` is the typed Vue 3 wrapper for Shopify's Polaris \`<${component.tagName}>\` web component.`,
+    loc.t.intro(summary, component.exportName, component.tagName),
     '',
     '```ts',
     `import { ${component.exportName} } from '${packageName}'`,
@@ -739,13 +850,13 @@ function renderComponentPage(component) {
   ].join('\n')
 
   const optionalSections = [
-    renderBestPracticesSection(component),
-    renderExampleSection(component),
-    renderVModelSection(component),
-    renderPropsSection(component),
-    renderEventsSection(component),
-    renderMethodsSection(component),
-    renderSlotsSection(component),
+    renderBestPracticesSection(component, loc),
+    renderExampleSection(component, loc),
+    renderVModelSection(component, loc),
+    renderPropsSection(component, loc),
+    renderEventsSection(component, loc),
+    renderMethodsSection(component, loc),
+    renderSlotsSection(component, loc),
   ].filter((s) => s !== '')
 
   const body = [header, ...optionalSections].join('\n\n')
@@ -753,61 +864,42 @@ function renderComponentPage(component) {
   return body.replace(/\n{3,}/g, '\n\n').trimEnd() + '\n'
 }
 
-// ---------------------------------------------------------------------------
-// Write files
-// ---------------------------------------------------------------------------
-
-mkdirSync(componentsDir, { recursive: true })
-
-for (const component of components) {
-  writeFileSync(path.join(componentsDir, `${component.tagName}.md`), renderComponentPage(component))
-}
-
 const componentByTag = new Map(components.map((c) => [c.tagName, c]))
 
-// One VitePress sidebar group per category, in the order CATEGORIES declares them, with
-// components sorted by export name inside each group. Groups start collapsed — VitePress
-// auto-expands whichever one contains the page you're on, so the sidebar stays short.
-const sidebar = CATEGORIES.map((category) => ({
-  text: category.text,
-  collapsed: true,
-  items: category.tags
+function categoryComponents(category) {
+  return category.tags
     .map((tag) => componentByTag.get(tag))
     .toSorted((a, b) => a.exportName.localeCompare(b.exportName))
-    .map((c) => ({ text: c.exportName, link: `/components/${c.tagName}` })),
-}))
+}
 
-mkdirSync(path.dirname(sidebarPath), { recursive: true })
-writeFileSync(sidebarPath, JSON.stringify(sidebar, null, 2) + '\n')
+function categoryText(category, loc) {
+  return loc.t.categories[category.text] ?? category.text
+}
 
 // docs/components/index.md — the target of the "Components" nav link, and a
 // browse-by-category overview of every wrapper.
-function renderComponentsIndex() {
+function renderComponentsIndex(loc) {
   const lines = [
     frontmatter({
-      title: 'Shopify Polaris web components for Vue 3',
-      description: `Browse all ${components.length} typed Vue 3 wrappers for Shopify Polaris web components, grouped by category — actions, forms, layout, feedback, tables and more.`,
+      title: loc.t.index.title,
+      description: loc.t.index.description(components.length),
     }),
     banner(),
     '',
-    '# Components',
+    `# ${loc.t.index.heading}`,
     '',
   ]
-  lines.push(
-    `${components.length} typed Vue wrappers, one per Polaris web component, grouped the way [Shopify's own reference](https://shopify.dev/docs/api/app-home/polaris-web-components) groups them.`,
-  )
+  lines.push(loc.t.index.lead(components.length))
   lines.push('')
 
   for (const category of CATEGORIES) {
-    lines.push(`## ${category.text}`)
+    lines.push(`## ${categoryText(category, loc)}`)
     lines.push('')
     lines.push('<div class="component-grid">')
     lines.push('')
-    for (const c of category.tags
-      .map((tag) => componentByTag.get(tag))
-      .toSorted((a, b) => a.exportName.localeCompare(b.exportName))) {
+    for (const c of categoryComponents(category)) {
       lines.push(
-        `- [**${c.exportName}**<span class="component-grid-tag">&lt;${c.tagName}&gt;</span><span class="component-grid-summary">${SUMMARIES[c.tagName]}</span>](/components/${c.tagName})`,
+        `- [**${c.exportName}**<span class="component-grid-tag">&lt;${c.tagName}&gt;</span><span class="component-grid-summary">${loc.summaries[c.tagName]}</span>](${loc.linkPrefix}/components/${c.tagName})`,
       )
     }
     lines.push('')
@@ -818,8 +910,46 @@ function renderComponentsIndex() {
   return lines.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n'
 }
 
-writeFileSync(indexPath, renderComponentsIndex())
+// ---------------------------------------------------------------------------
+// Write files
+// ---------------------------------------------------------------------------
 
-console.warn(
-  `[generate-docs] wrote ${components.length} component pages in ${CATEGORIES.length} categories to ${path.relative(repoRoot, componentsDir)}, plus ${path.relative(repoRoot, indexPath)} and ${path.relative(repoRoot, sidebarPath)}`,
-)
+const localeCodes = existsSync(localesDir)
+  ? readdirSync(localesDir)
+      .toSorted()
+      .filter((code) => existsSync(path.join(localesDir, code, 'generator.mjs')))
+  : []
+const locales = [EN, ...(await Promise.all(localeCodes.map(loadLocale)))]
+
+for (const loc of locales) {
+  mkdirSync(loc.componentsDir, { recursive: true })
+
+  for (const component of components) {
+    writeFileSync(path.join(loc.componentsDir, `${component.tagName}.md`), renderComponentPage(component, loc))
+  }
+
+  // One VitePress sidebar group per category, in the order CATEGORIES declares them, with
+  // components sorted by export name inside each group. Groups start collapsed — VitePress
+  // auto-expands whichever one contains the page you're on, so the sidebar stays short.
+  const sidebar = CATEGORIES.map((category) => ({
+    text: categoryText(category, loc),
+    collapsed: true,
+    items: categoryComponents(category).map((c) => ({
+      text: c.exportName,
+      link: `${loc.linkPrefix}/components/${c.tagName}`,
+    })),
+  }))
+
+  mkdirSync(path.dirname(loc.sidebarPath), { recursive: true })
+  writeFileSync(loc.sidebarPath, JSON.stringify(sidebar, null, 2) + '\n')
+
+  const indexPath = path.join(loc.componentsDir, 'index.md')
+  writeFileSync(indexPath, renderComponentsIndex(loc))
+
+  const untranslated = loc.untranslated?.size
+    ? ` (${loc.untranslated.size} Shopify descriptions not yet translated, shown in English)`
+    : ''
+  console.warn(
+    `[generate-docs] ${loc.code}: wrote ${components.length} component pages in ${CATEGORIES.length} categories to ${path.relative(repoRoot, loc.componentsDir)}, plus ${path.relative(repoRoot, indexPath)} and ${path.relative(repoRoot, loc.sidebarPath)}${untranslated}`,
+  )
+}

@@ -1,0 +1,87 @@
+{
+  "label": "한국어",
+  "lang": "ko-KR",
+  "hreflang": "ko",
+  "ogLocale": "ko_KR",
+  "siteDescription": "Shopify Polaris web components를 위한 타입이 지정된 Vue 3 wrapper 컴포넌트입니다. props, events, v-model이 공식 Custom Elements Manifest에서 생성됩니다.",
+  "home": {
+    "pill": {
+      "lead": "Built for Shopify 룩을.",
+      "emphasis": "바로 사용하세요."
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "이제 Vue 3에서 타입과 함께."
+    },
+    "tagline": {
+      "before": "Shopify Polaris web components(",
+      "after": ", ...)를 감싼 타입이 지정된 Vue 3 컴포넌트로, Vue 전용 디자인 시스템을 따로 배울 필요가 없습니다."
+    },
+    "getStarted": "시작하기",
+    "components": "컴포넌트",
+    "codeLabel": "예시: v-model을 사용한 STextField와 primary SButton",
+    "kicker": "Shopify Polaris를 위한 Vue 3 wrapper",
+    "featuresLine": "Polaris의 모든 것. 새로 배울 것은 없습니다.",
+    "features": {
+      "typed": {
+        "title": "타입이 지정된 props & events",
+        "details": "모든 wrapper의 props와 events는 Shopify의 공식 Custom Elements Manifest에서 생성되므로, 실제 컴포넌트 API와 일치하는 자동 완성과 타입 검사를 사용할 수 있습니다."
+      },
+      "vModel": {
+        "title": "17개 폼 컴포넌트에서 v-model 지원",
+        "details": "텍스트 필드, 체크박스, 스위치, 셀렉트, 선택 목록, 날짜 선택기 등이 모두 기본으로 v-model을 지원하며, 각 요소에 맞는 prop/event 쌍에 올바르게 매핑됩니다."
+      },
+      "degrades": {
+        "title": "안전한 하위 호환",
+        "details": "알 수 없는 prop은 $attrs를 통해 그대로 전달되고, slot 콘텐츠도 그대로 전달됩니다. 오래된 wrapper 버전이 기존 코드를 깨뜨리는 일은 없으며, 새 기능의 타입만 없을 뿐입니다."
+      },
+      "synced": {
+        "title": "manifest와 동기화",
+        "details": "컴포넌트와 타입 정의는 Shopify의 Custom Elements Manifest에서 직접 생성되므로, wrapper가 항상 CDN의 Polaris runtime과 일치합니다."
+      }
+    },
+    "typedWrappers": "타입이 지정된 Vue wrapper {count}개",
+    "componentsLine": "컴포넌트 {count}개. import 한 번."
+  },
+  "backToTop": "맨 위로",
+  "nav": {
+    "guide": "가이드",
+    "components": "컴포넌트"
+  },
+  "sidebarGuide": {
+    "title": "가이드",
+    "gettingStarted": "시작하기",
+    "embeddedApp": "Shopify 임베디드 앱 만들기",
+    "quirks": "알려진 특이 사항",
+    "allComponents": "전체 컴포넌트"
+  },
+  "footer": {
+    "message": "MIT 라이선스로 배포됩니다. Vue 로고: <a href=\"https://github.com/vuejs/art\">Evan You</a>, CC BY-NC-SA 4.0.",
+    "copyright": "Shopify Polaris web components를 위한 wrapper이며, Shopify와 제휴 관계가 없습니다."
+  },
+  "ui": {
+    "outlineLabel": "이 페이지의 내용",
+    "prev": "이전 페이지",
+    "next": "다음 페이지",
+    "lastUpdated": "마지막 업데이트",
+    "darkModeSwitchLabel": "테마",
+    "lightModeSwitchTitle": "라이트 모드로 전환",
+    "darkModeSwitchTitle": "다크 모드로 전환",
+    "sidebarMenuLabel": "메뉴",
+    "returnToTopLabel": "맨 위로",
+    "langMenuLabel": "언어 변경",
+    "notFoundTitle": "페이지를 찾을 수 없습니다",
+    "notFoundQuote": "찾으시는 페이지가 존재하지 않거나 다른 곳으로 이동했습니다.",
+    "notFoundLink": "홈으로 이동"
+  },
+  "search": {
+    "buttonText": "검색",
+    "displayDetails": "상세 보기",
+    "resetButtonTitle": "검색어 지우기",
+    "backButtonTitle": "검색 닫기",
+    "noResultsText": "검색 결과가 없습니다:",
+    "selectText": "선택",
+    "navigateText": "이동",
+    "closeText": "닫기"
+  }
+}

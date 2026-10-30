@@ -1,0 +1,87 @@
+{
+  "label": "日本語",
+  "lang": "ja-JP",
+  "hreflang": "ja",
+  "ogLocale": "ja_JP",
+  "siteDescription": "Shopify Polaris web components 向けの型付き Vue 3 wrapper。props、events、v-model を公式の Custom Elements Manifest から生成しています。",
+  "home": {
+    "pill": {
+      "lead": "Built for Shopify のデザインを。",
+      "emphasis": "すぐに使えます。"
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Vue 3 で型付きに。"
+    },
+    "tagline": {
+      "before": "Shopify の Polaris web components（",
+      "after": "、...）をラップした型付き Vue 3 コンポーネント。Vue 専用のデザインシステムを別途学ぶ必要はありません。"
+    },
+    "getStarted": "はじめる",
+    "components": "コンポーネント",
+    "codeLabel": "例：v-model を使った STextField と primary の SButton",
+    "kicker": "Shopify Polaris 向け Vue 3 wrapper",
+    "featuresLine": "Polaris のすべてを。学び直しは不要。",
+    "features": {
+      "typed": {
+        "title": "型付きの props と events",
+        "details": "すべての wrapper の props と events は Shopify 公式の Custom Elements Manifest から生成されるため、実際のコンポーネント API と一致する補完と型チェックが得られます。"
+      },
+      "vModel": {
+        "title": "17 個のフォームコンポーネントで v-model",
+        "details": "テキストフィールド、チェックボックス、スイッチ、セレクト、選択リスト、日付ピッカーなどが、最初から v-model に対応しています。各要素に対応する正しい prop と event の組み合わせにマッピングされます。"
+      },
+      "degrades": {
+        "title": "壊れずに縮退する",
+        "details": "未知の props は $attrs を通じてそのまま渡され、スロットの内容もそのまま転送されます。古いバージョンの wrapper でも既存のコードが壊れることはなく、新しい機能の型がないだけです。"
+      },
+      "synced": {
+        "title": "マニフェストと同期",
+        "details": "コンポーネントと型の定義は Shopify の Custom Elements Manifest から直接生成されるため、wrapper は CDN 上の Polaris runtime と常に一致します。"
+      }
+    },
+    "typedWrappers": "{count} 個の型付き Vue wrapper",
+    "componentsLine": "{count} 個のコンポーネント。import は一度だけ。"
+  },
+  "backToTop": "ページの先頭へ",
+  "nav": {
+    "guide": "ガイド",
+    "components": "コンポーネント"
+  },
+  "sidebarGuide": {
+    "title": "ガイド",
+    "gettingStarted": "はじめに",
+    "embeddedApp": "Shopify 埋め込みアプリを作る",
+    "quirks": "既知の注意点",
+    "allComponents": "すべてのコンポーネント"
+  },
+  "footer": {
+    "message": "MIT ライセンスの下で公開されています。Vue ロゴは <a href=\"https://github.com/vuejs/art\">Evan You</a> によるもの（CC BY-NC-SA 4.0）。",
+    "copyright": "Shopify Polaris web components の wrapper であり、Shopify とは提携していません。"
+  },
+  "ui": {
+    "outlineLabel": "このページの内容",
+    "prev": "前のページ",
+    "next": "次のページ",
+    "lastUpdated": "最終更新",
+    "darkModeSwitchLabel": "外観",
+    "lightModeSwitchTitle": "ライトモードに切り替え",
+    "darkModeSwitchTitle": "ダークモードに切り替え",
+    "sidebarMenuLabel": "メニュー",
+    "returnToTopLabel": "ページの先頭へ",
+    "langMenuLabel": "言語を変更",
+    "notFoundTitle": "ページが見つかりません",
+    "notFoundQuote": "お探しのページは存在しないか、移動した可能性があります。",
+    "notFoundLink": "ホームに戻る"
+  },
+  "search": {
+    "buttonText": "検索",
+    "displayDetails": "詳細を表示",
+    "resetButtonTitle": "検索語をクリア",
+    "backButtonTitle": "検索を閉じる",
+    "noResultsText": "該当する結果がありません：",
+    "selectText": "選択",
+    "navigateText": "移動",
+    "closeText": "閉じる"
+  }
+}

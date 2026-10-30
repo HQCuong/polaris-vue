@@ -1,4 +1,4 @@
-<sub>**English** | [Tiếng Việt](./i18n/vi/CODE_OF_CONDUCT.md)</sub>
+<sub>**English** | [Tiếng Việt](./i18n/vi/CODE_OF_CONDUCT.md) | [한국어](./i18n/ko/CODE_OF_CONDUCT.md) | [简体中文](./i18n/zh/CODE_OF_CONDUCT.md) | [日本語](./i18n/ja/CODE_OF_CONDUCT.md) | [Deutsch](./i18n/de/CODE_OF_CONDUCT.md) | [Français](./i18n/fr/CODE_OF_CONDUCT.md)</sub>
 
 
 # Contributor Covenant Code of Conduct

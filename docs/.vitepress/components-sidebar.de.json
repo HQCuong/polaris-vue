@@ -1,0 +1,292 @@
+[
+  {
+    "text": "Aktionen",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SButton",
+        "link": "/de/components/s-button"
+      },
+      {
+        "text": "SButtonGroup",
+        "link": "/de/components/s-button-group"
+      },
+      {
+        "text": "SClickable",
+        "link": "/de/components/s-clickable"
+      },
+      {
+        "text": "SClickableChip",
+        "link": "/de/components/s-clickable-chip"
+      },
+      {
+        "text": "SLink",
+        "link": "/de/components/s-link"
+      },
+      {
+        "text": "SMenu",
+        "link": "/de/components/s-menu"
+      },
+      {
+        "text": "SPressButton",
+        "link": "/de/components/s-press-button"
+      }
+    ]
+  },
+  {
+    "text": "Feedback und Status",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBadge",
+        "link": "/de/components/s-badge"
+      },
+      {
+        "text": "SBanner",
+        "link": "/de/components/s-banner"
+      },
+      {
+        "text": "SEmptyState",
+        "link": "/de/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/de/components/s-progress"
+      },
+      {
+        "text": "SSpinner",
+        "link": "/de/components/s-spinner"
+      }
+    ]
+  },
+  {
+    "text": "Formulare",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SCheckbox",
+        "link": "/de/components/s-checkbox"
+      },
+      {
+        "text": "SChoice",
+        "link": "/de/components/s-choice"
+      },
+      {
+        "text": "SChoiceList",
+        "link": "/de/components/s-choice-list"
+      },
+      {
+        "text": "SColorField",
+        "link": "/de/components/s-color-field"
+      },
+      {
+        "text": "SColorPicker",
+        "link": "/de/components/s-color-picker"
+      },
+      {
+        "text": "SDateField",
+        "link": "/de/components/s-date-field"
+      },
+      {
+        "text": "SDatePicker",
+        "link": "/de/components/s-date-picker"
+      },
+      {
+        "text": "SDropZone",
+        "link": "/de/components/s-drop-zone"
+      },
+      {
+        "text": "SEmailField",
+        "link": "/de/components/s-email-field"
+      },
+      {
+        "text": "SMoneyField",
+        "link": "/de/components/s-money-field"
+      },
+      {
+        "text": "SNumberField",
+        "link": "/de/components/s-number-field"
+      },
+      {
+        "text": "SOption",
+        "link": "/de/components/s-option"
+      },
+      {
+        "text": "SOptionGroup",
+        "link": "/de/components/s-option-group"
+      },
+      {
+        "text": "SPasswordField",
+        "link": "/de/components/s-password-field"
+      },
+      {
+        "text": "SSearchField",
+        "link": "/de/components/s-search-field"
+      },
+      {
+        "text": "SSelect",
+        "link": "/de/components/s-select"
+      },
+      {
+        "text": "SSwitch",
+        "link": "/de/components/s-switch"
+      },
+      {
+        "text": "STextArea",
+        "link": "/de/components/s-text-area"
+      },
+      {
+        "text": "STextField",
+        "link": "/de/components/s-text-field"
+      },
+      {
+        "text": "SUrlField",
+        "link": "/de/components/s-url-field"
+      }
+    ]
+  },
+  {
+    "text": "Layout und Struktur",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBox",
+        "link": "/de/components/s-box"
+      },
+      {
+        "text": "SDivider",
+        "link": "/de/components/s-divider"
+      },
+      {
+        "text": "SGrid",
+        "link": "/de/components/s-grid"
+      },
+      {
+        "text": "SGridItem",
+        "link": "/de/components/s-grid-item"
+      },
+      {
+        "text": "SListItem",
+        "link": "/de/components/s-list-item"
+      },
+      {
+        "text": "SOrderedList",
+        "link": "/de/components/s-ordered-list"
+      },
+      {
+        "text": "SPage",
+        "link": "/de/components/s-page"
+      },
+      {
+        "text": "SQueryContainer",
+        "link": "/de/components/s-query-container"
+      },
+      {
+        "text": "SScrollBox",
+        "link": "/de/components/s-scroll-box"
+      },
+      {
+        "text": "SSection",
+        "link": "/de/components/s-section"
+      },
+      {
+        "text": "SStack",
+        "link": "/de/components/s-stack"
+      },
+      {
+        "text": "STable",
+        "link": "/de/components/s-table"
+      },
+      {
+        "text": "STableBody",
+        "link": "/de/components/s-table-body"
+      },
+      {
+        "text": "STableCell",
+        "link": "/de/components/s-table-cell"
+      },
+      {
+        "text": "STableHeader",
+        "link": "/de/components/s-table-header"
+      },
+      {
+        "text": "STableHeaderRow",
+        "link": "/de/components/s-table-header-row"
+      },
+      {
+        "text": "STableRow",
+        "link": "/de/components/s-table-row"
+      },
+      {
+        "text": "SUnorderedList",
+        "link": "/de/components/s-unordered-list"
+      }
+    ]
+  },
+  {
+    "text": "Medien und Grafik",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SAvatar",
+        "link": "/de/components/s-avatar"
+      },
+      {
+        "text": "SIcon",
+        "link": "/de/components/s-icon"
+      },
+      {
+        "text": "SImage",
+        "link": "/de/components/s-image"
+      },
+      {
+        "text": "SThumbnail",
+        "link": "/de/components/s-thumbnail"
+      }
+    ]
+  },
+  {
+    "text": "Overlays",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SModal",
+        "link": "/de/components/s-modal"
+      },
+      {
+        "text": "SPopover",
+        "link": "/de/components/s-popover"
+      }
+    ]
+  },
+  {
+    "text": "Typografie und Inhalt",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SChip",
+        "link": "/de/components/s-chip"
+      },
+      {
+        "text": "SHeading",
+        "link": "/de/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/de/components/s-number"
+      },
+      {
+        "text": "SParagraph",
+        "link": "/de/components/s-paragraph"
+      },
+      {
+        "text": "SText",
+        "link": "/de/components/s-text"
+      },
+      {
+        "text": "STooltip",
+        "link": "/de/components/s-tooltip"
+      }
+    ]
+  }
+]

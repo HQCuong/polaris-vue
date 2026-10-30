@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import componentsSidebar from '../../components-sidebar.json'
+import { computed } from 'vue'
 
-const componentCount = componentsSidebar.reduce((sum, group) => sum + group.items.length, 0)
+import { useStrings } from '../i18n'
+
+const t = useStrings()
+const groups = computed(() => t.value.sidebar)
+const componentCount = computed(() => groups.value.reduce((sum, group) => sum + group.items.length, 0))
 </script>
 
 <template>
   <!-- Every component page linked from the homepage, as plain server-rendered
        <a href>s: this is the homepage's main internal-link hub for crawlers. -->
   <div class="HomeComponents">
-    <p class="line">{{ componentCount }} components. One import.</p>
+    <p class="line">{{ t.componentsLine(componentCount) }}</p>
     <div class="groups">
-      <section v-for="group in componentsSidebar" :key="group.text" class="group">
+      <section v-for="group in groups" :key="group.text" class="group">
         <!-- The count sits outside the <h3> so the heading text stays the bare
              group name. -->
         <div class="group-head">
