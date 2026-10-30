@@ -1,0 +1,32 @@
+<style>
+  .row { display: flex; align-items: center; justify-content: center; padding: 26px 16px; border-radius: 10px; background: #fff; }
+  .eb { display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px 5px 9px; border-radius: 980px; font: 500 13px -apple-system, "SF Pro Text", Inter, system-ui, sans-serif; color: #1d1d1f;
+        background: rgba(0,128,96,.07); border: 1px solid rgba(0,128,96,.22); position: relative; overflow: hidden; letter-spacing: -0.01em; }
+  .eb svg { width: 14px; height: 14px; flex: none; }
+  .eb b { font-weight: 600; color: #007a5c; }
+  .eb .arr { color: #007a5c; }
+  .eb::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40px; left: -60px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent); animation: shine 5s ease-in-out infinite 1s; }
+  @keyframes shine { 0%, 70% { left: -60px } 100% { left: 110% } }
+  .note { font-size: 13px; }
+</style>
+
+<h2>Câu chữ kiểu Apple cho viên thuốc</h2>
+<p class="subtitle">Ngắn, khẳng định, có nhịp. Tất cả đều đúng sự thật: Built for Shopify yêu cầu app trông như Shopify admin, và Polaris chính là UI của admin. Bấm để chọn.</p>
+
+<div class="options">
+  <div class="option" data-choice="a1" onclick="toggleSelect(this)"><div class="letter">1</div><div class="content">
+    <div class="row"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>Feels like the admin. <b>Because it is.</b> <span class="arr">›</span></span></div>
+    <p class="note">Kiểu "chơi chữ ngắn" rất Apple. Không nhắc tên danh hiệu trong câu; trang đích giải thích Built for Shopify.</p></div></div>
+
+  <div class="option" data-choice="a2" onclick="toggleSelect(this)"><div class="letter">2</div><div class="content">
+    <div class="row"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>The Built for Shopify look. <b>Out of the box.</b> <span class="arr">›</span></span></div>
+    <p class="note">Nhắc thẳng danh hiệu, nói về "vẻ ngoài" chứ không hứa đạt danh hiệu.</p></div></div>
+
+  <div class="option" data-choice="a3" onclick="toggleSelect(this)"><div class="letter">3</div><div class="content">
+    <div class="row"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>Designed for <b>Built for Shopify.</b> <span class="arr">›</span></span></div>
+    <p class="note">Ngắn nhất, kiểu "Designed for Apple Intelligence". Hơi gần với việc ngụ ý được chứng nhận.</p></div></div>
+
+  <div class="option" data-choice="a4" onclick="toggleSelect(this)"><div class="letter">4</div><div class="content">
+    <div class="row"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>Native to the admin. <b>Ready for Built for Shopify.</b> <span class="arr">›</span></span></div>
+    <p class="note">Hai nhịp. "Ready" có thể bị hiểu là đủ điều kiện danh hiệu — tôi ít khuyên nhất.</p></div></div>
+</div>

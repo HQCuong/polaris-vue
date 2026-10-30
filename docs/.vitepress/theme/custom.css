@@ -22,11 +22,30 @@
   --vp-button-brand-hover-bg: #00694e;
   --vp-button-brand-active-bg: #00553f;
 
-  /* Hero headline gradient — the one deliberately vivid moment on the site. */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(78deg, #008060 12%, #2aa47c 58%, #4fb8a0 100%);
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #008060 45%, #4fb8a0 55%);
-  --vp-home-hero-image-filter: blur(52px) opacity(0.28);
+  /* Homepage (docs/.vitepress/theme/home/). The accent gradient is the one
+   * deliberately vivid moment on the site; its stops stay dark enough for 3:1
+   * large-text contrast on white. */
+  --home-accent-gradient: linear-gradient(90deg, #00664d, #008060 30%, #1d8f6b 50%, #008060 70%, #00664d);
+  --home-grid-line: rgba(0, 128, 96, 0.08);
+  --home-glow-strong: rgba(66, 184, 131, 0.3);
+  --home-glow-soft: rgba(0, 128, 96, 0.1);
+  --home-pill-bg: rgba(0, 128, 96, 0.06);
+  --home-pill-border: rgba(0, 128, 96, 0.24);
+  --home-pill-sheen: rgba(255, 255, 255, 0.85);
+  --home-glass-bg: rgba(255, 255, 255, 0.62);
+  --home-glass-border: rgba(0, 0, 0, 0.06);
+  --home-glass-shadow: 0 28px 60px -28px rgba(0, 60, 40, 0.38);
+  --home-tile-bg: var(--vp-c-bg);
+  --home-tile-border: var(--vp-c-divider);
+  --home-tile-shadow: 0 18px 40px -20px rgba(0, 80, 60, 0.3);
+  --home-code-tag: #a626a4;
+  --home-code-attr: #007a5c;
+  --home-code-str: #9a6700;
+
+  /* Nav bar glass: translucent enough to show the page scrolling under it. */
+  --glass-nav-bg: rgba(255, 255, 255, 0.62);
+  --glass-nav-border: rgba(0, 0, 0, 0.07);
+  --glass-nav-highlight: rgba(255, 255, 255, 0.7);
 
   --vp-custom-block-tip-border: rgba(0, 128, 96, 0.28);
 }
@@ -43,34 +62,160 @@
   --vp-button-brand-hover-bg: #26a37c;
   --vp-button-brand-active-bg: #197154;
 
-  --vp-home-hero-name-background: linear-gradient(78deg, #4fd6ae 12%, #6fe0c4 58%, #a6ecd8 100%);
+  --home-accent-gradient: linear-gradient(90deg, #4fd6ae, #a6ecd8 30%, #6fe0c4 50%, #a6ecd8 70%, #4fd6ae);
+  --home-grid-line: rgba(95, 208, 171, 0.1);
+  --home-glow-strong: rgba(66, 184, 131, 0.28);
+  --home-glow-soft: rgba(31, 138, 104, 0.1);
+  --home-pill-bg: rgba(95, 208, 171, 0.08);
+  --home-pill-border: rgba(95, 208, 171, 0.28);
+  --home-pill-sheen: rgba(255, 255, 255, 0.18);
+  --home-glass-bg: rgba(32, 33, 39, 0.6);
+  --home-glass-border: rgba(255, 255, 255, 0.08);
+  --home-glass-shadow: 0 28px 60px -28px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(95, 208, 171, 0.06);
+  --home-tile-bg: var(--vp-c-bg-soft);
+  --home-tile-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.6);
+  --home-code-tag: #e48fe2;
+  --home-code-attr: #5fd0ab;
+  --home-code-str: #e3b341;
+
+  --glass-nav-bg: rgba(27, 27, 31, 0.55);
+  --glass-nav-border: rgba(255, 255, 255, 0.07);
+  --glass-nav-highlight: rgba(255, 255, 255, 0.06);
 }
 
 /* ==========================================================================
  * Home page
  * ========================================================================== */
 
-.VPHero .name {
-  letter-spacing: -0.02em;
+/* The hero, features and component list are components in theme/home/ and
+ * style themselves; these rules cover the markdown sections between them,
+ * which keep the normal .vp-doc styles for headings, links and code blocks. */
+.home-section {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 96px 24px 0;
 }
 
-/* Feature cards: flat by default, lifting only on hover. Motion is the cheapest
- * way to make a static docs page feel alive without adding visual noise. */
-.VPFeature {
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+@media (min-width: 768px) {
+  .home-section {
+    padding: 128px 48px 0;
+  }
 }
 
-.VPFeature:hover {
-  border-color: var(--vp-c-brand-1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+/* .vp-doc gives every h2 a top border and margin meant for long articles. */
+.home-section.vp-doc h2 {
+  margin: 0;
+  border-top: 0;
+  padding-top: 0;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
-.dark .VPFeature:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+@media (min-width: 768px) {
+  .home-section.vp-doc h2 {
+    font-size: 40px;
+  }
+}
+
+.home-all.vp-doc h2 {
+  text-align: center;
+}
+
+/* Text on the left, the code in a window frame on the right; stacked on phones. */
+.home-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .home-intro {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 56px;
+  }
+}
+
+.home-intro-text p {
+  color: var(--vp-c-text-2);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.home-intro-text :not(pre) > code {
+  white-space: nowrap;
+}
+
+.home-intro-code {
+  min-width: 0;
+}
+
+/* Slightly smaller than article code so the longest import line fits the
+ * window without a horizontal scrollbar at desktop widths. */
+.home-intro-code div[class*='language-'] code {
+  font-size: 13px;
+}
+
+/* Frame the normal VitePress code block (highlighting and copy button intact)
+ * as a window with three dots. */
+.home-intro-code div[class*='language-'] {
+  margin: 0;
+  padding-top: 36px;
+  border: 1px solid var(--home-glass-border);
+  border-radius: 16px;
+  box-shadow: var(--home-glass-shadow);
+}
+
+.home-intro-code div[class*='language-']::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--vp-c-divider);
+  box-shadow:
+    16px 0 0 var(--vp-c-divider),
+    32px 0 0 var(--vp-c-divider);
+}
+
+/* The language label would collide with the window dots. */
+.home-intro-code div[class*='language-'] > span.lang {
+  display: none;
+}
+
+/* ==========================================================================
+ * Nav bar: frosted "liquid glass" on every page
+ *
+ * VitePress paints the nav bar in pieces (the bar, its .content-body, and the
+ * .title cell over the sidebar), each with an opaque background that depends on
+ * the page type and scroll position, through scoped selectors that out-specify
+ * ours. One translucent, blurred layer on the whole bar replaces all of them,
+ * hence the !important. The open mobile menu keeps VitePress's solid fill.
+ * ========================================================================== */
+
+.VPNavBar:not(.screen-open),
+.VPLocalNav {
+  background-color: var(--glass-nav-bg) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: inset 0 1px 0 var(--glass-nav-highlight);
+}
+
+.VPNavBar:not(.screen-open) {
+  border-bottom: 1px solid var(--glass-nav-border);
+}
+
+.VPNavBar:not(.screen-open) .content-body,
+.VPNavBar:not(.screen-open) .title {
+  background-color: transparent !important;
+}
+
+/* The bar's own bottom border replaces VitePress's partial divider line. */
+.VPNavBar:not(.screen-open) .divider-line {
+  display: none;
 }
 
 /* ==========================================================================

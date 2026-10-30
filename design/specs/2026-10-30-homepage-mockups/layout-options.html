@@ -1,0 +1,122 @@
+<style>
+  .hero { position: relative; overflow: hidden; border-radius: 10px; padding: 34px 28px 30px; min-height: 300px; font-family: -apple-system, "SF Pro Display", Inter, system-ui, sans-serif; }
+  .hero > * { position: relative; z-index: 1; }
+  .fade { opacity: 0; animation: up .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .fade.d2 { animation-delay: .12s } .fade.d3 { animation-delay: .24s } .fade.d4 { animation-delay: .36s } .fade.d5 { animation-delay: .5s }
+  @keyframes up { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
+  .pill1 { background: #008060; color: #fff; border-radius: 980px; padding: 8px 18px; font-size: 12px; font-weight: 500; }
+  .pill2 { color: #008060; font-size: 12px; font-weight: 500; padding: 8px 6px; }
+  .btns { display: flex; gap: 6px; }
+
+  .eb { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px 4px 8px; border-radius: 980px; font-size: 11px; font-weight: 500; color: #1d1d1f; background: rgba(0,128,96,.08); border: 1px solid rgba(0,128,96,.22); margin-bottom: 12px; position: relative; overflow: hidden; }
+  .eb b { color: #007a5c; font-weight: 600 } .eb .arr { color: #007a5c }
+  .eb svg { width: 13px; height: 13px; flex: none; }
+  .eb::after { content: ""; position: absolute; top: 0; bottom: 0; width: 40px; left: -60px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent); animation: shine 5s ease-in-out infinite 1.2s; }
+  @keyframes shine { 0%, 70% { left: -60px } 100% { left: 110% } }
+
+  .grid::before { content: ""; position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(rgba(0,128,96,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(0,128,96,.09) 1px, transparent 1px); background-size: 22px 22px; }
+  .scan { position: absolute; left: 0; right: 0; height: 60px; z-index: 0; background: linear-gradient(transparent, rgba(0,128,96,.08), transparent); animation: scan 7s linear infinite; }
+  @keyframes scan { from { top: -60px } to { top: 100% } }
+  @keyframes pulse { 50% { transform: scale(1.12); opacity: .7 } }
+  @keyframes sheen { to { background-position: 200% 0 } }
+  @keyframes breathe { 50% { transform: translateX(-50%) scale(1.08); opacity: .8 } }
+  @keyframes float { 50% { transform: translateY(-5px) } }
+
+  /* B */
+  .b { background: #fbfcfc; }
+  .b::before { mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 70%); }
+  .b::after { content: ""; position: absolute; width: 320px; height: 320px; top: -120px; right: -60px; z-index: 0; border-radius: 50%; background: radial-gradient(circle, rgba(0,160,120,.35), transparent 65%); animation: pulse 6s ease-in-out infinite; }
+  .b .name { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; background: linear-gradient(78deg, #008060 12%, #2aa47c 58%, #4fb8a0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .b h2 { margin: 6px 0 10px; font-size: 20px; color: #1b1f24; font-weight: 600; }
+  .b p { margin: 0 0 18px; color: #5c6670; font-size: 13px; max-width: 320px; line-height: 1.5; }
+
+  /* centered Apple shared */
+  .ap { text-align: center; }
+  .ap h1 { margin: 2px auto 8px; font-size: 32px; line-height: 1.05; font-weight: 700; letter-spacing: -0.035em; }
+  .ap p { margin: 0 auto 14px; font-size: 13px; max-width: 300px; line-height: 1.45; }
+  .ap .btns { justify-content: center; margin-bottom: 16px; }
+  .ap h1 span { background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sheen 6s linear infinite; }
+  .glass { margin: 0 auto; width: 250px; text-align: left; padding: 10px 14px; border-radius: 14px; background: rgba(255,255,255,.6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 20px 40px -18px rgba(0,60,40,.35); font: 11px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: #1d1d1f; animation: float 6s ease-in-out infinite; }
+  .glass .k { color: #a626a4 } .glass .t { color: #008060 } .glass .s { color: #c18401 }
+  .glow { position: absolute; left: 50%; bottom: -140px; width: 420px; height: 260px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(66,184,131,.35), rgba(0,128,96,.12), transparent); filter: blur(10px); z-index: 0; animation: breathe 8s ease-in-out infinite; }
+
+  /* D */
+  .d { background: #fff; }
+  .d h1, .h h1 { color: #1d1d1f } .d p, .h p { color: #6e6e73 }
+  .d h1 span, .h h1 span { background-image: linear-gradient(90deg, #008060, #2aa47c, #42b883, #008060); }
+
+  /* D + B grid */
+  .h { background: #fbfcfc; }
+  .h::before { mask-image: radial-gradient(ellipse at 50% 35%, #000 15%, transparent 72%); -webkit-mask-image: radial-gradient(ellipse at 50% 35%, #000 15%, transparent 72%); }
+
+  /* E */
+  .e { background: #000; }
+  .e h1 { background: linear-gradient(180deg, #fff 30%, #8a8f98); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .e h1 span { background-image: linear-gradient(90deg, #4fd6ae, #a6ecd8, #6fe0c4, #4fd6ae); }
+  .e p { color: #86868b } .e .pill1 { background: #1f8a68 } .e .pill2 { color: #5fd0ab }
+  .e .eb { color: #f5f5f7; background: rgba(95,208,171,.1); border-color: rgba(95,208,171,.3) } .e .eb b, .e .eb .arr { color: #5fd0ab }
+  .e .eb::after { background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent) }
+  .ring { position: absolute; left: 50%; bottom: -230px; width: 460px; height: 300px; transform: translateX(-50%); border-radius: 50%; border-top: 2px solid rgba(95,208,171,.9); box-shadow: 0 -10px 60px rgba(66,184,131,.55), inset 0 20px 60px rgba(66,184,131,.25); z-index: 0; animation: rise 8s ease-in-out infinite; }
+  @keyframes rise { 50% { transform: translateX(-50%) translateY(-8px) } }
+  @media (prefers-reduced-motion: reduce) { .hero *, .hero::after, .hero, .eb::after { animation: none !important; opacity: 1 } }
+</style>
+
+<h2>Các bố cục phần đầu trang chủ — đã gắn câu "The Built for Shopify look. Out of the box."</h2>
+<p class="subtitle">Bấm để chọn. Bên dưới phần đầu trang (các ô tính năng, đoạn code, danh sách component) sẽ được làm lại cho hợp với bố cục bạn chọn.</p>
+
+<div class="cards">
+  <div class="card" data-choice="B" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="hero grid b">
+        <div class="scan"></div>
+        <div class="fade"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>The Built for Shopify look. <b>Out of the box.</b> <span class="arr">›</span></span></div>
+        <div class="name fade d2">polaris-vue-elements</div>
+        <h2 class="fade d3">Vue 3 wrappers for Shopify Polaris</h2>
+        <p class="fade d4">Typed Vue 3 components around Shopify's Polaris web components.</p>
+        <div class="btns fade d5"><span class="pill1">Get Started</span><span class="pill2">Components ›</span></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>B · Lưới phát sáng</h3><p>Căn trái như hiện tại; lưới mờ, quầng sáng góc phải, dải quét. Ít thay đổi nhất so với site đang chạy.</p></div>
+  </div>
+
+  <div class="card" data-choice="D" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="hero ap d">
+        <div class="glow"></div>
+        <div class="fade"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>The Built for Shopify look. <b>Out of the box.</b> <span class="arr">›</span></span></div>
+        <h1 class="fade d2">Shopify Polaris.<br><span>Now typed for Vue.</span></h1>
+        <p class="fade d3">Typed Vue 3 components around Shopify's Polaris web components.</p>
+        <div class="btns fade d4"><span class="pill1">Get Started</span><span class="pill2">Components ›</span></div>
+        <div class="glass fade d5"><span class="k">&lt;STextField</span> <span class="t">v-model</span>=<span class="s">"name"</span> /&gt;<br><span class="k">&lt;SButton</span> <span class="t">variant</span>=<span class="s">"primary"</span>&gt;Save&lt;/SButton&gt;</div>
+      </div>
+    </div>
+    <div class="card-body"><h3>D · Apple sáng</h3><p>Căn giữa, nền trắng tinh, quầng sáng từ đáy, khung code kính mờ.</p></div>
+  </div>
+
+  <div class="card" data-choice="D+B" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="hero grid ap h">
+        <div class="glow"></div>
+        <div class="fade"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#008060" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>The Built for Shopify look. <b>Out of the box.</b> <span class="arr">›</span></span></div>
+        <h1 class="fade d2">Shopify Polaris.<br><span>Now typed for Vue.</span></h1>
+        <p class="fade d3">Typed Vue 3 components around Shopify's Polaris web components.</p>
+        <div class="btns fade d4"><span class="pill1">Get Started</span><span class="pill2">Components ›</span></div>
+        <div class="glass fade d5"><span class="k">&lt;STextField</span> <span class="t">v-model</span>=<span class="s">"name"</span> /&gt;<br><span class="k">&lt;SButton</span> <span class="t">variant</span>=<span class="s">"primary"</span>&gt;Save&lt;/SButton&gt;</div>
+      </div>
+    </div>
+    <div class="card-body"><h3>D + B · Apple trên nền lưới</h3><p>Bố cục D, thêm lưới mờ của B toả từ giữa. Vừa sang vừa "tech".</p></div>
+  </div>
+
+  <div class="card" data-choice="E" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="hero ap e">
+        <div class="ring"></div>
+        <div class="fade"><span class="eb"><svg viewBox="0 0 16 16" fill="none" stroke="#5fd0ab" stroke-width="1.4" stroke-linejoin="round"><path d="M4 2.5h8l2.5 3.5L8 13.5 1.5 6z"/><path d="M1.5 6h13M6 2.5 8 6l2-3.5M8 6v7.5"/></svg>The Built for Shopify look. <b>Out of the box.</b> <span class="arr">›</span></span></div>
+        <h1 class="fade d2">Shopify Polaris.<br><span>Now typed for Vue.</span></h1>
+        <p class="fade d3">Typed Vue 3 components around Shopify's Polaris web components.</p>
+        <div class="btns fade d4"><span class="pill1">Get Started</span><span class="pill2">Components ›</span></div>
+      </div>
+    </div>
+    <div class="card-body"><h3>E · Apple tối</h3><p>Nền đen, vầng sáng chân trời. Phần đầu luôn tối, kể cả chế độ sáng.</p></div>
+  </div>
+</div>

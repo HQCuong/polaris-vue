@@ -1,0 +1,91 @@
+<style>
+  .pg { font-family: -apple-system, "SF Pro Display", Inter, system-ui, sans-serif; color: #1d1d1f; background: #fbfcfc; border-radius: 10px; padding: 28px 22px; }
+  .sec { margin: 0 auto 40px; max-width: 720px; }
+  .kicker { text-align: center; font-size: 11px; font-weight: 600; color: #007a5c; margin-bottom: 6px; }
+  .h2 { text-align: center; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 6px; }
+  .lead { text-align: center; color: #6e6e73; font-size: 13px; max-width: 460px; margin: 0 auto 20px; line-height: 1.5; }
+  .reveal { animation: up .8s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes up { from { transform: translateY(16px) } to { transform: none } }
+
+  /* bento */
+  .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tile { background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03); transition: transform .25s, box-shadow .25s; position: relative; overflow: hidden; }
+  .tile:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(0,80,60,.3); }
+  .tile.wide { grid-column: span 2; }
+  .tile .big { font-size: 34px; font-weight: 700; letter-spacing: -0.04em; background: linear-gradient(90deg, #008060, #42b883); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; }
+  .tile h4 { margin: 8px 0 4px; font-size: 14px; font-weight: 600; }
+  .tile p { margin: 0; color: #6e6e73; font-size: 11.5px; line-height: 1.45; }
+  .tile .mini { margin-top: 10px; font: 10.5px/1.6 ui-monospace, Menlo, monospace; background: #f5f7f6; border-radius: 8px; padding: 8px 10px; color: #333; }
+  .tile .mini .k { color: #a626a4 } .tile .mini .t { color: #008060 } .tile .mini .s { color: #c18401 }
+
+  /* split */
+  .split2 { display: grid; grid-template-columns: 1fr 1.1fr; gap: 18px; align-items: center; }
+  .split2 .txt h3 { font-size: 20px; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .split2 .txt p { color: #6e6e73; font-size: 12.5px; line-height: 1.55; margin: 0; }
+  .split2 code { font-size: 11px; background: rgba(0,128,96,.08); padding: 1px 4px; border-radius: 4px; color: #0b5c46; }
+  .win { border-radius: 14px; background: #fff; border: 1px solid rgba(0,0,0,.07); box-shadow: 0 24px 50px -24px rgba(0,60,40,.35); overflow: hidden; }
+  .win .bar { display: flex; gap: 5px; padding: 8px 10px; border-bottom: 1px solid rgba(0,0,0,.05); }
+  .win .bar i { width: 8px; height: 8px; border-radius: 50%; background: #e3e5e8; display: block; }
+  .win pre { margin: 0; padding: 12px 14px; font: 10.5px/1.6 ui-monospace, Menlo, monospace; color: #1d1d1f; }
+  .win .k { color: #a626a4 } .win .t { color: #008060 } .win .s { color: #c18401 } .win .c { color: #9aa0a6 }
+
+  /* components */
+  .cats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .cat { background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 12px 14px; }
+  .cat h5 { margin: 0 0 8px; font-size: 12.5px; font-weight: 600; display: flex; justify-content: space-between; }
+  .cat h5 span { color: #9aa0a6; font-weight: 500; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip { font-size: 11px; padding: 3px 9px; border-radius: 980px; background: #f3f6f5; color: #1d1d1f; border: 1px solid transparent; transition: all .2s; }
+  .chip:hover { border-color: rgba(0,128,96,.35); color: #007a5c; background: rgba(0,128,96,.06); }
+  .note { font-size: 12px; color: #6e6e73; margin-top: 8px; }
+</style>
+
+<h2>Phần bên dưới hero — làm lại theo phong cách Apple</h2>
+<p class="subtitle">Giữ nguyên toàn bộ chữ và link hiện có (tốt cho SEO), chỉ đổi cách trình bày. Cuộn xuống để xem cả 3 phần.</p>
+
+<div class="pg">
+  <div class="sec reveal">
+    <div class="kicker">Why polaris-vue-elements</div>
+    <div class="h2">Everything Polaris. Nothing to relearn.</div>
+    <div class="lead">Bốn ô tính năng hiện tại, sắp lại thành lưới "bento": ô to nhỏ khác nhau, có số liệu lớn và ví dụ code nhỏ.</div>
+    <div class="bento">
+      <div class="tile wide"><div class="big">62</div><h4>Typed props &amp; events</h4><p>Every wrapper's props and events are generated from Shopify's official Custom Elements Manifest, so you get autocomplete and type-checking that matches the real component API.</p></div>
+      <div class="tile"><div class="big">17</div><h4>v-model on 17 form components</h4><p>Text fields, checkboxes, switches, selects, choice lists, date pickers and more.</p><div class="mini"><span class="k">&lt;SSwitch</span> <span class="t">v-model</span>=<span class="s">"on"</span>/&gt;</div></div>
+      <div class="tile"><h4>Degrades gracefully</h4><p>Unknown props pass straight through via $attrs, and slot content is forwarded verbatim.</p></div>
+      <div class="tile wide"><h4>Synced with the manifest</h4><p>Component and type definitions are generated directly from Shopify's Custom Elements Manifest, keeping the wrapper surface aligned with the Polaris runtime on the CDN.</p></div>
+    </div>
+  </div>
+
+  <div class="sec reveal">
+    <div class="split2">
+      <div class="txt">
+        <div class="kicker" style="text-align:left">Polaris web components, typed for Vue</div>
+        <h3>Write Vue. Ship the Shopify admin.</h3>
+        <p>Shopify's Polaris web components (<code>&lt;s-button&gt;</code>, <code>&lt;s-text-field&gt;</code>, <code>&lt;s-modal&gt;</code>, …) work in any framework, but in a Vue template they are untyped custom elements… (đoạn văn hiện tại giữ nguyên)</p>
+      </div>
+      <div class="win"><div class="bar"><i></i><i></i><i></i></div><pre><span class="k">&lt;script</span> <span class="t">setup</span> <span class="t">lang</span>=<span class="s">"ts"</span>&gt;
+<span class="k">import</span> { ref } <span class="k">from</span> <span class="s">'vue'</span>
+<span class="k">import</span> { SButton, STextField } <span class="k">from</span> <span class="s">'polaris-vue-elements'</span>
+<span class="k">const</span> name = ref(<span class="s">''</span>)
+<span class="k">&lt;/script&gt;</span>
+
+<span class="k">&lt;template&gt;</span>
+  <span class="k">&lt;STextField</span> <span class="t">v-model</span>=<span class="s">"name"</span> <span class="t">label</span>=<span class="s">"Store name"</span> /&gt;
+  <span class="k">&lt;SButton</span> <span class="t">variant</span>=<span class="s">"primary"</span>&gt;Save&lt;/SButton&gt;
+<span class="k">&lt;/template&gt;</span></pre></div>
+    </div>
+  </div>
+
+  <div class="sec reveal">
+    <div class="kicker">All components</div>
+    <div class="h2">62 components. One import.</div>
+    <div class="lead">Danh sách hiện tại (mỗi component là một link thật), xếp thành thẻ theo nhóm với số lượng.</div>
+    <div class="cats">
+      <div class="cat"><h5>Actions <span>4</span></h5><div class="chips"><span class="chip">SButton</span><span class="chip">SButtonGroup</span><span class="chip">SClickable</span><span class="chip">SLink</span></div></div>
+      <div class="cat"><h5>Forms <span>17</span></h5><div class="chips"><span class="chip">STextField</span><span class="chip">SCheckbox</span><span class="chip">SSwitch</span><span class="chip">SSelect</span><span class="chip">SDatePicker</span><span class="chip">…</span></div></div>
+      <div class="cat"><h5>Layout &amp; structure <span>…</span></h5><div class="chips"><span class="chip">SPage</span><span class="chip">SSection</span><span class="chip">SStack</span><span class="chip">SGrid</span><span class="chip">…</span></div></div>
+      <div class="cat"><h5>Overlays <span>…</span></h5><div class="chips"><span class="chip">SModal</span><span class="chip">SPopover</span><span class="chip">STooltip</span><span class="chip">…</span></div></div>
+    </div>
+    <p class="note">Số lượng/nhóm ở đây là minh hoạ; bản thật lấy từ dữ liệu sidebar như hiện nay.</p>
+  </div>
+</div>
