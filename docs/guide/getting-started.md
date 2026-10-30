@@ -46,8 +46,9 @@ to this library's version, see
 ### Polaris 2.0 and the new admin design
 
 Polaris 2.0 brings the Shopify admin's new visual design (color, typography,
-spacing and icons). Moving from 1.x is opt-in: swap `polaris-1.js` for
-`polaris-2.js`.
+spacing and icons). It became stable on October 22, 2026
+([announcement](https://shopify.dev/changelog/posts/polaris-cdn-2-0-is-now-stable)).
+Moving from 1.x is opt-in: swap `polaris-1.js` for `polaris-2.js`.
 
 - **No code changes needed.** 2.0 is a visual update: its components, props,
   events and slots are the same as 1.1, plus a few additions (such as
