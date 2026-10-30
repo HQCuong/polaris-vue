@@ -214,3 +214,6 @@ setting from step 3. Two differences from the wrappers:
 Browse the [component reference](/components/) for the full prop/event list
 of every wrapper, or read [Known quirks & gotchas](/guide/quirks) before you
 run into them yourself.
+
+Building a Shopify app? See [Build a Shopify embedded app with Vue 3](/guide/shopify-embedded-app)
+for loading App Bridge, authenticated requests and App Bridge APIs from Vue.

@@ -158,6 +158,7 @@ export default defineConfig({
         text: 'Guide',
         items: [
           { text: 'Getting started', link: '/guide/getting-started' },
+          { text: 'Build a Shopify embedded app', link: '/guide/shopify-embedded-app' },
           { text: 'Known quirks & gotchas', link: '/guide/quirks' },
           { text: 'All components', link: '/components/' },
         ],

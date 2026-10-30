@@ -59,7 +59,7 @@ const name = ref('')
 
 Prefer writing Polaris's own `<s-button>` tags? Add `"types": ["polaris-vue-elements/elements"]` to your `tsconfig.json` and Volar / `vue-tsc` type-check raw `<s-*>` tags too (types only; `v-model` stays wrapper-only). See [Typing raw `<s-*>` tags](https://polaris-vue-elements.dev/guide/getting-started#_7-typing-raw-s-tags-optional).
 
-Full documentation — guides, known quirks, and generated reference pages with live examples for all 62 components — is at **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/)** (source in `docs/`, `npm run docs:dev` to run locally).
+Full documentation — guides, known quirks, and generated reference pages with live examples for all 62 components — is at **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/)** (source in `docs/`, `npm run docs:dev` to run locally). Building a Shopify app? Start with the [embedded app guide](https://polaris-vue-elements.dev/guide/shopify-embedded-app).
 
 ## Architecture
 
