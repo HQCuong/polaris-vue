@@ -1,4 +1,4 @@
-<sub>[English](../../CODE_OF_CONDUCT.md) | [Tiếng Việt](../vi/CODE_OF_CONDUCT.md) | **한국어** | [简体中文](../zh/CODE_OF_CONDUCT.md) | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md)</sub>
+<sub>[English](../../CODE_OF_CONDUCT.md) | [Tiếng Việt](../vi/CODE_OF_CONDUCT.md) | **한국어** | [简体中文](../zh/CODE_OF_CONDUCT.md) | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md) | [Español](../es/CODE_OF_CONDUCT.md)</sub>
 
 > Contributor Covenant 2.1의 공식 한국어 번역본으로,
 > [contributor-covenant.org](https://www.contributor-covenant.org/ko/version/2/1/code_of_conduct/)에서 가져왔습니다.

@@ -1,6 +1,6 @@
 <div align="center">
 
-<sub>[English](../../README.md) | **Tiếng Việt** | [한국어](../ko/README.md) | [简体中文](../zh/README.md) | [日本語](../ja/README.md) | [Deutsch](../de/README.md) | [Français](../fr/README.md)</sub>
+<sub>[English](../../README.md) | **Tiếng Việt** | [한국어](../ko/README.md) | [简体中文](../zh/README.md) | [日本語](../ja/README.md) | [Deutsch](../de/README.md) | [Français](../fr/README.md) | [Español](../es/README.md)</sub>
 
 <br>
 

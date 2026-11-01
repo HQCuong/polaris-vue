@@ -1,4 +1,4 @@
-<sub>[English](../../SECURITY.md) | [Tiếng Việt](../vi/SECURITY.md) | [한국어](../ko/SECURITY.md) | **简体中文** | [日本語](../ja/SECURITY.md) | [Deutsch](../de/SECURITY.md) | [Français](../fr/SECURITY.md)</sub>
+<sub>[English](../../SECURITY.md) | [Tiếng Việt](../vi/SECURITY.md) | [한국어](../ko/SECURITY.md) | **简体中文** | [日本語](../ja/SECURITY.md) | [Deutsch](../de/SECURITY.md) | [Français](../fr/SECURITY.md) | [Español](../es/SECURITY.md)</sub>
 
 # 安全策略
 

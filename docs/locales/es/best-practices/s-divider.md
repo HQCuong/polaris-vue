@@ -1,0 +1,6 @@
+- **Separa solo contenido realmente distinto.** Los divisores tienen sentido entre secciones claramente diferenciadas. Demasiados hacen que una interfaz parezca recargada y fragmentada, así que comprueba si el espacio en blanco agruparía el contenido igual de bien.
+- **Ajusta el peso a la separación.** Haz que la prominencia de un divisor refleje la importancia de la separación: un corte importante entre secciones puede llevar `color="strong"`, mientras que una agrupación menor necesita una línea más sutil o simplemente espacio.
+- **Sigue la dirección del diseño.** Define `direction` para que la línea atraviese el flujo del contenido que separa, ya sea entre elementos apilados verticalmente o entre elementos dispuestos uno al lado del otro.
+- **Prueba primero con el espaciado.** Las props de espaciado de tus componentes de diseño suelen agrupar el contenido de forma más limpia que una línea. Añade un divisor para aportar claridad, no como sustituto de un espaciado bien planificado.
+
+Consulta [las buenas prácticas de Shopify para `<s-divider>`](https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/divider#best-practices) (en inglés) para ver todas las recomendaciones.

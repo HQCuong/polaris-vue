@@ -1,4 +1,4 @@
-<sub>[English](../../CODE_OF_CONDUCT.md) | [Tiếng Việt](../vi/CODE_OF_CONDUCT.md) | [한국어](../ko/CODE_OF_CONDUCT.md) | **简体中文** | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md)</sub>
+<sub>[English](../../CODE_OF_CONDUCT.md) | [Tiếng Việt](../vi/CODE_OF_CONDUCT.md) | [한국어](../ko/CODE_OF_CONDUCT.md) | **简体中文** | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md) | [Español](../es/CODE_OF_CONDUCT.md)</sub>
 
 > 本文为 Contributor Covenant 2.1 的官方简体中文译本，来自
 > [contributor-covenant.org](https://www.contributor-covenant.org/zh-cn/version/2/1/code_of_conduct/)。
