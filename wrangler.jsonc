@@ -8,5 +8,8 @@
     "directory": "./docs/.vitepress/dist",
     // Serve 404.html VitePress generates for unknown paths instead of a bare 404.
     "not_found_handling": "404-page"
-  }
+  },
+  // Each pull request branch gets its own Preview URL (`npx wrangler preview`).
+  // Static assets need no Preview-specific settings, so the block stays empty.
+  "previews": {}
 }
