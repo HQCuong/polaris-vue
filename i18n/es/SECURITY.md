@@ -1,4 +1,4 @@
-<sub>[English](../../SECURITY.md) | [Tiếng Việt](../vi/SECURITY.md) | [한국어](../ko/SECURITY.md) | [简体中文](../zh/SECURITY.md) | [日本語](../ja/SECURITY.md) | [Deutsch](../de/SECURITY.md) | [Français](../fr/SECURITY.md) | **Español**</sub>
+<sub>[English](../../SECURITY.md) | [Tiếng Việt](../vi/SECURITY.md) | [한국어](../ko/SECURITY.md) | [简体中文](../zh/SECURITY.md) | [日本語](../ja/SECURITY.md) | [Deutsch](../de/SECURITY.md) | [Français](../fr/SECURITY.md) | **Español** | [हिन्दी](../hi/SECURITY.md) | [Português (Brasil)](../pt/SECURITY.md)</sub>
 
 # Política de seguridad
 

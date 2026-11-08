@@ -1,4 +1,4 @@
-<sub>[English](../../SECURITY.md) | **Tiếng Việt** | [한국어](../ko/SECURITY.md) | [简体中文](../zh/SECURITY.md) | [日本語](../ja/SECURITY.md) | [Deutsch](../de/SECURITY.md) | [Français](../fr/SECURITY.md) | [Español](../es/SECURITY.md)</sub>
+<sub>[English](../../SECURITY.md) | **Tiếng Việt** | [한국어](../ko/SECURITY.md) | [简体中文](../zh/SECURITY.md) | [日本語](../ja/SECURITY.md) | [Deutsch](../de/SECURITY.md) | [Français](../fr/SECURITY.md) | [Español](../es/SECURITY.md) | [हिन्दी](../hi/SECURITY.md) | [Português (Brasil)](../pt/SECURITY.md)</sub>
 
 # Chính sách bảo mật
 

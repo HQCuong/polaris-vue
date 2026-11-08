@@ -1,0 +1,87 @@
+{
+  "label": "हिन्दी",
+  "lang": "hi-IN",
+  "hreflang": "hi",
+  "ogLocale": "hi_IN",
+  "siteDescription": "Shopify Polaris web components के लिए typed Vue 3 wrapper components — props, events और v-model आधिकारिक Custom Elements Manifest से generate किए गए हैं।",
+  "home": {
+    "pill": {
+      "lead": "Built for Shopify वाला लुक।",
+      "emphasis": "बिना किसी सेटअप के।"
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Vue 3 के लिए typed।"
+    },
+    "tagline": {
+      "before": "Shopify के Polaris web components (",
+      "after": ", ...) पर बने typed Vue 3 components — सीखने के लिए कोई अलग Vue-specific design system नहीं।"
+    },
+    "getStarted": "शुरू करें",
+    "components": "Components",
+    "codeLabel": "उदाहरण: v-model के साथ STextField और एक primary SButton",
+    "kicker": "Shopify Polaris के लिए Vue 3 wrappers",
+    "featuresLine": "पूरा Polaris। दोबारा कुछ सीखने की ज़रूरत नहीं।",
+    "features": {
+      "typed": {
+        "title": "Typed props और events",
+        "details": "हर wrapper के props और events Shopify के आधिकारिक Custom Elements Manifest से generate होते हैं, इसलिए आपको ऐसा autocomplete और type-checking मिलता है जो component के असली API से मेल खाता है।"
+      },
+      "vModel": {
+        "title": "17 form components पर v-model",
+        "details": "Text fields, checkboxes, switches, selects, choice lists, date pickers और कई अन्य components में v-model पहले से काम करता है, और हर element के सही prop/event जोड़े से जुड़ा होता है।"
+      },
+      "degrades": {
+        "title": "बिना टूटे काम करता है",
+        "details": "अनजान props $attrs के ज़रिए सीधे आगे पहुँच जाते हैं, और slot content जैसा है वैसा ही forward होता है। पुराना wrapper version मौजूदा कोड को कभी नहीं तोड़ता — बस नए features के types उसमें नहीं होते।"
+      },
+      "synced": {
+        "title": "Manifest के साथ sync",
+        "details": "Component और type definitions सीधे Shopify के Custom Elements Manifest से generate होती हैं, जिससे wrappers CDN पर चल रहे Polaris runtime के साथ मेल में रहते हैं।"
+      }
+    },
+    "typedWrappers": "{count} typed Vue wrappers",
+    "componentsLine": "{count} components। एक ही import।"
+  },
+  "backToTop": "ऊपर जाएँ",
+  "nav": {
+    "guide": "गाइड",
+    "components": "Components"
+  },
+  "sidebarGuide": {
+    "title": "गाइड",
+    "gettingStarted": "शुरुआत करें",
+    "embeddedApp": "Shopify embedded app बनाएँ",
+    "quirks": "ज्ञात quirks और सावधानियाँ",
+    "allComponents": "सभी components"
+  },
+  "footer": {
+    "message": "MIT License के तहत जारी। Vue logo <a href=\"https://github.com/vuejs/art\">Evan You</a> द्वारा, CC BY-NC-SA 4.0।",
+    "copyright": "Shopify Polaris web components के wrappers — Shopify से संबद्ध नहीं।"
+  },
+  "ui": {
+    "outlineLabel": "इस पेज पर",
+    "prev": "पिछला पेज",
+    "next": "अगला पेज",
+    "lastUpdated": "अंतिम अपडेट",
+    "darkModeSwitchLabel": "थीम",
+    "lightModeSwitchTitle": "लाइट थीम पर जाएँ",
+    "darkModeSwitchTitle": "डार्क थीम पर जाएँ",
+    "sidebarMenuLabel": "मेनू",
+    "returnToTopLabel": "ऊपर जाएँ",
+    "langMenuLabel": "भाषा बदलें",
+    "notFoundTitle": "पेज नहीं मिला",
+    "notFoundQuote": "आप जो पेज ढूँढ रहे हैं वह मौजूद नहीं है या कहीं और ले जाया गया है।",
+    "notFoundLink": "होम पेज पर जाएँ"
+  },
+  "search": {
+    "buttonText": "खोजें",
+    "displayDetails": "विवरण दिखाएँ",
+    "resetButtonTitle": "खोज साफ़ करें",
+    "backButtonTitle": "खोज बंद करें",
+    "noResultsText": "इसके लिए कोई परिणाम नहीं",
+    "selectText": "चुनें",
+    "navigateText": "नेविगेट करें",
+    "closeText": "बंद करें"
+  }
+}

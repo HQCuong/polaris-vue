@@ -1,4 +1,4 @@
-<sub>**English** | [Tiếng Việt](./i18n/vi/CONTRIBUTING.md) | [한국어](./i18n/ko/CONTRIBUTING.md) | [简体中文](./i18n/zh/CONTRIBUTING.md) | [日本語](./i18n/ja/CONTRIBUTING.md) | [Deutsch](./i18n/de/CONTRIBUTING.md) | [Français](./i18n/fr/CONTRIBUTING.md) | [Español](./i18n/es/CONTRIBUTING.md)</sub>
+<sub>**English** | [Tiếng Việt](./i18n/vi/CONTRIBUTING.md) | [한국어](./i18n/ko/CONTRIBUTING.md) | [简体中文](./i18n/zh/CONTRIBUTING.md) | [日本語](./i18n/ja/CONTRIBUTING.md) | [Deutsch](./i18n/de/CONTRIBUTING.md) | [Français](./i18n/fr/CONTRIBUTING.md) | [Español](./i18n/es/CONTRIBUTING.md) | [हिन्दी](./i18n/hi/CONTRIBUTING.md) | [Português (Brasil)](./i18n/pt/CONTRIBUTING.md)</sub>
 
 # Contributing
 

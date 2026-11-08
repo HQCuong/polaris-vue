@@ -1,4 +1,4 @@
-<sub>**English** | [Tiếng Việt](./i18n/vi/SECURITY.md) | [한국어](./i18n/ko/SECURITY.md) | [简体中文](./i18n/zh/SECURITY.md) | [日本語](./i18n/ja/SECURITY.md) | [Deutsch](./i18n/de/SECURITY.md) | [Français](./i18n/fr/SECURITY.md) | [Español](./i18n/es/SECURITY.md)</sub>
+<sub>**English** | [Tiếng Việt](./i18n/vi/SECURITY.md) | [한국어](./i18n/ko/SECURITY.md) | [简体中文](./i18n/zh/SECURITY.md) | [日本語](./i18n/ja/SECURITY.md) | [Deutsch](./i18n/de/SECURITY.md) | [Français](./i18n/fr/SECURITY.md) | [Español](./i18n/es/SECURITY.md) | [हिन्दी](./i18n/hi/SECURITY.md) | [Português (Brasil)](./i18n/pt/SECURITY.md)</sub>
 
 # Security policy
 
