@@ -78,7 +78,7 @@ tương đương với:
 | `multiple` | `boolean` | Có cho phép chọn hoặc thả nhiều file cùng lúc hay không. |
 | `name` | `string` | Định danh cho trường, là duy nhất trong form chứa nó gần nhất. |
 | `required` | `boolean` | Trường có bắt buộc phải có giá trị hay không. Yêu cầu này bổ sung giá trị ngữ nghĩa cho trường, nhưng sẽ không tự động hiển thị lỗi. Nếu muốn hiển thị lỗi khi trường này trống, bạn có thể dùng thuộc tính `error`. |
-| `value` | `string` | Chuỗi biểu thị đường dẫn đến (các) tệp đã chọn. Nếu chưa chọn tệp nào, giá trị là chuỗi rỗng (""). Khi người dùng chọn nhiều tệp, giá trị biểu thị tệp đầu tiên trong danh sách các tệp họ đã chọn. Giá trị luôn là tên tệp có tiền tố "C:\fakepath\", đây không phải đường dẫn thật của tệp. |
+| `value` | `string` | Chuỗi biểu thị đường dẫn đến (các) tệp đã chọn. Nếu chưa chọn tệp nào, giá trị là chuỗi rỗng (""). Khi người dùng chọn nhiều tệp, giá trị biểu thị tệp đầu tiên trong danh sách các tệp họ đã chọn. Giá trị luôn là tên tệp có tiền tố "C:\\fakepath\\", đây không phải đường dẫn thật của tệp. |
 
 ## Events
 

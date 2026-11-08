@@ -78,7 +78,7 @@ equivale a:
 | `multiple` | `boolean` | Si se pueden seleccionar o soltar varios archivos a la vez. |
 | `name` | `string` | Un identificador del campo que es único dentro del formulario contenedor más cercano. |
 | `required` | `boolean` | Si el campo requiere un valor. Este requisito añade valor semántico al campo, pero no hará que aparezca un error automáticamente. Si quieres mostrar un error cuando este campo esté vacío, puedes hacerlo con la propiedad `error`. |
-| `value` | `string` | Una cadena que representa la ruta a los archivos seleccionados. Si todavía no se ha seleccionado ningún archivo, el valor es una cadena vacía (""). Cuando el usuario selecciona varios archivos, el valor representa el primer archivo de la lista de archivos seleccionados. El valor siempre es el nombre del archivo precedido de "C:\fakepath\", que no es la ruta real del archivo. |
+| `value` | `string` | Una cadena que representa la ruta a los archivos seleccionados. Si todavía no se ha seleccionado ningún archivo, el valor es una cadena vacía (""). Cuando el usuario selecciona varios archivos, el valor representa el primer archivo de la lista de archivos seleccionados. El valor siempre es el nombre del archivo precedido de "C:\\fakepath\\", que no es la ruta real del archivo. |
 
 ## Events
 

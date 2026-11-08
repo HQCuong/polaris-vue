@@ -78,7 +78,7 @@ entspricht:
 | `multiple` | `boolean` | Ob mehrere Dateien gleichzeitig ausgewählt oder abgelegt werden können. |
 | `name` | `string` | Eine Kennung für das Feld, die innerhalb des nächsten umschließenden Formulars eindeutig ist. |
 | `required` | `boolean` | Ob das Feld einen Wert benötigt. Diese Anforderung verleiht dem Feld semantische Bedeutung, führt aber nicht automatisch zur Anzeige eines Fehlers. Wenn ein Fehler angezeigt werden soll, sobald dieses Feld leer ist, verwenden Sie dafür die Eigenschaft `error`. |
-| `value` | `string` | Ein String mit dem Pfad zu der/den ausgewählten Datei(en). Ist noch keine Datei ausgewählt, ist der Wert ein leerer String (""). Hat der Nutzer mehrere Dateien ausgewählt, steht der Wert für die erste Datei in der Liste der ausgewählten Dateien. Der Wert ist immer der Dateiname mit dem Präfix "C:\fakepath\", was nicht der tatsächliche Pfad der Datei ist. |
+| `value` | `string` | Ein String mit dem Pfad zu der/den ausgewählten Datei(en). Ist noch keine Datei ausgewählt, ist der Wert ein leerer String (""). Hat der Nutzer mehrere Dateien ausgewählt, steht der Wert für die erste Datei in der Liste der ausgewählten Dateien. Der Wert ist immer der Dateiname mit dem Präfix "C:\\fakepath\\", was nicht der tatsächliche Pfad der Datei ist. |
 
 ## Events
 

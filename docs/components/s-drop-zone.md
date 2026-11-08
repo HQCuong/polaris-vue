@@ -78,7 +78,7 @@ is equivalent to:
 | `multiple` | `boolean` | Whether multiple files can be selected or dropped at once. |
 | `name` | `string` | An identifier for the field that is unique within the nearest containing form. |
 | `required` | `boolean` | Whether the field needs a value. This requirement adds semantic value to the field, but it will not cause an error to appear automatically. If you want to present an error when this field is empty, you can do so with the `error` property. |
-| `value` | `string` | A string that represents the path to the selected file(s). If no file is selected yet, the value is an empty string (""). When the user selected multiple files, the value represents the first file in the list of files they selected. The value is always the file's name prefixed with "C:\fakepath\", which isn't the real path of the file. |
+| `value` | `string` | A string that represents the path to the selected file(s). If no file is selected yet, the value is an empty string (""). When the user selected multiple files, the value represents the first file in the list of files they selected. The value is always the file's name prefixed with "C:\\fakepath\\", which isn't the real path of the file. |
 
 ## Events
 

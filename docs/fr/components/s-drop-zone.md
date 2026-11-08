@@ -78,7 +78,7 @@ const value = ref('')
 | `multiple` | `boolean` | Indique si plusieurs fichiers peuvent être sélectionnés ou déposés à la fois. |
 | `name` | `string` | Un identifiant du champ, unique au sein du formulaire parent le plus proche. |
 | `required` | `boolean` | Indique si le champ exige une valeur. Cette exigence ajoute une valeur sémantique au champ, mais n'affiche pas automatiquement d'erreur. Pour afficher une erreur lorsque ce champ est vide, utilisez la propriété `error`. |
-| `value` | `string` | Une chaîne qui représente le chemin du ou des fichiers sélectionnés. Si aucun fichier n'est encore sélectionné, la valeur est une chaîne vide (""). Lorsque l'utilisateur a sélectionné plusieurs fichiers, la valeur représente le premier fichier de la liste sélectionnée. La valeur est toujours le nom du fichier précédé de "C:\fakepath\", qui n'est pas le chemin réel du fichier. |
+| `value` | `string` | Une chaîne qui représente le chemin du ou des fichiers sélectionnés. Si aucun fichier n'est encore sélectionné, la valeur est une chaîne vide (""). Lorsque l'utilisateur a sélectionné plusieurs fichiers, la valeur représente le premier fichier de la liste sélectionnée. La valeur est toujours le nom du fichier précédé de "C:\\fakepath\\", qui n'est pas le chemin réel du fichier. |
 
 ## Events
 
