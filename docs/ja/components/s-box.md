@@ -12,6 +12,8 @@ description: "SBox：余白、背景、枠線、角丸、サイズを指定で�
 import { SBox } from 'polaris-vue-elements'
 ```
 
+`<SBox>` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](/ja/guide/css-variables)（`--p-space-*`、`--p-color-*` など）を使うと、レイアウトがコンポーネントと揃います。
+
 ## ベストプラクティス
 
 - **汎用コンテナとして使う。** `SBox` は、コンテンツをグループ化するための余白、ボーダー、背景を扱います。行や列のような特定の配置が必要な場合は、代わりに `SStack` または `SGrid` を使います。

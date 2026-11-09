@@ -12,6 +12,8 @@ Un contenedor genérico para relleno, fondo, borde, radio y tamaño. `SBox` es e
 import { SBox } from 'polaris-vue-elements'
 ```
 
+¿Escribes tu propio CSS alrededor de `<SBox>`? Usa las [variables CSS](/es/guide/css-variables) de Polaris (`--p-space-*`, `--p-color-*`, …) para que tu diseño coincida con los componentes.
+
 ## Buenas prácticas
 
 - **Úsalo como contenedor genérico.** `SBox` gestiona el espaciado, los bordes y los fondos para agrupar contenido. Cuando necesites una disposición concreta, como filas o columnas, usa en su lugar `SStack` o `SGrid`.

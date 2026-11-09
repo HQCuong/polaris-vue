@@ -218,3 +218,6 @@ run into them yourself.
 
 Building a Shopify app? See [Build a Shopify embedded app with Vue 3](/guide/shopify-embedded-app)
 for loading App Bridge, authenticated requests and App Bridge APIs from Vue.
+
+Writing CSS of your own around the components? Use the [Polaris CSS variables](/guide/css-variables)
+(`--p-space-*`, `--p-color-*`, …) so your layout matches their spacing and colors.

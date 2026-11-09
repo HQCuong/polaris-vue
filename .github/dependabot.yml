@@ -7,6 +7,9 @@ updates:
       interval: weekly
     ignore:
       - dependency-name: "@shopify/polaris-types"
+      # docs/.vitepress/polaris-tokens-migration.json is generated from it, so a bump needs
+      # `npm run docs:generate` in the same PR or CI's freshness check fails. Bump by hand.
+      - dependency-name: "@shopify/polaris-tokens"
       # Wait for typescript-eslint and vue-tsc to support the next TypeScript major.
       - dependency-name: typescript
         update-types: [version-update:semver-major]

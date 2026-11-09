@@ -12,6 +12,8 @@ description: "SBox：用于设置内边距、背景、边框、圆角和尺寸�
 import { SBox } from 'polaris-vue-elements'
 ```
 
+要在 `<SBox>` 周围编写自己的 CSS？使用 Polaris [CSS 变量](/zh/guide/css-variables)（`--p-space-*`、`--p-color-*` 等），让布局与组件保持一致。
+
 ## 最佳实践
 
 - **将其用作通用容器。** `SBox` 负责处理用于组织内容的间距、边框和背景。当需要特定排列方式（例如行或列）时，请改用 `SStack` 或 `SGrid`。

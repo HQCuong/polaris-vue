@@ -12,6 +12,8 @@ Ein generischer Container für Padding, Hintergrund, Rahmen, Eckenradius und Gr�
 import { SBox } from 'polaris-vue-elements'
 ```
 
+Eigenes CSS rund um `<SBox>`? Nutze die Polaris-[CSS-Variablen](/de/guide/css-variables) (`--p-space-*`, `--p-color-*`, …), damit dein Layout zu den Komponenten passt.
+
 ## Best Practices
 
 - **Als generischen Container einsetzen.** `SBox` kümmert sich um Abstände, Rahmen und Hintergründe, um Inhalte zu gruppieren. Für eine bestimmte Anordnung wie Zeilen oder Spalten eignen sich `SStack` oder `SGrid` besser.

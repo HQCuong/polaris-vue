@@ -92,6 +92,7 @@ Everything lives at **[polaris-vue-elements.dev](https://polaris-vue-elements.de
 - [Getting started](https://polaris-vue-elements.dev/guide/getting-started): setup, `v-model`, overlays and typed raw tags.
 - [Build a Shopify embedded app with Vue 3](https://polaris-vue-elements.dev/guide/shopify-embedded-app): App Bridge, authenticated `fetch`, navigation and the save bar.
 - [Known quirks](https://polaris-vue-elements.dev/guide/quirks): Polaris behaviors verified in a real browser.
+- [CSS variables](https://polaris-vue-elements.dev/guide/css-variables): Polaris design tokens (`--p-color-*`, `--p-space-*`, …) as an importable `polaris-vue-elements/tokens.css` for your own layout CSS.
 - [Component reference](https://polaris-vue-elements.dev/components/): props, events, slots, best practices and live examples for all 62 components.
 
 The site's source is in [`docs/`](./docs); run it locally with `npm run docs:dev`.

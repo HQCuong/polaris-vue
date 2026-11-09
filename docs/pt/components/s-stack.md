@@ -12,6 +12,8 @@ Organiza seus filhos em uma linha ou coluna com espaçamento e alinhamento consi
 import { SStack } from 'polaris-vue-elements'
 ```
 
+Escrevendo seu próprio CSS em volta de `<SStack>`? Use as [variáveis CSS](/pt/guide/css-variables) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
+
 ## Boas práticas
 
 - **Deixe o espaçamento refletir as relações.** Um `gap` pequeno indica que os itens pertencem juntos, enquanto um maior separa grupos distintos. Escolha o espaçamento que corresponda à hierarquia do seu conteúdo.

@@ -32,13 +32,19 @@
     },
     "./elements": {
       "types": "./dist/generated/elements.d.ts"
-    }
+    },
+    "./tokens.css": "./tokens/tokens.css",
+    "./tokens.json": "./tokens/tokens.json"
   },
   "files": [
     "dist",
+    "tokens/tokens.css",
+    "tokens/tokens.json",
     "CHANGELOG.md"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "simple-git-hooks": {
     "pre-push": "npm run check"
   },
@@ -67,6 +73,7 @@
     "vue": "^3.5.0"
   },
   "devDependencies": {
+    "@shopify/polaris-tokens": "9.4.2",
     "@shopify/polaris-types": "^2.0.0",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^30.0.0",
@@ -85,6 +92,7 @@
     "npm-run-all2": "^9.0.2",
     "oxfmt": "^0.75.0",
     "oxlint": "~1.90.0",
+    "postcss": "^8.5.32",
     "simple-git-hooks": "^2.13.1",
     "typescript": "~6.0.0",
     "vite": "^8.1.5",

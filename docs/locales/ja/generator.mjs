@@ -30,6 +30,8 @@ export default {
   },
   defaultSlot: 'default',
   exampleContent: (name) => `${name} のサンプルコンテンツ`,
+  cssVariablesTip: (name, link) =>
+    `\`<${name}>\` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](${link})（\`--p-space-*\`、\`--p-color-*\` など）を使うと、レイアウトがコンポーネントと揃います。`,
   intro: (summary, name, tag) =>
     `${summary} \`${name}\` は、Shopify Polaris の \`<${tag}>\` web component 向けの型付き Vue 3 wrapper です。`,
   title: (name, tag, plain) => `${name} (${tag}) – Vue 3 向け Shopify Polaris ${plain}`,

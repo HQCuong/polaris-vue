@@ -12,6 +12,8 @@ description: "SStack：子要素を行または列に並べ、間隔と配置を
 import { SStack } from 'polaris-vue-elements'
 ```
 
+`<SStack>` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](/ja/guide/css-variables)（`--p-space-*`、`--p-color-*` など）を使うと、レイアウトがコンポーネントと揃います。
+
 ## ベストプラクティス
 
 - **余白で関係性を表す。** 小さな `gap` は項目が互いに関連していることを示し、大きなものは別々のグループを区切ります。コンテンツの階層に合った余白を選びます。

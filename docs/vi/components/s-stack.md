@@ -12,6 +12,8 @@ Sắp xếp các phần tử con theo hàng hoặc cột với khoảng cách v�
 import { SStack } from 'polaris-vue-elements'
 ```
 
+Viết CSS riêng quanh `<SStack>`? Hãy dùng [biến CSS](/vi/guide/css-variables) của Polaris (`--p-space-*`, `--p-color-*`, …) để layout của bạn khớp với các component.
+
 ## Best practices
 
 - **Để khoảng cách phản ánh mối quan hệ.** Một `gap` nhỏ cho thấy các mục thuộc về nhau, còn `gap` lớn hơn tách biệt các nhóm khác nhau. Chọn khoảng cách khớp với thứ bậc nội dung của bạn.

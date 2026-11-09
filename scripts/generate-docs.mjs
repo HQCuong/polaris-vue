@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
 import { domEventType } from './dom-event-types.mjs'
+import { polarisTokensMigration } from './polaris-tokens-migration.mjs'
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '..')
@@ -578,6 +579,8 @@ const EN = {
     table: { prop: 'Prop', type: 'Type', description: 'Description', event: 'Event', slot: 'Slot' },
     defaultSlot: 'default',
     exampleContent: (name) => `Example ${name} content`,
+    cssVariablesTip: (name, link) =>
+      `Writing your own CSS around \`<${name}>\`? Use the Polaris [CSS variables](${link}) (\`--p-space-*\`, \`--p-color-*\`, …) so your layout matches the components.`,
     intro: (summary, name, tag) =>
       `${summary} \`${name}\` is the typed Vue 3 wrapper for Shopify's Polaris \`<${tag}>\` web component.`,
     // `<title>` per component page. The H1 stays `SButton <s-button>`; the title adds the
@@ -826,6 +829,10 @@ function frontmatter(fields) {
   return lines.join('\n')
 }
 
+// Layout components whose pages point to the CSS variables guide: they're where people
+// start writing their own layout CSS.
+const CSS_VARIABLES_TIP_TAGS = new Set(['s-box', 's-stack', 's-grid'])
+
 function renderComponentPage(component, loc) {
   const summary = loc.summaries[component.tagName]
   const plainName = component.tagName.replace(/^s-/, '').replaceAll('-', ' ')
@@ -848,6 +855,9 @@ function renderComponentPage(component, loc) {
     '```ts',
     `import { ${component.exportName} } from '${packageName}'`,
     '```',
+    ...(CSS_VARIABLES_TIP_TAGS.has(component.tagName)
+      ? ['', loc.t.cssVariablesTip(component.exportName, `${loc.linkPrefix}/guide/css-variables`)]
+      : []),
   ].join('\n')
 
   const optionalSections = [
@@ -954,3 +964,11 @@ for (const loc of locales) {
     `[generate-docs] ${loc.code}: wrote ${components.length} component pages in ${CATEGORIES.length} categories to ${path.relative(repoRoot, loc.componentsDir)}, plus ${path.relative(repoRoot, indexPath)} and ${path.relative(repoRoot, loc.sidebarPath)}${untranslated}`,
   )
 }
+
+// docs/guide/css-variables.md's "Migrating from @shopify/polaris-tokens" lists.
+const migrationPath = path.join(repoRoot, 'docs', '.vitepress', 'polaris-tokens-migration.json')
+const migration = polarisTokensMigration(repoRoot)
+writeFileSync(migrationPath, JSON.stringify(migration, null, 2) + '\n')
+console.warn(
+  `[generate-docs] ${path.relative(repoRoot, migrationPath)}: ${migration.shared} shared, ${migration.legacyOnly.length} only in ${migration.package} ${migration.version}, ${migration.runtimeOnly.length} new`,
+)

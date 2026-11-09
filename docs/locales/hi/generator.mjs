@@ -30,6 +30,8 @@ export default {
   },
   defaultSlot: 'default',
   exampleContent: (name) => `${name} का उदाहरण content`,
+  cssVariablesTip: (name, link) =>
+    `\`<${name}>\` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](${link}) (\`--p-space-*\`, \`--p-color-*\`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।`,
   intro: (summary, name, tag) =>
     `${summary} \`${name}\` Shopify के Polaris \`<${tag}>\` web component का typed Vue 3 wrapper है।`,
   title: (name, tag, plain) => `${name} (${tag}) – Vue 3 के लिए Shopify Polaris ${plain}`,

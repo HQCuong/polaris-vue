@@ -30,6 +30,8 @@ export default {
   },
   defaultSlot: 'default',
   exampleContent: (name) => `${name} 예시 콘텐츠`,
+  cssVariablesTip: (name, link) =>
+    `\`<${name}>\` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](${link})(\`--p-space-*\`, \`--p-color-*\`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.`,
   intro: (summary, name, tag) =>
     `${summary} \`${name}\`은(는) Shopify Polaris \`<${tag}>\` web component를 위한 타입이 지정된 Vue 3 wrapper입니다.`,
   title: (name, tag, plain) => `${name} (${tag}) – Vue 3용 Shopify Polaris ${plain}`,

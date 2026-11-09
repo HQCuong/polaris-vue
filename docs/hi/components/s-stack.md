@@ -12,6 +12,8 @@ description: "SStack: अपने children को एक row या column म�
 import { SStack } from 'polaris-vue-elements'
 ```
 
+`<SStack>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
+
 ## Best practices
 
 - **Spacing से संबंध दर्शाएँ।** छोटा `gap` संकेत देता है कि items एक साथ हैं, जबकि बड़ा gap अलग-अलग समूहों को अलग करता है। ऐसी spacing चुनें जो आपके content की hierarchy से मेल खाए।

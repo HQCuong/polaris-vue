@@ -94,6 +94,7 @@ const name = ref('')
 - [快速开始](https://polaris-vue-elements.dev/zh/guide/getting-started)：配置、`v-model`、浮层以及原生标签的类型。
 - [用 Vue 3 构建 Shopify 嵌入式应用](https://polaris-vue-elements.dev/zh/guide/shopify-embedded-app)：App Bridge、带身份验证的 `fetch`、导航与保存栏。
 - [已知问题与注意事项](https://polaris-vue-elements.dev/zh/guide/quirks)：在真实浏览器中验证过的 Polaris 行为。
+- [CSS 变量](https://polaris-vue-elements.dev/zh/guide/css-variables)：以可导入的 `polaris-vue-elements/tokens.css` 提供的 Polaris 设计令牌（`--p-color-*`、`--p-space-*`……），供你自己的布局 CSS 使用。
 - [组件参考](https://polaris-vue-elements.dev/zh/components/)：全部 62 个组件的 props、events、slots、最佳实践和在线示例。
 
 文档站点的源码位于 [`docs/`](../../docs)；可通过 `npm run docs:dev` 在本地运行。

@@ -12,6 +12,8 @@ description: "SStack: 자식 요소를 일관된 간격과 정렬로 가로 또�
 import { SStack } from 'polaris-vue-elements'
 ```
 
+`<SStack>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/guide/css-variables)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
+
 ## 모범 사례
 
 - **간격이 관계를 반영하게 하세요.** 작은 `gap`은 항목들이 함께 속한다는 신호이고, 큰 간격은 서로 다른 그룹을 구분합니다. 콘텐츠 위계에 맞는 간격을 고릅니다.

@@ -94,6 +94,7 @@ Toàn bộ tài liệu ở **[polaris-vue-elements.dev](https://polaris-vue-elem
 - [Getting started](https://polaris-vue-elements.dev/vi/guide/getting-started): thiết lập, `v-model`, overlay và type cho thẻ gốc.
 - [Build a Shopify embedded app with Vue 3](https://polaris-vue-elements.dev/vi/guide/shopify-embedded-app): App Bridge, `fetch` có xác thực, điều hướng và save bar.
 - [Known quirks](https://polaris-vue-elements.dev/vi/guide/quirks): các hành vi của Polaris đã được kiểm chứng trên trình duyệt thật.
+- [CSS variables](https://polaris-vue-elements.dev/vi/guide/css-variables): design token của Polaris (`--p-color-*`, `--p-space-*`, …) dưới dạng `polaris-vue-elements/tokens.css` có thể import cho CSS layout của riêng bạn.
 - [Component reference](https://polaris-vue-elements.dev/vi/components/): props, events, slots, best practices và ví dụ chạy trực tiếp cho cả 62 component.
 
 Mã nguồn của site nằm trong [`docs/`](../../docs); chạy ở máy bằng `npm run docs:dev`.

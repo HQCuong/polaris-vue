@@ -23,6 +23,13 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
   descriptions, with hreflang links between the languages.
 - Docs: a redesigned homepage, a frosted-glass nav bar, a back-to-top button and thin,
   rounded scrollbars.
+- `polaris-vue-elements/tokens.css` and `polaris-vue-elements/tokens.json`: the Polaris
+  CSS variables (`--p-color-*`, `--p-space-*`, `--p-border-radius-*`, …) for your app's
+  own layout CSS, extracted from the Polaris runtime with the build hash removed from
+  the names. Unofficial: values follow the CDN, and a daily job opens a pull request
+  when they change. Includes the `admin-next` theme, which applies under the class the
+  runtime puts on `<html>`.
+  See [CSS variables](https://polaris-vue-elements.dev/guide/css-variables).
 
 ## [0.4.2] - 2026-10-30
 

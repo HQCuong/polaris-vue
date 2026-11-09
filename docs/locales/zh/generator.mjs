@@ -31,6 +31,8 @@ export default {
   },
   defaultSlot: 'default',
   exampleContent: (name) => `${name} 的示例内容`,
+  cssVariablesTip: (name, link) =>
+    `要在 \`<${name}>\` 周围编写自己的 CSS？使用 Polaris [CSS 变量](${link})（\`--p-space-*\`、\`--p-color-*\` 等），让布局与组件保持一致。`,
   intro: (summary, name, tag) =>
     `${summary} \`${name}\` 是 Shopify Polaris \`<${tag}>\` web component 的带类型 Vue 3 wrapper。`,
   title: (name, tag, plain) => `${name} (${tag}) – 适用于 Vue 3 的 Shopify Polaris ${plain}`,

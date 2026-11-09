@@ -12,6 +12,8 @@ Arranges its children in a row or column with consistent spacing and alignment. 
 import { SStack } from 'polaris-vue-elements'
 ```
 
+Writing your own CSS around `<SStack>`? Use the Polaris [CSS variables](/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) so your layout matches the components.
+
 ## Best practices
 
 - **Let spacing reflect relationships.** A small `gap` signals that items belong together, while a larger one sets distinct groups apart. Pick the spacing that matches your content hierarchy.

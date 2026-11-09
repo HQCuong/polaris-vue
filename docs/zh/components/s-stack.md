@@ -12,6 +12,8 @@ description: "SStack：以统一的间距和对齐方式按行或列排列子元
 import { SStack } from 'polaris-vue-elements'
 ```
 
+要在 `<SStack>` 周围编写自己的 CSS？使用 Polaris [CSS 变量](/zh/guide/css-variables)（`--p-space-*`、`--p-color-*` 等），让布局与组件保持一致。
+
 ## 最佳实践
 
 - **让间距体现关系。** 较小的 `gap` 表示项目属于同一组，较大的间距则将不同的组区分开。请选择与内容层级相匹配的间距。

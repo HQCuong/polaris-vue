@@ -94,6 +94,7 @@ const name = ref('')
 - [शुरुआत करें](https://polaris-vue-elements.dev/hi/guide/getting-started): setup, `v-model`, overlays और typed raw tags।
 - [Vue 3 के साथ Shopify embedded app बनाएँ](https://polaris-vue-elements.dev/hi/guide/shopify-embedded-app): App Bridge, authenticated `fetch`, navigation और save bar।
 - [ज्ञात quirks](https://polaris-vue-elements.dev/hi/guide/quirks): Polaris का ऐसा व्यवहार जिसे असली browser में जाँचा गया है।
+- [CSS variables](https://polaris-vue-elements.dev/hi/guide/css-variables): Polaris design tokens (`--p-color-*`, `--p-space-*`, …), आपके अपने layout CSS के लिए import करने योग्य `polaris-vue-elements/tokens.css` के रूप में।
 - [Component reference](https://polaris-vue-elements.dev/hi/components/): सभी 62 components के props, events, slots, best practices और live examples।
 
 साइट का source [`docs/`](../../docs) में है; इसे local रूप से `npm run docs:dev` से चलाएँ।

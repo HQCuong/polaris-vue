@@ -12,6 +12,8 @@ Một container CSS grid để bố trí nội dung theo hàng và cột. `SGrid
 import { SGrid } from 'polaris-vue-elements'
 ```
 
+Viết CSS riêng quanh `<SGrid>`? Hãy dùng [biến CSS](/vi/guide/css-variables) của Polaris (`--p-space-*`, `--p-color-*`, …) để layout của bạn khớp với các component.
+
 ## Best practices
 
 - **Tính đến màn hình nhỏ hơn.** Một grid hoạt động tốt trên desktop có thể vỡ trên mobile. Hãy quyết định nó nên reflow hoặc sắp xếp lại thế nào ở độ rộng hẹp hơn thay vì cố định một bố cục.

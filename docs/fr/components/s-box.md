@@ -12,6 +12,8 @@ Un conteneur générique pour gérer le padding, l'arrière-plan, la bordure, l'
 import { SBox } from 'polaris-vue-elements'
 ```
 
+Vous écrivez votre propre CSS autour de `<SBox>` ? Utilisez les [variables CSS](/fr/guide/css-variables) de Polaris (`--p-space-*`, `--p-color-*`, …) pour que votre mise en page corresponde aux composants.
+
 ## Bonnes pratiques
 
 - **Utilisez-le comme conteneur générique.** `SBox` gère l'espacement, les bordures et les arrière-plans pour regrouper du contenu. Lorsque vous avez besoin d'une disposition précise, en lignes ou en colonnes par exemple, utilisez plutôt `SStack` ou `SGrid`.

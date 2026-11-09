@@ -12,6 +12,8 @@ Dispose ses enfants en ligne ou en colonne avec un espacement et un alignement c
 import { SStack } from 'polaris-vue-elements'
 ```
 
+Vous écrivez votre propre CSS autour de `<SStack>` ? Utilisez les [variables CSS](/fr/guide/css-variables) de Polaris (`--p-space-*`, `--p-color-*`, …) pour que votre mise en page corresponde aux composants.
+
 ## Bonnes pratiques
 
 - **Faites refléter les relations par l'espacement.** Un petit `gap` indique que des éléments vont ensemble, tandis qu'un plus grand sépare des groupes distincts. Choisissez l'espacement qui correspond à la hiérarchie de votre contenu.

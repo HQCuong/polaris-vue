@@ -12,6 +12,8 @@ Ein CSS-Grid-Container, der Inhalte in Zeilen und Spalten anordnet. `SGrid` ist 
 import { SGrid } from 'polaris-vue-elements'
 ```
 
+Eigenes CSS rund um `<SGrid>`? Nutze die Polaris-[CSS-Variablen](/de/guide/css-variables) (`--p-space-*`, `--p-color-*`, …), damit dein Layout zu den Komponenten passt.
+
 ## Best Practices
 
 - **Kleinere Bildschirme einplanen.** Ein Grid, das auf dem Desktop funktioniert, kann mobil zerfallen. Legen Sie fest, wie es sich bei geringerer Breite neu umbricht oder anordnet, statt ein einziges Layout festzuschreiben.

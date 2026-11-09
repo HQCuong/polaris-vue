@@ -30,6 +30,8 @@ export default {
   },
   defaultSlot: 'default',
   exampleContent: (name) => `Conteúdo de exemplo de ${name}`,
+  cssVariablesTip: (name, link) =>
+    `Escrevendo seu próprio CSS em volta de \`<${name}>\`? Use as [variáveis CSS](${link}) do Polaris (\`--p-space-*\`, \`--p-color-*\`, …) para que seu layout combine com os componentes.`,
   intro: (summary, name, tag) =>
     `${summary} \`${name}\` é o wrapper de Vue 3 tipado do web component \`<${tag}>\` do Shopify Polaris.`,
   title: (name, tag, plain) => `${name} (${tag}) – ${plain} do Shopify Polaris para Vue 3`,

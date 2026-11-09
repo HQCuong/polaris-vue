@@ -12,6 +12,8 @@ description: "SBox: 패딩, 배경, 테두리, 모서리 둥글기, 크기를 �
 import { SBox } from 'polaris-vue-elements'
 ```
 
+`<SBox>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/guide/css-variables)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
+
 ## 모범 사례
 
 - **범용 컨테이너로 사용하세요.** `SBox`는 콘텐츠를 묶기 위한 여백, 테두리, 배경을 처리합니다. 행이나 열 같은 특정 배치가 필요하다면 대신 `SStack`이나 `SGrid`를 사용합니다.

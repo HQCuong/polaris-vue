@@ -12,6 +12,8 @@ description: "SGrid: 콘텐츠를 행과 열로 배치하는 CSS grid 컨테이�
 import { SGrid } from 'polaris-vue-elements'
 ```
 
+`<SGrid>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/guide/css-variables)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
+
 ## 모범 사례
 
 - **작은 화면을 고려하세요.** 데스크톱에서 잘 동작하는 그리드도 모바일에서는 무너질 수 있습니다. 레이아웃을 하나로 고정하지 말고, 좁은 너비에서 어떻게 재배치할지 결정합니다.

@@ -12,6 +12,8 @@ Um contêiner genérico para espaçamento interno, fundo, borda, raio e dimensio
 import { SBox } from 'polaris-vue-elements'
 ```
 
+Escrevendo seu próprio CSS em volta de `<SBox>`? Use as [variáveis CSS](/pt/guide/css-variables) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
+
 ## Boas práticas
 
 - **Use-o como um contêiner genérico.** `SBox` cuida de espaçamento, bordas e fundos para agrupar conteúdo. Quando você precisar de uma disposição específica, como linhas ou colunas, use `SStack` ou `SGrid`.

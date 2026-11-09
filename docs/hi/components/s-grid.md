@@ -12,6 +12,8 @@ Content को rows और columns में व्यवस्थित कर�
 import { SGrid } from 'polaris-vue-elements'
 ```
 
+`<SGrid>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
+
 ## Best practices
 
 - **छोटी स्क्रीन के लिए योजना बनाएँ।** जो grid desktop पर काम करता है वह mobile पर बिखर सकता है। एक ही layout तय करने के बजाय सोचें कि कम चौड़ाई पर इसे कैसे reflow होना या फिर से व्यवस्थित होना चाहिए।

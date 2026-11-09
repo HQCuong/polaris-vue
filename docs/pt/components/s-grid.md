@@ -12,6 +12,8 @@ Um contêiner de CSS grid para organizar conteúdo em linhas e colunas. `SGrid` 
 import { SGrid } from 'polaris-vue-elements'
 ```
 
+Escrevendo seu próprio CSS em volta de `<SGrid>`? Use as [variáveis CSS](/pt/guide/css-variables) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
+
 ## Boas práticas
 
 - **Pense nas telas menores.** Um grid que funciona no desktop pode desmoronar no celular. Decida como ele deve se reorganizar em larguras menores em vez de fixar um único layout.

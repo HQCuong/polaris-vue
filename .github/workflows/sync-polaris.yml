@@ -176,3 +176,150 @@ jobs:
           branch: sync/polaris-types
           base: main
           delete-branch: true
+
+  # Polaris CSS variables (tokens/tokens.json -> tokens/tokens.css) come from the CDN
+  # runtime, not from @shopify/polaris-types, so they can change on any day without a
+  # package release. Separate job: a token change never blocks or mixes with a types sync.
+  tokens:
+    name: Check for Polaris CSS token changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # No continue-on-error: the extractor's guard (too few tokens, a >20% drop, CSS that
+      # no longer parses) must fail this job loudly rather than open a PR that wipes tokens.
+      - name: Extract tokens from the Polaris CDN
+        run: node scripts/extract-tokens.mjs --summary "$RUNNER_TEMP/tokens-diff.md"
+
+      - name: Regenerate tokens.css
+        run: npm run generate
+
+      - name: Detect token changes
+        id: tokens
+        run: |
+          if git diff --quiet -- tokens/; then
+            echo "no token changes"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git diff --stat -- tokens/
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Regenerate docs pages
+        id: check_docs
+        if: steps.tokens.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run docs:generate
+
+      # The CSS variables page renders tokens.json at build time.
+      - name: Build docs
+        id: check_docsbuild
+        if: steps.tokens.outputs.changed == 'true' && steps.check_docs.outcome == 'success'
+        continue-on-error: true
+        run: npm run docs:build
+
+      - name: oxlint
+        id: check_oxlint
+        if: steps.tokens.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx oxlint .
+
+      - name: eslint
+        id: check_eslint
+        if: steps.tokens.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx eslint .
+
+      - name: Type-check
+        id: check_typecheck
+        if: steps.tokens.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run type-check
+
+      - name: Unit tests
+        id: check_vitest
+        if: steps.tokens.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx vitest run
+
+      - name: Build PR summary
+        if: steps.tokens.outputs.changed == 'true'
+        run: |
+          status() {
+            case "$1" in
+              success) echo "passed" ;;
+              failure) echo "FAILED" ;;
+              skipped) echo "skipped" ;;
+              *) echo "$1" ;;
+            esac
+          }
+
+          OXLINT_STATUS=$(status "${{ steps.check_oxlint.outcome }}")
+          ESLINT_STATUS=$(status "${{ steps.check_eslint.outcome }}")
+          TYPECHECK_STATUS=$(status "${{ steps.check_typecheck.outcome }}")
+          VITEST_STATUS=$(status "${{ steps.check_vitest.outcome }}")
+          DOCS_STATUS=$(status "${{ steps.check_docs.outcome }}")
+          DOCSBUILD_STATUS=$(status "${{ steps.check_docsbuild.outcome }}")
+
+          # GitHub caps PR bodies at 65536 characters; a big token rename can exceed that.
+          DIFF_FILE="$RUNNER_TEMP/tokens-diff.md"
+          if [ "$(wc -c < "$DIFF_FILE")" -gt 50000 ]; then
+            head -c 50000 "$DIFF_FILE" > "$DIFF_FILE.cut"
+            printf '\n\n…truncated; see the diff of `tokens/tokens.json`.\n' >> "$DIFF_FILE.cut"
+            DIFF_FILE="$DIFF_FILE.cut"
+          fi
+
+          {
+            echo "Automated sync of the Polaris CSS variables extracted from the Polaris runtime on Shopify's CDN (\`$(node -p "require('./tokens/tokens.json').source")\`)."
+            echo ""
+            echo "Generated with \`node scripts/extract-tokens.mjs\` and \`npm run generate\`. Removed or renamed variables break apps that use them: note them in the \`## [Unreleased]\` section of \`CHANGELOG.md\` before the next release."
+            echo ""
+            echo "### Token changes"
+            echo ""
+            cat "$DIFF_FILE"
+            echo ""
+            echo "### Check results"
+            echo ""
+            echo "| Check | Result |"
+            echo "| --- | --- |"
+            echo "| oxlint | ${OXLINT_STATUS} |"
+            echo "| eslint | ${ESLINT_STATUS} |"
+            echo "| type-check | ${TYPECHECK_STATUS} |"
+            echo "| vitest | ${VITEST_STATUS} |"
+            echo "| docs:generate | ${DOCS_STATUS} |"
+            echo "| docs:build | ${DOCSBUILD_STATUS} |"
+            echo ""
+            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ] && [ "$DOCS_STATUS" = "passed" ] && [ "$DOCSBUILD_STATUS" = "passed" ]; then
+              echo "All checks passed. This should be safe to review and merge."
+            else
+              echo "One or more checks FAILED. Investigate before merging - a common cause is a token value the docs page can't render (docs:build)."
+            fi
+          } > "$RUNNER_TEMP/tokens-pr-body.md"
+
+          cat "$RUNNER_TEMP/tokens-pr-body.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update pull request
+        if: steps.tokens.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: sync Polaris CSS tokens"
+          title: "chore: sync Polaris CSS tokens"
+          body-path: ${{ runner.temp }}/tokens-pr-body.md
+          branch: sync/polaris-tokens
+          base: main
+          delete-branch: true
+          # The docs page's migration lists compare tokens.json with @shopify/polaris-tokens.
+          add-paths: |
+            tokens/
+            docs/.vitepress/polaris-tokens-migration.json

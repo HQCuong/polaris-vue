@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
 import { domEventType } from './dom-event-types.mjs'
+import { renderTokensCss } from './tokens-lib.mjs'
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '..')
@@ -439,3 +440,19 @@ writeFileSync(
 )
 
 console.warn(`[generate] wrote ${components.length} components to ${path.relative(repoRoot, outDir)}`)
+
+// tokens/tokens.css from the committed tokens/tokens.json (offline; the extraction from the
+// Polaris CDN is a separate step, `node scripts/extract-tokens.mjs`).
+const tokensDir = path.join(repoRoot, 'tokens')
+let tokensDoc
+try {
+  tokensDoc = JSON.parse(readFileSync(path.join(tokensDir, 'tokens.json'), 'utf8'))
+} catch (error) {
+  fail(`could not read tokens/tokens.json: ${error.message}. Run node scripts/extract-tokens.mjs`)
+}
+assert(
+  typeof tokensDoc.source === 'string' && tokensDoc.tokens && typeof tokensDoc.tokens === 'object',
+  'tokens/tokens.json must have "source" and "tokens"',
+)
+writeFileSync(path.join(tokensDir, 'tokens.css'), renderTokensCss(tokensDoc))
+console.warn(`[generate] wrote ${Object.keys(tokensDoc.tokens).length} tokens to tokens/tokens.css`)

@@ -12,6 +12,8 @@ description: "SGrid：以行和列布局内容的 CSS grid 容器。 Shopify Pol
 import { SGrid } from 'polaris-vue-elements'
 ```
 
+要在 `<SGrid>` 周围编写自己的 CSS？使用 Polaris [CSS 变量](/zh/guide/css-variables)（`--p-space-*`、`--p-color-*` 等），让布局与组件保持一致。
+
 ## 最佳实践
 
 - **为小屏幕做好规划。** 在桌面端可行的网格可能在移动端崩溃。请规划它在较窄宽度下如何重新排列，而不是固定一种布局。
