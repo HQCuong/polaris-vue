@@ -11,8 +11,19 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-11-09
+
+Still generated from `@shopify/polaris-types` 2.0.0. No changes to the components.
+
 ### Added
 
+- `polaris-vue-elements/tokens.css` and `polaris-vue-elements/tokens.json`: the Polaris
+  CSS variables (`--p-color-*`, `--p-space-*`, `--p-border-radius-*`, …) for your app's
+  own layout CSS, extracted from the Polaris runtime with the build hash removed from
+  the names. Unofficial: values follow the CDN, and a daily job opens a pull request
+  when they change. Includes the `admin-next` theme, which applies under the class the
+  runtime puts on `<html>`.
+  See [CSS variables](https://polaris-vue-elements.dev/guide/css-variables).
 - Docs: a "Best practices" section on 50 component pages, before the example. Each is
   our own summary of Shopify's guidance for that component, with Vue snippets, and links
   to the full section on shopify.dev. Components Shopify publishes no guidance for have
@@ -23,13 +34,11 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
   descriptions, with hreflang links between the languages.
 - Docs: a redesigned homepage, a frosted-glass nav bar, a back-to-top button and thin,
   rounded scrollbars.
-- `polaris-vue-elements/tokens.css` and `polaris-vue-elements/tokens.json`: the Polaris
-  CSS variables (`--p-color-*`, `--p-space-*`, `--p-border-radius-*`, …) for your app's
-  own layout CSS, extracted from the Polaris runtime with the build hash removed from
-  the names. Unofficial: values follow the CDN, and a daily job opens a pull request
-  when they change. Includes the `admin-next` theme, which applies under the class the
-  runtime puts on `<html>`.
-  See [CSS variables](https://polaris-vue-elements.dev/guide/css-variables).
+
+### Changed
+
+- `sideEffects` in `package.json` is now `["*.css"]` instead of `false`, so bundlers keep
+  `import 'polaris-vue-elements/tokens.css'`. JavaScript still tree-shakes as before.
 
 ## [0.4.2] - 2026-10-30
 
@@ -138,7 +147,8 @@ Initial release: typed Vue 3 wrappers for the 59 Shopify Polaris web components 
   `showOverlay()` / `hideOverlay()` / `toggleOverlay()`).
 - ESM build with bundled type declarations; `vue` ^3.5 as a peer dependency.
 
-[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/HQCuong/polaris-vue/compare/v0.4.2...v0.5.0
 [0.4.2]: https://github.com/HQCuong/polaris-vue/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/HQCuong/polaris-vue/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/HQCuong/polaris-vue/compare/v0.3.0...v0.4.0
