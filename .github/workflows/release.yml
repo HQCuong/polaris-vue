@@ -67,6 +67,7 @@ jobs:
         run: |
           npx oxlint .
           npx eslint .
+          npx oxfmt --check src/
 
       - name: Verify generated code is up to date
         run: |

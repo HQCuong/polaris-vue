@@ -21,9 +21,10 @@ describe('generated component coverage', () => {
         .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase())
         .join('')
       const expectedExportName = `S${pascal}`
-      expect(exportNames.has(expectedExportName), `expected export "${expectedExportName}" for tag "${tag}"`).toBe(
-        true,
-      )
+      expect(
+        exportNames.has(expectedExportName),
+        `expected export "${expectedExportName}" for tag "${tag}"`,
+      ).toBe(true)
     }
   })
 })

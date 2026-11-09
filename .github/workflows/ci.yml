@@ -32,6 +32,10 @@ jobs:
       - name: eslint (no autofix)
         run: npx eslint .
 
+      # Handwritten sources only; src/lib/generated is excluded in .oxfmtrc.json.
+      - name: oxfmt (check only)
+        run: npx oxfmt --check src/
+
       - name: Type-check
         run: npm run type-check
 

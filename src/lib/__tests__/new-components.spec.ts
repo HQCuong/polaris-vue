@@ -69,6 +69,8 @@ describe('SEmptyState', () => {
     expect(wrapper.attributes('heading')).toBe('No orders yet')
     const slotted = [...wrapper.element.children].map((el) => el.getAttribute('slot'))
     expect(slotted.toSorted()).toEqual(namedSlots)
-    expect(wrapper.element.querySelector('[slot="primary-action"]')?.getAttribute('variant')).toBe('primary')
+    expect(wrapper.element.querySelector('[slot="primary-action"]')?.getAttribute('variant')).toBe(
+      'primary',
+    )
   })
 })

@@ -45,9 +45,9 @@ describe('vModelOverrides', () => {
     for (const component of manifestComponents) {
       const eventNames = new Set((component.events ?? []).map((e) => e.name))
       const hasFormEvent = eventNames.has('input') || eventNames.has('change')
-      const fieldNames = new Set((component.members ?? [])
-        .filter((m) => m.kind === 'field' && m.name)
-        .map((m) => m.name))
+      const fieldNames = new Set(
+        (component.members ?? []).filter((m) => m.kind === 'field' && m.name).map((m) => m.name),
+      )
       const hasFormField = fieldNames.has('value') || fieldNames.has('checked')
 
       if (hasFormEvent && hasFormField && !(component.tagName in vModelOverrides)) {
@@ -55,8 +55,9 @@ describe('vModelOverrides', () => {
       }
     }
 
-    expect(missing, `these form-like components have no v-model override: ${missing.join(', ')}`).toEqual(
-      [],
-    )
+    expect(
+      missing,
+      `these form-like components have no v-model override: ${missing.join(', ')}`,
+    ).toEqual([])
   })
 })

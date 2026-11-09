@@ -117,7 +117,10 @@ function onModalAfterhide(): void {
           @aftershow="onModalAftershow"
           @afterhide="onModalAfterhide"
         >
-          <SText>This modal is controlled both declaratively (commandFor/command) and imperatively (typed $el methods).</SText>
+          <SText
+            >This modal is controlled both declaratively (commandFor/command) and imperatively
+            (typed $el methods).</SText
+          >
           <template #primary-action>
             <SButton variant="primary" command="--hide" commandFor="demo-modal">Close</SButton>
           </template>

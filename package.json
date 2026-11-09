@@ -51,7 +51,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "prepublishOnly": "npm run type-check && vitest run && npm run build:lib",
-    "check": "oxlint . && eslint . && npm run type-check",
+    "check": "oxlint . && eslint . && oxfmt --check src/ && npm run type-check",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
