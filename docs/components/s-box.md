@@ -12,7 +12,7 @@ A generic container for padding, background, border, radius and sizing. `SBox` i
 import { SBox } from 'polaris-vue-elements'
 ```
 
-Writing your own CSS around `<SBox>`? Use the Polaris [CSS variables](/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) so your layout matches the components.
+Writing your own CSS around `<SBox>`? Use the Polaris [CSS variables](/css-variables/) (`--p-space-*`, `--p-color-*`, …) so your layout matches the components.
 
 ## Best practices
 

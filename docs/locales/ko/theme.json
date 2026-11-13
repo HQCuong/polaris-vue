@@ -46,15 +46,32 @@
   "backToTop": "맨 위로",
   "nav": {
     "guide": "가이드",
-    "components": "컴포넌트"
+    "components": "컴포넌트",
+    "appBridge": "App Bridge",
+    "cssVariables": "CSS 변수"
   },
   "sidebarGuide": {
     "title": "가이드",
     "gettingStarted": "시작하기",
     "embeddedApp": "Shopify 임베디드 앱 만들기",
     "quirks": "알려진 특이 사항",
-    "cssVariables": "CSS 변수",
     "allComponents": "전체 컴포넌트"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "개요",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu"
+  },
+  "sidebarCssVariables": {
+    "title": "CSS 변수",
+    "overview": "개요",
+    "allVariables": "전체 변수",
+    "migration": "@shopify/polaris-tokens에서 마이그레이션하기"
   },
   "cssVariables": {
     "variable": "변수",

@@ -46,15 +46,32 @@
   "backToTop": "Lên đầu trang",
   "nav": {
     "guide": "Hướng dẫn",
-    "components": "Components"
+    "components": "Components",
+    "appBridge": "App Bridge",
+    "cssVariables": "Biến CSS"
   },
   "sidebarGuide": {
     "title": "Hướng dẫn",
     "gettingStarted": "Bắt đầu",
     "embeddedApp": "Xây dựng Shopify embedded app",
     "quirks": "Các điểm bất thường & lưu ý",
-    "cssVariables": "Biến CSS",
     "allComponents": "Tất cả components"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "Tổng quan",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu"
+  },
+  "sidebarCssVariables": {
+    "title": "Biến CSS",
+    "overview": "Tổng quan",
+    "allVariables": "Tất cả các biến",
+    "migration": "Chuyển đổi từ @shopify/polaris-tokens"
   },
   "cssVariables": {
     "variable": "Biến",

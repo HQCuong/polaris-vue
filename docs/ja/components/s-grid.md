@@ -12,7 +12,7 @@ description: "SGrid：コンテンツを行と列に配置するための CSS �
 import { SGrid } from 'polaris-vue-elements'
 ```
 
-`<SGrid>` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](/ja/guide/css-variables)（`--p-space-*`、`--p-color-*` など）を使うと、レイアウトがコンポーネントと揃います。
+`<SGrid>` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](/ja/css-variables/)（`--p-space-*`、`--p-color-*` など）を使うと、レイアウトがコンポーネントと揃います。
 
 ## ベストプラクティス
 

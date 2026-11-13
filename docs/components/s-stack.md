@@ -12,7 +12,7 @@ Arranges its children in a row or column with consistent spacing and alignment. 
 import { SStack } from 'polaris-vue-elements'
 ```
 
-Writing your own CSS around `<SStack>`? Use the Polaris [CSS variables](/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) so your layout matches the components.
+Writing your own CSS around `<SStack>`? Use the Polaris [CSS variables](/css-variables/) (`--p-space-*`, `--p-color-*`, …) so your layout matches the components.
 
 ## Best practices
 

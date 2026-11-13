@@ -12,7 +12,7 @@ Un conteneur générique pour gérer le padding, l'arrière-plan, la bordure, l'
 import { SBox } from 'polaris-vue-elements'
 ```
 
-Vous écrivez votre propre CSS autour de `<SBox>` ? Utilisez les [variables CSS](/fr/guide/css-variables) de Polaris (`--p-space-*`, `--p-color-*`, …) pour que votre mise en page corresponde aux composants.
+Vous écrivez votre propre CSS autour de `<SBox>` ? Utilisez les [variables CSS](/fr/css-variables/) de Polaris (`--p-space-*`, `--p-color-*`, …) pour que votre mise en page corresponde aux composants.
 
 ## Bonnes pratiques
 

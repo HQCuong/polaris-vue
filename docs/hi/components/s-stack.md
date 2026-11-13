@@ -12,7 +12,7 @@ description: "SStack: अपने children को एक row या column म�
 import { SStack } from 'polaris-vue-elements'
 ```
 
-`<SStack>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
+`<SStack>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/css-variables/) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
 
 ## Best practices
 

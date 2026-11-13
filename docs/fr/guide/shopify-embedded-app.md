@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+Le même paquet type `polaris-vue-elements/app-bridge`, qui propose des composants Vue pour les éléments
+d'App Bridge et un composable `useAppBridge()` ; voir
+[Composants App Bridge](/fr/app-bridge/).
+
 ## 2. Configurer Vite {#_2-configure-vite}
 
 Traitez les balises `s-*` comme des custom elements. C'est la même configuration que dans
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+Si vous écrivez des balises brutes `ui-*` d'App Bridge dans les templates (comme `<ui-title-bar>`), ajoutez
+`|| tag.startsWith('ui-')`. Les composants de
+[`polaris-vue-elements/app-bridge`](/fr/app-bridge/#raw-tags) n'en ont pas besoin.
 
 ## 3. Construire une page {#_3-build-a-page}
 
@@ -210,7 +218,10 @@ est activé dans la configuration de votre app, sans backend propre. Consultez
 
 ## 5. Utiliser les API App Bridge depuis Vue {#_5-use-app-bridge-apis-from-vue}
 
-Tout se trouve sur l'objet global `shopify` ; aucun plugin Vue n'est nécessaire.
+Tout se trouve sur l'objet global `shopify` ; aucun plugin Vue n'est nécessaire. `useAppBridge()` de
+`polaris-vue-elements/app-bridge` renvoie le même objet global et affiche une erreur claire côté serveur
+ou lorsque le script App Bridge est absent ; voir
+[useAppBridge()](/fr/app-bridge/use-app-bridge).
 
 ### Toasts {#toasts}
 
@@ -260,10 +271,13 @@ Ajoutez `data-save-bar` à un `<form>` et l'interface d'administration affiche u
 des modifications non enregistrées ; `submit` est déclenché sur Save et `reset` sur Discard. Ne le combinez pas avec
 les méthodes programmatiques de `shopify.saveBar` sur le même formulaire. Consultez
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api).
+Pour un élément `ui-save-bar` lié à `v-model:open`, voir
+[`SaveBar`](/fr/app-bridge/save-bar).
 
 ## Étapes suivantes {#next-steps}
 
 - Parcourez [tous les composants](/fr/components/) et lisez [Particularités connues](/fr/guide/quirks).
+- Utilisez les [composants App Bridge](/fr/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...).
 - Revenez à [Prise en main](/fr/guide/getting-started) pour `v-model`, les overlays et le typage des balises brutes.
 - Lisez la [documentation App Home](https://shopify.dev/docs/apps/build/app-home) de Shopify et
   les [API App Bridge](https://shopify.dev/docs/api/app-home/apis).

@@ -11,6 +11,31 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Added
+
+- `polaris-vue-elements/app-bridge`: Vue 3 counterparts of Shopify's
+  `@shopify/app-bridge-react` 4.3.0. It has the components `Modal`, `SaveBar`, `AppWindow`,
+  `TitleBar` and `NavMenu`, and the composable `useAppBridge()`.
+  - `Modal`, `SaveBar` and `AppWindow` support `v-model:open` and emit `@show` and `@hide`.
+  - `Modal` renders its content inside the App Bridge modal, as the React version does.
+  - Types come from `@shopify/app-bridge-types`, a new optional peer dependency. Install it
+    only if you use App Bridge.
+  - The main `polaris-vue-elements` entry is unchanged and loads no App Bridge code.
+
+  See [App Bridge components](https://polaris-vue-elements.dev/app-bridge/).
+- `polaris-vue-elements/app-bridge/elements`: types for the raw `<ui-modal>`,
+  `<ui-save-bar>`, `<ui-title-bar>`, `<ui-nav-menu>`, `<s-app-window>` and `<s-app-nav>`
+  tags in Vue templates.
+
+### Changed
+
+- Docs: App Bridge and CSS variables are now sections of their own, next to Guide and
+  Components in the nav and the sidebar. The CSS variables page is split into an
+  [overview](https://polaris-vue-elements.dev/css-variables/), the
+  [full list](https://polaris-vue-elements.dev/css-variables/reference) and
+  [migrating from `@shopify/polaris-tokens`](https://polaris-vue-elements.dev/css-variables/migration).
+  Old `/guide/css-variables` links redirect.
+
 ## [0.5.0] - 2026-11-09
 
 Still generated from `@shopify/polaris-types` 2.0.0. No changes to the components.
@@ -23,7 +48,7 @@ Still generated from `@shopify/polaris-types` 2.0.0. No changes to the component
   the names. Unofficial: values follow the CDN, and a daily job opens a pull request
   when they change. Includes the `admin-next` theme, which applies under the class the
   runtime puts on `<html>`.
-  See [CSS variables](https://polaris-vue-elements.dev/guide/css-variables).
+  See [CSS variables](https://polaris-vue-elements.dev/css-variables/).
 - Docs: a "Best practices" section on 50 component pages, before the example. Each is
   our own summary of Shopify's guidance for that component, with Vue snippets, and links
   to the full section on shopify.dev. Components Shopify publishes no guidance for have

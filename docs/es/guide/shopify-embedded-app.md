@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+El mismo paquete tipa `polaris-vue-elements/app-bridge`, que incluye componentes de Vue para los
+elementos de App Bridge y un composable `useAppBridge()`; consulta
+[Componentes de App Bridge](/es/app-bridge/).
+
 ## 2. Configura Vite {#_2-configure-vite}
 
 Trata las etiquetas `s-*` como custom elements. Es la misma configuración que en
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+Si escribes etiquetas `ui-*` de App Bridge sin wrapper en las plantillas (como `<ui-title-bar>`), añade
+`|| tag.startsWith('ui-')`. Los componentes de
+[`polaris-vue-elements/app-bridge`](/es/app-bridge/#raw-tags) no lo necesitan.
 
 ## 3. Crea una página {#_3-build-a-page}
 
@@ -210,7 +218,10 @@ está activado en la configuración de tu app, sin necesidad de un backend propi
 
 ## 5. Usa las API de App Bridge desde Vue {#_5-use-app-bridge-apis-from-vue}
 
-Todo está en el objeto global `shopify`; no hace falta ningún plugin de Vue.
+Todo está en el objeto global `shopify`; no hace falta ningún plugin de Vue. `useAppBridge()` de
+`polaris-vue-elements/app-bridge` devuelve el mismo global y da un error claro en el servidor
+o cuando falta el script de App Bridge; consulta
+[useAppBridge()](/es/app-bridge/use-app-bridge).
 
 ### Toasts {#toasts}
 
@@ -260,10 +271,13 @@ Añade `data-save-bar` a un `<form>` y el admin mostrará una save bar cuando el
 cambios sin guardar; `submit` se dispara con Save y `reset` con Discard. No lo combines con
 los métodos programáticos de `shopify.saveBar` en el mismo formulario. Consulta
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api).
+Para un elemento `ui-save-bar` enlazado a `v-model:open`, consulta
+[`SaveBar`](/es/app-bridge/save-bar).
 
 ## Próximos pasos {#next-steps}
 
 - Explora [todos los componentes](/es/components/) y lee [Peculiaridades y advertencias](/es/guide/quirks).
+- Usa los [componentes de App Bridge](/es/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...).
 - Vuelve a [Primeros pasos](/es/guide/getting-started) para `v-model`, las superposiciones y el tipado de etiquetas sin wrapper.
 - Lee la [documentación de App Home](https://shopify.dev/docs/apps/build/app-home) de Shopify y
   las [API de App Bridge](https://shopify.dev/docs/api/app-home/apis).

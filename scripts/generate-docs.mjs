@@ -856,7 +856,7 @@ function renderComponentPage(component, loc) {
     `import { ${component.exportName} } from '${packageName}'`,
     '```',
     ...(CSS_VARIABLES_TIP_TAGS.has(component.tagName)
-      ? ['', loc.t.cssVariablesTip(component.exportName, `${loc.linkPrefix}/guide/css-variables`)]
+      ? ['', loc.t.cssVariablesTip(component.exportName, `${loc.linkPrefix}/css-variables/`)]
       : []),
   ].join('\n')
 
@@ -965,7 +965,7 @@ for (const loc of locales) {
   )
 }
 
-// docs/guide/css-variables.md's "Migrating from @shopify/polaris-tokens" lists.
+// docs/css-variables/migration.md: the "Migrating from @shopify/polaris-tokens" lists.
 const migrationPath = path.join(repoRoot, 'docs', '.vitepress', 'polaris-tokens-migration.json')
 const migration = polarisTokensMigration(repoRoot)
 writeFileSync(migrationPath, JSON.stringify(migration, null, 2) + '\n')

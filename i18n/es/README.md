@@ -94,7 +94,7 @@ Todo está en **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/es/)
 - [Primeros pasos](https://polaris-vue-elements.dev/es/guide/getting-started): configuración, `v-model`, superposiciones y etiquetas sin wrapper tipadas.
 - [Crea una app integrada de Shopify con Vue 3](https://polaris-vue-elements.dev/es/guide/shopify-embedded-app): App Bridge, `fetch` autenticado, navegación y la barra de guardado.
 - [Peculiaridades conocidas](https://polaris-vue-elements.dev/es/guide/quirks): comportamientos de Polaris verificados en un navegador real.
-- [Variables CSS](https://polaris-vue-elements.dev/es/guide/css-variables): los design tokens de Polaris (`--p-color-*`, `--p-space-*`, …) como un `polaris-vue-elements/tokens.css` importable para tu propio CSS de layout.
+- [Variables CSS](https://polaris-vue-elements.dev/es/css-variables/): los design tokens de Polaris (`--p-color-*`, `--p-space-*`, …) como un `polaris-vue-elements/tokens.css` importable para tu propio CSS de layout.
 - [Referencia de componentes](https://polaris-vue-elements.dev/es/components/): props, events, slots, buenas prácticas y ejemplos interactivos de los 62 componentes.
 
 El código fuente del sitio está en [`docs/`](../../docs); ejecútalo en local con `npm run docs:dev`.

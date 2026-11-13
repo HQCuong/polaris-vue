@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+The same package types `polaris-vue-elements/app-bridge`, which has Vue components for
+App Bridge's elements and a `useAppBridge()` composable; see
+[App Bridge components](/app-bridge/).
+
 ## 2. Configure Vite
 
 Treat `s-*` tags as custom elements. This is the same config as in
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+If you write raw App Bridge `ui-*` tags in templates (such as `<ui-title-bar>`), add
+`|| tag.startsWith('ui-')`. The components in
+[`polaris-vue-elements/app-bridge`](/app-bridge/#raw-tags) do not need it.
 
 ## 3. Build a page
 
@@ -210,7 +218,10 @@ is enabled in your app configuration, with no backend of your own. See
 
 ## 5. Use App Bridge APIs from Vue
 
-Everything is on the `shopify` global; no Vue plugin is needed.
+Everything is on the `shopify` global; no Vue plugin is needed. `useAppBridge()` from
+`polaris-vue-elements/app-bridge` returns the same global, and gives a clear error on
+the server or when the App Bridge script is missing; see
+[useAppBridge()](/app-bridge/use-app-bridge).
 
 ### Toasts
 
@@ -260,10 +271,13 @@ Add `data-save-bar` to a `<form>` and the admin shows a save bar when the form h
 unsaved changes; `submit` fires on Save and `reset` on Discard. Do not combine it with
 the programmatic `shopify.saveBar` methods on the same form. See
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api).
+For a `ui-save-bar` element bound to `v-model:open`, see
+[`SaveBar`](/app-bridge/save-bar).
 
 ## Next steps
 
 - Browse [all components](/components/) and read [Known quirks](/guide/quirks).
+- Use the [App Bridge components](/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...).
 - Revisit [Getting started](/guide/getting-started) for `v-model`, overlays and typing raw tags.
 - Read Shopify's [App Home docs](https://shopify.dev/docs/apps/build/app-home) and
   [App Bridge APIs](https://shopify.dev/docs/api/app-home/apis).

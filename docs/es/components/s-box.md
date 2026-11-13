@@ -12,7 +12,7 @@ Un contenedor genérico para relleno, fondo, borde, radio y tamaño. `SBox` es e
 import { SBox } from 'polaris-vue-elements'
 ```
 
-¿Escribes tu propio CSS alrededor de `<SBox>`? Usa las [variables CSS](/es/guide/css-variables) de Polaris (`--p-space-*`, `--p-color-*`, …) para que tu diseño coincida con los componentes.
+¿Escribes tu propio CSS alrededor de `<SBox>`? Usa las [variables CSS](/es/css-variables/) de Polaris (`--p-space-*`, `--p-color-*`, …) para que tu diseño coincida con los componentes.
 
 ## Buenas prácticas
 

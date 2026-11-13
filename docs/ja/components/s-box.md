@@ -12,7 +12,7 @@ description: "SBox：余白、背景、枠線、角丸、サイズを指定で�
 import { SBox } from 'polaris-vue-elements'
 ```
 
-`<SBox>` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](/ja/guide/css-variables)（`--p-space-*`、`--p-color-*` など）を使うと、レイアウトがコンポーネントと揃います。
+`<SBox>` の周りに独自の CSS を書くなら、Polaris の [CSS 変数](/ja/css-variables/)（`--p-space-*`、`--p-color-*` など）を使うと、レイアウトがコンポーネントと揃います。
 
 ## ベストプラクティス
 

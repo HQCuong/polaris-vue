@@ -46,15 +46,32 @@
   "backToTop": "返回顶部",
   "nav": {
     "guide": "指南",
-    "components": "组件"
+    "components": "组件",
+    "appBridge": "App Bridge",
+    "cssVariables": "CSS 变量"
   },
   "sidebarGuide": {
     "title": "指南",
     "gettingStarted": "快速开始",
     "embeddedApp": "构建 Shopify 嵌入式应用",
     "quirks": "已知问题与注意事项",
-    "cssVariables": "CSS 变量",
     "allComponents": "所有组件"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "概览",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu"
+  },
+  "sidebarCssVariables": {
+    "title": "CSS 变量",
+    "overview": "概览",
+    "allVariables": "全部变量",
+    "migration": "从 @shopify/polaris-tokens 迁移"
   },
   "cssVariables": {
     "variable": "变量",

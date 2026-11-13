@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+Cùng package này cung cấp type cho `polaris-vue-elements/app-bridge`, nơi có các component Vue
+cho các element của App Bridge và composable `useAppBridge()`; xem
+[Component App Bridge](/vi/app-bridge/).
+
 ## 2. Cấu hình Vite {#_2-configure-vite}
 
 Coi các tag `s-*` là custom element. Đây là cấu hình giống như trong
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+Nếu bạn viết trực tiếp các tag `ui-*` thô của App Bridge trong template (chẳng hạn `<ui-title-bar>`), hãy thêm
+`|| tag.startsWith('ui-')`. Các component trong
+[`polaris-vue-elements/app-bridge`](/vi/app-bridge/#raw-tags) không cần điều này.
 
 ## 3. Xây dựng một trang {#_3-build-a-page}
 
@@ -210,7 +218,10 @@ Nếu app của bạn chỉ cần GraphQL Admin API, App Bridge có thể địn
 
 ## 5. Dùng các API của App Bridge từ Vue {#_5-use-app-bridge-apis-from-vue}
 
-Mọi thứ đều nằm trên đối tượng toàn cục `shopify`; không cần plugin Vue nào.
+Mọi thứ đều nằm trên đối tượng toàn cục `shopify`; không cần plugin Vue nào. `useAppBridge()` từ
+`polaris-vue-elements/app-bridge` trả về cùng đối tượng toàn cục đó, và báo lỗi rõ ràng
+trên server hoặc khi thiếu script App Bridge; xem
+[useAppBridge()](/vi/app-bridge/use-app-bridge).
 
 ### Toast {#toasts}
 
@@ -260,10 +271,13 @@ Thêm `data-save-bar` vào một `<form>` và trang admin sẽ hiển thị save
 thay đổi chưa lưu; `submit` được kích hoạt khi nhấn Save và `reset` khi nhấn Discard. Không kết hợp nó với
 các phương thức `shopify.saveBar` theo kiểu lập trình trên cùng một form. Xem
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api).
+Với element `ui-save-bar` gắn với `v-model:open`, xem
+[`SaveBar`](/vi/app-bridge/save-bar).
 
 ## Bước tiếp theo {#next-steps}
 
 - Xem [tất cả component](/vi/components/) và đọc [Các điểm bất thường & lưu ý](/vi/guide/quirks).
+- Dùng các [component App Bridge](/vi/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...).
 - Xem lại [Bắt đầu](/vi/guide/getting-started) về `v-model`, overlay và cách gõ type cho tag thô.
 - Đọc [tài liệu App Home](https://shopify.dev/docs/apps/build/app-home) và
   [các API của App Bridge](https://shopify.dev/docs/api/app-home/apis) của Shopify.

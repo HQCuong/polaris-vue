@@ -285,6 +285,36 @@
   transition: color 0.15s ease;
 }
 
+/* Section headings (Components, App Bridge, CSS variables), set through `.sidebar-section` in
+ * config.ts. A stronger divider and a larger label than the category groups
+ * make UI components and App Bridge read as separate parts of the sidebar. */
+.VPSidebar .group:has(.sidebar-section) {
+  margin-top: 12px;
+  border-top: 2px solid var(--vp-c-divider);
+  padding-top: 18px;
+}
+
+.VPSidebar .sidebar-section {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--vp-c-text-1);
+}
+
+/* The Components heading has no items of its own, so the first category
+ * group right below it drops the usual thin divider. */
+.VPSidebar .group:has(.sidebar-section-only) .VPSidebarItem.level-0 {
+  padding-bottom: 4px;
+}
+
+.VPSidebar .group:has(.sidebar-section-only) + .group {
+  border-top: none;
+  padding-top: 0;
+}
+
 /* Extra weight on the active item: when every entry looks alike (SButton,
  * SButtonGroup, SChip, ...) brand color alone is easy to lose track of. */
 .VPSidebarItem.level-1.is-active > .item .link .text {

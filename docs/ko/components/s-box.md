@@ -12,7 +12,7 @@ description: "SBox: 패딩, 배경, 테두리, 모서리 둥글기, 크기를 �
 import { SBox } from 'polaris-vue-elements'
 ```
 
-`<SBox>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/guide/css-variables)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
+`<SBox>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/css-variables/)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
 
 ## 모범 사례
 

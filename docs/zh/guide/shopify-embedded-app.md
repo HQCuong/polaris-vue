@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+同一个包也为 `polaris-vue-elements/app-bridge` 提供类型，该模块包含用于 App Bridge 元素的 Vue 组件
+和 `useAppBridge()` 组合式函数；请参阅
+[App Bridge 组件](/zh/app-bridge/)。
+
 ## 2. 配置 Vite {#_2-configure-vite}
 
 将 `s-*` 标签视为自定义元素。这与
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+如果你在模板中直接编写 App Bridge 的 `ui-*` 原生标签（例如 `<ui-title-bar>`），请添加
+`|| tag.startsWith('ui-')`。
+[`polaris-vue-elements/app-bridge`](/zh/app-bridge/#raw-tags) 中的组件不需要这样做。
 
 ## 3. 构建一个页面 {#_3-build-a-page}
 
@@ -210,7 +218,10 @@ App Bridge 可以通过后台转发
 
 ## 5. 在 Vue 中使用 App Bridge API {#_5-use-app-bridge-apis-from-vue}
 
-所有功能都位于全局 `shopify` 上；无需任何 Vue 插件。
+所有功能都位于全局 `shopify` 上；无需任何 Vue 插件。 来自
+`polaris-vue-elements/app-bridge` 的 `useAppBridge()` 返回同一个全局对象，并在服务器端
+或缺少 App Bridge 脚本时给出明确的错误；请参阅
+[useAppBridge()](/zh/app-bridge/use-app-bridge)。
 
 ### Toast {#toasts}
 
@@ -260,10 +271,13 @@ await shopify.modal.hide('reset-modal')
 点击 Save 时触发 `submit`，点击 Discard 时触发 `reset`。不要在同一个表单上
 将其与编程式的 `shopify.saveBar` 方法混用。请参阅
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api)。
+如需绑定到 `v-model:open` 的 `ui-save-bar` 元素，请参阅
+[`SaveBar`](/zh/app-bridge/save-bar)。
 
 ## 下一步 {#next-steps}
 
 - 浏览[所有组件](/zh/components/)，并阅读[已知问题](/zh/guide/quirks)。
+- 使用 [App Bridge 组件](/zh/app-bridge/)（`Modal`、`SaveBar`、`AppWindow` 等）。
 - 回顾[快速开始](/zh/guide/getting-started)，了解 `v-model`、浮层以及为原生标签提供类型。
 - 阅读 Shopify 的 [App Home 文档](https://shopify.dev/docs/apps/build/app-home)和
   [App Bridge API](https://shopify.dev/docs/api/app-home/apis)。

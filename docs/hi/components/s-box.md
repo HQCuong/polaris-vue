@@ -12,7 +12,7 @@ Padding, background, border, radius और sizing के लिए एक सा
 import { SBox } from 'polaris-vue-elements'
 ```
 
-`<SBox>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
+`<SBox>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/css-variables/) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
 
 ## Best practices
 

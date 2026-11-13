@@ -4,7 +4,7 @@ import tokensDoc from '../../../../tokens/tokens.json'
 import { groupOf } from '../../../../scripts/token-groups.mjs'
 
 // Page-wide state shared by the toolbar, the specimen and every group table on
-// docs/guide/css-variables.md. SSR renders the defaults (nothing filtered); only the
+// docs/css-variables/reference.md. SSR renders the defaults (nothing filtered); only the
 // client mutates it.
 
 export type ThemeName = 'base' | 'admin-next'

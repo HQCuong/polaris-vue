@@ -75,12 +75,6 @@ function hasFullGitHistory(): boolean {
   }
 }
 
-// A guide page that hasn't been translated yet links to the English page instead of a 404.
-function guidePageLink(prefix: string, page: string): string {
-  const translated = existsSync(fileURLToPath(new URL(`..${prefix}/guide/${page}.md`, import.meta.url)))
-  return translated ? `${prefix}/guide/${page}` : `/guide/${page}`
-}
-
 // Plain text of a short markdown answer, for JSON-LD: drops code ticks, emphasis and link
 // targets.
 function markdownToText(markdown: string): string {
@@ -118,8 +112,46 @@ function guideSidebar(l: Locale, prefix: string): DefaultTheme.SidebarItem {
       { text: l.sidebarGuide.gettingStarted, link: `${prefix}/guide/getting-started` },
       { text: l.sidebarGuide.embeddedApp, link: `${prefix}/guide/shopify-embedded-app` },
       { text: l.sidebarGuide.quirks, link: `${prefix}/guide/quirks` },
-      { text: l.sidebarGuide.cssVariables, link: guidePageLink(prefix, 'css-variables') },
       { text: l.sidebarGuide.allComponents, link: `${prefix}/components/` },
+    ],
+  }
+}
+
+// The sidebar has four sections that mirror the nav bar: Guide, UI components,
+// App Bridge and CSS variables. VitePress renders item text as HTML, so the `.sidebar-section` span
+// lets custom.css draw the section headings and dividers.
+function sidebarSection(text: string): string {
+  return `<span class="sidebar-section">${text}</span>`
+}
+
+function componentsSectionHeading(l: Locale): DefaultTheme.SidebarItem {
+  return { text: `<span class="sidebar-section sidebar-section-only">${l.nav.components}</span>` }
+}
+
+function appBridgeSidebar(l: Locale, prefix: string): DefaultTheme.SidebarItem {
+  const t = l.sidebarAppBridge
+  return {
+    text: sidebarSection(t.title),
+    items: [
+      { text: t.overview, link: `${prefix}/app-bridge/` },
+      { text: t.useAppBridge, link: `${prefix}/app-bridge/use-app-bridge` },
+      { text: t.modal, link: `${prefix}/app-bridge/modal` },
+      { text: t.titleBar, link: `${prefix}/app-bridge/title-bar` },
+      { text: t.saveBar, link: `${prefix}/app-bridge/save-bar` },
+      { text: t.appWindow, link: `${prefix}/app-bridge/app-window` },
+      { text: t.navMenu, link: `${prefix}/app-bridge/nav-menu` },
+    ],
+  }
+}
+
+function cssVariablesSidebar(l: Locale, prefix: string): DefaultTheme.SidebarItem {
+  const t = l.sidebarCssVariables
+  return {
+    text: sidebarSection(t.title),
+    items: [
+      { text: t.overview, link: `${prefix}/css-variables/` },
+      { text: t.allVariables, link: `${prefix}/css-variables/reference` },
+      { text: t.migration, link: `${prefix}/css-variables/migration` },
     ],
   }
 }
@@ -142,8 +174,16 @@ function localeConfigs(): LocaleConfig<ThemeConfig> {
         nav: [
           { text: l.nav.guide, link: `${prefix}/guide/getting-started` },
           { text: l.nav.components, link: `${prefix}/components/` },
+          { text: l.nav.appBridge, link: `${prefix}/app-bridge/` },
+          { text: l.nav.cssVariables, link: `${prefix}/css-variables/` },
         ],
-        sidebar: [guideSidebar(l, prefix), ...sidebar],
+        sidebar: [
+          guideSidebar(l, prefix),
+          componentsSectionHeading(l),
+          ...sidebar,
+          appBridgeSidebar(l, prefix),
+          cssVariablesSidebar(l, prefix),
+        ],
         outline: { level: [2, 3], label: l.ui.outlineLabel },
         docFooter: { prev: l.ui.prev, next: l.ui.next },
         lastUpdated: { text: l.ui.lastUpdated },
@@ -375,6 +415,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/' },
+      { text: LOCALES[0].nav.appBridge, link: '/app-bridge/' },
+      { text: LOCALES[0].nav.cssVariables, link: '/css-variables/' },
     ],
 
     sidebar: [
@@ -384,14 +426,16 @@ export default defineConfigWithTheme<ThemeConfig>({
           { text: 'Getting started', link: '/guide/getting-started' },
           { text: 'Build a Shopify embedded app', link: '/guide/shopify-embedded-app' },
           { text: 'Known quirks & gotchas', link: '/guide/quirks' },
-          { text: 'CSS variables', link: '/guide/css-variables' },
           { text: 'All components', link: '/components/' },
         ],
       },
+      componentsSectionHeading(LOCALES[0]),
       // Spread rather than nested under a single "Components" parent: one more
       // level of nesting would push every component three deep and force two
       // clicks to reach any page.
       ...componentsSidebar,
+      appBridgeSidebar(LOCALES[0], ''),
+      cssVariablesSidebar(LOCALES[0], ''),
     ],
 
     // Built-in MiniSearch index, built at build time from the full rendered text

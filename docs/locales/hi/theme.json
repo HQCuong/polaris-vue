@@ -46,15 +46,32 @@
   "backToTop": "ऊपर जाएँ",
   "nav": {
     "guide": "गाइड",
-    "components": "Components"
+    "components": "Components",
+    "appBridge": "App Bridge",
+    "cssVariables": "CSS वेरिएबल"
   },
   "sidebarGuide": {
     "title": "गाइड",
     "gettingStarted": "शुरुआत करें",
     "embeddedApp": "Shopify embedded app बनाएँ",
     "quirks": "ज्ञात quirks और सावधानियाँ",
-    "cssVariables": "CSS वेरिएबल",
     "allComponents": "सभी components"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "अवलोकन",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu"
+  },
+  "sidebarCssVariables": {
+    "title": "CSS वेरिएबल",
+    "overview": "अवलोकन",
+    "allVariables": "सभी variables",
+    "migration": "@shopify/polaris-tokens से migrate करना"
   },
   "cssVariables": {
     "variable": "वेरिएबल",

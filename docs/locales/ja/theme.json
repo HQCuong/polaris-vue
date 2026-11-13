@@ -46,15 +46,32 @@
   "backToTop": "ページの先頭へ",
   "nav": {
     "guide": "ガイド",
-    "components": "コンポーネント"
+    "components": "コンポーネント",
+    "appBridge": "App Bridge",
+    "cssVariables": "CSS 変数"
   },
   "sidebarGuide": {
     "title": "ガイド",
     "gettingStarted": "はじめに",
     "embeddedApp": "Shopify 埋め込みアプリを作る",
     "quirks": "既知の注意点",
-    "cssVariables": "CSS 変数",
     "allComponents": "すべてのコンポーネント"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "概要",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu"
+  },
+  "sidebarCssVariables": {
+    "title": "CSS 変数",
+    "overview": "概要",
+    "allVariables": "すべての変数",
+    "migration": "@shopify/polaris-tokens からの移行"
   },
   "cssVariables": {
     "variable": "変数",

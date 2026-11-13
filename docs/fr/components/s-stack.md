@@ -12,7 +12,7 @@ Dispose ses enfants en ligne ou en colonne avec un espacement et un alignement c
 import { SStack } from 'polaris-vue-elements'
 ```
 
-Vous écrivez votre propre CSS autour de `<SStack>` ? Utilisez les [variables CSS](/fr/guide/css-variables) de Polaris (`--p-space-*`, `--p-color-*`, …) pour que votre mise en page corresponde aux composants.
+Vous écrivez votre propre CSS autour de `<SStack>` ? Utilisez les [variables CSS](/fr/css-variables/) de Polaris (`--p-space-*`, `--p-color-*`, …) pour que votre mise en page corresponde aux composants.
 
 ## Bonnes pratiques
 

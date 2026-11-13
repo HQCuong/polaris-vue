@@ -12,7 +12,7 @@ Organiza seus filhos em uma linha ou coluna com espaçamento e alinhamento consi
 import { SStack } from 'polaris-vue-elements'
 ```
 
-Escrevendo seu próprio CSS em volta de `<SStack>`? Use as [variáveis CSS](/pt/guide/css-variables) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
+Escrevendo seu próprio CSS em volta de `<SStack>`? Use as [variáveis CSS](/pt/css-variables/) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
 
 ## Boas práticas
 

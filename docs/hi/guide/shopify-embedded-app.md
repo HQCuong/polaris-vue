@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+यही package `polaris-vue-elements/app-bridge` को भी type करता है, जिसमें App Bridge के elements के लिए
+Vue components और एक `useAppBridge()` composable है; देखें
+[App Bridge components](/hi/app-bridge/)।
+
 ## 2. Vite कॉन्फ़िगर करें {#_2-configure-vite}
 
 `s-*` tags को custom elements मानें। यह वही config है जो
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+अगर आप templates में raw App Bridge `ui-*` tags लिखते हैं (जैसे `<ui-title-bar>`), तो
+`|| tag.startsWith('ui-')` जोड़ें। [`polaris-vue-elements/app-bridge`](/hi/app-bridge/#raw-tags)
+के components को इसकी ज़रूरत नहीं है।
 
 ## 3. एक page बनाएँ {#_3-build-a-page}
 
@@ -210,7 +218,9 @@ const socket = new WebSocket(`wss://your-app.example.com/ws?token=${token}`)
 
 ## 5. Vue से App Bridge APIs इस्तेमाल करें {#_5-use-app-bridge-apis-from-vue}
 
-सब कुछ `shopify` global पर है; किसी Vue plugin की ज़रूरत नहीं।
+सब कुछ `shopify` global पर है; किसी Vue plugin की ज़रूरत नहीं। `polaris-vue-elements/app-bridge` का
+`useAppBridge()` वही global लौटाता है, और server पर या App Bridge script न होने पर साफ़ error देता है;
+देखें [useAppBridge()](/hi/app-bridge/use-app-bridge)।
 
 ### Toasts {#toasts}
 
@@ -260,10 +270,13 @@ anchors, `open('/settings', '_self')` और History API
 दिखाता है; Save पर `submit` और Discard पर `reset` fire होता है। उसी form पर इसे
 programmatic `shopify.saveBar` methods के साथ न मिलाएँ। देखें
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api)।
+`v-model:open` से bind किए गए `ui-save-bar` element के लिए देखें
+[`SaveBar`](/hi/app-bridge/save-bar)।
 
 ## अगले कदम {#next-steps}
 
 - [सभी components](/hi/components/) देखें और [ज्ञात quirks](/hi/guide/quirks) पढ़ें।
+- [App Bridge components](/hi/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...) इस्तेमाल करें।
 - `v-model`, overlays और raw tags को type करने के लिए [शुरुआत करें](/hi/guide/getting-started) फिर से देखें।
 - Shopify के [App Home docs](https://shopify.dev/docs/apps/build/app-home) और
   [App Bridge APIs](https://shopify.dev/docs/api/app-home/apis) पढ़ें।

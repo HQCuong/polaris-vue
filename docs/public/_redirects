@@ -1,0 +1,32 @@
+# Cloudflare Workers static assets redirects (https://developers.cloudflare.com/workers/static-assets/redirects/).
+# CSS variables moved from one guide page to its own section; the old URLs were live and indexed.
+/guide/css-variables /css-variables/ 301
+/guide/css-variables/ /css-variables/ 301
+/guide/css-variables.html /css-variables/ 301
+/vi/guide/css-variables /vi/css-variables/ 301
+/vi/guide/css-variables/ /vi/css-variables/ 301
+/vi/guide/css-variables.html /vi/css-variables/ 301
+/ko/guide/css-variables /ko/css-variables/ 301
+/ko/guide/css-variables/ /ko/css-variables/ 301
+/ko/guide/css-variables.html /ko/css-variables/ 301
+/zh/guide/css-variables /zh/css-variables/ 301
+/zh/guide/css-variables/ /zh/css-variables/ 301
+/zh/guide/css-variables.html /zh/css-variables/ 301
+/ja/guide/css-variables /ja/css-variables/ 301
+/ja/guide/css-variables/ /ja/css-variables/ 301
+/ja/guide/css-variables.html /ja/css-variables/ 301
+/de/guide/css-variables /de/css-variables/ 301
+/de/guide/css-variables/ /de/css-variables/ 301
+/de/guide/css-variables.html /de/css-variables/ 301
+/fr/guide/css-variables /fr/css-variables/ 301
+/fr/guide/css-variables/ /fr/css-variables/ 301
+/fr/guide/css-variables.html /fr/css-variables/ 301
+/es/guide/css-variables /es/css-variables/ 301
+/es/guide/css-variables/ /es/css-variables/ 301
+/es/guide/css-variables.html /es/css-variables/ 301
+/hi/guide/css-variables /hi/css-variables/ 301
+/hi/guide/css-variables/ /hi/css-variables/ 301
+/hi/guide/css-variables.html /hi/css-variables/ 301
+/pt/guide/css-variables /pt/css-variables/ 301
+/pt/guide/css-variables/ /pt/css-variables/ 301
+/pt/guide/css-variables.html /pt/css-variables/ 301

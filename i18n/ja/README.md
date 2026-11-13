@@ -94,7 +94,7 @@ const name = ref('')
 - [Getting started](https://polaris-vue-elements.dev/ja/guide/getting-started): セットアップ、`v-model`、オーバーレイ、素のタグの型付け。
 - [Build a Shopify embedded app with Vue 3](https://polaris-vue-elements.dev/ja/guide/shopify-embedded-app): App Bridge、認証付きの `fetch`、ナビゲーション、保存バー。
 - [Known quirks](https://polaris-vue-elements.dev/ja/guide/quirks): 実際のブラウザで検証した Polaris の挙動。
-- [CSS variables](https://polaris-vue-elements.dev/ja/guide/css-variables): Polaris のデザイントークン（`--p-color-*`、`--p-space-*` など）を、独自のレイアウト CSS 用にインポートできる `polaris-vue-elements/tokens.css` として提供。
+- [CSS variables](https://polaris-vue-elements.dev/ja/css-variables/): Polaris のデザイントークン（`--p-color-*`、`--p-space-*` など）を、独自のレイアウト CSS 用にインポートできる `polaris-vue-elements/tokens.css` として提供。
 - [Component reference](https://polaris-vue-elements.dev/ja/components/): 全 62 コンポーネントの props、events、slots、ベストプラクティス、ライブサンプル。
 
 サイトのソースは [`docs/`](../../docs) にあります。`npm run docs:dev` でローカル実行できます。

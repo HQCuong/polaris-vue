@@ -94,7 +94,7 @@ const name = ref('')
 - [시작하기](https://polaris-vue-elements.dev/ko/guide/getting-started): 설정, `v-model`, 오버레이, 원래 태그의 타입 지정.
 - [Vue 3로 Shopify 임베디드 앱 만들기](https://polaris-vue-elements.dev/ko/guide/shopify-embedded-app): App Bridge, 인증된 `fetch`, 내비게이션, 저장 바.
 - [알려진 특이 사항](https://polaris-vue-elements.dev/ko/guide/quirks): 실제 브라우저에서 검증한 Polaris의 동작.
-- [CSS 변수](https://polaris-vue-elements.dev/ko/guide/css-variables): 자체 레이아웃 CSS에서 쓸 수 있도록 import 가능한 `polaris-vue-elements/tokens.css`로 제공되는 Polaris 디자인 토큰(`--p-color-*`, `--p-space-*`, …).
+- [CSS 변수](https://polaris-vue-elements.dev/ko/css-variables/): 자체 레이아웃 CSS에서 쓸 수 있도록 import 가능한 `polaris-vue-elements/tokens.css`로 제공되는 Polaris 디자인 토큰(`--p-color-*`, `--p-space-*`, …).
 - [컴포넌트 레퍼런스](https://polaris-vue-elements.dev/ko/components/): 62개 컴포넌트 전체의 props, events, slots, 모범 사례와 라이브 예제.
 
 사이트의 소스는 [`docs/`](../../docs)에 있습니다. `npm run docs:dev`로 로컬에서 실행할 수 있습니다.

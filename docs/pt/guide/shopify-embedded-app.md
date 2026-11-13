@@ -86,6 +86,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+O mesmo pacote tipa `polaris-vue-elements/app-bridge`, que traz componentes Vue para os
+elementos do App Bridge e um composable `useAppBridge()`; veja
+[Componentes do App Bridge](/pt/app-bridge/).
+
 ## 2. Configure o Vite {#_2-configure-vite}
 
 Trate as tags `s-*` como custom elements. É a mesma configuração de
@@ -108,6 +112,10 @@ export default defineConfig({
   ],
 })
 ```
+
+Se você escreve tags `ui-*` do App Bridge sem wrapper nos templates (como `<ui-title-bar>`), adicione
+`|| tag.startsWith('ui-')`. Os componentes de
+[`polaris-vue-elements/app-bridge`](/pt/app-bridge/#raw-tags) não precisam disso.
 
 ## 3. Crie uma página {#_3-build-a-page}
 
@@ -210,7 +218,10 @@ está ativado na configuração do seu app, sem nenhum backend próprio. Veja
 
 ## 5. Use as APIs do App Bridge a partir do Vue {#_5-use-app-bridge-apis-from-vue}
 
-Tudo fica no global `shopify`; nenhum plugin do Vue é necessário.
+Tudo fica no global `shopify`; nenhum plugin do Vue é necessário. O `useAppBridge()` de
+`polaris-vue-elements/app-bridge` retorna o mesmo global e dá um erro claro no servidor
+ou quando o script do App Bridge está ausente; veja
+[useAppBridge()](/pt/app-bridge/use-app-bridge).
 
 ### Toasts {#toasts}
 
@@ -260,10 +271,13 @@ Adicione `data-save-bar` a um `<form>` e o admin mostra uma save bar quando o fo
 alterações não salvas; `submit` é disparado em Save e `reset` em Discard. Não combine isso com
 os métodos programáticos de `shopify.saveBar` no mesmo formulário. Veja
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api).
+Para um elemento `ui-save-bar` vinculado a `v-model:open`, veja
+[`SaveBar`](/pt/app-bridge/save-bar).
 
 ## Próximos passos {#next-steps}
 
 - Navegue por [todos os componentes](/pt/components/) e leia [Peculiaridades e armadilhas](/pt/guide/quirks).
+- Use os [componentes do App Bridge](/pt/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...).
 - Volte a [Primeiros passos](/pt/guide/getting-started) para `v-model`, overlays e tipagem de tags sem wrapper.
 - Leia a [documentação do App Home](https://shopify.dev/docs/apps/build/app-home) da Shopify e
   as [APIs do App Bridge](https://shopify.dev/docs/api/app-home/apis).

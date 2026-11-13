@@ -88,6 +88,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+Dasselbe Paket typisiert `polaris-vue-elements/app-bridge`, das Vue-Komponenten für die Elemente
+von App Bridge und ein Composable `useAppBridge()` enthält; siehe
+[App-Bridge-Komponenten](/de/app-bridge/).
+
 ## 2. Vite konfigurieren {#_2-configure-vite}
 
 `s-*`-Tags als Custom Elements behandeln. Das ist dieselbe Konfiguration wie in
@@ -110,6 +114,10 @@ export default defineConfig({
   ],
 })
 ```
+
+Wer rohe App-Bridge-`ui-*`-Tags in Templates schreibt (etwa `<ui-title-bar>`), ergänzt
+`|| tag.startsWith('ui-')`. Die Komponenten in
+[`polaris-vue-elements/app-bridge`](/de/app-bridge/#raw-tags) brauchen das nicht.
 
 ## 3. Eine Seite bauen {#_3-build-a-page}
 
@@ -214,7 +222,10 @@ Siehe
 
 ## 5. App-Bridge-APIs aus Vue verwenden {#_5-use-app-bridge-apis-from-vue}
 
-Alles befindet sich im globalen `shopify`; ein Vue-Plugin ist nicht nötig.
+Alles befindet sich im globalen `shopify`; ein Vue-Plugin ist nicht nötig. `useAppBridge()` aus
+`polaris-vue-elements/app-bridge` gibt dasselbe globale Objekt zurück und liefert eine klare Fehlermeldung
+auf dem Server oder wenn das App-Bridge-Skript fehlt; siehe
+[useAppBridge()](/de/app-bridge/use-app-bridge).
 
 ### Toasts {#toasts}
 
@@ -266,10 +277,13 @@ sobald das Formular ungespeicherte Änderungen hat; `submit` wird bei „Speiche
 `reset` bei „Verwerfen“ ausgelöst. Nicht mit den programmatischen
 `shopify.saveBar`-Methoden für dasselbe Formular kombinieren. Siehe
 [Save Bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api).
+Für ein Element `ui-save-bar`, das an `v-model:open` gebunden ist, siehe
+[`SaveBar`](/de/app-bridge/save-bar).
 
 ## Nächste Schritte {#next-steps}
 
 - [Alle Komponenten](/de/components/) durchsuchen und [Bekannte Eigenheiten](/de/guide/quirks) lesen.
+- Die [App-Bridge-Komponenten](/de/app-bridge/) (`Modal`, `SaveBar`, `AppWindow`, ...) verwenden.
 - In [Erste Schritte](/de/guide/getting-started) noch einmal `v-model`, Overlays und das Typisieren roher Tags nachlesen.
 - Die [App-Home-Dokumentation](https://shopify.dev/docs/apps/build/app-home) und die
   [App-Bridge-APIs](https://shopify.dev/docs/api/app-home/apis) von Shopify lesen.

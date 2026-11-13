@@ -12,7 +12,7 @@ description: "SStack: 자식 요소를 일관된 간격과 정렬로 가로 또�
 import { SStack } from 'polaris-vue-elements'
 ```
 
-`<SStack>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/guide/css-variables)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
+`<SStack>` 주변에 직접 CSS를 작성하나요? Polaris [CSS 변수](/ko/css-variables/)(`--p-space-*`, `--p-color-*`, …)를 사용하면 레이아웃이 컴포넌트와 일치합니다.
 
 ## 모범 사례
 

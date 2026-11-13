@@ -1,6 +1,6 @@
 // Compares the legacy Polaris React token list (`@shopify/polaris-tokens`) with
-// tokens/tokens.json, for the "Migrating from @shopify/polaris-tokens" section of
-// docs/guide/css-variables.md. Called by scripts/generate-docs.mjs; deterministic.
+// tokens/tokens.json, for the "Migrating from @shopify/polaris-tokens" page,
+// docs/css-variables/migration.md. Called by scripts/generate-docs.mjs; deterministic.
 //
 // The legacy names come from scripts/data/polaris-tokens-names.json, a snapshot of the
 // `:root` rule in @shopify/polaris-tokens 9.4.2's dist/css/styles.css. The package is

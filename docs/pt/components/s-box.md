@@ -12,7 +12,7 @@ Um contêiner genérico para espaçamento interno, fundo, borda, raio e dimensio
 import { SBox } from 'polaris-vue-elements'
 ```
 
-Escrevendo seu próprio CSS em volta de `<SBox>`? Use as [variáveis CSS](/pt/guide/css-variables) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
+Escrevendo seu próprio CSS em volta de `<SBox>`? Use as [variáveis CSS](/pt/css-variables/) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
 
 ## Boas práticas
 

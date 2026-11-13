@@ -12,7 +12,7 @@ Content को rows और columns में व्यवस्थित कर�
 import { SGrid } from 'polaris-vue-elements'
 ```
 
-`<SGrid>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/guide/css-variables) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
+`<SGrid>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/css-variables/) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
 
 ## Best practices
 

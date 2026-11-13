@@ -12,7 +12,7 @@ Ein generischer Container für Padding, Hintergrund, Rahmen, Eckenradius und Gr�
 import { SBox } from 'polaris-vue-elements'
 ```
 
-Eigenes CSS rund um `<SBox>`? Nutze die Polaris-[CSS-Variablen](/de/guide/css-variables) (`--p-space-*`, `--p-color-*`, …), damit dein Layout zu den Komponenten passt.
+Eigenes CSS rund um `<SBox>`? Nutze die Polaris-[CSS-Variablen](/de/css-variables/) (`--p-space-*`, `--p-color-*`, …), damit dein Layout zu den Komponenten passt.
 
 ## Best Practices
 

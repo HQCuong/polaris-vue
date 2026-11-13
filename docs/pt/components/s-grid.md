@@ -12,7 +12,7 @@ Um contêiner de CSS grid para organizar conteúdo em linhas e colunas. `SGrid` 
 import { SGrid } from 'polaris-vue-elements'
 ```
 
-Escrevendo seu próprio CSS em volta de `<SGrid>`? Use as [variáveis CSS](/pt/guide/css-variables) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
+Escrevendo seu próprio CSS em volta de `<SGrid>`? Use as [variáveis CSS](/pt/css-variables/) do Polaris (`--p-space-*`, `--p-color-*`, …) para que seu layout combine com os componentes.
 
 ## Boas práticas
 

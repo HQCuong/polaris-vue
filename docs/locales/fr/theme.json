@@ -46,15 +46,32 @@
   "backToTop": "Retour en haut",
   "nav": {
     "guide": "Guide",
-    "components": "Composants"
+    "components": "Composants",
+    "appBridge": "App Bridge",
+    "cssVariables": "Variables CSS"
   },
   "sidebarGuide": {
     "title": "Guide",
     "gettingStarted": "Prise en main",
     "embeddedApp": "Créer une app Shopify intégrée",
     "quirks": "Particularités connues et pièges",
-    "cssVariables": "Variables CSS",
     "allComponents": "Tous les composants"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "Vue d'ensemble",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu"
+  },
+  "sidebarCssVariables": {
+    "title": "Variables CSS",
+    "overview": "Vue d'ensemble",
+    "allVariables": "Toutes les variables",
+    "migration": "Migrer depuis @shopify/polaris-tokens"
   },
   "cssVariables": {
     "variable": "Variable",

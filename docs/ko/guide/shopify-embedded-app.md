@@ -84,6 +84,10 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+같은 패키지가 `polaris-vue-elements/app-bridge`의 타입도 제공합니다. 이 모듈에는 App Bridge 요소용
+Vue 컴포넌트와 `useAppBridge()` composable이 있습니다.
+[App Bridge 컴포넌트](/ko/app-bridge/)를 참고하세요.
+
 ## 2. Vite 설정하기 {#_2-configure-vite}
 
 `s-*` 태그를 custom element로 취급하도록 설정합니다.
@@ -106,6 +110,10 @@ export default defineConfig({
   ],
 })
 ```
+
+템플릿에 App Bridge의 `ui-*` 태그(예: `<ui-title-bar>`)를 직접 작성한다면
+`|| tag.startsWith('ui-')`를 추가하세요.
+[`polaris-vue-elements/app-bridge`](/ko/app-bridge/#raw-tags)의 컴포넌트에는 필요하지 않습니다.
 
 ## 3. 페이지 만들기 {#_3-build-a-page}
 
@@ -208,7 +216,10 @@ App Bridge가 `fetch('shopify:admin/api/graphql.json', ...)`를 관리자를 통
 
 ## 5. Vue에서 App Bridge API 사용하기 {#_5-use-app-bridge-apis-from-vue}
 
-모든 기능은 전역 `shopify`에 있으므로 Vue 플러그인이 필요 없습니다.
+모든 기능은 전역 `shopify`에 있으므로 Vue 플러그인이 필요 없습니다. `polaris-vue-elements/app-bridge`의
+`useAppBridge()`는 같은 전역 객체를 반환하며, 서버에서 실행되거나 App Bridge 스크립트가 없을 때
+명확한 오류를 발생시킵니다.
+[useAppBridge()](/ko/app-bridge/use-app-bridge)를 참고하세요.
 
 ### Toast {#toasts}
 
@@ -258,10 +269,13 @@ await shopify.modal.hide('reset-modal')
 save bar를 표시합니다. Save를 누르면 `submit`이, Discard를 누르면 `reset`이 발생합니다.
 같은 폼에서 프로그래밍 방식의 `shopify.saveBar` 메서드와 함께 사용하지 마세요.
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api)를 참고하세요.
+`v-model:open`에 바인딩하는 `ui-save-bar` 요소는
+[`SaveBar`](/ko/app-bridge/save-bar)를 참고하세요.
 
 ## 다음 단계 {#next-steps}
 
 - [모든 컴포넌트](/ko/components/)를 살펴보고 [알려진 특이 사항](/ko/guide/quirks)을 읽어 보세요.
+- [App Bridge 컴포넌트](/ko/app-bridge/)(`Modal`, `SaveBar`, `AppWindow`, ...)를 사용해 보세요.
 - `v-model`, 오버레이, 태그 직접 사용 시의 타입 지정은 [시작하기](/ko/guide/getting-started)를 다시 참고하세요.
 - Shopify의 [App Home 문서](https://shopify.dev/docs/apps/build/app-home)와
   [App Bridge API](https://shopify.dev/docs/api/app-home/apis)를 읽어 보세요.

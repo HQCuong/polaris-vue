@@ -84,6 +84,9 @@ npm install -D @shopify/app-bridge-types
 /// <reference types="@shopify/app-bridge-types" />
 ```
 
+同じパッケージが `polaris-vue-elements/app-bridge` の型にもなります。これは App Bridge の要素向けの Vue
+コンポーネントと `useAppBridge()` composable を提供します。[App Bridge コンポーネント](/ja/app-bridge/)を参照してください。
+
 ## 2. Vite を設定する {#_2-configure-vite}
 
 `s-*` タグをカスタム要素として扱います。[はじめに](/ja/guide/getting-started#_3-configure-vite)
@@ -106,6 +109,10 @@ export default defineConfig({
   ],
 })
 ```
+
+テンプレートに生の App Bridge `ui-*` タグ（`<ui-title-bar>` など）を書く場合は、
+`|| tag.startsWith('ui-')` を追加してください。
+[`polaris-vue-elements/app-bridge`](/ja/app-bridge/#raw-tags) のコンポーネントには不要です。
 
 ## 3. ページを作る {#_3-build-a-page}
 
@@ -208,7 +215,9 @@ App Bridge が `fetch('shopify:admin/api/graphql.json', ...)` を管理画面経
 
 ## 5. Vue から App Bridge API を使う {#_5-use-app-bridge-apis-from-vue}
 
-すべて `shopify` グローバル上にあり、Vue プラグインは不要です。
+すべて `shopify` グローバル上にあり、Vue プラグインは不要です。`polaris-vue-elements/app-bridge` の
+`useAppBridge()` は同じグローバルを返し、サーバー上や App Bridge スクリプトがない場合には分かりやすいエラーを出します。
+[useAppBridge()](/ja/app-bridge/use-app-bridge) を参照してください。
 
 ### トースト {#toasts}
 
@@ -258,10 +267,13 @@ await shopify.modal.hide('reset-modal')
 プログラムによる `shopify.saveBar` メソッドと併用しないでください。
 [Save bar](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/save-bar-api)
 を参照してください。
+`v-model:open` にバインドした `ui-save-bar` 要素については、
+[`SaveBar`](/ja/app-bridge/save-bar) を参照してください。
 
 ## 次のステップ {#next-steps}
 
 - [すべてのコンポーネント](/ja/components/)を見て、[既知の注意点](/ja/guide/quirks)を読んでください。
+- [App Bridge コンポーネント](/ja/app-bridge/)（`Modal`、`SaveBar`、`AppWindow` など）を使ってみてください。
 - `v-model`、オーバーレイ、生のタグへの型付けについては[はじめに](/ja/guide/getting-started)を読み返してください。
 - Shopify の [App Home ドキュメント](https://shopify.dev/docs/apps/build/app-home)と
   [App Bridge API](https://shopify.dev/docs/api/app-home/apis) を読んでください。
