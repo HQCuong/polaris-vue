@@ -11,6 +11,14 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-11-13
+
+Still generated from `@shopify/polaris-types` 2.0.0. No changes to the components.
+
+The App Bridge wrappers follow Shopify's own React wrapper, but have not been tested in a
+live Shopify admin yet; the docs mark the behavior that is still unverified. Please open an
+issue if something doesn't work.
+
 ### Added
 
 - `polaris-vue-elements/app-bridge`: Vue 3 counterparts of Shopify's
@@ -172,7 +180,8 @@ Initial release: typed Vue 3 wrappers for the 59 Shopify Polaris web components 
   `showOverlay()` / `hideOverlay()` / `toggleOverlay()`).
 - ESM build with bundled type declarations; `vue` ^3.5 as a peer dependency.
 
-[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/HQCuong/polaris-vue/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/HQCuong/polaris-vue/compare/v0.4.2...v0.5.0
 [0.4.2]: https://github.com/HQCuong/polaris-vue/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/HQCuong/polaris-vue/compare/v0.4.0...v0.4.1
