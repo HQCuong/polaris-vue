@@ -131,7 +131,7 @@ function componentsSectionHeading(l: Locale): DefaultTheme.SidebarItem {
 function appBridgeSidebar(l: Locale, prefix: string): DefaultTheme.SidebarItem {
   const t = l.sidebarAppBridge
   return {
-    text: sidebarSection(t.title),
+    text: sidebarSection(`${t.title} <span class="VPBadge warning sidebar-beta">${t.beta}</span>`),
     items: [
       { text: t.overview, link: `${prefix}/app-bridge/` },
       { text: t.useAppBridge, link: `${prefix}/app-bridge/use-app-bridge` },

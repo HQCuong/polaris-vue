@@ -65,7 +65,12 @@
     "titleBar": "TitleBar",
     "saveBar": "SaveBar",
     "appWindow": "AppWindow",
-    "navMenu": "NavMenu"
+    "navMenu": "NavMenu",
+    "beta": "Beta"
+  },
+  "appBridgeBeta": {
+    "title": "测试版",
+    "text": "这些 App Bridge 组件是新加入的，尚未在真实的 Shopify admin 中测试。测试期间，API 可能会在 minor 版本中变更。如有问题，请<a href=\"https://github.com/HQCuong/polaris-vue/issues\" target=\"_blank\" rel=\"noreferrer\">提交 issue</a>。"
   },
   "sidebarCssVariables": {
     "title": "CSS 变量",

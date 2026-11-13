@@ -38,6 +38,7 @@ export function useStrings() {
       typedWrappers: (count: number) => format(theme.home.typedWrappers, count),
       componentsLine: (count: number) => format(theme.home.componentsLine, count),
       backToTop: theme.backToTop,
+      appBridgeBeta: theme.appBridgeBeta,
     }
   })
 }

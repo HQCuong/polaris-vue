@@ -65,7 +65,12 @@
     "titleBar": "TitleBar",
     "saveBar": "SaveBar",
     "appWindow": "AppWindow",
-    "navMenu": "NavMenu"
+    "navMenu": "NavMenu",
+    "beta": "Beta"
+  },
+  "appBridgeBeta": {
+    "title": "Beta",
+    "text": "These App Bridge components are new and have not yet been tested in a live Shopify admin. Their API may change in a minor release while in beta. If something doesn't work, please <a href=\"https://github.com/HQCuong/polaris-vue/issues\" target=\"_blank\" rel=\"noreferrer\">open an issue</a>."
   },
   "sidebarCssVariables": {
     "title": "CSS variables",

@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import { defineAsyncComponent, h } from 'vue'
 
 import { TOKEN_GROUPS } from '../../../scripts/token-groups.mjs'
+import AppBridgeBeta from './AppBridgeBeta.vue'
 import BackToTop from './BackToTop.vue'
 import './custom.css'
 
@@ -27,7 +28,11 @@ function movedAnchorTarget(href: string): string | null {
 
 export default {
   extends: DefaultTheme,
-  Layout: () => h(DefaultTheme.Layout, null, { 'layout-bottom': () => h(BackToTop) }),
+  Layout: () =>
+    h(DefaultTheme.Layout, null, {
+      'doc-before': () => h(AppBridgeBeta),
+      'layout-bottom': () => h(BackToTop),
+    }),
   // Global so the docs/css-variables/ pages and their translations can use them without imports.
   // Async so tokens.json (~90 kB) loads only on those pages, not in every page's theme chunk;
   // SSR still renders the tables into the static HTML.

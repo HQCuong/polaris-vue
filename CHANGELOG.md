@@ -11,6 +11,11 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Changed
+
+- Docs: the App Bridge pages carry a beta notice, and the sidebar marks the section as
+  beta, until the components have been tested in a live Shopify admin.
+
 ## [0.6.0] - 2026-11-13
 
 Still generated from `@shopify/polaris-types` 2.0.0. No changes to the components.

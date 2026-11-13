@@ -306,6 +306,14 @@
 
 /* The Components heading has no items of its own, so the first category
  * group right below it drops the usual thin divider. */
+/* "Beta" badge after the App Bridge section heading; keeps the badge's own case and size. */
+.VPSidebar .sidebar-section .sidebar-beta {
+  margin-left: 6px;
+  vertical-align: 1px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 .VPSidebar .group:has(.sidebar-section-only) .VPSidebarItem.level-0 {
   padding-bottom: 4px;
 }
