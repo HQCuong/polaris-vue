@@ -81,6 +81,7 @@ jobs:
           npm run type-check
           npx vitest run
           npm run build:lib
+          node scripts/check-dist-isolation.mjs
 
       - name: Pack
         run: |

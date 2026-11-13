@@ -48,6 +48,11 @@ jobs:
       - name: Build library
         run: npm run build:lib
 
+      # The main entry must not carry App Bridge code or share a chunk with the
+      # `polaris-vue-elements/app-bridge` entry.
+      - name: Main entry is isolated from App Bridge
+        run: node scripts/check-dist-isolation.mjs
+
       # Same freshness check release.yml runs, so a PR can't pass here and then fail the release.
       - name: Verify generated code is up to date
         run: |

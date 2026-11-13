@@ -10,7 +10,8 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => tag.startsWith('s-'),
+          // `ui-` covers raw App Bridge tags (`<ui-modal>`, `<ui-title-bar>`, ...).
+          isCustomElement: (tag) => tag.startsWith('s-') || tag.startsWith('ui-'),
         },
       },
     }),

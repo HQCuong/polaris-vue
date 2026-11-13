@@ -1,0 +1,32 @@
+{
+  "appBridgeTypes": "0.7.4",
+  "appBridgeReact": "4.3.0",
+  "interfaces": {
+    "AppBridgeElements": "f34d704bd437bdb51b73102c6a235f153a47ce42e55fe1c59c7c2316e8f53c49",
+    "AugmentedElements": "b40eeeef5572420809d6350d65cf07cd718a1de0356602fcc24a1228c462636c",
+    "MenuItemProperties": "abb1d38ec379f76f01ba0f3b02f58f364cd66edb0a85ba619289efd1e6bc02f0",
+    "UIModalAttributes": "fdeae49aacecb6f3b307a9fdc3788035d674dbc4eb3fc6a5bb0069eb791a4fd8",
+    "_UIModalAttributes": "b13c48b4a9f7ba3b97d442c91ac5270842057555672f502258702e0817284387",
+    "_UIModalElement": "4d535c18097fd04f71a05962e01c829b574158680fe31405afc8cac82de726ea",
+    "UIModalElement$1": "d41b181a4551abc1fde02a14685a3f38d33b155f3859a7406d39a4664a744e0a",
+    "UISaveBarAttributes": "222b35cc82886800f688d8a4e39d5ba2b2f8300c46c90d2ae930c1f11584b65f",
+    "_UISaveBarAttributes": "800c167f2b0c26e8e94a72da90db87717a2075d1a2cee80f8b2b413ac498e17b",
+    "_UISaveBarElement": "9cf8fd2cfbda1827d0d1ee0628c4d3b82d2ad600b9a8a4485c4dc2e21f4e2cd7",
+    "UISaveBarElement$1": "1d04889f75c1e796785290b3822a94e7221b442b94c0da8fa262a3f37ec693aa",
+    "UISaveBarChildren": "9d3d4162737fbfd74be7fd41366490eda551b37323fd3ec10f2828fdcc4ffeae",
+    "UITitleBarAttributes": "e7bed0477b341f06328126bb94138ffb9342d98e68fdb48463e06813c14f53e3",
+    "_UITitleBarAttributes": "8fd58fa4712c679f5fe85c9001b9572e14d85ffca2f50e9868684b0122e9f28f",
+    "UITitleBarChildren": "2264c869d1d7b9619dc8efef062964904955bdbdc6844ce73a8486a9178f3fde",
+    "UITitleBarElement$1": "9cfc6238a7e3eec18182b144a05c55e4516c7722037550d8da88255ee4efb445",
+    "UINavMenuAttributes": "f6bec40b5cb059cc3745749ea246f86894efa96de8a0a056d01557a18f5a2bcf",
+    "UINavMenuElement$1": "02f8b36e60fc6fbdf81bba4f7fd266fa32c25ee1183ab3435ab5d64504f45ece",
+    "SAppWindowAttributes": "e7a58264c8eeeca8cd1977ad029b85f45859bb34a234b2da1a269d5decd67e21",
+    "_SAppWindowElement": "a748c1b7474095f46fb03f309ba3a05759f970acab7ed91ed3257113fbfbd503",
+    "SAppWindowElement$1": "ddb5175afd9934d7829b5bea0614c52de6931eca001a9827b1bba61b45e80968",
+    "SAppNavAttributes": "97f328beabdeac6885e77d2c99d8ba1eb07ce1f613f5802e7f8fb0258aa4b392",
+    "SAppNavLinkAttributes": "fa761ab23eeaf538f636f8908ec62d1e403de1beaeee9d9321e49f17d5a423ae",
+    "SAppNavElement$1": "476d170648fd815fbade93e0ec8f7e0387752d1aae6faf20bafb1005e20f2ece",
+    "SPageElement": "4822cb0038234dab37d1f80e025b24f96ddd03e7db7248af4e2871eefbc9d264",
+    "SPageChildren": "851074549ef7931b5925f079197847dea92580ef2850392de5fbe35986de18c8"
+  }
+}

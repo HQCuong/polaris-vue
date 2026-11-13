@@ -18,12 +18,20 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: true,
     lib: {
-      entry: fileURLToPath(new URL('./src/lib/index.ts', import.meta.url)),
+      // Two independent entries. `app-bridge/index` is the `polaris-vue-elements/app-bridge`
+      // subpath; it shares no runtime module with the main entry, so Rollup emits no shared
+      // chunk and `dist/index.js` is unaffected by it.
+      entry: {
+        index: fileURLToPath(new URL('./src/lib/index.ts', import.meta.url)),
+        'app-bridge/index': fileURLToPath(new URL('./src/lib/app-bridge/index.ts', import.meta.url)),
+      },
       formats: ['es'],
-      fileName: () => 'index.js',
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
-      external: ['vue'],
+      // `@shopify/app-bridge-types` is imported for types only; keep it external anyway so
+      // a future value import can never bundle it.
+      external: ['vue', /^@shopify\/app-bridge-types/],
     },
   },
 })

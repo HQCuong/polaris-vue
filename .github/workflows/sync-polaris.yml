@@ -323,3 +323,164 @@ jobs:
           add-paths: |
             tokens/
             docs/.vitepress/polaris-tokens-migration.json
+
+  # The hand-written wrappers in src/lib/app-bridge mirror @shopify/app-bridge-react and are
+  # typed from @shopify/app-bridge-types. Separate job and branch, so an App Bridge bump never
+  # mixes with a Polaris sync. Drift fails type-check or src/lib/__tests__/app-bridge-drift.spec.ts.
+  app-bridge:
+    name: Check for app-bridge-types update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compare installed vs. latest versions
+        id: versions
+        run: |
+          CURRENT=$(node -p "require('./node_modules/@shopify/app-bridge-types/package.json').version")
+          LATEST=$(npm view @shopify/app-bridge-types version)
+          REACT_MIRRORED=$(node -p "require('./src/lib/app-bridge/abt-snapshot.json').appBridgeReact")
+          REACT_LATEST=$(npm view @shopify/app-bridge-react version)
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "latest=$LATEST" >> "$GITHUB_OUTPUT"
+          echo "react_mirrored=$REACT_MIRRORED" >> "$GITHUB_OUTPUT"
+          echo "react_latest=$REACT_LATEST" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" = "$LATEST" ]; then
+            echo "app-bridge-types up to date ($CURRENT)"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "app-bridge-types update available: $CURRENT -> $LATEST"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          if [ "$REACT_MIRRORED" = "$REACT_LATEST" ]; then
+            echo "react_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "react_changed=true" >> "$GITHUB_OUTPUT"
+            # Without a types bump there is no diff and so no PR; surface it on the run.
+            echo "::warning title=@shopify/app-bridge-react ${REACT_LATEST}::The App Bridge wrappers mirror @shopify/app-bridge-react ${REACT_MIRRORED}. Diff build/esm/components/*.js between the two versions, port any behavior change, then update MIRRORED_APP_BRIDGE_REACT and the snapshot (src/lib/__tests__/app-bridge-drift.spec.ts)."
+          fi
+
+      - name: Install latest @shopify/app-bridge-types
+        if: steps.versions.outputs.changed == 'true'
+        run: npm install -D @shopify/app-bridge-types@latest
+
+      - name: Record the sync in CHANGELOG.md
+        if: steps.versions.outputs.changed == 'true'
+        env:
+          CURRENT: ${{ steps.versions.outputs.current }}
+          LATEST: ${{ steps.versions.outputs.latest }}
+        run: node scripts/changelog.mjs add Changed "App Bridge wrappers checked against \`@shopify/app-bridge-types\` ${LATEST} (was ${CURRENT})."
+
+      - name: oxlint
+        id: check_oxlint
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx oxlint .
+
+      - name: eslint
+        id: check_eslint
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx eslint .
+
+      - name: Type-check
+        id: check_typecheck
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run type-check
+
+      # Includes the App Bridge drift spec (element set, s-page slots, interface hashes).
+      - name: Unit tests
+        id: check_vitest
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npx vitest run
+
+      # Declarations are emitted from the new types, so a d.ts break shows up here.
+      - name: Build library
+        id: check_buildlib
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: |
+          npm run build:lib
+          node scripts/check-dist-isolation.mjs
+
+      - name: Build docs
+        id: check_docsbuild
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run docs:build
+
+      - name: Build PR summary
+        if: steps.versions.outputs.changed == 'true'
+        run: |
+          status() {
+            case "$1" in
+              success) echo "passed" ;;
+              failure) echo "FAILED" ;;
+              skipped) echo "skipped" ;;
+              *) echo "$1" ;;
+            esac
+          }
+
+          OXLINT_STATUS=$(status "${{ steps.check_oxlint.outcome }}")
+          ESLINT_STATUS=$(status "${{ steps.check_eslint.outcome }}")
+          TYPECHECK_STATUS=$(status "${{ steps.check_typecheck.outcome }}")
+          VITEST_STATUS=$(status "${{ steps.check_vitest.outcome }}")
+          BUILDLIB_STATUS=$(status "${{ steps.check_buildlib.outcome }}")
+          DOCSBUILD_STATUS=$(status "${{ steps.check_docsbuild.outcome }}")
+
+          {
+            if [ "${{ steps.versions.outputs.react_changed }}" = "true" ]; then
+              echo "> [!WARNING]"
+              echo "> **\`@shopify/app-bridge-react\` is at \`${{ steps.versions.outputs.react_latest }}\`**; the wrappers mirror \`${{ steps.versions.outputs.react_mirrored }}\`. Diff \`build/esm/components/*.js\` between the two versions and port any behavior change, then update \`MIRRORED_APP_BRIDGE_REACT\` and the snapshot."
+              echo ""
+            fi
+            echo "Automated bump of \`@shopify/app-bridge-types\` from \`${{ steps.versions.outputs.current }}\` to \`${{ steps.versions.outputs.latest }}\` (\`@shopify/app-bridge-react\` latest: \`${{ steps.versions.outputs.react_latest }}\`)."
+            echo ""
+            echo "If the App Bridge drift spec failed, an interface the wrappers depend on changed: diff \`AppBridgeElements\`, \`_UIModalElement\`, \`_UISaveBarElement\`, \`_SAppWindowElement\`, \`UITitleBarChildren\` and \`SPageChildren\` in \`node_modules/@shopify/app-bridge-types/dist/index.d.ts\`, update \`src/lib/app-bridge\` if needed, then run \`UPDATE_APP_BRIDGE_SNAPSHOT=1 npx vitest run app-bridge-drift\`."
+            echo ""
+            echo "### Check results"
+            echo ""
+            echo "| Check | Result |"
+            echo "| --- | --- |"
+            echo "| oxlint | ${OXLINT_STATUS} |"
+            echo "| eslint | ${ESLINT_STATUS} |"
+            echo "| type-check | ${TYPECHECK_STATUS} |"
+            echo "| vitest | ${VITEST_STATUS} |"
+            echo "| build:lib | ${BUILDLIB_STATUS} |"
+            echo "| docs:build | ${DOCSBUILD_STATUS} |"
+            echo ""
+            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ] && [ "$BUILDLIB_STATUS" = "passed" ] && [ "$DOCSBUILD_STATUS" = "passed" ]; then
+              echo "All checks passed. This should be safe to review and merge."
+            else
+              echo "One or more checks FAILED. Investigate before merging."
+            fi
+          } > "$RUNNER_TEMP/app-bridge-pr-body.md"
+
+          cat "$RUNNER_TEMP/app-bridge-pr-body.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update pull request
+        if: steps.versions.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@15733dbdfeedb4f7fdb73d13c6f5ac83b710fab8 # v8.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: sync @shopify/app-bridge-types to ${{ steps.versions.outputs.latest }}"
+          title: "chore: sync @shopify/app-bridge-types to ${{ steps.versions.outputs.latest }}"
+          body-path: ${{ runner.temp }}/app-bridge-pr-body.md
+          branch: sync/app-bridge-types
+          base: main
+          delete-branch: true
+          add-paths: |
+            package.json
+            package-lock.json
+            CHANGELOG.md
