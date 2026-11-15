@@ -62,7 +62,7 @@ const abtVersion = (
 
 /** The text of a top-level `interface Name ... {` block, up to its closing `}` at column 0. */
 function interfaceBlock(name: string): string {
-  const escaped = name.replace(/[$]/g, '\\$')
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   const match = new RegExp(
     `^(?:export )?interface ${escaped}\\b[^\\n]*\\{\\n[\\s\\S]*?^\\}`,
     'm',
