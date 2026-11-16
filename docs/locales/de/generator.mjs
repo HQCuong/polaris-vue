@@ -53,4 +53,29 @@ export default {
     lead: (count) =>
       `${count} typisierte Vue-Wrapper, einer pro Polaris Web Component, gruppiert wie in der [Referenz von Shopify](https://shopify.dev/docs/api/app-home/polaris-web-components).`,
   },
+  // docs/de/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  appBridgeTypes: {
+    title: 'App Bridge-Typen – @shopify/app-bridge-types-Referenz für Vue 3',
+    description:
+      'Referenz der @shopify/app-bridge-types-Typen, die die App Bridge-Komponenten für Vue 3 verwenden: ShopifyGlobal, seine APIs, Element-Attribute und die Typen, auf die sie verweisen.',
+    heading: 'App Bridge-Typen',
+    intro: (pkg, version, subpath) =>
+      `Die Typen, die auf den App Bridge-Seiten verwendet werden, und alle Typen, auf die sie verweisen, aus ${pkg} ${version}. ${subpath} exportiert die Typen erneut, die das Paket exportiert. Die Beschreibungen sind Shopifys eigenes JSDoc und bleiben auf Englisch.`,
+    groups: {
+      apis: 'ShopifyGlobal und APIs',
+      elements: 'Elemente und Attribute',
+      other: 'Weitere Typen',
+    },
+    table: { member: 'Mitglied', type: 'Typ', description: 'Beschreibung' },
+    notDescribed: 'In den Typen nicht beschrieben.',
+    exported: 'Import:',
+    global: 'In `declare global` deklariert und daher ohne Import verfügbar.',
+    typeParameters: 'Typparameter:',
+    extends: 'Erweitert:',
+    references: 'Verweist auf:',
+    usedIn: 'Verwendet in:',
+    deprecated: 'Veraltet.',
+    default: 'Standard:',
+    see: 'Siehe:',
+  },
 }

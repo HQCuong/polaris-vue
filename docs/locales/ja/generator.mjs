@@ -53,4 +53,29 @@ export default {
     lead: (count) =>
       `${count} 個の型付き Vue wrapper。Polaris web component ごとに 1 つずつ用意し、[Shopify 公式リファレンス](https://shopify.dev/docs/api/app-home/polaris-web-components)と同じ方法で分類しています。`,
   },
+  // docs/ja/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  appBridgeTypes: {
+    title: 'App Bridge の型 – Vue 3 向け @shopify/app-bridge-types リファレンス',
+    description:
+      'Vue 3 向け App Bridge コンポーネントが使う @shopify/app-bridge-types の型のリファレンス：ShopifyGlobal、その API、要素の属性、およびそれらが参照する型。',
+    heading: 'App Bridge の型',
+    intro: (pkg, version, subpath) =>
+      `App Bridge のページで使われている型と、それらが参照するすべての型です。${pkg} ${version} から取っています。${subpath} は、パッケージが export する型を再 export します。説明は Shopify 自身の JSDoc で、英語のままです。`,
+    groups: {
+      apis: 'ShopifyGlobal と API',
+      elements: '要素と属性',
+      other: 'その他の型',
+    },
+    table: { member: 'メンバー', type: '型', description: '説明' },
+    notDescribed: '型に説明はありません。',
+    exported: 'インポート：',
+    global: '`declare global` で宣言されているため、インポートなしで使えます。',
+    typeParameters: '型パラメーター：',
+    extends: '継承：',
+    references: '参照する型：',
+    usedIn: '使用箇所：',
+    deprecated: '非推奨。',
+    default: 'デフォルト：',
+    see: '関連：',
+  },
 }

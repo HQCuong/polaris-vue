@@ -53,4 +53,29 @@ export default {
     lead: (count) =>
       `${count} typed Vue wrappers, हर Polaris web component के लिए एक, उसी तरह समूहित जैसे [Shopify का अपना reference](https://shopify.dev/docs/api/app-home/polaris-web-components) उन्हें समूहित करता है।`,
   },
+  // docs/hi/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  appBridgeTypes: {
+    title: 'App Bridge types – Vue 3 के लिए @shopify/app-bridge-types reference',
+    description:
+      'Vue 3 के App Bridge components जिन @shopify/app-bridge-types types का इस्तेमाल करते हैं, उनका reference: ShopifyGlobal, उसके APIs, element attributes और वे types जिन्हें ये reference करते हैं।',
+    heading: 'App Bridge types',
+    intro: (pkg, version, subpath) =>
+      `App Bridge pages पर इस्तेमाल होने वाले types, और वे सभी types जिन्हें ये reference करते हैं, ${pkg} ${version} से लिए गए हैं। ${subpath} उन types को re-export करता है जिन्हें package export करता है। विवरण Shopify का अपना JSDoc हैं, अंग्रेज़ी में।`,
+    groups: {
+      apis: 'ShopifyGlobal और APIs',
+      elements: 'Elements और attributes',
+      other: 'अन्य types',
+    },
+    table: { member: 'Member', type: 'Type', description: 'विवरण' },
+    notDescribed: 'Types में इसका विवरण नहीं है।',
+    exported: 'Import:',
+    global: 'यह `declare global` में declare किया गया है, इसलिए import के बिना उपलब्ध है।',
+    typeParameters: 'Type parameters:',
+    extends: 'Extends:',
+    references: 'References:',
+    usedIn: 'इनमें इस्तेमाल:',
+    deprecated: 'Deprecated।',
+    default: 'Default:',
+    see: 'देखें:',
+  },
 }

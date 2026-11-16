@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 
 import { domEventType } from './dom-event-types.mjs'
+import { generateAppBridgeTypes } from './generate-app-bridge-types.mjs'
 import { polarisTokensMigration } from './polaris-tokens-migration.mjs'
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
@@ -606,6 +607,28 @@ const EN = {
       lead: (count) =>
         `${count} typed Vue wrappers, one per Polaris web component, grouped the way [Shopify's own reference](https://shopify.dev/docs/api/app-home/polaris-web-components) groups them.`,
     },
+    // docs/app-bridge/types.md (scripts/generate-app-bridge-types.mjs). Only this chrome is
+    // translated; the descriptions on that page are Shopify's JSDoc, in English everywhere.
+    appBridgeTypes: {
+      title: 'App Bridge types – @shopify/app-bridge-types reference for Vue 3',
+      description:
+        'Reference for the @shopify/app-bridge-types types used by the App Bridge components for Vue 3: ShopifyGlobal, its APIs, element attributes and the types they reference.',
+      heading: 'App Bridge types',
+      intro: (pkg, version, subpath) =>
+        `The types used on the App Bridge pages, and every type they reference, from ${pkg} ${version}. ${subpath} re-exports the ones the package exports. The descriptions are Shopify's own JSDoc, in English.`,
+      groups: { apis: 'ShopifyGlobal and APIs', elements: 'Elements and attributes', other: 'Other types' },
+      table: { member: 'Member', type: 'Type', description: 'Description' },
+      notDescribed: 'Not described in the types.',
+      exported: 'Import:',
+      global: 'Declared in `declare global`, so it is available without an import.',
+      typeParameters: 'Type parameters:',
+      extends: 'Extends:',
+      references: 'References:',
+      usedIn: 'Used in:',
+      deprecated: 'Deprecated.',
+      default: 'Default:',
+      see: 'See:',
+    },
   },
 }
 
@@ -964,6 +987,13 @@ for (const loc of locales) {
     `[generate-docs] ${loc.code}: wrote ${components.length} component pages in ${CATEGORIES.length} categories to ${path.relative(repoRoot, loc.componentsDir)}, plus ${path.relative(repoRoot, indexPath)} and ${path.relative(repoRoot, loc.sidebarPath)}${untranslated}`,
   )
 }
+
+// docs/app-bridge/types.md and its translations, plus the type -> anchor map the docs'
+// markdown-it plugin links inline code with.
+const appBridgeTypes = generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
+console.warn(
+  `[generate-docs] app-bridge/types.md: ${appBridgeTypes.count} types from @shopify/app-bridge-types@${appBridgeTypes.version} in ${locales.length} locales (${Object.entries(appBridgeTypes.groups).map(([g, n]) => `${g} ${n}`).join(', ')}), plus ${path.relative(repoRoot, appBridgeTypes.jsonPath)}`,
+)
 
 // docs/css-variables/migration.md: the "Migrating from @shopify/polaris-tokens" lists.
 const migrationPath = path.join(repoRoot, 'docs', '.vitepress', 'polaris-tokens-migration.json')

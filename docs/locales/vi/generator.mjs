@@ -53,4 +53,29 @@ export default {
     lead: (count) =>
       `${count} Vue wrapper có type, mỗi wrapper cho một Polaris web component, được chia nhóm giống [tài liệu tham khảo của Shopify](https://shopify.dev/docs/api/app-home/polaris-web-components).`,
   },
+  // docs/vi/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  appBridgeTypes: {
+    title: 'Type App Bridge – tài liệu tham khảo @shopify/app-bridge-types cho Vue 3',
+    description:
+      'Tài liệu tham khảo các type của @shopify/app-bridge-types mà các component App Bridge cho Vue 3 dùng: ShopifyGlobal, các API của nó, attribute của element và các type chúng tham chiếu.',
+    heading: 'Các type App Bridge',
+    intro: (pkg, version, subpath) =>
+      `Các type được dùng trên các trang App Bridge, cùng mọi type mà chúng tham chiếu, lấy từ ${pkg} ${version}. ${subpath} re-export những type mà package export. Phần mô tả là JSDoc của chính Shopify, giữ nguyên tiếng Anh.`,
+    groups: {
+      apis: 'ShopifyGlobal và các API',
+      elements: 'Element và attribute',
+      other: 'Các type khác',
+    },
+    table: { member: 'Thành viên', type: 'Kiểu', description: 'Mô tả' },
+    notDescribed: 'Không được mô tả trong type.',
+    exported: 'Import:',
+    global: 'Được khai báo trong `declare global`, nên có thể dùng mà không cần import.',
+    typeParameters: 'Tham số type:',
+    extends: 'Kế thừa:',
+    references: 'Tham chiếu:',
+    usedIn: 'Được dùng trong:',
+    deprecated: 'Đã lỗi thời.',
+    default: 'Mặc định:',
+    see: 'Xem:',
+  },
 }

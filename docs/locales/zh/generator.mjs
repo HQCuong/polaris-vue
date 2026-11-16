@@ -54,4 +54,29 @@ export default {
     lead: (count) =>
       `${count} 个带类型的 Vue wrapper，每个对应一个 Polaris web component，分组方式与 [Shopify 参考文档](https://shopify.dev/docs/api/app-home/polaris-web-components) 一致。`,
   },
+  // docs/zh/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  appBridgeTypes: {
+    title: 'App Bridge 类型 – 适用于 Vue 3 的 @shopify/app-bridge-types 参考',
+    description:
+      '适用于 Vue 3 的 App Bridge 组件所用的 @shopify/app-bridge-types 类型参考：ShopifyGlobal、它的 API、元素属性，以及它们引用的类型。',
+    heading: 'App Bridge 类型',
+    intro: (pkg, version, subpath) =>
+      `App Bridge 各页面用到的类型，以及它们引用的所有类型，均来自 ${pkg} ${version}。${subpath} 重新导出该包所导出的类型。说明是 Shopify 自己的 JSDoc，保留英文。`,
+    groups: {
+      apis: 'ShopifyGlobal 与 API',
+      elements: '元素与属性',
+      other: '其他类型',
+    },
+    table: { member: '成员', type: '类型', description: '说明' },
+    notDescribed: '类型中没有说明。',
+    exported: '导入：',
+    global: '在 `declare global` 中声明，因此无需导入即可使用。',
+    typeParameters: '类型参数：',
+    extends: '继承：',
+    references: '引用：',
+    usedIn: '用于：',
+    deprecated: '已弃用。',
+    default: '默认值：',
+    see: '参见：',
+  },
 }

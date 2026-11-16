@@ -18,6 +18,9 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 - Docs: clearer page titles and descriptions on the App Bridge pages, an App Bridge
   section on the homepage, and a link from Getting started.
 - `package.json`: the description and keywords mention App Bridge and Shopify embedded apps.
+- Docs: a generated [App Bridge types](https://polaris-vue-elements.dev/app-bridge/types)
+  page with the 128 types the App Bridge docs reach in `@shopify/app-bridge-types`. Type
+  names on the App Bridge pages link to it, and the sync job regenerates it.
 
 ## [0.6.0] - 2026-11-13
 

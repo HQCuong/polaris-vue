@@ -414,9 +414,17 @@ jobs:
           npm run build:lib
           node scripts/check-dist-isolation.mjs
 
+      # Regenerates docs/app-bridge/types.md (and its translations) from the new types, so
+      # the reference page changes in the same PR as the bump.
+      - name: Regenerate docs pages
+        id: check_docs
+        if: steps.versions.outputs.changed == 'true'
+        continue-on-error: true
+        run: npm run docs:generate
+
       - name: Build docs
         id: check_docsbuild
-        if: steps.versions.outputs.changed == 'true'
+        if: steps.versions.outputs.changed == 'true' && steps.check_docs.outcome == 'success'
         continue-on-error: true
         run: npm run docs:build
 
@@ -437,6 +445,7 @@ jobs:
           TYPECHECK_STATUS=$(status "${{ steps.check_typecheck.outcome }}")
           VITEST_STATUS=$(status "${{ steps.check_vitest.outcome }}")
           BUILDLIB_STATUS=$(status "${{ steps.check_buildlib.outcome }}")
+          DOCS_STATUS=$(status "${{ steps.check_docs.outcome }}")
           DOCSBUILD_STATUS=$(status "${{ steps.check_docsbuild.outcome }}")
 
           {
@@ -458,9 +467,10 @@ jobs:
             echo "| type-check | ${TYPECHECK_STATUS} |"
             echo "| vitest | ${VITEST_STATUS} |"
             echo "| build:lib | ${BUILDLIB_STATUS} |"
+            echo "| docs:generate | ${DOCS_STATUS} |"
             echo "| docs:build | ${DOCSBUILD_STATUS} |"
             echo ""
-            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ] && [ "$BUILDLIB_STATUS" = "passed" ] && [ "$DOCSBUILD_STATUS" = "passed" ]; then
+            if [ "$OXLINT_STATUS" = "passed" ] && [ "$ESLINT_STATUS" = "passed" ] && [ "$TYPECHECK_STATUS" = "passed" ] && [ "$VITEST_STATUS" = "passed" ] && [ "$BUILDLIB_STATUS" = "passed" ] && [ "$DOCS_STATUS" = "passed" ] && [ "$DOCSBUILD_STATUS" = "passed" ]; then
               echo "All checks passed. This should be safe to review and merge."
             else
               echo "One or more checks FAILED. Investigate before merging."
@@ -484,3 +494,6 @@ jobs:
             package.json
             package-lock.json
             CHANGELOG.md
+            docs/app-bridge/types.md
+            docs/*/app-bridge/types.md
+            docs/.vitepress/app-bridge-types.json

@@ -53,4 +53,29 @@ export default {
     lead: (count) =>
       `타입이 지정된 Vue wrapper ${count}개로, 각각 하나의 Polaris web component에 대응하며 [Shopify 레퍼런스](https://shopify.dev/docs/api/app-home/polaris-web-components)와 같은 방식으로 분류되어 있습니다.`,
   },
+  // docs/ko/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  appBridgeTypes: {
+    title: 'App Bridge 타입 – Vue 3용 @shopify/app-bridge-types 레퍼런스',
+    description:
+      'Vue 3용 App Bridge 컴포넌트가 사용하는 @shopify/app-bridge-types 타입 레퍼런스입니다. ShopifyGlobal과 그 API, 요소 속성, 그리고 이들이 참조하는 타입을 다룹니다.',
+    heading: 'App Bridge 타입',
+    intro: (pkg, version, subpath) =>
+      `App Bridge 페이지에서 사용하는 타입과 이 타입들이 참조하는 모든 타입으로, ${pkg} ${version}에서 가져왔습니다. ${subpath}는 패키지가 export하는 타입을 다시 export합니다. 설명은 Shopify의 JSDoc 그대로이며 영어로 되어 있습니다.`,
+    groups: {
+      apis: 'ShopifyGlobal과 API',
+      elements: '요소와 속성',
+      other: '기타 타입',
+    },
+    table: { member: '멤버', type: '타입', description: '설명' },
+    notDescribed: '타입에 설명이 없습니다.',
+    exported: '가져오기:',
+    global: '`declare global`에 선언되어 있어 import 없이 사용할 수 있습니다.',
+    typeParameters: '타입 매개변수:',
+    extends: '확장:',
+    references: '참조:',
+    usedIn: '사용처:',
+    deprecated: '더 이상 사용되지 않습니다.',
+    default: '기본값:',
+    see: '참고:',
+  },
 }
