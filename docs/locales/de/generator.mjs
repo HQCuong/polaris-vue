@@ -53,18 +53,56 @@ export default {
     lead: (count) =>
       `${count} typisierte Vue-Wrapper, einer pro Polaris Web Component, gruppiert wie in der [Referenz von Shopify](https://shopify.dev/docs/api/app-home/polaris-web-components).`,
   },
-  // docs/de/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  // docs/de/app-bridge/types/. Shopify's descriptions on those pages stay in English.
   appBridgeTypes: {
-    title: 'App Bridge-Typen – @shopify/app-bridge-types-Referenz für Vue 3',
+    title: 'App Bridge-Typen für Vue 3 – ShopifyGlobal',
     description:
-      'Referenz der @shopify/app-bridge-types-Typen, die die App Bridge-Komponenten für Vue 3 verwenden: ShopifyGlobal, seine APIs, Element-Attribute und die Typen, auf die sie verweisen.',
+      'Referenz der @shopify/app-bridge-types-Typen, die die App Bridge-Komponenten für Vue 3 verwenden: ShopifyGlobal, seine APIs nach Kategorie, Element-Attribute und ein A–Z-Index.',
     heading: 'App Bridge-Typen',
     intro: (pkg, version, subpath) =>
       `Die Typen, die auf den App Bridge-Seiten verwendet werden, und alle Typen, auf die sie verweisen, aus ${pkg} ${version}. ${subpath} exportiert die Typen erneut, die das Paket exportiert. Die Beschreibungen sind Shopifys eigenes JSDoc und bleiben auf Englisch.`,
-    groups: {
-      apis: 'ShopifyGlobal und APIs',
-      elements: 'Elemente und Attribute',
-      other: 'Weitere Typen',
+    pagesHeading: 'Seiten',
+    azIndex: 'A–Z-Index',
+    otherApis: 'Weitere APIs',
+    sharedTypes: 'Kategorieübergreifend verwendet',
+    listSeparator: ', ',
+    onThisPage: (list) => `Auf dieser Seite: ${list}.`,
+    pages: {
+      'authentication-and-data': {
+        title: 'App Bridge-Typen: Authentifizierung und Daten',
+        description:
+          'Typen der App Bridge-APIs für Authentifizierung und Daten aus @shopify/app-bridge-types, für Vue 3: ihre Mitglieder und die Typen, die nur sie verwenden.',
+        lead:
+          'Die APIs, die Shopify unter Authentifizierung und Daten führt, und die Typen, die nur sie verwenden.',
+      },
+      'user-interface-and-interactions': {
+        title: 'App Bridge-Typen: Benutzeroberfläche',
+        description:
+          'Typen der App Bridge-APIs für Benutzeroberfläche und Interaktionen aus @shopify/app-bridge-types, für Vue 3: ihre Mitglieder und die Typen, die nur sie verwenden.',
+        lead:
+          'Die APIs, die Shopify unter Benutzeroberfläche und Interaktionen führt, und die Typen, die nur sie verwenden.',
+      },
+      'device-and-platform-integration': {
+        title: 'App Bridge-Typen: Geräte und Plattform',
+        description:
+          'Typen der App Bridge-APIs für Geräte- und Plattformintegration aus @shopify/app-bridge-types, für Vue 3: ihre Mitglieder und die Typen, die nur sie verwenden.',
+        lead:
+          'Die APIs, die Shopify unter Geräte- und Plattformintegration führt, und die Typen, die nur sie verwenden.',
+      },
+      elements: {
+        title: 'App Bridge-Typen: Elemente und Attribute',
+        description:
+          'Typen der App Bridge-Element-Interfaces und -Attribute aus @shopify/app-bridge-types, für Vue 3: ihre Mitglieder und die Typen, die nur sie verwenden.',
+        lead:
+          'Die Element-Interfaces und Attributtypen von App Bridge und die Typen, die nur sie verwenden.',
+      },
+      other: {
+        title: 'App Bridge-Typen: weitere APIs und Typen',
+        description:
+          'App Bridge-APIs, die shopify.dev keiner Kategorie zuordnet, und kategorieübergreifend verwendete Typen aus @shopify/app-bridge-types, für Vue 3.',
+        lead:
+          'APIs, die shopify.dev keiner Kategorie zuordnet, und die Typen, die mehr als eine Kategorie verwendet.',
+      },
     },
     table: { member: 'Mitglied', type: 'Typ', description: 'Beschreibung' },
     notDescribed: 'In den Typen nicht beschrieben.',

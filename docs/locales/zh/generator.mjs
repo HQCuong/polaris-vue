@@ -54,18 +54,51 @@ export default {
     lead: (count) =>
       `${count} 个带类型的 Vue wrapper，每个对应一个 Polaris web component，分组方式与 [Shopify 参考文档](https://shopify.dev/docs/api/app-home/polaris-web-components) 一致。`,
   },
-  // docs/zh/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  // docs/zh/app-bridge/types/. Shopify's descriptions on those pages stay in English.
   appBridgeTypes: {
-    title: 'App Bridge 类型 – 适用于 Vue 3 的 @shopify/app-bridge-types 参考',
+    title: '适用于 Vue 3 的 App Bridge 类型 – ShopifyGlobal',
     description:
-      '适用于 Vue 3 的 App Bridge 组件所用的 @shopify/app-bridge-types 类型参考：ShopifyGlobal、它的 API、元素属性，以及它们引用的类型。',
+      '适用于 Vue 3 的 App Bridge 组件所用的 @shopify/app-bridge-types 类型参考：ShopifyGlobal、按类别划分的 API、元素属性和 A–Z 索引。',
     heading: 'App Bridge 类型',
     intro: (pkg, version, subpath) =>
       `App Bridge 各页面用到的类型，以及它们引用的所有类型，均来自 ${pkg} ${version}。${subpath} 重新导出该包所导出的类型。说明是 Shopify 自己的 JSDoc，保留英文。`,
-    groups: {
-      apis: 'ShopifyGlobal 与 API',
-      elements: '元素与属性',
-      other: '其他类型',
+    pagesHeading: '页面',
+    azIndex: 'A–Z 索引',
+    otherApis: '其他 API',
+    sharedTypes: '多个类别共用',
+    listSeparator: '、',
+    onThisPage: (list) => `本页：${list}。`,
+    pages: {
+      'authentication-and-data': {
+        title: 'App Bridge 类型：身份验证和数据',
+        description:
+          '适用于 Vue 3 的 @shopify/app-bridge-types 中 App Bridge 身份验证和数据 API 的类型：它们的成员，以及只有它们使用的类型。',
+        lead: 'Shopify 归入“身份验证和数据”的 API，以及只有它们使用的类型。',
+      },
+      'user-interface-and-interactions': {
+        title: 'App Bridge 类型：用户界面',
+        description:
+          '适用于 Vue 3 的 @shopify/app-bridge-types 中 App Bridge 用户界面和交互 API 的类型：它们的成员，以及只有它们使用的类型。',
+        lead: 'Shopify 归入“用户界面和交互”的 API，以及只有它们使用的类型。',
+      },
+      'device-and-platform-integration': {
+        title: 'App Bridge 类型：设备和平台',
+        description:
+          '适用于 Vue 3 的 @shopify/app-bridge-types 中 App Bridge 设备和平台集成 API 的类型：它们的成员，以及只有它们使用的类型。',
+        lead: 'Shopify 归入“设备和平台集成”的 API，以及只有它们使用的类型。',
+      },
+      elements: {
+        title: 'App Bridge 类型：元素与属性',
+        description:
+          '适用于 Vue 3 的 @shopify/app-bridge-types 中 App Bridge 元素接口和属性的类型：它们的成员，以及只有它们使用的类型。',
+        lead: 'App Bridge 的元素接口和属性类型，以及只有它们使用的类型。',
+      },
+      other: {
+        title: 'App Bridge 类型：其他 API 和类型',
+        description:
+          '适用于 Vue 3 的 @shopify/app-bridge-types 中 shopify.dev 未归入任何类别的 App Bridge API，以及多个类别共用的类型。',
+        lead: 'shopify.dev 未归入任何类别的 API，以及多个类别共用的类型。',
+      },
     },
     table: { member: '成员', type: '类型', description: '说明' },
     notDescribed: '类型中没有说明。',

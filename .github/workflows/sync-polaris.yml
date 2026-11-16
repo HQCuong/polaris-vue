@@ -414,8 +414,8 @@ jobs:
           npm run build:lib
           node scripts/check-dist-isolation.mjs
 
-      # Regenerates docs/app-bridge/types.md (and its translations) from the new types, so
-      # the reference page changes in the same PR as the bump.
+      # Regenerates docs/app-bridge/types/ (and its translations) from the new types, so
+      # the reference pages change in the same PR as the bump.
       - name: Regenerate docs pages
         id: check_docs
         if: steps.versions.outputs.changed == 'true'
@@ -494,6 +494,6 @@ jobs:
             package.json
             package-lock.json
             CHANGELOG.md
-            docs/app-bridge/types.md
-            docs/*/app-bridge/types.md
+            docs/app-bridge/types/**
+            docs/*/app-bridge/types/**
             docs/.vitepress/app-bridge-types.json

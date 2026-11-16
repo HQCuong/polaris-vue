@@ -67,6 +67,13 @@
     "appWindow": "AppWindow",
     "navMenu": "NavMenu",
     "types": "Types",
+    "typesPages": {
+      "authentication-and-data": "Xác thực và dữ liệu",
+      "user-interface-and-interactions": "Giao diện người dùng và tương tác",
+      "device-and-platform-integration": "Tích hợp thiết bị và nền tảng",
+      "elements": "Element và attribute",
+      "other": "API và type khác"
+    },
     "beta": "Beta"
   },
   "appBridgeBeta": {

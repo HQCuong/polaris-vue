@@ -1,11 +1,11 @@
-// Generates the App Bridge types reference, docs/app-bridge/types.md and its translations
-// docs/<code>/app-bridge/types.md, plus docs/.vitepress/app-bridge-types.json (type name ->
-// anchor), which the markdown-it plugin in docs/.vitepress/config.ts uses to link inline
-// code such as `ToastApi` on the App Bridge pages to its entry. Called by
-// scripts/generate-docs.mjs.
+// Generates the App Bridge types reference: the pages in docs/app-bridge/types/ and their
+// translations in docs/<code>/app-bridge/types/, plus docs/.vitepress/app-bridge-types.json
+// (type name -> page and anchor), which the markdown-it plugin in docs/.vitepress/config.ts
+// uses to link inline code such as `ToastApi` on the App Bridge pages to its entry. Called
+// by scripts/generate-docs.mjs.
 //
 // Source: @shopify/app-bridge-types' dist/index.d.ts, parsed with the TypeScript compiler
-// API. Every member, type and description printed comes from that file, so the page cannot
+// API. Every member, type and description printed comes from that file, so the pages cannot
 // say anything the types don't. Descriptions stay in Shopify's English in every locale; only
 // the page chrome (docs/locales/<code>/generator.mjs, `appBridgeTypes`) is translated.
 //
@@ -14,9 +14,14 @@
 // augmentations (`declare global`) are left out, except the element interfaces declared
 // there as `interface X extends X$1 {}`, which are shown under their global name.
 //
+// Pages: the overview (index.md: ShopifyGlobal and an A–Z index), one page per category
+// Shopify files the `shopify` APIs under on shopify.dev, one for the element interfaces,
+// and one for the types several of those share. See "Pages" below for how a type's page is
+// chosen.
+//
 // Deterministic: running it twice gives no diff.
 
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 
 import ts from 'typescript'
@@ -36,9 +41,29 @@ const PAGES = [
   ['nav-menu', 'navMenu'],
 ]
 
-const GROUPS = ['apis', 'elements', 'other']
-const GROUP_ANCHORS = { apis: 'apis', elements: 'elements-and-attributes', other: 'other-types' }
-const PAGE_ANCHOR = 'app-bridge-types'
+// The categories in shopify.dev's App Bridge API URLs (`/docs/api/app-home/apis/<category>/…`).
+const CATEGORIES = ['authentication-and-data', 'user-interface-and-interactions', 'device-and-platform-integration']
+
+// The generated pages in docs/app-bridge/types/, in sidebar order, and the anchor of each H1.
+// `other` holds the APIs without a shopify.dev category and the types used across categories.
+const TYPE_PAGES = ['index', ...CATEGORIES, 'elements', 'other']
+const PAGE_ANCHORS = {
+  index: 'app-bridge-types',
+  'authentication-and-data': 'authentication-and-data',
+  'user-interface-and-interactions': 'user-interface-and-interactions',
+  'device-and-platform-integration': 'device-and-platform-integration',
+  elements: 'elements-and-attributes',
+  other: 'other-apis-and-types',
+}
+const SECTION_ANCHORS = { pages: 'type-pages', azIndex: 'a-z-index', otherApis: 'other-apis', acrossCategories: 'used-across-categories' }
+
+// `shopify` members that use-app-bridge.md shows without a shopify.dev link, because
+// shopify.dev has no page for them. Their types go to "Other APIs" on the other page
+// without a warning; any other member without a category gets one.
+const UNCATEGORIZED_MEMBERS = new Set(['origin', 'ready', 'setSignals', 'shopifyQL'])
+
+// Element interfaces and their attribute types (`UIModalElement`, `SAppWindowAttributes`).
+const ELEMENT_NAME = /(Element|Elements|Attributes|Children)$/
 
 /**
  * @param {object} options
@@ -140,7 +165,7 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
 
   const enDir = path.join(repoRoot, 'docs', 'app-bridge')
   const docNames = new Set()
-  for (const file of readdirSync(enDir).filter((f) => f.endsWith('.md') && f !== 'types.md').toSorted()) {
+  for (const file of readdirSync(enDir).filter((f) => f.endsWith('.md')).toSorted()) {
     for (const code of inlineCode(readFileSync(path.join(enDir, file), 'utf8'))) {
       const d = resolve(code) ?? byName.get(code)
       if (d) docNames.add(d.name)
@@ -158,28 +183,126 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
   }
   const types = [...onPage].map((n) => byName.get(n))
 
-  const anchors = new Set([PAGE_ANCHOR, ...Object.values(GROUP_ANCHORS)])
+  // Types on the pages that reference each type.
+  const referencedBy = new Map(types.map((d) => [d.name, []]))
+  for (const d of types) for (const r of d.refs) referencedBy.get(r)?.push(d.name)
+
+  // -------------------------------------------------------------------------
+  // Pages: where each type is shown
+  //
+  // Roots are the types of the `shopify` members (the APIs, in the category of their
+  // shopify.dev page; "other" without one) and the element interfaces. A root gets its
+  // own heading on its page. Every other type belongs to the roots that reach it without
+  // passing through another root:
+  // - reached from one kind of root only (one category, "other" or elements): it is shown
+  //   under the first of those roots, alphabetically;
+  // - reached from two or more kinds, or from none: it goes to the other page.
+  // -------------------------------------------------------------------------
+
+  // Category of each `shopify` member, from the shopify.dev links in the API table of
+  // use-app-bridge.md (`[`toast`](https://shopify.dev/docs/api/app-home/latest/apis/<category>/toast-api)`).
+  const categoryOfMember = new Map()
+  const useAppBridgeMd = readFileSync(path.join(enDir, 'use-app-bridge.md'), 'utf8')
+  for (const [, member, category] of useAppBridgeMd.matchAll(
+    /\[`(\w+)`\]\(https:\/\/shopify\.dev\/docs\/api\/app-home\/(?:[^)\s]*\/)?apis\/([a-z-]+)\/[^)\s]*\)/g,
+  )) {
+    if (!CATEGORIES.includes(category)) {
+      console.warn(`[generate-docs] app-bridge types: shopify.${member} links to unknown category "${category}"; listed under Other APIs`)
+      continue
+    }
+    if (!categoryOfMember.has(member)) categoryOfMember.set(member, category)
+  }
+
+  const shopifyGlobal = byName.get('ShopifyGlobal')
+  /** @type {Map<string, string>} root type name -> category, 'other' or 'elements' */
+  const rootKind = new Map()
+  for (const member of shopifyGlobal.node.members) {
+    const memberName = member.name ? member.name.getText(sf) : ''
+    const targets = new Set()
+    walkRefs(member, (id) => {
+      const d = resolve(id.text)
+      if (d && d !== shopifyGlobal) targets.add(d.name)
+    })
+    if (targets.size === 0) continue
+    const category = categoryOfMember.get(memberName)
+    if (!category && !UNCATEGORIZED_MEMBERS.has(memberName)) {
+      console.warn(
+        `[generate-docs] app-bridge types: shopify.${memberName} has no shopify.dev category link in docs/app-bridge/use-app-bridge.md; listed under Other APIs`,
+      )
+    }
+    for (const name of [...targets].toSorted(compareNames)) if (!rootKind.has(name)) rootKind.set(name, category ?? 'other')
+  }
+
+  // Element roots: the element interfaces the App Bridge pages name, and those no other
+  // element interface references (`_UIModalElement` stays under `UIModalElement`).
+  const elementNames = new Set(types.map((d) => d.name).filter((n) => ELEMENT_NAME.test(n) && !rootKind.has(n) && n !== 'ShopifyGlobal'))
+  for (const name of [...elementNames].toSorted(compareNames)) {
+    if (docNames.has(name) || !referencedBy.get(name).some((r) => r !== name && elementNames.has(r))) rootKind.set(name, 'elements')
+  }
+
+  const rootNames = [...rootKind.keys()].toSorted(compareNames)
+  const reachedBy = new Map() // type -> the roots that reach it, alphabetically
+  const reachOrder = new Map() // root -> the types it reaches, breadth-first
+  for (const root of rootNames) {
+    const seen = new Set([root])
+    const order = []
+    const bfs = [root]
+    while (bfs.length > 0) {
+      for (const r of [...byName.get(bfs.shift()).refs].toSorted(compareNames)) {
+        if (seen.has(r) || rootKind.has(r) || r === 'ShopifyGlobal') continue
+        seen.add(r)
+        order.push(r)
+        bfs.push(r)
+        if (!reachedBy.has(r)) reachedBy.set(r, [])
+        reachedBy.get(r).push(root)
+      }
+    }
+    reachOrder.set(root, order)
+  }
+
+  /** @type {Map<string, { page: string, owner: string | null }>} owner: the root it is shown under */
+  const placement = new Map([['ShopifyGlobal', { page: 'index', owner: null }]])
+  for (const name of rootNames) placement.set(name, { page: pageOfKind(rootKind.get(name)), owner: name })
+  for (const d of types) {
+    if (placement.has(d.name)) continue
+    const by = reachedBy.get(d.name) ?? []
+    const kinds = new Set(by.map((r) => rootKind.get(r)))
+    placement.set(d.name, kinds.size === 1 ? { page: pageOfKind(rootKind.get(by[0])), owner: by[0] } : { page: 'other', owner: null })
+  }
+
+  const anchors = new Set([...Object.values(PAGE_ANCHORS), ...Object.values(SECTION_ANCHORS)])
+  assert(anchors.size === Object.keys(PAGE_ANCHORS).length + Object.keys(SECTION_ANCHORS).length, 'page and section anchors are not unique')
   for (const d of types) {
     assert(!anchors.has(anchorOf(d.name)), `anchor "#${anchorOf(d.name)}" for ${d.name} is not unique`)
     anchors.add(anchorOf(d.name))
   }
 
-  // Groups: ShopifyGlobal and the declared types of its members; element interfaces,
-  // their attributes and children; everything else.
-  const shopifyGlobal = byName.get('ShopifyGlobal')
-  const apiNames = new Set(['ShopifyGlobal'])
-  for (const member of shopifyGlobal.node.members) {
-    if (member.type && ts.isTypeReferenceNode(member.type)) {
-      const target = resolve(leftmost(member.type.typeName)?.text ?? '')
-      if (target) apiNames.add(target.name)
+  // Headings in page order: [name, level] per page.
+  const isRootOf = (page) => (name) => placement.get(name).page === page && rootKind.has(name)
+  const owned = (root) => reachOrder.get(root).filter((n) => placement.get(n).owner === root)
+  const layout = Object.fromEntries(TYPE_PAGES.map((p) => [p, []]))
+  layout.index.push(['ShopifyGlobal', 2])
+  for (const page of [...CATEGORIES, 'elements']) {
+    for (const root of rootNames.filter(isRootOf(page))) {
+      layout[page].push([root, 2], ...owned(root).map((n) => [n, 3]))
     }
   }
-  const groupOf = (d) =>
-    apiNames.has(d.name) ? 'apis' : /(Element|Elements|Attributes|Children)$/.test(d.name) ? 'elements' : 'other'
+  const otherApis = rootNames.filter(isRootOf('other'))
+  for (const root of otherApis) layout.other.push([root, 3], ...owned(root).map((n) => [n, 3]))
+  const sharedTypes = types
+    .map((d) => d.name)
+    .filter((n) => placement.get(n).page === 'other' && placement.get(n).owner === null)
+    .toSorted(compareNames)
+  for (const name of sharedTypes) layout.other.push([name, 3])
 
-  // Types on the page that reference each type.
-  const referencedBy = new Map(types.map((d) => [d.name, []]))
-  for (const d of types) for (const r of d.refs) referencedBy.get(r)?.push(d.name)
+  // The root types each page shows as headings (its APIs or elements), for the page leads.
+  const rootsOn = (page) => rootNames.filter(isRootOf(page))
+
+  const shown = Object.values(layout).flat().map(([n]) => n)
+  assert(shown.length === types.length && new Set(shown).size === types.length, `${shown.length} headings for ${types.length} types`)
+  for (const [page, entries] of Object.entries(layout)) {
+    for (const [name] of entries) assert(placement.get(name).page === page, `${name} is laid out on ${page} but placed on ${placement.get(name).page}`)
+  }
 
   // -------------------------------------------------------------------------
   // Printing
@@ -200,9 +323,13 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     return text
   }
 
-  // Printed type text as `<code>` HTML, with each type on the page linked to its heading.
+  // The page being written: its locale's strings, "Used in" mentions and link prefix.
+  // `href(name)` is `#anchor` for a type on the same page, else the other page's URL.
+  /** @typedef {{ t: Record<string, any>, mentions: Map<string, string[]>, page: string, href: (name: string) => string }} Ctx */
+
+  // Printed type text as `<code>` HTML, with each type on the pages linked to its heading.
   // The text is parsed again so that only identifiers in type positions are linked.
-  function codeHtml(text, { prefix = 'type __T = ', suffix = ';', scope = new Set() } = {}) {
+  function codeHtml(text, ctx, { prefix = 'type __T = ', suffix = ';', scope = new Set() } = {}) {
     const flat = text.replace(/\n\s*/g, ' ')
     const src = ts.createSourceFile('__t.ts', prefix + flat + suffix, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
     const links = []
@@ -218,14 +345,14 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     let at = 0
     for (const link of links) {
       if (link.start < at) continue
-      html += escapeHtml(flat.slice(at, link.start)) + `<a href="#${anchorOf(link.name)}">${escapeHtml(link.name)}</a>`
+      html += escapeHtml(flat.slice(at, link.start)) + `<a href="${ctx.href(link.name)}">${escapeHtml(link.name)}</a>`
       at = link.end
     }
     html += escapeHtml(flat.slice(at))
     return `<code v-pre>${html}</code>`
   }
 
-  function memberRow(member, outerScope, t) {
+  function memberRow(member, outerScope, ctx) {
     const optional = member.questionToken ? '?' : ''
     const readonly = member.modifiers?.some((m) => m.kind === ts.SyntaxKind.ReadonlyKeyword) ? 'readonly ' : ''
     let label
@@ -244,27 +371,27 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     } else {
       fail(`app-bridge types: unsupported member ${ts.SyntaxKind[member.kind]} at ${sf.getLineAndCharacterOfPosition(member.getStart(sf)).line + 1}`)
     }
-    const description = describe(member, t, { inline: true })
-    return [`\`${label}\``, codeHtml(typeText, { scope: outerScope }), description || t.notDescribed]
+    const description = describe(member, ctx, { inline: true })
+    return [`\`${label}\``, codeHtml(typeText, ctx, { scope: outerScope }), description || ctx.t.notDescribed]
   }
 
   // -------------------------------------------------------------------------
   // JSDoc -> markdown
   // -------------------------------------------------------------------------
 
-  function commentText(comment) {
+  function commentText(comment, ctx) {
     if (comment === undefined) return ''
-    if (typeof comment === 'string') return comment
+    if (typeof comment === 'string') return shopifyLinks(comment)
     return comment
       .map((part) => {
         if (ts.isJSDocLink(part) || ts.isJSDocLinkCode(part) || ts.isJSDocLinkPlain(part)) {
           const name = part.name ? part.name.getText(sf) : ''
           const target = resolve(name)
           const label = (part.text ?? '').trim()
-          if (target && onPage.has(target.name)) return `[\`${target.name}\`](#${anchorOf(target.name)})`
+          if (target && onPage.has(target.name)) return typeLink(target.name, ctx)
           return label !== '' && name === '' ? label : `\`${name}${part.text ?? ''}\``
         }
-        return part.text
+        return shopifyLinks(part.text)
       })
       .join('')
   }
@@ -272,14 +399,8 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
   // Markdown for a run of JSDoc text: paragraphs and list items kept apart with `<br>` (one
   // line in a table cell), `<` and `>` escaped outside code spans so VitePress never reads
   // them as HTML, and pipes escaped for tables.
-  // Shopify's links are written for shopify.dev: root-relative ones get its origin back, and
-  // in-page ones (`#rate-limits-restrictions`) point at headings this site doesn't have, so
-  // only their text is kept.
   function markdown(text, { inline }) {
-    const linked = text
-      .replace(/\]\(\/(?!\/)/g, '](https://shopify.dev/')
-      .replace(/\[([^\]]+)\]\(#[^)]*\)/g, '$1')
-    const lines = linked.split('\n').map((l) => l.trim())
+    const lines = text.split('\n').map((l) => l.trim())
     let out = ''
     let blank = false
     for (const line of lines) {
@@ -323,16 +444,17 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
   }
 
   // Summary plus @deprecated, @default/@defaultValue and @see, as markdown.
-  function describe(node, t, { inline }) {
+  function describe(node, ctx, { inline }) {
+    const { t } = ctx
     const docs = (node.jsDoc ?? []).filter((d) => ts.isJSDoc(d))
     const doc = docs.at(-1)
     if (!doc) return ''
     const parts = []
-    const summary = commentText(doc.comment).trim()
+    const summary = commentText(doc.comment, ctx).trim()
     if (summary) parts.push(markdown(summary, { inline }))
     for (const tag of doc.tags ?? []) {
       const name = tag.tagName.text
-      const text = commentText(tag.comment).trim()
+      const text = commentText(tag.comment, ctx).trim()
       if (name === 'deprecated') {
         parts.push(text ? `**${t.deprecated}** ${markdown(text, { inline })}` : `**${t.deprecated}**`)
       } else if (name === 'default' || name === 'defaultValue') {
@@ -346,15 +468,14 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
   }
 
   // -------------------------------------------------------------------------
-  // Pages
+  // Rendering
   // -------------------------------------------------------------------------
 
   // Each type's "Used in" pages, per locale: the locale's App Bridge pages that use the type
   // name as inline code.
-  function pageMentions(loc) {
+  function pageMentions(loc, theme) {
     const dir = path.join(repoRoot, 'docs', loc.code === 'en' ? '' : loc.code, 'app-bridge')
-    const theme = JSON.parse(readFileSync(path.join(repoRoot, 'docs', 'locales', loc.code, 'theme.json'), 'utf8'))
-    const files = readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'types.md')
+    const files = readdirSync(dir).filter((f) => f.endsWith('.md'))
     const known = new Set(PAGES.map(([file]) => `${file}.md`))
     for (const file of files) {
       assert(known.has(file), `${path.relative(repoRoot, path.join(dir, file))} is not listed in PAGES`)
@@ -376,9 +497,10 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     return mentions
   }
 
-  function renderType(d, t, mentions) {
-    const lines = [`### \`${d.name}\` {#${anchorOf(d.name)}}`, '']
-    const description = describe(d.jsDocHost, t, { inline: false })
+  function renderType(d, level, ctx) {
+    const { t, mentions } = ctx
+    const lines = [`${'#'.repeat(level)} \`${d.name}\` {#${anchorOf(d.name)}}`, '']
+    const description = describe(d.jsDocHost, ctx, { inline: false })
     if (description) lines.push(description, '')
 
     if (d.exported) lines.push(`${t.exported} \`import type { ${d.name} } from '${subpath}'\``, '')
@@ -391,61 +513,129 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     if (ts.isInterfaceDeclaration(node) || isObjectAlias) {
       if (node.typeParameters?.length) {
         const text = node.typeParameters.map((p) => print(p)).join(', ')
-        lines.push(`${t.typeParameters} ${codeHtml(text, { prefix: 'type __T<', suffix: '> = 0;' })}`, '')
+        lines.push(`${t.typeParameters} ${codeHtml(text, ctx, { prefix: 'type __T<', suffix: '> = 0;' })}`, '')
       }
       const heritage = ts.isInterfaceDeclaration(node) ? (node.heritageClauses?.flatMap((c) => c.types) ?? []) : []
       if (heritage.length > 0) {
-        lines.push(`${t.extends} ${heritage.map((h) => codeHtml(print(h), { scope })).join(', ')}`, '')
+        lines.push(`${t.extends} ${heritage.map((h) => codeHtml(print(h), ctx, { scope })).join(', ')}`, '')
       }
       const members = ts.isInterfaceDeclaration(node) ? node.members : node.type.members
       if (members.length > 0) {
         lines.push(`| ${t.table.member} | ${t.table.type} | ${t.table.description} |`, '| --- | --- | --- |')
-        for (const m of members) lines.push(`| ${memberRow(m, scope, t).join(' | ')} |`)
+        for (const m of members) lines.push(`| ${memberRow(m, scope, ctx).join(' | ')} |`)
         lines.push('')
       }
     } else {
       lines.push('```ts', print(node), '```', '')
       const refs = [...d.refs].filter((r) => onPage.has(r)).toSorted(compareNames)
-      if (refs.length > 0) lines.push(`${t.references} ${refs.map(typeLink).join(', ')}`, '')
+      if (refs.length > 0) lines.push(`${t.references} ${refs.map((r) => typeLink(r, ctx)).join(', ')}`, '')
     }
 
     const usedIn = [
       ...(mentions.get(d.name) ?? []),
-      ...referencedBy.get(d.name).toSorted(compareNames).map(typeLink),
+      ...referencedBy.get(d.name).toSorted(compareNames).map((r) => typeLink(r, ctx)),
     ]
     if (usedIn.length > 0) lines.push(`${t.usedIn} ${usedIn.join(', ')}`, '')
     return lines.join('\n')
   }
 
-  const names = Object.fromEntries(types.map((d) => d.name).toSorted(compareNames).map((n) => [n, anchorOf(n)]))
-  const jsonPath = path.join(repoRoot, 'docs', '.vitepress', 'app-bridge-types.json')
-  writeFileSync(jsonPath, JSON.stringify({ package: PACKAGE, version, anchors: names }, null, 2) + '\n')
+  // The page's APIs or elements, linked, joined with the locale's list separator.
+  const rootList = (page, ctx) => rootsOn(page).map((n) => typeLink(n, ctx)).join(ctx.t.listSeparator)
 
+  // The A–Z index on the overview: one line per initial letter, `_` prefixes ignored.
+  function azIndex(ctx) {
+    const byLetter = new Map()
+    for (const name of types.map((d) => d.name).toSorted(compareNames)) {
+      const letter = name.replace(/^_+/, '')[0].toUpperCase()
+      if (!byLetter.has(letter)) byLetter.set(letter, [])
+      byLetter.get(letter).push(typeLink(name, ctx))
+    }
+    return [...byLetter].map(([letter, links]) => `**${letter}** · ${links.join(' · ')}`).join('\n\n')
+  }
+
+  const jsonTypes = Object.fromEntries(
+    types
+      .map((d) => d.name)
+      .toSorted(compareNames)
+      .map((n) => [n, { page: placement.get(n).page, anchor: anchorOf(n) }]),
+  )
+  const jsonPath = path.join(repoRoot, 'docs', '.vitepress', 'app-bridge-types.json')
+  writeFileSync(jsonPath, JSON.stringify({ package: PACKAGE, version, types: jsonTypes }, null, 2) + '\n')
+
+  const stats = {}
   for (const loc of locales) {
     const t = loc.t.appBridgeTypes
     assert(t && typeof t === 'object', `locale "${loc.code}" has no appBridgeTypes strings in its generator.mjs`)
-    const mentions = pageMentions(loc)
-    const out = [
-      '---',
-      `title: ${JSON.stringify(t.title)}`,
-      `description: ${JSON.stringify(t.description)}`,
-      '---',
-      `<!-- Generated by scripts/generate-app-bridge-types.mjs from ${PACKAGE}@${version} — DO NOT EDIT. -->`,
-      '',
-      `# ${t.heading} {#${PAGE_ANCHOR}}`,
-      '',
-      t.intro(`[\`${PACKAGE}\`](${NPM_URL})`, version, `\`${subpath}\``),
-      '',
-    ]
-    for (const group of GROUPS) {
-      const inGroup = types.filter((d) => groupOf(d) === group).toSorted((a, b) => compareNames(a.name, b.name))
-      if (inGroup.length === 0) continue
-      out.push(`## ${t.groups[group]} {#${GROUP_ANCHORS[group]}}`, '')
-      for (const d of inGroup) out.push(renderType(d, t, mentions))
+    const theme = JSON.parse(readFileSync(path.join(repoRoot, 'docs', 'locales', loc.code, 'theme.json'), 'utf8'))
+    const labels = theme.sidebarAppBridge?.typesPages
+    assert(typeof t.listSeparator === 'string' && typeof t.onThisPage === 'function', `locale "${loc.code}" has no appBridgeTypes.listSeparator or onThisPage`)
+    for (const page of TYPE_PAGES.slice(1)) {
+      assert(typeof labels?.[page] === 'string', `docs/locales/${loc.code}/theme.json has no sidebarAppBridge.typesPages["${page}"]`)
+      for (const key of ['title', 'description', 'lead']) {
+        assert(typeof t.pages?.[page]?.[key] === 'string', `locale "${loc.code}" has no appBridgeTypes.pages["${page}"].${key}`)
+      }
     }
-    const dir = path.join(repoRoot, 'docs', loc.code === 'en' ? '' : loc.code, 'app-bridge')
+    const mentions = pageMentions(loc, theme)
+    const dir = path.join(repoRoot, 'docs', loc.code === 'en' ? '' : loc.code, 'app-bridge', 'types')
     mkdirSync(dir, { recursive: true })
-    writeFileSync(path.join(dir, 'types.md'), out.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n')
+    const expected = new Set(TYPE_PAGES.map((p) => `${p}.md`))
+    for (const file of readdirSync(dir)) if (file.endsWith('.md') && !expected.has(file)) rmSync(path.join(dir, file))
+
+    for (const page of TYPE_PAGES) {
+      /** @type {Ctx} */
+      const ctx = {
+        t,
+        mentions,
+        page,
+        href: (name) => {
+          const target = placement.get(name).page
+          return `${target === page ? '' : pageUrl(loc, target)}#${anchorOf(name)}`
+        },
+      }
+      const strings = page === 'index' ? t : t.pages[page]
+      const out = [
+        '---',
+        `title: ${JSON.stringify(strings.title)}`,
+        `description: ${JSON.stringify(strings.description)}`,
+        '---',
+        `<!-- Generated by scripts/generate-app-bridge-types.mjs from ${PACKAGE}@${version} — DO NOT EDIT. -->`,
+        '',
+        `# ${page === 'index' ? t.heading : labels[page]} {#${PAGE_ANCHORS[page]}}`,
+        '',
+      ]
+      if (page === 'index') {
+        out.push(t.intro(`[\`${PACKAGE}\`](${NPM_URL})`, version, `\`${subpath}\``), '')
+        out.push(`## ${t.pagesHeading} {#${SECTION_ANCHORS.pages}}`, '')
+        for (const p of TYPE_PAGES.slice(1)) {
+          const list = rootList(p, ctx)
+          out.push(`- [${labels[p]}](${pageUrl(loc, p)})${list ? `: ${list}` : ''}`)
+        }
+        out.push('')
+        for (const [name, level] of layout.index) out.push(renderType(byName.get(name), level, ctx))
+        out.push(`## ${t.azIndex} {#${SECTION_ANCHORS.azIndex}}`, '', azIndex(ctx), '')
+      } else {
+        const list = rootList(page, ctx)
+        // No space after a CJK full stop (ja, zh).
+        out.push(list ? `${strings.lead}${strings.lead.endsWith('。') ? '' : ' '}${t.onThisPage(list)}` : strings.lead, '')
+        for (const [name, level] of layout[page]) {
+          if (page === 'other' && name === otherApis[0]) out.push(`## ${t.otherApis} {#${SECTION_ANCHORS.otherApis}}`, '')
+          if (page === 'other' && name === sharedTypes[0]) out.push(`## ${t.sharedTypes} {#${SECTION_ANCHORS.acrossCategories}}`, '')
+          out.push(renderType(byName.get(name), level, ctx))
+        }
+      }
+      const text = out.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n'
+      writeFileSync(path.join(dir, `${page}.md`), text)
+      stats[page] ??= { types: layout[page].length, lines: {} }
+      stats[page].lines[loc.code] = text.split('\n').length - 1
+    }
+  }
+
+  // Ownership, for the generate-docs log: kind -> root -> number of types shown under it.
+  const ownership = {}
+  for (const root of rootNames) {
+    const kind = rootKind.get(root)
+    ownership[kind] ??= {}
+    ownership[kind][root] = owned(root).length
   }
 
   return {
@@ -453,9 +643,25 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     count: types.length,
     roots,
     jsonPath,
-    groups: Object.fromEntries(GROUPS.map((g) => [g, types.filter((d) => groupOf(d) === g).length])),
+    pages: stats,
+    ownership,
+    acrossCategories: sharedTypes.length,
   }
 }
+
+// The page a root of this kind (a category, 'elements' or 'other') is shown on.
+const pageOfKind = (kind) => (CATEGORIES.includes(kind) ? kind : kind === 'elements' ? 'elements' : 'other')
+
+/** @param {{ href: (name: string) => string }} ctx */
+const typeLink = (name, ctx) => `[\`${name}\`](${ctx.href(name)})`
+
+const pageUrl = (loc, page) => `${loc.linkPrefix}/app-bridge/types/${page === 'index' ? '' : page}`
+
+// Shopify's links are written for shopify.dev: root-relative ones get its origin back, and
+// in-page ones (`#rate-limits-restrictions`) point at headings this site doesn't have, so
+// only their text is kept. (`{@link Type}` becomes a link to the type's heading.)
+const shopifyLinks = (text) =>
+  text.replace(/\]\(\/(?!\/)/g, '](https://shopify.dev/').replace(/\[([^\]]+)\]\(#[^)]*\)/g, '$1')
 
 // The bundler renames a declaration that clashes with a global (`Location`, `Image`) or
 // with the global interface that extends it (`UIModalElement`) to `Name$1`. The page uses
@@ -492,8 +698,6 @@ function walkRefs(root, onRef, outerScope = new Set()) {
   }
   visit(root, outerScope)
 }
-
-const typeLink = (name) => `[\`${name}\`](#${anchorOf(name)})`
 
 // Sorts `_UIModalAttributes` next to `UIModalAttributes`; plain code-unit comparison, so the
 // order never depends on the ICU data of the machine running the script.

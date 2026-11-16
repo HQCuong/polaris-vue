@@ -67,6 +67,13 @@
     "appWindow": "AppWindow",
     "navMenu": "NavMenu",
     "types": "Types",
+    "typesPages": {
+      "authentication-and-data": "Authentication and data",
+      "user-interface-and-interactions": "User interface and interactions",
+      "device-and-platform-integration": "Device and platform integration",
+      "elements": "Elements and attributes",
+      "other": "Other APIs and types"
+    },
     "beta": "Beta"
   },
   "appBridgeBeta": {

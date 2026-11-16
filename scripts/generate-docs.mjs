@@ -607,16 +607,59 @@ const EN = {
       lead: (count) =>
         `${count} typed Vue wrappers, one per Polaris web component, grouped the way [Shopify's own reference](https://shopify.dev/docs/api/app-home/polaris-web-components) groups them.`,
     },
-    // docs/app-bridge/types.md (scripts/generate-app-bridge-types.mjs). Only this chrome is
-    // translated; the descriptions on that page are Shopify's JSDoc, in English everywhere.
+    // docs/app-bridge/types/ (scripts/generate-app-bridge-types.mjs). Only this chrome is
+    // translated; the descriptions on those pages are Shopify's JSDoc, in English everywhere.
+    // The top-level title, description, heading and intro are the overview's (index.md).
     appBridgeTypes: {
-      title: 'App Bridge types – @shopify/app-bridge-types reference for Vue 3',
+      title: 'App Bridge types for Vue 3 – ShopifyGlobal',
       description:
-        'Reference for the @shopify/app-bridge-types types used by the App Bridge components for Vue 3: ShopifyGlobal, its APIs, element attributes and the types they reference.',
+        'Reference for the @shopify/app-bridge-types types used by the App Bridge components for Vue 3: ShopifyGlobal, its APIs by category, element attributes and an A–Z index.',
       heading: 'App Bridge types',
       intro: (pkg, version, subpath) =>
         `The types used on the App Bridge pages, and every type they reference, from ${pkg} ${version}. ${subpath} re-exports the ones the package exports. The descriptions are Shopify's own JSDoc, in English.`,
-      groups: { apis: 'ShopifyGlobal and APIs', elements: 'Elements and attributes', other: 'Other types' },
+      pagesHeading: 'Pages',
+      azIndex: 'A–Z index',
+      otherApis: 'Other APIs',
+      sharedTypes: 'Used across categories',
+      listSeparator: ', ',
+      onThisPage: (list) => `On this page: ${list}.`,
+      pages: {
+        'authentication-and-data': {
+          title: 'App Bridge types: authentication and data',
+          description:
+            'Types of the App Bridge authentication and data APIs in @shopify/app-bridge-types, for Vue 3: their members and the types only they use.',
+          lead:
+            'The APIs Shopify lists under authentication and data, and the types only they use.',
+        },
+        'user-interface-and-interactions': {
+          title: 'App Bridge types: user interface APIs',
+          description:
+            'Types of the App Bridge user interface and interactions APIs in @shopify/app-bridge-types, for Vue 3: their members and the types only they use.',
+          lead:
+            'The APIs Shopify lists under user interface and interactions, and the types only they use.',
+        },
+        'device-and-platform-integration': {
+          title: 'App Bridge types: device and platform APIs',
+          description:
+            'Types of the App Bridge device and platform integration APIs in @shopify/app-bridge-types, for Vue 3: their members and the types only they use.',
+          lead:
+            'The APIs Shopify lists under device and platform integration, and the types only they use.',
+        },
+        elements: {
+          title: 'App Bridge types: elements and attributes',
+          description:
+            'Types of the App Bridge element interfaces and attributes in @shopify/app-bridge-types, for Vue 3: their members and the types only they use.',
+          lead:
+            'The App Bridge element interfaces and attribute types, and the types only they use.',
+        },
+        other: {
+          title: 'App Bridge types: other APIs and types',
+          description:
+            'App Bridge APIs that shopify.dev lists under no category, and types used across categories, from @shopify/app-bridge-types for Vue 3.',
+          lead:
+            'APIs that shopify.dev does not list under a category, and the types used by more than one category.',
+        },
+      },
       table: { member: 'Member', type: 'Type', description: 'Description' },
       notDescribed: 'Not described in the types.',
       exported: 'Import:',
@@ -988,11 +1031,11 @@ for (const loc of locales) {
   )
 }
 
-// docs/app-bridge/types.md and its translations, plus the type -> anchor map the docs'
-// markdown-it plugin links inline code with.
+// docs/app-bridge/types/ and its translations, plus the type -> page and anchor map the
+// docs' markdown-it plugin links inline code with.
 const appBridgeTypes = generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
 console.warn(
-  `[generate-docs] app-bridge/types.md: ${appBridgeTypes.count} types from @shopify/app-bridge-types@${appBridgeTypes.version} in ${locales.length} locales (${Object.entries(appBridgeTypes.groups).map(([g, n]) => `${g} ${n}`).join(', ')}), plus ${path.relative(repoRoot, appBridgeTypes.jsonPath)}`,
+  `[generate-docs] app-bridge/types/: ${appBridgeTypes.count} types from @shopify/app-bridge-types@${appBridgeTypes.version} on ${Object.keys(appBridgeTypes.pages).length} pages in ${locales.length} locales (${Object.entries(appBridgeTypes.pages).map(([p, s]) => `${p} ${s.types}`).join(', ')}), plus ${path.relative(repoRoot, appBridgeTypes.jsonPath)}`,
 )
 
 // docs/css-variables/migration.md: the "Migrating from @shopify/polaris-tokens" lists.

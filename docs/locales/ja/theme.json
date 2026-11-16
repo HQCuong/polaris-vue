@@ -67,6 +67,13 @@
     "appWindow": "AppWindow",
     "navMenu": "NavMenu",
     "types": "型",
+    "typesPages": {
+      "authentication-and-data": "認証とデータ",
+      "user-interface-and-interactions": "ユーザーインターフェースとインタラクション",
+      "device-and-platform-integration": "デバイスとプラットフォームの統合",
+      "elements": "要素と属性",
+      "other": "その他の API と型"
+    },
     "beta": "ベータ"
   },
   "appBridgeBeta": {

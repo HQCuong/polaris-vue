@@ -1,134 +1,518 @@
 {
   "package": "@shopify/app-bridge-types",
   "version": "0.7.4",
-  "anchors": {
-    "ActivationStatus": "activationstatus",
-    "Address": "address",
-    "AdminUser": "adminuser",
-    "AppApi": "appapi",
-    "AppBridgeConfig": "appbridgeconfig",
-    "Badge": "badge",
-    "BaseResource": "baseresource",
-    "Cart": "cart",
-    "CartSubscriber": "cartsubscriber",
-    "ClearFunction": "clearfunction",
-    "ClosedIntentResponse": "closedintentresponse",
-    "Collection": "collection",
-    "CollectionRule": "collectionrule",
-    "CollectionSortOrder": "collectionsortorder",
-    "Customer": "customer",
-    "CustomSale": "customsale",
-    "DataPoint": "datapoint",
-    "DebugOptions": "debugoptions",
-    "Device": "device",
-    "Discount": "discount",
-    "DiscountType": "discounttype",
-    "EnvironmentApi": "environmentapi",
-    "_EnvironmentApi": "_environmentapi",
-    "ErrorIntentResponse": "errorintentresponse",
-    "ExtensionInfo": "extensioninfo",
-    "ExtensionType": "extensiontype",
-    "Filters": "filters",
-    "Finish": "finish",
-    "FulfillmentServiceType": "fulfillmentservicetype",
-    "Header": "header",
-    "IdTokenApi": "idtokenapi",
-    "Image": "image",
-    "Intent": "intent",
-    "IntentAction": "intentaction",
-    "IntentActivity": "intentactivity",
-    "IntentQuery": "intentquery",
-    "IntentQueryOptions": "intentqueryoptions",
-    "IntentRequest": "intentrequest",
-    "IntentRequestApi": "intentrequestapi",
-    "IntentResponse": "intentresponse",
-    "IntentResponseApi": "intentresponseapi",
-    "IntentsApi": "intentsapi",
-    "IntentType": "intenttype",
-    "LineItem": "lineitem",
-    "LoadingApi": "loadingapi",
-    "Location": "location",
-    "ModalApi": "modalapi",
-    "_ModalApi": "_modalapi",
-    "Money": "money",
-    "PickerApi": "pickerapi",
-    "PickerItem": "pickeritem",
-    "PickerOptions": "pickeroptions",
-    "PosApi": "posapi",
-    "PosCart": "poscart",
-    "_PosCart": "_poscart",
-    "PosClose": "posclose",
-    "PosDevice": "posdevice",
-    "PosLocation": "poslocation",
-    "POSUser": "posuser",
-    "PrivilegedAdminUser": "privilegedadminuser",
-    "Product": "product",
-    "ProductStatus": "productstatus",
-    "ProductVariant": "productvariant",
-    "ProductVariantInventoryManagement": "productvariantinventorymanagement",
-    "ProductVariantInventoryPolicy": "productvariantinventorypolicy",
-    "Progress": "progress",
-    "PublicIntentsApi": "publicintentsapi",
-    "RegisterFunction": "registerfunction",
-    "Resource": "resource",
-    "ResourcePickerApi": "resourcepickerapi",
-    "ResourcePickerOptions": "resourcepickeroptions",
-    "ResourceSelection": "resourceselection",
-    "ResourceTypes": "resourcetypes",
-    "ReviewRequestDeclinedCode": "reviewrequestdeclinedcode",
-    "ReviewRequestDeclinedResponse": "reviewrequestdeclinedresponse",
-    "ReviewRequestResponse": "reviewrequestresponse",
-    "ReviewRequestSuccessResponse": "reviewrequestsuccessresponse",
-    "ReviewsApi": "reviewsapi",
-    "RuleSet": "ruleset",
-    "SAppWindowAttributes": "sappwindowattributes",
-    "SaveBarApi": "savebarapi",
-    "_SaveBarApi": "_savebarapi",
-    "ScannerApi": "scannerapi",
-    "ScannerPayload": "scannerpayload",
-    "Scope": "scope",
-    "Scopes": "scopes",
-    "ScopesDetail": "scopesdetail",
-    "ScopesRequestResponse": "scopesrequestresponse",
-    "ScopesRevokeResponse": "scopesrevokeresponse",
-    "SelectPayload": "selectpayload",
-    "ShopifyGlobal": "shopifyglobal",
-    "SHOPIFYQL_AVAILABLE_STATUS": "shopifyql_available_status",
-    "SHOPIFYQL_MISSING_PERMISSIONS_STATUS": "shopifyql_missing_permissions_status",
-    "SHOPIFYQL_SERVER_ERROR_STATUS": "shopifyql_server_error_status",
-    "ShopifyQLApi": "shopifyqlapi",
-    "ShopifyQLStatus": "shopifyqlstatus",
-    "SidekickApi": "sidekickapi",
-    "SidekickConversation": "sidekickconversation",
-    "SidekickLaunchRequest": "sidekicklaunchrequest",
-    "SuccessIntentResponse": "successintentresponse",
-    "SupportApi": "supportapi",
-    "SupportCallback": "supportcallback",
-    "ThemeAppBlockActivation": "themeappblockactivation",
-    "ThemeAppBlockTarget": "themeappblocktarget",
-    "ThemeAppEmbedTarget": "themeappembedtarget",
-    "ThemeExtensionActivation": "themeextensionactivation",
-    "ToastApi": "toastapi",
-    "ToastHide": "toasthide",
-    "ToastOptions": "toastoptions",
-    "ToastShow": "toastshow",
-    "Tone": "tone",
-    "ToolHandler": "toolhandler",
-    "Tools": "tools",
-    "UiExtensionActivation": "uiextensionactivation",
-    "UIModalElement": "uimodalelement",
-    "_UIModalElement": "_uimodalelement",
-    "UINavMenuAttributes": "uinavmenuattributes",
-    "UnregisterFunction": "unregisterfunction",
-    "Unsubscribe": "unsubscribe",
-    "User": "user",
-    "UserApi": "userapi",
-    "UserResult": "userresult",
-    "WebVitalsApi": "webvitalsapi",
-    "WebVitalsCallback": "webvitalscallback",
-    "WebVitalsMetric": "webvitalsmetric",
-    "WebVitalsReport": "webvitalsreport",
-    "WeightUnit": "weightunit",
-    "WithSelection": "withselection"
+  "types": {
+    "ActivationStatus": {
+      "page": "authentication-and-data",
+      "anchor": "activationstatus"
+    },
+    "Address": {
+      "page": "device-and-platform-integration",
+      "anchor": "address"
+    },
+    "AdminUser": {
+      "page": "authentication-and-data",
+      "anchor": "adminuser"
+    },
+    "AppApi": {
+      "page": "authentication-and-data",
+      "anchor": "appapi"
+    },
+    "AppBridgeConfig": {
+      "page": "authentication-and-data",
+      "anchor": "appbridgeconfig"
+    },
+    "Badge": {
+      "page": "user-interface-and-interactions",
+      "anchor": "badge"
+    },
+    "BaseResource": {
+      "page": "user-interface-and-interactions",
+      "anchor": "baseresource"
+    },
+    "Cart": {
+      "page": "device-and-platform-integration",
+      "anchor": "cart"
+    },
+    "CartSubscriber": {
+      "page": "device-and-platform-integration",
+      "anchor": "cartsubscriber"
+    },
+    "ClearFunction": {
+      "page": "user-interface-and-interactions",
+      "anchor": "clearfunction"
+    },
+    "ClosedIntentResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "closedintentresponse"
+    },
+    "Collection": {
+      "page": "user-interface-and-interactions",
+      "anchor": "collection"
+    },
+    "CollectionRule": {
+      "page": "user-interface-and-interactions",
+      "anchor": "collectionrule"
+    },
+    "CollectionSortOrder": {
+      "page": "user-interface-and-interactions",
+      "anchor": "collectionsortorder"
+    },
+    "Customer": {
+      "page": "device-and-platform-integration",
+      "anchor": "customer"
+    },
+    "CustomSale": {
+      "page": "device-and-platform-integration",
+      "anchor": "customsale"
+    },
+    "DataPoint": {
+      "page": "user-interface-and-interactions",
+      "anchor": "datapoint"
+    },
+    "DebugOptions": {
+      "page": "authentication-and-data",
+      "anchor": "debugoptions"
+    },
+    "Device": {
+      "page": "device-and-platform-integration",
+      "anchor": "device"
+    },
+    "Discount": {
+      "page": "device-and-platform-integration",
+      "anchor": "discount"
+    },
+    "DiscountType": {
+      "page": "device-and-platform-integration",
+      "anchor": "discounttype"
+    },
+    "EnvironmentApi": {
+      "page": "authentication-and-data",
+      "anchor": "environmentapi"
+    },
+    "_EnvironmentApi": {
+      "page": "authentication-and-data",
+      "anchor": "_environmentapi"
+    },
+    "ErrorIntentResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "errorintentresponse"
+    },
+    "ExtensionInfo": {
+      "page": "authentication-and-data",
+      "anchor": "extensioninfo"
+    },
+    "ExtensionType": {
+      "page": "authentication-and-data",
+      "anchor": "extensiontype"
+    },
+    "Filters": {
+      "page": "user-interface-and-interactions",
+      "anchor": "filters"
+    },
+    "Finish": {
+      "page": "user-interface-and-interactions",
+      "anchor": "finish"
+    },
+    "FulfillmentServiceType": {
+      "page": "user-interface-and-interactions",
+      "anchor": "fulfillmentservicetype"
+    },
+    "Header": {
+      "page": "user-interface-and-interactions",
+      "anchor": "header"
+    },
+    "IdTokenApi": {
+      "page": "authentication-and-data",
+      "anchor": "idtokenapi"
+    },
+    "Image": {
+      "page": "user-interface-and-interactions",
+      "anchor": "image"
+    },
+    "Intent": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intent"
+    },
+    "IntentAction": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentaction"
+    },
+    "IntentActivity": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentactivity"
+    },
+    "IntentQuery": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentquery"
+    },
+    "IntentQueryOptions": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentqueryoptions"
+    },
+    "IntentRequest": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentrequest"
+    },
+    "IntentRequestApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentrequestapi"
+    },
+    "IntentResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentresponse"
+    },
+    "IntentResponseApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentresponseapi"
+    },
+    "IntentsApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intentsapi"
+    },
+    "IntentType": {
+      "page": "user-interface-and-interactions",
+      "anchor": "intenttype"
+    },
+    "LineItem": {
+      "page": "device-and-platform-integration",
+      "anchor": "lineitem"
+    },
+    "LoadingApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "loadingapi"
+    },
+    "Location": {
+      "page": "device-and-platform-integration",
+      "anchor": "location"
+    },
+    "ModalApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "modalapi"
+    },
+    "_ModalApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "_modalapi"
+    },
+    "Money": {
+      "page": "user-interface-and-interactions",
+      "anchor": "money"
+    },
+    "PickerApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "pickerapi"
+    },
+    "PickerItem": {
+      "page": "user-interface-and-interactions",
+      "anchor": "pickeritem"
+    },
+    "PickerOptions": {
+      "page": "user-interface-and-interactions",
+      "anchor": "pickeroptions"
+    },
+    "PosApi": {
+      "page": "device-and-platform-integration",
+      "anchor": "posapi"
+    },
+    "PosCart": {
+      "page": "device-and-platform-integration",
+      "anchor": "poscart"
+    },
+    "_PosCart": {
+      "page": "device-and-platform-integration",
+      "anchor": "_poscart"
+    },
+    "PosClose": {
+      "page": "device-and-platform-integration",
+      "anchor": "posclose"
+    },
+    "PosDevice": {
+      "page": "device-and-platform-integration",
+      "anchor": "posdevice"
+    },
+    "PosLocation": {
+      "page": "device-and-platform-integration",
+      "anchor": "poslocation"
+    },
+    "POSUser": {
+      "page": "authentication-and-data",
+      "anchor": "posuser"
+    },
+    "PrivilegedAdminUser": {
+      "page": "authentication-and-data",
+      "anchor": "privilegedadminuser"
+    },
+    "Product": {
+      "page": "user-interface-and-interactions",
+      "anchor": "product"
+    },
+    "ProductStatus": {
+      "page": "user-interface-and-interactions",
+      "anchor": "productstatus"
+    },
+    "ProductVariant": {
+      "page": "user-interface-and-interactions",
+      "anchor": "productvariant"
+    },
+    "ProductVariantInventoryManagement": {
+      "page": "user-interface-and-interactions",
+      "anchor": "productvariantinventorymanagement"
+    },
+    "ProductVariantInventoryPolicy": {
+      "page": "user-interface-and-interactions",
+      "anchor": "productvariantinventorypolicy"
+    },
+    "Progress": {
+      "page": "user-interface-and-interactions",
+      "anchor": "progress"
+    },
+    "PublicIntentsApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "publicintentsapi"
+    },
+    "RegisterFunction": {
+      "page": "user-interface-and-interactions",
+      "anchor": "registerfunction"
+    },
+    "Resource": {
+      "page": "user-interface-and-interactions",
+      "anchor": "resource"
+    },
+    "ResourcePickerApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "resourcepickerapi"
+    },
+    "ResourcePickerOptions": {
+      "page": "user-interface-and-interactions",
+      "anchor": "resourcepickeroptions"
+    },
+    "ResourceSelection": {
+      "page": "user-interface-and-interactions",
+      "anchor": "resourceselection"
+    },
+    "ResourceTypes": {
+      "page": "user-interface-and-interactions",
+      "anchor": "resourcetypes"
+    },
+    "ReviewRequestDeclinedCode": {
+      "page": "user-interface-and-interactions",
+      "anchor": "reviewrequestdeclinedcode"
+    },
+    "ReviewRequestDeclinedResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "reviewrequestdeclinedresponse"
+    },
+    "ReviewRequestResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "reviewrequestresponse"
+    },
+    "ReviewRequestSuccessResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "reviewrequestsuccessresponse"
+    },
+    "ReviewsApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "reviewsapi"
+    },
+    "RuleSet": {
+      "page": "user-interface-and-interactions",
+      "anchor": "ruleset"
+    },
+    "SAppWindowAttributes": {
+      "page": "elements",
+      "anchor": "sappwindowattributes"
+    },
+    "SaveBarApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "savebarapi"
+    },
+    "_SaveBarApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "_savebarapi"
+    },
+    "ScannerApi": {
+      "page": "device-and-platform-integration",
+      "anchor": "scannerapi"
+    },
+    "ScannerPayload": {
+      "page": "device-and-platform-integration",
+      "anchor": "scannerpayload"
+    },
+    "Scope": {
+      "page": "authentication-and-data",
+      "anchor": "scope"
+    },
+    "Scopes": {
+      "page": "authentication-and-data",
+      "anchor": "scopes"
+    },
+    "ScopesDetail": {
+      "page": "authentication-and-data",
+      "anchor": "scopesdetail"
+    },
+    "ScopesRequestResponse": {
+      "page": "authentication-and-data",
+      "anchor": "scopesrequestresponse"
+    },
+    "ScopesRevokeResponse": {
+      "page": "authentication-and-data",
+      "anchor": "scopesrevokeresponse"
+    },
+    "SelectPayload": {
+      "page": "user-interface-and-interactions",
+      "anchor": "selectpayload"
+    },
+    "ShopifyGlobal": {
+      "page": "index",
+      "anchor": "shopifyglobal"
+    },
+    "SHOPIFYQL_AVAILABLE_STATUS": {
+      "page": "other",
+      "anchor": "shopifyql_available_status"
+    },
+    "SHOPIFYQL_MISSING_PERMISSIONS_STATUS": {
+      "page": "other",
+      "anchor": "shopifyql_missing_permissions_status"
+    },
+    "SHOPIFYQL_SERVER_ERROR_STATUS": {
+      "page": "other",
+      "anchor": "shopifyql_server_error_status"
+    },
+    "ShopifyQLApi": {
+      "page": "other",
+      "anchor": "shopifyqlapi"
+    },
+    "ShopifyQLStatus": {
+      "page": "other",
+      "anchor": "shopifyqlstatus"
+    },
+    "SidekickApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "sidekickapi"
+    },
+    "SidekickConversation": {
+      "page": "user-interface-and-interactions",
+      "anchor": "sidekickconversation"
+    },
+    "SidekickLaunchRequest": {
+      "page": "user-interface-and-interactions",
+      "anchor": "sidekicklaunchrequest"
+    },
+    "SuccessIntentResponse": {
+      "page": "user-interface-and-interactions",
+      "anchor": "successintentresponse"
+    },
+    "SupportApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "supportapi"
+    },
+    "SupportCallback": {
+      "page": "user-interface-and-interactions",
+      "anchor": "supportcallback"
+    },
+    "ThemeAppBlockActivation": {
+      "page": "authentication-and-data",
+      "anchor": "themeappblockactivation"
+    },
+    "ThemeAppBlockTarget": {
+      "page": "authentication-and-data",
+      "anchor": "themeappblocktarget"
+    },
+    "ThemeAppEmbedTarget": {
+      "page": "authentication-and-data",
+      "anchor": "themeappembedtarget"
+    },
+    "ThemeExtensionActivation": {
+      "page": "authentication-and-data",
+      "anchor": "themeextensionactivation"
+    },
+    "ToastApi": {
+      "page": "user-interface-and-interactions",
+      "anchor": "toastapi"
+    },
+    "ToastHide": {
+      "page": "user-interface-and-interactions",
+      "anchor": "toasthide"
+    },
+    "ToastOptions": {
+      "page": "user-interface-and-interactions",
+      "anchor": "toastoptions"
+    },
+    "ToastShow": {
+      "page": "user-interface-and-interactions",
+      "anchor": "toastshow"
+    },
+    "Tone": {
+      "page": "user-interface-and-interactions",
+      "anchor": "tone"
+    },
+    "ToolHandler": {
+      "page": "user-interface-and-interactions",
+      "anchor": "toolhandler"
+    },
+    "Tools": {
+      "page": "user-interface-and-interactions",
+      "anchor": "tools"
+    },
+    "UiExtensionActivation": {
+      "page": "authentication-and-data",
+      "anchor": "uiextensionactivation"
+    },
+    "UIModalElement": {
+      "page": "elements",
+      "anchor": "uimodalelement"
+    },
+    "_UIModalElement": {
+      "page": "elements",
+      "anchor": "_uimodalelement"
+    },
+    "UINavMenuAttributes": {
+      "page": "elements",
+      "anchor": "uinavmenuattributes"
+    },
+    "UnregisterFunction": {
+      "page": "user-interface-and-interactions",
+      "anchor": "unregisterfunction"
+    },
+    "Unsubscribe": {
+      "page": "device-and-platform-integration",
+      "anchor": "unsubscribe"
+    },
+    "User": {
+      "page": "authentication-and-data",
+      "anchor": "user"
+    },
+    "UserApi": {
+      "page": "authentication-and-data",
+      "anchor": "userapi"
+    },
+    "UserResult": {
+      "page": "authentication-and-data",
+      "anchor": "userresult"
+    },
+    "WebVitalsApi": {
+      "page": "device-and-platform-integration",
+      "anchor": "webvitalsapi"
+    },
+    "WebVitalsCallback": {
+      "page": "device-and-platform-integration",
+      "anchor": "webvitalscallback"
+    },
+    "WebVitalsMetric": {
+      "page": "device-and-platform-integration",
+      "anchor": "webvitalsmetric"
+    },
+    "WebVitalsReport": {
+      "page": "device-and-platform-integration",
+      "anchor": "webvitalsreport"
+    },
+    "WeightUnit": {
+      "page": "user-interface-and-interactions",
+      "anchor": "weightunit"
+    },
+    "WithSelection": {
+      "page": "user-interface-and-interactions",
+      "anchor": "withselection"
+    }
   }
 }

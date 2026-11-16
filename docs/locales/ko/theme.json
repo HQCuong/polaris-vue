@@ -67,6 +67,13 @@
     "appWindow": "AppWindow",
     "navMenu": "NavMenu",
     "types": "타입",
+    "typesPages": {
+      "authentication-and-data": "인증 및 데이터",
+      "user-interface-and-interactions": "사용자 인터페이스 및 상호 작용",
+      "device-and-platform-integration": "기기 및 플랫폼 통합",
+      "elements": "요소와 속성",
+      "other": "기타 API 및 타입"
+    },
     "beta": "베타"
   },
   "appBridgeBeta": {

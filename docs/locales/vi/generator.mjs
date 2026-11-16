@@ -53,18 +53,54 @@ export default {
     lead: (count) =>
       `${count} Vue wrapper có type, mỗi wrapper cho một Polaris web component, được chia nhóm giống [tài liệu tham khảo của Shopify](https://shopify.dev/docs/api/app-home/polaris-web-components).`,
   },
-  // docs/vi/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  // docs/vi/app-bridge/types/. Shopify's descriptions on those pages stay in English.
   appBridgeTypes: {
-    title: 'Type App Bridge – tài liệu tham khảo @shopify/app-bridge-types cho Vue 3',
+    title: 'Type App Bridge cho Vue 3 – ShopifyGlobal',
     description:
-      'Tài liệu tham khảo các type của @shopify/app-bridge-types mà các component App Bridge cho Vue 3 dùng: ShopifyGlobal, các API của nó, attribute của element và các type chúng tham chiếu.',
+      'Tài liệu tham khảo các type của @shopify/app-bridge-types mà các component App Bridge cho Vue 3 dùng: ShopifyGlobal, các API theo nhóm, attribute của element và chỉ mục A–Z.',
     heading: 'Các type App Bridge',
     intro: (pkg, version, subpath) =>
       `Các type được dùng trên các trang App Bridge, cùng mọi type mà chúng tham chiếu, lấy từ ${pkg} ${version}. ${subpath} re-export những type mà package export. Phần mô tả là JSDoc của chính Shopify, giữ nguyên tiếng Anh.`,
-    groups: {
-      apis: 'ShopifyGlobal và các API',
-      elements: 'Element và attribute',
-      other: 'Các type khác',
+    pagesHeading: 'Các trang',
+    azIndex: 'Chỉ mục A–Z',
+    otherApis: 'Các API khác',
+    sharedTypes: 'Dùng ở nhiều nhóm',
+    listSeparator: ', ',
+    onThisPage: (list) => `Trên trang này: ${list}.`,
+    pages: {
+      'authentication-and-data': {
+        title: 'Type App Bridge: xác thực và dữ liệu',
+        description:
+          'Các type của API xác thực và dữ liệu trong App Bridge, từ @shopify/app-bridge-types, cho Vue 3: các thành viên và các type chỉ chúng dùng.',
+        lead: 'Các API mà Shopify xếp vào nhóm xác thực và dữ liệu, cùng các type chỉ chúng dùng.',
+      },
+      'user-interface-and-interactions': {
+        title: 'Type App Bridge: giao diện người dùng',
+        description:
+          'Các type của API giao diện người dùng và tương tác trong App Bridge, từ @shopify/app-bridge-types, cho Vue 3: các thành viên và các type chỉ chúng dùng.',
+        lead:
+          'Các API mà Shopify xếp vào nhóm giao diện người dùng và tương tác, cùng các type chỉ chúng dùng.',
+      },
+      'device-and-platform-integration': {
+        title: 'Type App Bridge: thiết bị và nền tảng',
+        description:
+          'Các type của API tích hợp thiết bị và nền tảng trong App Bridge, từ @shopify/app-bridge-types, cho Vue 3: các thành viên và các type chỉ chúng dùng.',
+        lead:
+          'Các API mà Shopify xếp vào nhóm tích hợp thiết bị và nền tảng, cùng các type chỉ chúng dùng.',
+      },
+      elements: {
+        title: 'Type App Bridge: element và attribute',
+        description:
+          'Các type của interface element và attribute trong App Bridge, từ @shopify/app-bridge-types, cho Vue 3: các thành viên và các type chỉ chúng dùng.',
+        lead:
+          'Các interface element và type attribute của App Bridge, cùng các type chỉ chúng dùng.',
+      },
+      other: {
+        title: 'Type App Bridge: API và type khác',
+        description:
+          'Các API App Bridge mà shopify.dev không xếp vào nhóm nào, và các type được nhiều nhóm dùng, từ @shopify/app-bridge-types cho Vue 3.',
+        lead: 'Các API mà shopify.dev không xếp vào nhóm nào, và các type được nhiều nhóm dùng.',
+      },
     },
     table: { member: 'Thành viên', type: 'Kiểu', description: 'Mô tả' },
     notDescribed: 'Không được mô tả trong type.',

@@ -67,6 +67,13 @@
     "appWindow": "AppWindow",
     "navMenu": "NavMenu",
     "types": "类型",
+    "typesPages": {
+      "authentication-and-data": "身份验证和数据",
+      "user-interface-and-interactions": "用户界面和交互",
+      "device-and-platform-integration": "设备和平台集成",
+      "elements": "元素与属性",
+      "other": "其他 API 和类型"
+    },
     "beta": "Beta"
   },
   "appBridgeBeta": {

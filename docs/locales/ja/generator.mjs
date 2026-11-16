@@ -53,18 +53,51 @@ export default {
     lead: (count) =>
       `${count} 個の型付き Vue wrapper。Polaris web component ごとに 1 つずつ用意し、[Shopify 公式リファレンス](https://shopify.dev/docs/api/app-home/polaris-web-components)と同じ方法で分類しています。`,
   },
-  // docs/ja/app-bridge/types.md. Shopify's descriptions on that page stay in English.
+  // docs/ja/app-bridge/types/. Shopify's descriptions on those pages stay in English.
   appBridgeTypes: {
-    title: 'App Bridge の型 – Vue 3 向け @shopify/app-bridge-types リファレンス',
+    title: 'Vue 3 向け App Bridge の型 – ShopifyGlobal',
     description:
-      'Vue 3 向け App Bridge コンポーネントが使う @shopify/app-bridge-types の型のリファレンス：ShopifyGlobal、その API、要素の属性、およびそれらが参照する型。',
+      'Vue 3 向け App Bridge コンポーネントが使う @shopify/app-bridge-types の型のリファレンス：ShopifyGlobal、カテゴリ別の API、要素の属性、A–Z 索引。',
     heading: 'App Bridge の型',
     intro: (pkg, version, subpath) =>
       `App Bridge のページで使われている型と、それらが参照するすべての型です。${pkg} ${version} から取っています。${subpath} は、パッケージが export する型を再 export します。説明は Shopify 自身の JSDoc で、英語のままです。`,
-    groups: {
-      apis: 'ShopifyGlobal と API',
-      elements: '要素と属性',
-      other: 'その他の型',
+    pagesHeading: 'ページ',
+    azIndex: 'A–Z 索引',
+    otherApis: 'その他の API',
+    sharedTypes: '複数のカテゴリで使われる型',
+    listSeparator: '、',
+    onThisPage: (list) => `このページ：${list}。`,
+    pages: {
+      'authentication-and-data': {
+        title: 'App Bridge の型：認証とデータ',
+        description:
+          'Vue 3 向け、@shopify/app-bridge-types にある App Bridge の認証とデータの API の型：そのメンバーと、それらだけが使う型。',
+        lead: 'Shopify が「認証とデータ」に分類している API と、それらだけが使う型です。',
+      },
+      'user-interface-and-interactions': {
+        title: 'App Bridge の型：ユーザーインターフェース',
+        description:
+          'Vue 3 向け、@shopify/app-bridge-types にある App Bridge のユーザーインターフェースとインタラクションの API の型：そのメンバーと、それらだけが使う型。',
+        lead: 'Shopify が「ユーザーインターフェースとインタラクション」に分類している API と、それらだけが使う型です。',
+      },
+      'device-and-platform-integration': {
+        title: 'App Bridge の型：デバイスとプラットフォーム',
+        description:
+          'Vue 3 向け、@shopify/app-bridge-types にある App Bridge のデバイスとプラットフォームの統合の API の型：そのメンバーと、それらだけが使う型。',
+        lead: 'Shopify が「デバイスとプラットフォームの統合」に分類している API と、それらだけが使う型です。',
+      },
+      elements: {
+        title: 'App Bridge の型：要素と属性',
+        description:
+          'Vue 3 向け、@shopify/app-bridge-types にある App Bridge の要素インターフェースと属性の型：そのメンバーと、それらだけが使う型。',
+        lead: 'App Bridge の要素インターフェースと属性の型、およびそれらだけが使う型です。',
+      },
+      other: {
+        title: 'App Bridge の型：その他の API と型',
+        description:
+          'Vue 3 向け、@shopify/app-bridge-types のうち、shopify.dev がどのカテゴリにも分類していない App Bridge の API と、複数のカテゴリで使われる型。',
+        lead: 'shopify.dev がどのカテゴリにも分類していない API と、複数のカテゴリで使われる型です。',
+      },
     },
     table: { member: 'メンバー', type: '型', description: '説明' },
     notDescribed: '型に説明はありません。',
