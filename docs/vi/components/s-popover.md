@@ -12,7 +12,7 @@ Nội dung nổi được neo vào nút mở nó. `SPopover` là Vue 3 wrapper c
 import { SPopover } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dành cho nội dung phụ.** Popover bị ẩn cho đến khi người bán mở nó, nên hãy đặt ở đó thông tin và hành động ít quan trọng hơn, không phải những gì họ cần thấy ngay.
 - **Nhóm các hành động liên quan.** Các hành động bên trong một popover nên thuộc về cùng một nhóm.

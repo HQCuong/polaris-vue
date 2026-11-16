@@ -12,7 +12,7 @@ Search queries के लिए एक text input। `SSearchField` Shopify क�
 import { SSearchField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसका उपयोग उसी जगह filter करने के लिए करें।** यह किसी विशेष section या list के content को सीमित करने के लिए उपयुक्त है। Global navigation या जटिल, बहु-चरणीय searches के लिए अधिक मज़बूत search pattern की ज़रूरत होती है।
 - **बताएँ कि क्या खोजा जा रहा है।** एक विशिष्ट `label` और `placeholder` लिखें जो merchants को बताएँ कि search किस content को कवर करता है और वे किन attributes से खोज सकते हैं।

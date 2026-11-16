@@ -12,7 +12,7 @@ Color value डालने के लिए एक text input, वैकल्�
 import { SColorField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **बताएँ कि color किसके लिए है।** सामान्य "Color" के बजाय "Button background color" या "Heading text color" जैसा `label` इस्तेमाल करें।
 - **Edit करते समय मौजूदा color दिखाएँ।** `value` को मौजूदा color पर सेट करें, ताकि merchants देख सकें कि वे किस color से बदलाव कर रहे हैं।

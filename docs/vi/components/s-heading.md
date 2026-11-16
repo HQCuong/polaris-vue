@@ -12,7 +12,7 @@ Một tiêu đề đặt tên cho một phần của trang. `SHeading` là Vue 3
 import { SHeading } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Gán tiêu đề cho mọi phần chính.** Tiêu đề tạo thành dàn ý của giao diện, giúp người bán định hướng và thấy nội dung được tổ chức như thế nào.
 - **Để component tự chọn cấp tiêu đề.** Nó gán cấp HTML (h2, h3, h4) dựa trên độ sâu lồng nhau, nên trình đọc màn hình nhận được cấu trúc tài liệu đúng mà bạn không cần đặt cấp thủ công.

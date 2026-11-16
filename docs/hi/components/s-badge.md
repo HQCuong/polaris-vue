@@ -12,7 +12,7 @@ description: "SBadge: एक छोटा label जो किसी object क�
 import { SBadge } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **संदर्भ के अनुसार साइज़ चुनें।** टेबल cells, list items या जहाँ भी कई badges एक साथ हों, वहाँ `size="base"` इस्तेमाल करें। `size="large"` को ऐसे अकेले badge के लिए रखें जिस पर ज़ोर देना ज़रूरी हो, जैसे पेज के ऊपर दिखाया गया मुख्य status।
 - **Labels को एक या दो शब्दों तक सीमित रखें।** "Fulfilled" या "Out of stock" जैसे छोटे labels एक नज़र में पढ़ लिए जाते हैं। Status भूतकाल में लिखें, यानी "Refund" के बजाय "Refunded"।

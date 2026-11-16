@@ -12,7 +12,7 @@ description: "SHeading: एक heading जो पेज के किसी sect
 import { SHeading } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **हर मुख्य section को एक heading दें।** Headings interface की एक रूपरेखा बनाते हैं जो merchants को रास्ता ढूँढने और यह समझने में मदद करती है कि content कैसे व्यवस्थित है।
 - **Heading level component को चुनने दें।** यह nesting की गहराई के आधार पर HTML level (h2, h3, h4) तय करता है, ताकि screen readers को सही document structure मिले और आपको levels हाथ से सेट न करने पड़ें।

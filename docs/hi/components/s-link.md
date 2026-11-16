@@ -12,7 +12,7 @@ description: "SLink: एक text link जो किसी दूसरे पे
 import { SLink } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **सिर्फ़ external links को नए tab में खोलें।** Admin के बाहर के URLs, जैसे help docs या partner sites, के लिए `target="_blank"` सेट करें। Admin के अंदर के links उसी tab में खुलने चाहिए, ताकि merchants workflow में अपनी जगह न खोएँ।
 

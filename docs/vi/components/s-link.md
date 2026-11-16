@@ -12,7 +12,7 @@ Một liên kết văn bản điều hướng đến trang hoặc URL khác, ho�
 import { SLink } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chỉ mở link bên ngoài trong tab mới.** Đặt `target="_blank"` cho URL nằm ngoài trang admin, như tài liệu trợ giúp hoặc trang của đối tác. Link bên trong trang admin nên mở trong cùng tab để người bán không mất vị trí trong luồng công việc.
 

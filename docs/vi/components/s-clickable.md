@@ -12,7 +12,7 @@ Biến bất kỳ nội dung nào thành nút hoặc liên kết có thể nhấ
 import { SClickable } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Gắn nhãn cho phần tử không có văn bản hiển thị.** Nếu bên trong vùng có thể nhấp không có văn bản đọc được, hãy đặt `accessibilityLabel` để người dùng trình đọc màn hình biết nó dùng để làm gì.
 - **Chọn chế độ phù hợp.** Dùng nó như một button để kích hoạt hành động, gán `href` để điều hướng, và đặt `type="submit"` khi nó gửi một form.

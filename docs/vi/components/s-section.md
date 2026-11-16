@@ -12,7 +12,7 @@ Nhóm các nội dung liên quan, với tiêu đề, tiêu đề phụ và các 
 import { SSection } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Nhóm các nội dung thuộc về nhau.** Cho mỗi section một nhiệm vụ duy nhất và nhất quán, dù là thông tin liên quan hay các điều khiển liên quan; khi đó nó vừa là một container trực quan vừa bổ sung ý nghĩa cho cấu trúc trang.
 - **Viết tiêu đề mang tính mô tả.** Người bán lướt qua `heading` để định hướng, nên hãy nêu rõ bên trong có gì thay vì dùng một tiêu đề chung chung.

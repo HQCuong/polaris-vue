@@ -12,7 +12,7 @@ description: "SDateField: तारीख डालने के लिए ए�
 import { SDateField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **एक समझदारी भरी date से शुरू करें।** Edit करते समय `value` में मौजूदा date पहले से भरें, या सुझाव देते समय कोई संभावित विकल्प भरें।
 - **Dates को उचित दायरे तक सीमित रखें।** `allow` और `disallow` से वे dates सीमित करें जिन्हें merchants चुन सकते हैं, जैसे scheduling field को आने वाली dates तक या business field को सोमवार से शुक्रवार तक सीमित करना।

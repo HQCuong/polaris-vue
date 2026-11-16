@@ -12,7 +12,7 @@ description: "SQueryContainer: किसी element को size container बन
 import { SQueryContainer } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Viewport के बजाय container के अनुसार ढलें।** Query container components को उनके container की चौड़ाई के अनुसार प्रतिक्रिया देने देता है। यह उन components के लिए मददगार है जो अलग-अलग चौड़ाई वाली जगहों पर दिखते हैं, जैसे sidebar में या मुख्य column में कोई product card।
 - **एक से अधिक containers होने पर उन्हें नाम दें।** अगर कई query containers को अलग-अलग queries चाहिए, तो हर एक को वर्णनात्मक `containerName` दें ताकि आप उसे target कर सकें; बिना नाम वाले सभी containers समान queries का जवाब देते हैं।

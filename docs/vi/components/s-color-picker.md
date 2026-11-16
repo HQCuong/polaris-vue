@@ -12,7 +12,7 @@ Một điều khiển trực quan để chọn màu. `SColorPicker` là Vue 3 wr
 import { SColorPicker } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Bắt đầu từ màu hiện tại.** Khi người bán chỉnh sửa một màu có sẵn, hãy đặt `value` là màu đó để họ không bị mất phương hướng và thấy được họ đang thay đổi từ màu nào.
 - **Xem trước màu trong ngữ cảnh.** Khi có thể, hãy hiển thị màu đã chọn áp dụng lên thứ nó ảnh hưởng, chẳng hạn một button, ngay cạnh picker.

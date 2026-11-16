@@ -12,7 +12,7 @@ Một công tắc bật/tắt một thiết lập. `SSwitch` là Vue 3 wrapper c
 import { SSwitch } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Đừng kết hợp switch với nút lưu.** Switch có hiệu lực ngay khi được bật/tắt, nên thêm nút lưu sẽ khiến người bán không chắc khi nào thay đổi thực sự được áp dụng.
 - **Làm rõ thiết lập.** Viết `label` cho người bán biết switch điều khiển gì và bật hay tắt nghĩa là gì, để họ không phải gạt thử mới biết.

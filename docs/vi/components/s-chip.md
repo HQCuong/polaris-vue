@@ -12,7 +12,7 @@ Một nhãn tĩnh cho tag hoặc thuộc tính, có thể gỡ bỏ. `SChip` là
 import { SChip } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng chip để mô tả, không phải để hành động.** Chip phù hợp cho tag, trạng thái và danh mục cho người bán biết điều gì đó về nội dung. Chúng không phải button, nên khi chip cần được nhấp hoặc đóng, hãy dùng `SClickableChip`.
 - **Giữ nhãn ngắn.** Văn bản ngắn như "Featured" hay "On sale" có thể đọc trong nháy mắt, còn nhãn dài làm chậm việc đọc lướt và có thể bị cắt.

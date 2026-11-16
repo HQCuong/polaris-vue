@@ -12,7 +12,7 @@ Một lịch để chọn một ngày hoặc một khoảng ngày. `SDatePicker`
 import { SDatePicker } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Bắt đầu với một ngày hợp lý.** Điền sẵn `value` để người bán chọn nhanh hơn.
 - **Cung cấp lối tắt cho các lựa chọn phổ biến.** Các preset như "Today", "Last 7 days" hay "This month" giúp người bán khỏi phải nhấp qua từng trang lịch.

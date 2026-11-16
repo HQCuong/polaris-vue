@@ -12,7 +12,7 @@ description: "SUnorderedList: एक bulleted सूची। Shopify Polaris <s
 import { SUnorderedList } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसका उपयोग तब करें जब क्रम मायने न रखे।** Unordered list संबंधित items, जैसे features, विकल्प या लाभ, को बिना किसी क्रम या रैंकिंग के प्रस्तुत करती है। जब क्रम मायने रखे, तो इसके बजाय `SOrderedList` का उपयोग करें।
 - **Items को समानांतर रखें।** हर item को समान व्याकरणिक संरचना दें ताकि list को scan करना आसान हो। एक ही list में लेखन शैलियाँ मिलाने से उसे पढ़ना कठिन हो जाता है।

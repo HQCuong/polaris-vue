@@ -12,7 +12,7 @@ Một ô nhập văn bản cho mật khẩu, che đi những gì được gõ. `
 import { SPasswordField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Tương thích với trình quản lý mật khẩu.** Đặt giá trị `autocomplete` phù hợp, chẳng hạn `new-password` hoặc `current-password`, để trình quản lý mật khẩu có thể giúp người bán tạo và lưu mật khẩu mạnh.
 - **Nêu rõ quy tắc ngay từ đầu.** Liệt kê mọi yêu cầu về mật khẩu trước khi người bán bắt đầu nhập, thay vì chỉ cho biết sau khi họ nhập sai. Điều này tránh gây khó chịu và khiến người dùng bỏ dở form.

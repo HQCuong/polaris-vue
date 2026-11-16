@@ -12,7 +12,7 @@ Color चुनने के लिए एक visual control। `SColorPicker` S
 import { SColorPicker } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **मौजूदा color से शुरू करें।** जब merchants किसी मौजूदा color को edit करें, तो `value` को उसी पर सेट करें, ताकि वे भटकें नहीं और देख सकें कि वे किस color से बदलाव कर रहे हैं।
 - **Color को संदर्भ में preview करें।** जहाँ संभव हो, picker के पास चुने गए color को उस चीज़ पर लागू करके दिखाएँ जिस पर उसका असर पड़ता है, जैसे कोई button।

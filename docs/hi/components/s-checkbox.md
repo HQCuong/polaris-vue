@@ -12,7 +12,7 @@ description: "SCheckbox: हाँ/नहीं वाले चुनाव क
 import { SCheckbox } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **हर checkbox को स्वतंत्र रखें।** Merchants को विकल्पों का कोई भी संयोजन चुनने की सुविधा होनी चाहिए, बिना किसी एक checkbox के दूसरे पर असर डाले।
 - **हर checkbox को एक वर्णनात्मक `label` दें।** यह सबसे ज़्यादा तब मायने रखता है जब कोई checkbox किसी setting को चालू या बंद करता है, ताकि merchants ठीक-ठीक जानें कि वे क्या enable कर रहे हैं।

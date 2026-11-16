@@ -12,7 +12,7 @@ Body text का एक block। `SParagraph` Shopify के Polaris `<s-paragra
 import { SParagraph } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Paragraphs छोटे रखें।** बिना jargon के सरल भाषा में दो से चार वाक्यों का लक्ष्य रखें। Merchants अक्सर सरसरी नज़र से पढ़ते हैं, इसलिए लंबे content को छोटे टुकड़ों में बाँटें।
 - **इरादा दर्शाने के लिए tone का उपयोग करें।** `tone="critical"` errors के लिए, `"caution"` चेतावनियों के लिए और `"success"` पुष्टियों के लिए उपयुक्त है। केवल रंग पर निर्भर रहने के बजाय हमेशा उसे स्पष्ट शब्दों का साथ दें।

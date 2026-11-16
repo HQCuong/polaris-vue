@@ -12,7 +12,7 @@ description: "SChoiceList: एक या कई विकल्प चुनन�
 import { SChoiceList } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Selection mode को विकल्पों के अनुसार चुनें।** एक-दूसरे को बाहर करने वाले विकल्पों, जैसे payment methods या shipping speeds, के लिए single selection रखें, और जब merchants एक से ज़्यादा चुन सकें तो `multiple` सेट करें।
 - **Choice labels से नतीजा साफ़ हो।** "Email notifications for new orders" सिर्फ़ "Email" से ज़्यादा बताता है। Labels छोटे रखें, लेकिन इतने साफ़ कि अपने आप में समझ आ जाएँ।

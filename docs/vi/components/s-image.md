@@ -12,7 +12,7 @@ Hiển thị hình ảnh, kiểm soát được tỉ lệ khung hình, cách co 
 import { SImage } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng hình ảnh sắc nét, đã tối ưu.** Chọn hình ảnh độ phân giải cao nhưng cũng đã được tối ưu cho web.
 - **Thêm hình ảnh có mục đích.** Chỉ đưa vào hình ảnh khi nó làm nội dung rõ ràng hơn hoặc giúp hướng dẫn người bán.

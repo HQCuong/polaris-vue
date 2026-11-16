@@ -12,7 +12,7 @@ Actions की एक सूची जो overlay में दिखती ह�
 import { SMenu } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Menus का इस्तेमाल secondary actions के लिए करें।** "Save" जैसे primary actions को पेज पर ही दिखने दें। Menus उन actions के लिए ठीक हैं जिन्हें merchants कम इस्तेमाल करते हैं या destructive actions के लिए, जैसे "Archive" या "Export data", जिन्हें स्थायी जगह की ज़रूरत नहीं होती।
 - **Labels को क्रिया और संज्ञा के रूप में लिखें।** "Edit details" या "Export as CSV" जैसे labels ठीक-ठीक बताते हैं कि क्या होगा; "Options", "More" या "Settings" जैसे अस्पष्ट labels से बचें।

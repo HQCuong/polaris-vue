@@ -12,7 +12,7 @@ description: "SChip: किसी tag या attribute के लिए एक s
 import { SChip } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Chips का इस्तेमाल वर्णन के लिए करें, कार्रवाई के लिए नहीं।** Chips उन tags, statuses और categories के लिए अच्छे हैं जो merchants को content के बारे में कुछ बताते हैं। ये buttons नहीं हैं, इसलिए जब किसी chip पर click करना या उसे हटाना हो, तो इसके बजाय `SClickableChip` इस्तेमाल करें।
 - **Labels छोटे रखें।** "Featured" या "On sale" जैसा छोटा text एक नज़र में पढ़ा जा सकता है, जबकि लंबे labels स्कैनिंग को धीमा करते हैं और कट भी सकते हैं।

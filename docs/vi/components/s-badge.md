@@ -12,7 +12,7 @@ Một nhãn nhỏ cho biết trạng thái của một đối tượng, chẳng 
 import { SBadge } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chọn kích thước theo ngữ cảnh.** Dùng `size="base"` trong ô bảng, mục danh sách, hoặc bất cứ đâu có nhiều badge nằm cạnh nhau. Chỉ dùng `size="large"` cho một badge duy nhất cần được nhấn mạnh, chẳng hạn trạng thái chính hiển thị ở đầu trang.
 - **Giữ nhãn trong một hoặc hai từ.** Nhãn ngắn như "Fulfilled" hay "Out of stock" giúp đọc lướt nhanh. Viết trạng thái ở thì quá khứ, ví dụ "Refunded" thay vì "Refund".

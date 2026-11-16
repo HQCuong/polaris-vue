@@ -12,7 +12,7 @@ Một bảng cho dữ liệu có cấu trúc, có phân trang, trạng thái loa
 import { STable } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng bảng cho dữ liệu người bán cần so sánh.** Bảng phù hợp với nhiều bản ghi có cùng thuộc tính và cần được đọc lướt cạnh nhau. Với một danh sách đơn giản không có gì để so sánh, hãy chọn một component đơn giản hơn.
 - **Tính đến bố cục danh sách trên mobile.** Trên mobile, bảng chuyển thành danh sách, nên hãy kiểm tra rằng header và giá trị vẫn dễ đọc khi xếp chồng thành các cặp nhãn–giá trị thay vì dạng lưới.

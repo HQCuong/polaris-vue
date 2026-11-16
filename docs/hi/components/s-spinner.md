@@ -12,7 +12,7 @@ description: "SSpinner: एक animated indicator जो बताता है 
 import { SSpinner } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसे धीमे async काम के लिए दिखाएँ।** Spinner का उपयोग तब करें जब form सहेजने, data लाने या किसी action को process करने जैसे काम में लगभग 500ms से अधिक समय लगे। तुरंत पूरे होने वाले actions के लिए spinner बस झिलमिलाता है और ध्यान भटकाता है।
 - **इसे उसी जगह रखें जो load हो रही है।** पूरे interface को रोकने के बजाय spinner को page के उस हिस्से में रखें जो load हो रहा है, जैसे save हो रहा कोई button या अपना data ला रहा कोई section।

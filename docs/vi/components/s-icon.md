@@ -12,7 +12,7 @@ Hiển thị một icon từ bộ icon Polaris theo tên. `SIcon` là Vue 3 wrap
 import { SIcon } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng icon để truyền đạt thông tin, không phải để trang trí.** Icon nên giải thích một hành động làm gì hoặc thể hiện một trạng thái, như icon xóa trên hành động xóa hoặc dấu tích cho việc đã hoàn thành. Đừng thêm icon chỉ để cho đẹp.
 - **Hãy nhất quán.** Khi một icon đã đại diện cho một hành động hay khái niệm, hãy giữ nguyên như vậy trong toàn bộ app. Nếu `edit` nghĩa là chỉnh sửa ở một chỗ, hãy dùng nó cho việc chỉnh sửa ở mọi chỗ.

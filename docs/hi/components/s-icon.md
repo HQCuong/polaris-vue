@@ -12,7 +12,7 @@ Polaris icon set से नाम के ज़रिए एक icon दिख�
 import { SIcon } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Icons का इस्तेमाल जानकारी देने के लिए करें, सजावट के लिए नहीं।** Icon को यह समझाना चाहिए कि कोई action क्या करता है या कोई state दिखानी चाहिए, जैसे delete action पर delete icon या पूरे हो चुके काम के लिए check। सिर्फ़ दिखावे के लिए icons न जोड़ें।
 - **एकरूपता रखें।** जब कोई icon किसी action या concept का प्रतीक बन जाए, तो अपने पूरे app में उसे वैसा ही रखें। अगर एक जगह `edit` का मतलब editing है, तो हर जगह editing के लिए उसी का इस्तेमाल करें।

@@ -12,7 +12,7 @@ description: "SEmptyState: बताता है कि किसी view म�
 import { SEmptyState } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **पहले कारण बताएँ, फिर समाधान।** सिर्फ़ "No products" वाला heading merchants को अंदाज़ा लगाने पर छोड़ देता है। `heading` में बताएँ कि वहाँ कुछ क्यों नहीं है, और action को अगला कदम बताने दें।
 - **एक primary action से शुरुआत करें।** उस एक कदम के लिए `primary-action` slot इस्तेमाल करें जो merchants को empty state से बाहर ले जाए, और बाकी विकल्प `secondary-actions` में रखें।

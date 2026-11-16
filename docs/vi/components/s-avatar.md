@@ -12,7 +12,7 @@ Hiển thị ảnh của một người hoặc doanh nghiệp, hoặc chữ cái
 import { SAvatar } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chọn kích thước theo ngữ cảnh.** Dùng `size` nhỏ hơn cho bố cục dày đặc như bảng và danh sách, và lớn hơn trên trang hồ sơ, nơi con người là trọng tâm.
 - **Viết alt text hữu ích.** Đặt `alt` là người hoặc thứ mà avatar đại diện, chẳng hạn tên một người hoặc một công ty. Nếu tên đó đã hiển thị dạng văn bản bên cạnh avatar, hãy dùng `alt` rỗng.

@@ -12,7 +12,7 @@ description: "SDivider: एक horizontal या vertical रेखा जो co
 import { SDivider } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **सिर्फ़ वास्तव में अलग content को ही अलग करें।** Dividers उन sections के बीच ही ठीक लगते हैं जो साफ़ तौर पर अलग हों। बहुत ज़्यादा dividers interface को भरा-भरा और टूटा हुआ दिखाते हैं, इसलिए जाँच लें कि क्या whitespace से content उतनी ही अच्छी तरह समूह में आ जाएगा।
 - **Divider का वज़न विभाजन के अनुसार रखें।** Divider की प्रमुखता से पता चलना चाहिए कि विभाजन कितना अहम है: किसी बड़े section break के लिए `color="strong"` लिया जा सकता है, जबकि छोटे समूह के लिए हल्की line या सिर्फ़ जगह काफ़ी है।

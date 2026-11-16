@@ -12,7 +12,7 @@ Một nhóm radio button hoặc checkbox để chọn một hoặc nhiều tùy 
 import { SChoiceList } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chọn chế độ chọn phù hợp với các lựa chọn.** Giữ chế độ chọn một cho các lựa chọn loại trừ lẫn nhau, như phương thức thanh toán hoặc tốc độ giao hàng, và đặt `multiple` khi người bán có thể chọn nhiều hơn một.
 - **Viết nhãn lựa chọn mô tả kết quả.** "Email notifications for new orders" nói được nhiều hơn "Email". Giữ nhãn ngắn, nhưng đủ rõ để tự đứng độc lập.

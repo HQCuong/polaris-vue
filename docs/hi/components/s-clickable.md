@@ -12,7 +12,7 @@ Button की styling थोपे बिना किसी भी content क�
 import { SClickable } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **बिना दिखने वाले text के elements को label दें।** अगर clickable area के अंदर कोई पढ़ने लायक text नहीं है, तो `accessibilityLabel` सेट करें ताकि screen reader users जानें कि यह किसलिए है।
 - **सही mode चुनें।** Actions ट्रिगर करने के लिए इसे button की तरह इस्तेमाल करें, navigate करने के लिए इसे `href` दें, और जब यह form submit करे तो `type="submit"` सेट करें।

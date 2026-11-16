@@ -12,7 +12,7 @@ description: "SSection: संबंधित content को समूहित 
 import { SSection } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **साथ रहने वाले content को समूह में रखें।** हर section को एक ही, सुसंगत काम दें, चाहे वह संबंधित जानकारी हो या संबंधित controls; तब वह एक visual container की तरह काम करता है और page की संरचना में अर्थ जोड़ता है।
 - **वर्णनात्मक headings लिखें।** Merchants अपना रास्ता खोजने के लिए `heading` पर सरसरी नज़र डालते हैं, इसलिए किसी सामान्य title का सहारा लेने के बजाय बताएँ कि अंदर क्या है।

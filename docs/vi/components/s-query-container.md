@@ -12,7 +12,7 @@ Biến một phần tử thành size container để các phần tử con thích
 import { SQueryContainer } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Thích ứng theo container, không phải viewport.** Query container cho phép component phản hồi theo chiều rộng của container chứa nó. Điều này hữu ích cho các component xuất hiện ở những nơi có chiều rộng khác nhau, như một card sản phẩm trong sidebar hoặc trong cột chính.
 - **Đặt tên container khi có nhiều hơn một.** Nếu nhiều query container cần các query khác nhau, hãy đặt cho mỗi container một `containerName` mang tính mô tả để bạn có thể nhắm tới nó; các container không có tên đều phản hồi cùng các query.

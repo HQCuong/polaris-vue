@@ -12,7 +12,7 @@ Một ô nhập văn bản cho địa chỉ email. `SEmailField` là Vue 3 wrapp
 import { SEmailField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng `label` cụ thể.** Những tên như "Customer email" hay "Order notification email" rõ ràng hơn một "Email" hay "Email address" đơn thuần.
 - **Thêm ngữ cảnh trong `details`.** Giải thích vì sao cần địa chỉ email hoặc nó được dùng như thế nào, ví dụ "Required for digital receipts".

@@ -12,7 +12,7 @@ description: "SDatePicker: एक तारीख या तारीखों �
 import { SDatePicker } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **एक समझदारी भरी date से शुरू करें।** `value` पहले से भरें, ताकि merchants जल्दी चुनाव कर सकें।
 - **आम विकल्पों के लिए shortcuts दें।** "Today", "Last 7 days" या "This month" जैसे presets merchants को calendar में बार-बार click करने से बचाते हैं।

@@ -12,7 +12,7 @@ Bố cục trang cấp cao nhất, với tiêu đề, các hành động của t
 import { SPage } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Đặt tiêu đề cho mọi trang.** Đặt `heading` thành một tiêu đề mô tả trang mà người bán đang xem.
 - **Thêm breadcrumb khi trang nằm trong một luồng.** Khi trang là một bước trong một luồng lớn hơn, hãy đặt các liên kết quay lại trong slot `breadcrumb-actions`.

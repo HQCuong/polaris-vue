@@ -12,7 +12,7 @@ Một dropdown để chọn một tùy chọn từ danh sách. `SSelect` là Vue
 import { SSelect } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng cho một tập lựa chọn đã biết.** Select phù hợp khi người bán chọn từ một danh sách định sẵn. Khi người bán cần nhập giá trị tùy chỉnh hoặc tìm trong một danh sách dài, một text field gợi ý kết quả khớp khi họ gõ, hoặc một dropdown có thể tìm kiếm, sẽ phù hợp hơn.
 - **Sắp xếp các tùy chọn có chủ đích.** Nhóm các tùy chọn liên quan, đặt những tùy chọn phổ biến nhất lên đầu, hoặc sắp xếp theo bảng chữ cái khi không có thứ tự tự nhiên, để người bán nhanh chóng tìm thấy lựa chọn của mình.

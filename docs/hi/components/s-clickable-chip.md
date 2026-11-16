@@ -12,7 +12,7 @@ description: "SClickableChip: एक interactive chip जिसे click कि�
 import { SClickableChip } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Labels छोटे रखें।** लक्ष्य एक से तीन शब्द है, जैसे "Electronics" या "Summer sale"।
 - **`color` को महत्व के अनुसार चुनें।** द्वितीयक chips के लिए `color="subdued"` इस्तेमाल करें और सामान्य selections के लिए default `"base"` रहने दें।

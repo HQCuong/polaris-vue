@@ -12,7 +12,7 @@ Một khối văn bản nội dung. `SParagraph` là Vue 3 wrapper có type cho 
 import { SParagraph } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Giữ đoạn văn ngắn.** Hướng tới hai đến bốn câu bằng ngôn ngữ đơn giản, không dùng thuật ngữ chuyên môn. Người bán thường đọc lướt, nên hãy chia nội dung dài thành các phần nhỏ hơn.
 - **Dùng tone để thể hiện ý định.** `tone="critical"` phù hợp với lỗi, `"caution"` với cảnh báo và `"success"` với xác nhận. Luôn kèm theo câu chữ rõ ràng thay vì chỉ dựa vào màu sắc.

@@ -12,7 +12,7 @@ description: "SNumber: आपके द्वारा पहले से forma
 import { SNumber } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **केवल अंक को wrap करें।** संख्यात्मक value को ही `SNumber` में रखें और उसके आसपास के शब्दों को `SText` या `SParagraph` में छोड़ दें। Tabular digits अंकों को साफ़-सुथरे ढंग से align करते हैं, लेकिन सामान्य शब्दों को असमान दिखाते हैं।
 - **Values को पहले अपने app में format करें।** `SNumber` यह नियंत्रित करता है कि अंक कैसे दिखें, न कि value कैसे format हो, इसलिए merchant के locale से मेल खाने के लिए currency चिह्न, दशमलव और हज़ारों के separators स्वयं जोड़ें।

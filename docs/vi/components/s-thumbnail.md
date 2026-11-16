@@ -12,7 +12,7 @@ Một ảnh xem trước nhỏ, kích thước cố định, của một sản p
 import { SThumbnail } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **`size="small-200"` cho những chỗ chật nhất.** Chỉ dùng ở nơi không gian rất hạn chế.
 - **`size="small"` cho không gian nhỏ.** Dùng khi thumbnail phải vừa trong một khu vực nhỏ gọn.

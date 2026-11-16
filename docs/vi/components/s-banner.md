@@ -12,7 +12,7 @@ Một thông báo nổi bật hiển thị thông tin quan trọng, cảnh báo 
 import { SBanner } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Mỗi banner chỉ nói một việc.** Mỗi banner nên mang một thông điệp hoặc một hành động bắt buộc duy nhất, để người bán không phải băn khoăn nó nói về điều gì.
 - **Viết để đọc lướt nhanh.** Giữ văn bản đủ ngắn để người bán nắm được thông điệp và việc cần làm tiếp theo chỉ trong một cái nhìn.

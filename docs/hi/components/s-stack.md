@@ -14,7 +14,7 @@ import { SStack } from 'polaris-vue-elements'
 
 `<SStack>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/css-variables/) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Spacing से संबंध दर्शाएँ।** छोटा `gap` संकेत देता है कि items एक साथ हैं, जबकि बड़ा gap अलग-अलग समूहों को अलग करता है। ऐसी spacing चुनें जो आपके content की hierarchy से मेल खाए।
 - **Inline stacks के wrap होने की अपेक्षा रखें।** `direction="inline"` के साथ, जगह ख़त्म होने पर items नई line पर चले जाते हैं। आमतौर पर आप यही चाहते हैं, लेकिन अगर आपको line breaks या कई rows पर सटीक नियंत्रण चाहिए, तो कोई दूसरा layout तरीका अपनाएँ।

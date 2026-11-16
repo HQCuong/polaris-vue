@@ -12,7 +12,7 @@ Email addresses के लिए एक text input। `SEmailField` Shopify क�
 import { SEmailField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **स्पष्ट `label` इस्तेमाल करें।** "Customer email" या "Order notification email" जैसे नाम सिर्फ़ "Email" या "Email address" से ज़्यादा साफ़ हैं।
 - **`details` में संदर्भ जोड़ें।** बताएँ कि address क्यों चाहिए या उसका इस्तेमाल कैसे होगा, जैसे "Required for digital receipts"।

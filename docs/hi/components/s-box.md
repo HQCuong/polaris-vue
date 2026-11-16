@@ -14,7 +14,7 @@ import { SBox } from 'polaris-vue-elements'
 
 `<SBox>` के आसपास अपना CSS लिख रहे हैं? Polaris के [CSS वेरिएबल](/hi/css-variables/) (`--p-space-*`, `--p-color-*`, …) इस्तेमाल करें, ताकि आपका लेआउट components से मेल खाए।
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसे एक सामान्य container के रूप में इस्तेमाल करें।** `SBox` content को समूह में रखने के लिए spacing, borders और backgrounds संभालता है। जब आपको rows या columns जैसी कोई खास व्यवस्था चाहिए, तो इसके बजाय `SStack` या `SGrid` इस्तेमाल करें।
 - **पहले देखें कि कोई ज़्यादा अर्थपूर्ण component मौजूद है या नहीं।** अगर `SSection` या `SBanner` जैसा कोई component पहले से बताता है कि content क्या है, तो उसे प्राथमिकता दें। खास मकसद से बने components का उद्देश्य ज़्यादा साफ़ होता है और accessibility बेहतर होती है।

@@ -12,7 +12,7 @@ Một ô nhập văn bản một dòng với nhãn, placeholder, lỗi xác th�
 import { STextField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Làm rõ dữ liệu cần nhập.** Viết `label` và `placeholder` cho người bán biết cần nhập gì và theo định dạng nào. Câu chữ mơ hồ dẫn đến phải đoán, lỗi xác thực và sự khó chịu.
 - **Thêm ngữ cảnh bằng prefix hoặc suffix.** Dùng `prefix` và `suffix` để thể hiện loại giá trị và định dạng của nó, ví dụ người bán nên gõ cả URL hay chỉ subdomain, hoặc giá đầy đủ hay chỉ số tiền.

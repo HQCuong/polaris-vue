@@ -12,7 +12,7 @@ Một vùng tải tệp lên, nhận tệp bằng kéo thả hoặc từ hộp c
 import { SDropZone } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Nêu giới hạn file bằng `accept`.** Đặt giới hạn rõ ràng về loại file mà drop zone chấp nhận.
 - **Xử lý `droprejected` bằng một thông báo hữu ích.** Khi file không vượt qua kiểm tra, hãy lắng nghe event này và cho người bán biết điều gì đã sai.

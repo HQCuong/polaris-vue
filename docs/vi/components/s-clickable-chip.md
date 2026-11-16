@@ -12,7 +12,7 @@ Một chip tương tác có thể nhấp, mở như liên kết hoặc gỡ bỏ
 import { SClickableChip } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Giữ nhãn ngắn.** Mục tiêu là một đến ba từ, ví dụ "Electronics" hay "Summer sale".
 - **Chọn `color` theo mức độ quan trọng.** Dùng `color="subdued"` cho chip phụ và giữ giá trị mặc định `"base"` cho các lựa chọn thông thường.

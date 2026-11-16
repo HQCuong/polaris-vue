@@ -12,7 +12,7 @@ Một đường ngang hoặc dọc phân tách nội dung. `SDivider` là Vue 3 
 import { SDivider } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chỉ phân tách nội dung thực sự khác nhau.** Divider chỉ đáng dùng giữa các phần rõ ràng là khác biệt. Dùng quá nhiều khiến giao diện trông rối và rời rạc, vì vậy hãy xem khoảng trắng có nhóm nội dung tốt không kém hay không.
 - **Chọn độ đậm tương xứng với mức phân tách.** Để độ nổi bật của divider phản ánh mức quan trọng của sự phân tách: một ranh giới lớn giữa các phần có thể dùng `color="strong"`, còn một nhóm nhỏ chỉ cần đường mảnh hơn hoặc chỉ cần khoảng trống.

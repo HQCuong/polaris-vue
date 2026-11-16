@@ -12,7 +12,7 @@ Floating content जो उसे खोलने वाले button से ज
 import { SPopover } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसे द्वितीयक content के लिए रखें।** Popover तब तक छिपा रहता है जब तक merchants उसे खोलते नहीं, इसलिए उसमें कम महत्वपूर्ण जानकारी और actions रखें, न कि ऐसा कुछ जो उन्हें तुरंत देखना हो।
 - **संबंधित actions को समूह में रखें।** Popover के अंदर के actions आपस में संबंधित होने चाहिए।

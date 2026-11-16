@@ -12,7 +12,7 @@ Một ô nhập số cho số tiền. `SMoneyField` là Vue 3 wrapper có type c
 import { SMoneyField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Đặt `min` và `max` ở giới hạn thực tế.** Ví dụ, giá sản phẩm có thể dùng `min` là 0.01 để không thể bằng 0, giảm giá có thể nằm trong khoảng từ 0 đến tổng đơn hàng, và hoàn tiền có thể bị giới hạn ở số tiền đã thanh toán. Luôn kiểm tra giá trị theo quy tắc nghiệp vụ của bạn nữa.
 - **Nêu chính xác giới hạn trong `error`.** Thay vì "Invalid amount", hãy nói kiểu như "Price must be at least $0.01" để người bán biết họ đã vi phạm ràng buộc nào.

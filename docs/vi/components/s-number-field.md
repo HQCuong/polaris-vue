@@ -12,7 +12,7 @@ Một ô nhập số với giá trị tối thiểu, tối đa và bước nhả
 import { SNumberField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chỉ dùng cho giá trị thuần số.** Dùng nó cho những thứ như số lượng, số đo hoặc phần trăm. Nếu giá trị có thể chứa chữ cái hoặc ký hiệu, chẳng hạn mã sản phẩm hay số điện thoại, hãy dùng `STextField`.
 - **Hiển thị đơn vị.** Dùng `prefix` hoặc `suffix` để cho biết con số đo cái gì, để người bán không phải đoán mình đang nhập đô la, kilôgam hay phần trăm.

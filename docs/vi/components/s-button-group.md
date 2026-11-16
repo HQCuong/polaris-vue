@@ -12,7 +12,7 @@ Sắp xếp một nhóm nút liên quan cạnh nhau, chẳng hạn một hành �
 import { SButtonGroup } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Gom các hành động liên quan lại với nhau.** Nhóm các lời kêu gọi hành động thuộc cùng một tác vụ để người bán thấy được các lựa chọn và mối liên hệ giữa chúng.
 - **Giữ thứ bậc thị giác.** Dùng `variant="primary"` cho button của hành động chính và `variant="secondary"` hoặc `variant="tertiary"` cho các hành động phụ để định hướng sự chú ý.

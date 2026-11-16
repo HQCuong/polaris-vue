@@ -13,7 +13,7 @@ export default {
     'Typography and content': 'Chữ và nội dung',
   },
   headings: {
-    bestPractices: 'Best practices',
+    bestPractices: 'Thực hành tốt',
     example: 'Ví dụ',
     vModel: 'v-model',
     props: 'Props',

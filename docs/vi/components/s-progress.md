@@ -12,7 +12,7 @@ Một thanh tiến trình cho biết tác vụ đã tiến đến đâu so với
 import { SProgress } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng cho công việc đo lường được.** Dùng thanh tiến trình khi bạn có thể biểu diễn công việc như một phần của tổng thể. Khi bạn không biết việc gì đó sẽ mất bao lâu hoặc đã đi được bao xa, spinner là lựa chọn nhẹ nhàng hơn.
 - **Gọi tên thứ đang tiến triển.** Đặt cho `accessibilityLabel` một mô tả chính xác, ví dụ "Importing products" hoặc "Storage used". Trình đọc màn hình đọc thanh tiến trình theo nhãn đó, và sẽ không có giá trị mặc định nếu bạn bỏ trống.

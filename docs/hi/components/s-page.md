@@ -12,7 +12,7 @@ Top-level page layout, जिसमें heading, page actions और content a
 import { SPage } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **हर page को एक title दें।** `heading` में ऐसा title सेट करें जो उस page का वर्णन करे जिस पर merchant है।
 - **किसी flow के भीतर breadcrumbs जोड़ें।** जब page किसी बड़े flow का एक चरण हो, तो वापस जाने के links को `breadcrumb-actions` slot में रखें।

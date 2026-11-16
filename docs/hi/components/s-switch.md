@@ -12,7 +12,7 @@ description: "SSwitch: एक toggle switch जो किसी setting को �
 import { SSwitch } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Switches के साथ save button न रखें।** Switch toggle होते ही प्रभावी हो जाता है, इसलिए save button जोड़ने से merchants असमंजस में पड़ जाते हैं कि उनका बदलाव वास्तव में कब लागू होगा।
 - **Setting को स्पष्ट बनाएँ।** ऐसा `label` लिखें जो merchants को बताए कि switch क्या नियंत्रित करता है और on और off का क्या अर्थ है, ताकि उन्हें केवल पता लगाने के लिए उसे बदलना न पड़े।

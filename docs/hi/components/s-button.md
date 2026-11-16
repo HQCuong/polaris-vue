@@ -12,7 +12,7 @@ description: "SButton: कोई action चलाता है या navigate �
 import { SButton } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **साफ़ क्रिया वाला label दें।** ठीक-ठीक बताएँ कि button क्या करता है, जैसे "Save", "Edit" या "Add tags"। Sentence case इस्तेमाल करें, "a" या "the" जैसे भराव वाले शब्द छोड़ दें, और विराम चिह्न न लगाएँ।
 - **`tone="critical"` को destructive actions के लिए बचाकर रखें।** इसे सिर्फ़ तभी इस्तेमाल करें जब किसी action को पलटना मुश्किल या असंभव हो, और आम तौर पर tone को इस बात से मिलाएँ कि action कितना अहम है।

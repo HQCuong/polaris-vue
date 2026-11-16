@@ -12,7 +12,7 @@ Một checkbox đơn cho lựa chọn có/không, gắn với trạng thái chec
 import { SCheckbox } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Giữ mỗi checkbox độc lập.** Người bán nên có thể chọn bất kỳ tổ hợp lựa chọn nào mà checkbox này không ảnh hưởng đến checkbox khác.
 - **Gán cho mỗi checkbox một `label` mô tả rõ.** Điều này quan trọng nhất khi checkbox bật hoặc tắt một cài đặt, để người bán biết chính xác họ đang bật cái gì.

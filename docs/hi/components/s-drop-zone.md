@@ -12,7 +12,7 @@ File upload का एक क्षेत्र जो drag and drop से य�
 import { SDropZone } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **`accept` से file की सीमाएँ बताएँ।** Drop zone कौन-से file types स्वीकार करता है, इस पर साफ़ प्रतिबंध सेट करें।
 - **`droprejected` को एक मददगार संदेश के साथ संभालें।** जब कोई file validation में फ़ेल हो, तो इस event को सुनें और merchants को बताएँ कि क्या गलत हुआ।

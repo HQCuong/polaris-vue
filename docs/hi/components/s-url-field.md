@@ -12,7 +12,7 @@ Web addresses के लिए एक text input। `SUrlField` Shopify के P
 import { SUrlField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **URLs की जाँच स्वयं करें।** Browser का built-in URL validation न्यूनतम है और अलग-अलग browsers में भिन्न होता है, इसलिए संरचना, अनुमत protocols और आपके use case द्वारा स्वीकार किए जाने वाले formats के लिए अपनी जाँचें जोड़ें।
 - **अपेक्षित format दिखाएँ।** Merchants को बताएँ कि protocol शामिल करना है या नहीं, कौन-से protocols अनुमत हैं और आप किस प्रकार का URL चाहते हैं। `placeholder` में एक पूरा उदाहरण URL इसे स्पष्ट कर देता है।

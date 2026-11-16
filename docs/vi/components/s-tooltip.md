@@ -12,7 +12,7 @@ Một nhãn ngắn xuất hiện khi hover hoặc focus vào một phần tử k
 import { STooltip } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng tooltip cho chi tiết bổ sung, không thiết yếu.** Chúng phù hợp với thông tin giúp hiểu rõ hơn nhưng không bắt buộc. Đừng bao giờ giấu lỗi, thông tin thiết yếu hoặc hướng dẫn bắt buộc trong tooltip.
 - **Kết hợp với nút chỉ có icon.** Một nút icon cần tooltip để giải thích chức năng; hãy ghi rõ hành động và phím tắt của nó, nếu có.

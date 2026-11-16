@@ -13,7 +13,7 @@ export default {
     'Typography and content': 'Typography और content',
   },
   headings: {
-    bestPractices: 'Best practices',
+    bestPractices: 'सर्वोत्तम अभ्यास',
     example: 'उदाहरण',
     vModel: 'v-model',
     props: 'Props',

@@ -12,7 +12,7 @@ Một ô nhập văn bản nhiều dòng cho nội dung dài hơn như ghi chú 
 import { STextArea } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Định cỡ theo câu trả lời mong đợi.** Số `rows` hiển thị cho biết nên viết bao nhiêu: một vùng nhập thấp gợi ý câu trả lời ngắn, còn vùng cao hơn yêu cầu nhiều chi tiết hơn.
 - **Đặt giới hạn độ dài phản ánh nhu cầu thực.** Chọn `minLength` và `maxLength` dựa trên những gì nội dung thực sự cần, và cho người bán biết các giới hạn đó ngay từ đầu.

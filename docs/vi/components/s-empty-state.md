@@ -12,7 +12,7 @@ Giải thích vì sao một màn hình chưa có nội dung và chỉ cho ngư�
 import { SEmptyState } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Giải thích nguyên nhân, rồi đến cách khắc phục.** Một tiêu đề trơn "No products" khiến người bán phải đoán. Dùng `heading` để nói vì sao chưa có gì, và để hành động đảm nhận bước tiếp theo.
 - **Dẫn dắt bằng một hành động chính.** Dùng slot `primary-action` cho bước duy nhất đưa người bán ra khỏi trạng thái trống, và đặt các lựa chọn khác trong `secondary-actions`.

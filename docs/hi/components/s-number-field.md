@@ -12,7 +12,7 @@ description: "SNumberField: वैकल्पिक minimum, maximum और ste
 import { SNumberField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसे केवल संख्यात्मक values तक सीमित रखें।** मात्रा, माप या प्रतिशत जैसी चीज़ों के लिए इसका उपयोग करें। अगर किसी value में अक्षर या चिह्न हो सकते हैं, जैसे product code या फ़ोन नंबर, तो इसके बजाय `STextField` का उपयोग करें।
 - **इकाई दिखाएँ।** संख्या क्या मापती है यह बताने के लिए `prefix` या `suffix` का उपयोग करें, ताकि merchants को यह अनुमान न लगाना पड़े कि वे डॉलर, किलोग्राम या प्रतिशत टाइप कर रहे हैं।

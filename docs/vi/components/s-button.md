@@ -12,7 +12,7 @@ Kích hoạt một hành động hoặc điều hướng, có các biến thể 
 import { SButton } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Đặt nhãn bằng một động từ rõ ràng.** Nói chính xác button làm gì, như "Save", "Edit" hay "Add tags". Dùng kiểu viết hoa chữ đầu câu (sentence case), bỏ các từ thừa như "a" hay "the", và không dùng dấu câu.
 - **Chỉ dùng `tone="critical"` cho hành động phá hủy.** Chỉ dùng nó khi một hành động khó hoặc không thể hoàn tác, và nhìn chung hãy chọn tone tương xứng với mức độ quan trọng của hành động.

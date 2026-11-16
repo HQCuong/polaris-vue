@@ -12,7 +12,7 @@ Một danh sách đánh số. `SOrderedList` là Vue 3 wrapper có type cho web 
 import { SOrderedList } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng khi thứ tự có ý nghĩa.** Danh sách đánh số thể hiện thứ tự, mức ưu tiên hoặc xếp hạng, nên phù hợp với hướng dẫn từng bước hoặc các đề xuất được xếp hạng. Nếu thứ tự không quan trọng, hãy dùng `SUnorderedList`.
 - **Viết các mục theo cùng một cách.** Cho mọi mục cùng ngữ pháp và cấu trúc để danh sách dễ đọc. Đổi cách viết giữa các mục khiến người đọc phải vất vả hơn.

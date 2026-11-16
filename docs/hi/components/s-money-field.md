@@ -12,7 +12,7 @@ description: "SMoneyField: पैसों की राशि के लिए 
 import { SMoneyField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **`min` और `max` को वास्तविक सीमाओं पर सेट करें।** उदाहरण के लिए, product price के लिए `min` 0.01 रखा जा सकता है ताकि वह शून्य न हो, discount 0 से order total तक हो सकता है, और refund को चुकाई गई राशि तक सीमित किया जा सकता है। Values को हमेशा अपने business rules के हिसाब से भी जाँचें।
 - **`error` में सटीक सीमा बताएँ।** "Invalid amount" के बजाय "Price must be at least $0.01" जैसा कुछ कहें, ताकि merchants जानें कि उन्होंने कौन-सी शर्त तोड़ी है।

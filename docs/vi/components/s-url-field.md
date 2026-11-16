@@ -12,7 +12,7 @@ Một ô nhập văn bản cho địa chỉ web. `SUrlField` là Vue 3 wrapper c
 import { SUrlField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Tự xác thực URL.** Khả năng xác thực URL có sẵn của trình duyệt rất tối thiểu và khác nhau giữa các trình duyệt, nên hãy tự thêm các kiểm tra về cấu trúc, giao thức được phép và các định dạng mà trường hợp sử dụng của bạn chấp nhận.
 - **Hiển thị định dạng bạn mong đợi.** Cho người bán biết có cần kèm giao thức không, những giao thức nào được phép và bạn muốn loại URL nào. Một URL ví dụ đầy đủ trong `placeholder` sẽ làm rõ điều này.

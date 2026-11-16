@@ -14,7 +14,7 @@ import { SStack } from 'polaris-vue-elements'
 
 Viết CSS riêng quanh `<SStack>`? Hãy dùng [biến CSS](/vi/css-variables/) của Polaris (`--p-space-*`, `--p-color-*`, …) để layout của bạn khớp với các component.
 
-## Best practices
+## Thực hành tốt
 
 - **Để khoảng cách phản ánh mối quan hệ.** Một `gap` nhỏ cho thấy các mục thuộc về nhau, còn `gap` lớn hơn tách biệt các nhóm khác nhau. Chọn khoảng cách khớp với thứ bậc nội dung của bạn.
 - **Lường trước việc stack inline sẽ xuống dòng.** Với `direction="inline"`, các mục chuyển sang dòng mới khi hết chỗ. Đó thường là điều bạn muốn, nhưng nếu cần kiểm soát chính xác việc ngắt dòng hoặc nhiều hàng, hãy dùng một cách bố cục khác.

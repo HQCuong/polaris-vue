@@ -12,7 +12,7 @@ description: "SProgress: एक progress bar जो दिखाता है �
 import { SProgress } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **इसका उपयोग ऐसे काम के लिए करें जिसे मापा जा सके।** Progress bar तब चुनें जब आप काम को किसी पूर्ण के हिस्से के रूप में व्यक्त कर सकें। जब आप यह न बता सकें कि किसी काम में कितना समय लगेगा या वह कितना आगे बढ़ चुका है, तो spinner हल्का विकल्प है।
 - **बताएँ कि क्या आगे बढ़ रहा है।** `accessibilityLabel` को सटीक विवरण दें, उदाहरण के लिए "Importing products" या "Storage used"। Screen readers bar को उसी label के साथ पढ़ते हैं, और अगर आप इसे छोड़ दें तो कोई default नहीं होता।

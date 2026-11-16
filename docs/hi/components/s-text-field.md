@@ -12,7 +12,7 @@ Label, placeholder, validation error और help text वाला एक single
 import { STextField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **अपेक्षित input को स्पष्ट बनाएँ।** ऐसा `label` और `placeholder` लिखें जो merchants को बताए कि क्या दर्ज करना है और किस format में। अस्पष्ट शब्दों से अनुमान, validation errors और झुंझलाहट होती है।
 - **Prefix या suffix से context जोड़ें।** Value का प्रकार और उसका format दिखाने के लिए `prefix` और `suffix` का उपयोग करें, उदाहरण के लिए merchants को पूरा URL टाइप करना है या केवल subdomain, या पूरी कीमत या केवल राशि।

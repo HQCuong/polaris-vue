@@ -12,7 +12,7 @@ Aspect ratio, fit, borders और lazy loading पर नियंत्रण �
 import { SImage } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **साफ़ और optimized images इस्तेमाल करें।** ऐसी high-resolution images चुनें जो web के लिए optimized भी हों।
 - **Images किसी मकसद से जोड़ें।** Image तभी शामिल करें जब वह content को ज़्यादा साफ़ बनाए या merchants को राह दिखाने में मदद करे।

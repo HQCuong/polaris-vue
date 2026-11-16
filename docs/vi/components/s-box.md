@@ -14,7 +14,7 @@ import { SBox } from 'polaris-vue-elements'
 
 Viết CSS riêng quanh `<SBox>`? Hãy dùng [biến CSS](/vi/css-variables/) của Polaris (`--p-space-*`, `--p-color-*`, …) để layout của bạn khớp với các component.
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng nó như một container chung.** `SBox` xử lý khoảng cách, viền và nền để nhóm nội dung. Khi bạn cần một cách sắp xếp cụ thể như hàng hoặc cột, hãy dùng `SStack` hoặc `SGrid`.
 - **Kiểm tra trước xem có component mang ý nghĩa rõ hơn không.** Nếu đã có component như `SSection` hay `SBanner` mô tả đúng nội dung là gì, hãy ưu tiên nó. Component chuyên dụng thể hiện ý định rõ hơn và có trợ năng tốt hơn.

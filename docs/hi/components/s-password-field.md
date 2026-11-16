@@ -12,7 +12,7 @@ Passwords के लिए एक text input जो टाइप किए ग�
 import { SPasswordField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Password managers के साथ काम करें।** `new-password` या `current-password` जैसी उपयुक्त `autocomplete` value सेट करें, ताकि password managers merchants को मज़बूत passwords बनाने और सहेजने में मदद कर सकें।
 - **नियम पहले ही बता दें।** Merchants के टाइप करना शुरू करने से पहले हर password आवश्यकता की सूची दें, बजाय इसके कि उन्हें केवल गलत entry के बाद दिखाया जाए। इससे झुंझलाहट और अधूरे छोड़े गए forms से बचा जा सकता है।

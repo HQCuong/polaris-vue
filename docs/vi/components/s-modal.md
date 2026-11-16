@@ -12,7 +12,7 @@ Một hộp thoại overlay cho các tác vụ cần tập trung và xác nhận
 import { SModal } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chỉ dùng modal cho quyết định cần sự tập trung.** Mở modal khi người bán phải đưa ra một lựa chọn cụ thể hoặc xác nhận một điều quan trọng. Nếu tác vụ hoặc công cụ có thể nằm ngay trên trang, hãy giữ nó ở đó.
 - **Dùng một cách hạn chế.** Mỗi modal đều làm gián đoạn người bán, vì vậy hãy coi nó là giải pháp cuối cùng cho những thời điểm quan trọng, không phải một pattern mặc định.

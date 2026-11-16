@@ -12,7 +12,7 @@ Một ô nhập văn bản để nhập giá trị màu, có thể kèm kênh al
 import { SColorField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Nêu rõ màu dùng cho việc gì.** Dùng `label` như "Button background color" hay "Heading text color" thay vì một từ chung chung như "Color".
 - **Hiển thị màu hiện tại khi chỉnh sửa.** Đặt `value` là màu hiện có để người bán thấy họ đang thay đổi từ màu nào.

@@ -12,7 +12,7 @@ Một chỉ báo động cho biết nội dung hoặc một hành động đang 
 import { SSpinner } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Hiển thị cho các tác vụ bất đồng bộ chậm.** Dùng spinner khi những việc như lưu form, tải dữ liệu hoặc xử lý một hành động mất hơn khoảng 500ms. Với các hành động hoàn tất tức thì, spinner chỉ nhấp nháy và gây phân tâm.
 - **Giữ nó ở đúng chỗ đang tải.** Đặt spinner trong phần của trang đang tải, chẳng hạn một nút đang lưu hoặc một section đang tải dữ liệu, thay vì chặn toàn bộ giao diện.

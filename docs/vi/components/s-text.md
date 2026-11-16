@@ -12,7 +12,7 @@ Văn bản inline với tone, độ đậm và kiểu nhấn mạnh. `SText` là
 import { SText } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chọn `type` có ngữ nghĩa.** Chọn `"strong"` để đánh dấu từ hoặc cụm từ quan trọng, `"address"` cho địa chỉ bưu chính hoặc email, và `"redundant"` cho văn bản cung cấp ngữ cảnh cho người dùng trình đọc màn hình khi cùng nội dung đó đã xuất hiện trên màn hình. Chọn đúng type giúp công nghệ hỗ trợ thể hiện được ý nghĩa của văn bản.
 - **Nhấn mạnh có chừng mực.** Áp dụng `type="strong"` cho từ hoặc con số quan trọng trong câu, không phải cho cả câu; nhấn mạnh quá nhiều sẽ mất tác dụng và khiến văn bản khó đọc lướt hơn.

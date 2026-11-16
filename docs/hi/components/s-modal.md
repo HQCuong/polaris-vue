@@ -12,7 +12,7 @@ description: "SModal: केंद्रित tasks और confirmations के
 import { SModal } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Modals को उन फ़ैसलों के लिए रखें जिनमें ध्यान चाहिए।** Modal तब खोलें जब merchants को कोई खास चुनाव करना हो या किसी अहम बात को स्वीकार करना हो। अगर काम या tool सीधे पेज पर रह सकता है, तो उसे वहीं रखें।
 - **इनका इस्तेमाल कम करें।** हर modal merchant के काम में रुकावट डालता है, इसलिए इसे default pattern के बजाय अहम पलों के लिए आखिरी उपाय मानें।

@@ -12,7 +12,7 @@ description: "SThumbnail: किसी product या file की एक छो�
 import { SThumbnail } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **सबसे तंग जगहों के लिए `size="small-200"`।** इसका उपयोग केवल वहीं करें जहाँ जगह बहुत सीमित हो।
 - **छोटी जगहों के लिए `size="small"`।** इसका उपयोग तब करें जब thumbnail को किसी compact area में फ़िट होना हो।

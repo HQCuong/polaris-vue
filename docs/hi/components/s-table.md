@@ -12,7 +12,7 @@ Structured data के लिए एक table, वैकल्पिक paginati
 import { STable } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Tables का उपयोग उस data के लिए करें जिसकी merchants तुलना करते हैं।** Tables उन कई records के लिए उपयुक्त हैं जिनके attributes समान हैं और जिन्हें साथ-साथ scan करना होता है। बिना तुलना वाली साधारण list के लिए कोई सरल component चुनें।
 - **Mobile के list layout की योजना बनाएँ।** Mobile पर table एक list में बदल जाती है, इसलिए जाँचें कि आपके headers और values grid के बजाय एक के नीचे एक label और value के जोड़ों के रूप में भी ठीक से पढ़े जा सकें।

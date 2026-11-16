@@ -12,7 +12,7 @@ Một danh sách gạch đầu dòng. `SUnorderedList` là Vue 3 wrapper có typ
 import { SUnorderedList } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng khi thứ tự không quan trọng.** Danh sách không thứ tự trình bày các mục liên quan, như tính năng, tùy chọn hoặc lợi ích, không theo trình tự hay xếp hạng. Khi trình tự quan trọng, hãy dùng `SOrderedList`.
 - **Giữ các mục song song.** Cho mọi mục cùng cấu trúc ngữ pháp để danh sách dễ đọc lướt. Trộn nhiều cách viết trong một danh sách khiến nó khó đọc hơn.

@@ -12,7 +12,7 @@ Một ô nhập văn bản cho truy vấn tìm kiếm. `SSearchField` là Vue 3 
 import { SSearchField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng để lọc tại chỗ.** Nó phù hợp để thu hẹp nội dung của một phần hoặc một danh sách cụ thể. Điều hướng toàn cục hoặc các tìm kiếm phức tạp, nhiều bước cần một mẫu tìm kiếm mạnh mẽ hơn.
 - **Nói rõ đang tìm kiếm gì.** Viết `label` và `placeholder` cụ thể, cho người bán biết tìm kiếm bao gồm nội dung nào và họ có thể tìm theo những thuộc tính nào.

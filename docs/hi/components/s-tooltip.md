@@ -12,7 +12,7 @@ description: "STooltip: एक छोटा label जो किसी दूस�
 import { STooltip } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **Tooltips का उपयोग अतिरिक्त, गैर-ज़रूरी विवरण के लिए करें।** वे ऐसी जानकारी के लिए उपयुक्त हैं जो समझ बढ़ाती है लेकिन आवश्यक नहीं है। Errors, ज़रूरी जानकारी या आवश्यक निर्देशों को कभी भी tooltip में न छिपाएँ।
 - **इन्हें केवल icon वाले buttons के साथ जोड़ें।** Icon button को यह समझाने के लिए tooltip चाहिए कि वह क्या करता है; उसमें action और, अगर हो, तो उसका keyboard shortcut शामिल करें।

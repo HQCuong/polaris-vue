@@ -12,7 +12,7 @@ description: "SButtonGroup: संबंधित buttons के एक सम�
 import { SButtonGroup } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **संबंधित actions को साथ रखें।** एक ही काम से जुड़े calls to action को समूह में रखें, ताकि merchants अपने विकल्प और उनके आपसी संबंध देख सकें।
 - **Visual hierarchy बनाए रखें।** ध्यान सही दिशा में ले जाने के लिए मुख्य action वाले button पर `variant="primary"` और सहायक buttons पर `variant="secondary"` या `variant="tertiary"` इस्तेमाल करें।

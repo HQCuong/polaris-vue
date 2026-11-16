@@ -12,7 +12,7 @@ Một danh sách hành động hiển thị trong overlay, được mở từ m�
 import { SMenu } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Dùng menu cho hành động phụ.** Giữ các hành động chính như "Save" hiển thị ngay trên trang. Menu phù hợp với các hành động người bán ít dùng hơn hoặc hành động phá hủy, như "Archive" hay "Export data", vốn không cần chiếm chỗ cố định.
 - **Viết nhãn theo dạng động từ cộng danh từ.** Nhãn như "Edit details" hay "Export as CSV" nói chính xác điều gì sẽ xảy ra; tránh nhãn mơ hồ như "Options", "More" hay "Settings".

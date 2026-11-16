@@ -12,7 +12,7 @@ Tone, weight और emphasis styling वाला inline text। `SText` Shopify
 import { SText } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## सर्वोत्तम अभ्यास
 
 - **एक semantic `type` चुनें।** मुख्य शब्दों या वाक्यांशों को चिह्नित करने के लिए `"strong"`, डाक या email पते के लिए `"address"`, और ऐसे text के लिए `"redundant"` चुनें जो screen reader उपयोगकर्ताओं को context देता है जब वही content पहले से screen पर दिखाई देता हो। सही type चुनने से assistive technology यह व्यक्त कर पाती है कि text का क्या अर्थ है।
 - **ज़ोर कम से कम दें।** `type="strong"` को पूरे वाक्यों पर नहीं, बल्कि किसी वाक्य के मुख्य शब्दों या संख्याओं पर लगाएँ; बहुत अधिक ज़ोर अपना प्रभाव खो देता है और text को scan करना कठिन बना देता है।

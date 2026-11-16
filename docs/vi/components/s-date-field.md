@@ -12,7 +12,7 @@ Một ô nhập để nhập ngày. `SDateField` là Vue 3 wrapper có type cho 
 import { SDateField } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Bắt đầu với một ngày hợp lý.** Điền sẵn `value` bằng ngày hiện có khi chỉnh sửa, hoặc bằng một lựa chọn khả dĩ khi gợi ý.
 - **Giới hạn các ngày hợp lý.** Thu hẹp các ngày người bán có thể chọn bằng `allow` và `disallow`, chẳng hạn giới hạn trường lên lịch chỉ cho các ngày sắp tới, hoặc trường ngày làm việc chỉ từ thứ Hai đến thứ Sáu.

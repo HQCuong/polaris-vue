@@ -12,7 +12,7 @@ Hiển thị một số bạn đã định dạng sẵn, với kiểu chữ, ton
 import { SNumber } from 'polaris-vue-elements'
 ```
 
-## Best practices
+## Thực hành tốt
 
 - **Chỉ bọc con số.** Đặt riêng giá trị số trong `SNumber` và để phần chữ xung quanh trong `SText` hoặc `SParagraph`. Chữ số dạng bảng (tabular) giúp các con số thẳng hàng gọn gàng nhưng khiến chữ thường trông không đều.
 - **Định dạng giá trị trong app trước.** `SNumber` điều khiển cách chữ số hiển thị chứ không định dạng giá trị, nên bạn tự thêm ký hiệu tiền tệ, phần thập phân và dấu phân cách hàng nghìn sao cho khớp với locale của người bán.

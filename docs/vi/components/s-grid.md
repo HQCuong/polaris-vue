@@ -14,7 +14,7 @@ import { SGrid } from 'polaris-vue-elements'
 
 Viết CSS riêng quanh `<SGrid>`? Hãy dùng [biến CSS](/vi/css-variables/) của Polaris (`--p-space-*`, `--p-color-*`, …) để layout của bạn khớp với các component.
 
-## Best practices
+## Thực hành tốt
 
 - **Tính đến màn hình nhỏ hơn.** Một grid hoạt động tốt trên desktop có thể vỡ trên mobile. Hãy quyết định nó nên reflow hoặc sắp xếp lại thế nào ở độ rộng hẹp hơn thay vì cố định một bố cục.
 - **Dùng một kiểu khoảng cách nhất quán.** Khoảng cách đều giữa các mục tạo cho bố cục một nhịp ổn định và dễ đọc lướt hơn, vì vậy tránh trộn nhiều cách tạo khoảng cách trong cùng một grid.
