@@ -5,8 +5,6 @@ description: "Modal render ui-modal của Shopify App Bridge trong Vue 3: bind v
 
 # Modal {#modal}
 
-Trước khi bắt đầu, xem [Cài đặt](/vi/app-bridge/#install).
-
 Modal là một lớp phủ ngăn tương tác với phần còn lại của app cho đến khi bị đóng, như [tài liệu Modal](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) của Shopify mô tả.
 
 `Modal` render `ui-modal`. Hãy bind `v-model:open` để mở và đóng nó:

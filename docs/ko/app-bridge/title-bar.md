@@ -5,8 +5,6 @@ description: "TitleBar는 Vue 3에서 title을 속성으로 설정해 Shopify Ap
 
 # TitleBar {#title-bar}
 
-시작하기 전에 [설치](/ko/app-bridge/#install)를 참고하세요.
-
 타이틀 바는 Shopify 관리자에서 앱의 맨 위에 표시되며, Shopify의 [TitleBar 레퍼런스](https://shopify.dev/docs/api/app-bridge-library/react-components/titlebar)에서 이를 사용자 지정하는 방법을 설명합니다.
 
 `TitleBar`는 `title`을 속성으로 설정해 `ui-title-bar`를 렌더링합니다. `Modal` 안에서는

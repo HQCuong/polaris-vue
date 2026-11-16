@@ -5,8 +5,6 @@ description: "SaveBar 在 Vue 3 中渲染 Shopify App Bridge 的 ui-save-bar，�
 
 # SaveBar {#save-bar}
 
-开始之前，请参阅[安装](/zh/app-bridge/#install)；关于 `open`，请参阅 [Modal](/zh/app-bridge/modal)。
-
 按照 Shopify 的 [SaveBar 参考文档](https://shopify.dev/docs/api/app-bridge-library/react-components/savebar)的描述，保存栏表示当前页面上的表单有未保存的信息。
 
 `SaveBar` 渲染 `ui-save-bar`。正如 `ui-save-bar` 的类型说明所述，"the button with
@@ -36,7 +34,7 @@ function discard(): void {
 </template>
 ```
 
-`open`、`v-model:open`、`show`/`hide` 以及卸载时隐藏的行为与 `Modal` 相同。
+`open`、`v-model:open`、`show`/`hide` 以及卸载时隐藏的行为与 [`Modal`](/zh/app-bridge/modal) 相同。
 `discardConfirmation`（"whether to show a confirmation dialog when the discard button is
 clicked"）会设为元素的 `discardConfirmation` property。
 

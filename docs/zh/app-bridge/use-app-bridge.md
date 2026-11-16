@@ -5,8 +5,6 @@ description: "Vue 3 中的 useAppBridge() 返回 Shopify App Bridge 的全局 sh
 
 # useAppBridge() {#use-app-bridge}
 
-开始之前，请参阅[安装](/zh/app-bridge/#install)。
-
 `shopify` 全局对象由 App Bridge 脚本定义。Shopify 的 [useAppBridge 参考文档](https://shopify.dev/docs/api/app-bridge-library/react-hooks/useappbridge)将它描述为使用 `toast`、`resourcePicker` 等 App Bridge API 的途径。
 
 `useAppBridge()` 返回全局 `shopify`，类型为 `ShopifyGlobal`：

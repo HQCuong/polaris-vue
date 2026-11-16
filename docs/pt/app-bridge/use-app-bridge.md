@@ -5,8 +5,6 @@ description: "useAppBridge() para Vue 3 retorna o global shopify do Shopify App 
 
 # useAppBridge() {#use-app-bridge}
 
-Antes de começar, veja [Instalação](/pt/app-bridge/#install).
-
 O global `shopify` é definido pelo script do App Bridge. A [referência do useAppBridge](https://shopify.dev/docs/api/app-bridge-library/react-hooks/useappbridge) da Shopify o descreve como a forma de usar as APIs do App Bridge, como `toast` e `resourcePicker`.
 
 `useAppBridge()` retorna o global `shopify`, tipado como `ShopifyGlobal`:

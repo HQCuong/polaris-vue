@@ -5,8 +5,6 @@ description: "Navigation d'une app Shopify intégrée en Vue 3 : Shopify documen
 
 # Navigation de l'app {#app-nav}
 
-Avant de commencer, consultez [Installation](/fr/app-bridge/#install).
-
 La navigation de l'app configure les éléments de navigation de votre app dans l'interface d'administration Shopify, comme le décrit la [référence NavMenu](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu) de Shopify.
 
 Shopify documente `<s-app-nav>` avec des enfants `<s-link>` pour la navigation de l'app ; voir le

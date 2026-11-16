@@ -5,8 +5,6 @@ description: "SaveBar render ui-save-bar của Shopify App Bridge trong Vue 3, v
 
 # SaveBar {#save-bar}
 
-Trước khi bắt đầu, xem [Cài đặt](/vi/app-bridge/#install); về `open`, xem [Modal](/vi/app-bridge/modal).
-
 Save bar cho biết một form trên trang hiện tại có thông tin chưa được lưu, như [tài liệu SaveBar](https://shopify.dev/docs/api/app-bridge-library/react-components/savebar) của Shopify mô tả.
 
 `SaveBar` render `ui-save-bar`. Như type của `ui-save-bar` mô tả, "the button with
@@ -36,7 +34,7 @@ function discard(): void {
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` và việc ẩn khi unmount hoạt động giống như với `Modal`.
+`open`, `v-model:open`, `show`/`hide` và việc ẩn khi unmount hoạt động giống như với [`Modal`](/vi/app-bridge/modal).
 `discardConfirmation` ("whether to show a confirmation dialog when the discard button is
 clicked") được đặt làm property `discardConfirmation` của element.
 

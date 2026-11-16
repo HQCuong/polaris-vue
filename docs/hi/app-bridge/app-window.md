@@ -5,8 +5,6 @@ description: "AppWindow Vue 3 में Shopify App Bridge के s-app-window �
 
 # AppWindow {#app-window}
 
-शुरू करने से पहले [Install](/hi/app-bridge/#install) देखें; `open` के लिए [Modal](/hi/app-bridge/modal) देखें।
-
 Shopify का [s-app-window reference](https://shopify.dev/docs/api/app-home/v2.0/app-bridge-web-components/app-window) इसे ऐसे complex workflows के लिए एक fullscreen modal window बताता है जिन्हें अलग screen space चाहिए।
 
 `AppWindow` `s-app-window` को render करता है, जिसे `@shopify/app-bridge-types` docs
@@ -27,7 +25,7 @@ const open = ref(false)
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` और unmount पर छिपना `Modal` की तरह ही काम करते हैं। इसमें
+`open`, `v-model:open`, `show`/`hide` और unmount पर छिपना [`Modal`](/hi/app-bridge/modal) की तरह ही काम करते हैं। इसमें
 कोई slot नहीं है।
 
 ## Props और events {#reference}

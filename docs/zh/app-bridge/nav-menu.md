@@ -5,8 +5,6 @@ description: "Vue 3 Shopify 嵌入式应用的应用导航：Shopify 记录的�
 
 # 应用导航 {#app-nav}
 
-开始之前，请参阅[安装](/zh/app-bridge/#install)。
-
 按照 Shopify 的 [NavMenu 参考文档](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu)的描述，应用导航用于配置应用在 Shopify 后台中的导航项。
 
 Shopify 记录的应用导航使用带有 `<s-link>` 子元素的 `<s-app-nav>`；请参阅

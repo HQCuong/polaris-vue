@@ -5,8 +5,6 @@ description: "TitleBar génère ui-title-bar de Shopify App Bridge en Vue 3, ave
 
 # TitleBar {#title-bar}
 
-Avant de commencer, consultez [Installation](/fr/app-bridge/#install).
-
 La barre de titre apparaît en haut de votre app dans l'interface d'administration Shopify ; la [référence TitleBar](https://shopify.dev/docs/api/app-bridge-library/react-components/titlebar) de Shopify explique comment la personnaliser.
 
 `TitleBar` génère `ui-title-bar`, avec `title` défini comme attribut. Dans un `Modal`, il définit

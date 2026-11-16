@@ -5,8 +5,6 @@ description: "Vue 3용 useAppBridge()는 @shopify/app-bridge-react와 마찬가�
 
 # useAppBridge() {#use-app-bridge}
 
-시작하기 전에 [설치](/ko/app-bridge/#install)를 참고하세요.
-
 `shopify` 전역 객체는 App Bridge 스크립트가 정의합니다. Shopify의 [useAppBridge 레퍼런스](https://shopify.dev/docs/api/app-bridge-library/react-hooks/useappbridge)는 이를 `toast`, `resourcePicker` 같은 App Bridge API를 사용하는 방법으로 설명합니다.
 
 `useAppBridge()`는 전역 `shopify`를 반환하며, 타입은 `ShopifyGlobal`입니다.

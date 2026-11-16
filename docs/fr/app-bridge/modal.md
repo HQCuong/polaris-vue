@@ -5,8 +5,6 @@ description: "Modal génère ui-modal de Shopify App Bridge en Vue 3 : liez v-mo
 
 # Modal {#modal}
 
-Avant de commencer, consultez [Installation](/fr/app-bridge/#install).
-
 Un modal est une surcouche qui empêche toute interaction avec le reste de l'app jusqu'à sa fermeture, comme le décrit la [référence Modal](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) de Shopify.
 
 `Modal` génère `ui-modal`. Liez `v-model:open` pour l'ouvrir et le fermer :

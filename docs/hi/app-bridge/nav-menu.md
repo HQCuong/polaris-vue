@@ -5,8 +5,6 @@ description: "Vue 3 वाले Shopify embedded app का app navigation: Sho
 
 # App navigation {#app-nav}
 
-शुरू करने से पहले [Install](/hi/app-bridge/#install) देखें।
-
 App nav Shopify admin में आपके app के navigation items configure करता है, जैसा Shopify का [NavMenu reference](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu) बताता है।
 
 Shopify app navigation के लिए `<s-link>` children वाले `<s-app-nav>` को document करता है; देखें

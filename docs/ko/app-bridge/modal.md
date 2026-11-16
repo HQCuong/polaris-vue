@@ -5,8 +5,6 @@ description: "Modal은 Vue 3에서 Shopify App Bridge의 ui-modal을 렌더링�
 
 # Modal {#modal}
 
-시작하기 전에 [설치](/ko/app-bridge/#install)를 참고하세요.
-
 Shopify의 [Modal 레퍼런스](https://shopify.dev/docs/api/app-bridge-library/react-components/modal)에 따르면, 모달은 닫힐 때까지 앱의 나머지 부분과 상호작용하지 못하게 하는 오버레이입니다.
 
 `Modal`은 `ui-modal`을 렌더링합니다. `v-model:open`을 바인딩해 열고 닫습니다.

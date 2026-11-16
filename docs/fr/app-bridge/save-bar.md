@@ -5,8 +5,6 @@ description: "SaveBar génère ui-save-bar de Shopify App Bridge en Vue 3, avec 
 
 # SaveBar {#save-bar}
 
-Avant de commencer, consultez [Installation](/fr/app-bridge/#install) ; pour `open`, consultez [Modal](/fr/app-bridge/modal).
-
 La barre d'enregistrement indique qu'un formulaire de la page actuelle contient des informations non enregistrées, comme le décrit la [référence SaveBar](https://shopify.dev/docs/api/app-bridge-library/react-components/savebar) de Shopify.
 
 `SaveBar` génère `ui-save-bar`. Comme le décrivent les types de `ui-save-bar` : "the button with
@@ -36,7 +34,7 @@ function discard(): void {
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` et le masquage au démontage fonctionnent comme pour `Modal`.
+`open`, `v-model:open`, `show`/`hide` et le masquage au démontage fonctionnent comme pour [`Modal`](/fr/app-bridge/modal).
 `discardConfirmation` ("whether to show a confirmation dialog when the discard button is
 clicked") est défini comme propriété `discardConfirmation` de l'élément.
 

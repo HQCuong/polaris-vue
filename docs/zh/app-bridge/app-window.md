@@ -5,8 +5,6 @@ description: "AppWindow 在 Vue 3 中渲染 Shopify App Bridge 的 s-app-window�
 
 # AppWindow {#app-window}
 
-开始之前，请参阅[安装](/zh/app-bridge/#install)；关于 `open`，请参阅 [Modal](/zh/app-bridge/modal)。
-
 Shopify 的 [s-app-window 参考文档](https://shopify.dev/docs/api/app-home/v2.0/app-bridge-web-components/app-window)将它描述为一个全屏 modal 窗口，用于需要专属屏幕空间的复杂工作流程。
 
 `AppWindow` 渲染 `s-app-window`，`@shopify/app-bridge-types` 的文档将其描述为
@@ -27,7 +25,7 @@ const open = ref(false)
 </template>
 ```
 
-`open`、`v-model:open`、`show`/`hide` 以及卸载时隐藏的行为与 `Modal` 相同。它
+`open`、`v-model:open`、`show`/`hide` 以及卸载时隐藏的行为与 [`Modal`](/zh/app-bridge/modal) 相同。它
 没有 slot。
 
 ## Props 和事件 {#reference}

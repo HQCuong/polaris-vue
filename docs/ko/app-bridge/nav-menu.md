@@ -5,8 +5,6 @@ description: "Vue 3로 만드는 Shopify 임베디드 앱의 앱 내비게이션
 
 # 앱 내비게이션 {#app-nav}
 
-시작하기 전에 [설치](/ko/app-bridge/#install)를 참고하세요.
-
 Shopify의 [NavMenu 레퍼런스](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu)에 따르면, 앱 내비게이션은 Shopify 관리자에서 앱의 내비게이션 항목을 구성합니다.
 
 Shopify는 앱 내비게이션에 `<s-link>` 자식을 가진 `<s-app-nav>`를 문서화합니다.

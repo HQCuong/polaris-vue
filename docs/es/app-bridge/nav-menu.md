@@ -5,8 +5,6 @@ description: "Navegación de una app integrada de Shopify con Vue 3: Shopify doc
 
 # Navegación de la app {#app-nav}
 
-Antes de empezar, consulta [Instalación](/es/app-bridge/#install).
-
 La navegación de la app configura los elementos de navegación de tu app en el admin de Shopify, como lo describe la [referencia de NavMenu](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu) de Shopify.
 
 Shopify documenta `<s-app-nav>` con hijos `<s-link>` para la navegación de la app; consulta la

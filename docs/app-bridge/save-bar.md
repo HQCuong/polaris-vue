@@ -5,8 +5,6 @@ description: "SaveBar renders the Shopify App Bridge ui-save-bar in Vue 3, with 
 
 # SaveBar {#save-bar}
 
-Before you start, see [Install](/app-bridge/#install); for `open`, see [Modal](/app-bridge/modal).
-
 The save bar indicates that a form on the current page has unsaved information, as Shopify's [SaveBar reference](https://shopify.dev/docs/api/app-bridge-library/react-components/savebar) describes it.
 
 `SaveBar` renders `ui-save-bar`. As the `ui-save-bar` types describe, "the button with
@@ -36,7 +34,7 @@ function discard(): void {
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` and hiding on unmount work as for `Modal`.
+`open`, `v-model:open`, `show`/`hide` and hiding on unmount work as for [`Modal`](/app-bridge/modal).
 `discardConfirmation` ("whether to show a confirmation dialog when the discard button is
 clicked") is set as the element's `discardConfirmation` property.
 

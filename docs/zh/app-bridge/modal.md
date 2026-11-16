@@ -5,8 +5,6 @@ description: "Modal 在 Vue 3 中渲染 Shopify App Bridge 的 ui-modal：绑定
 
 # Modal {#modal}
 
-开始之前，请参阅[安装](/zh/app-bridge/#install)。
-
 按照 Shopify 的 [Modal 参考文档](https://shopify.dev/docs/api/app-bridge-library/react-components/modal)的描述，modal 是一个覆盖层，在关闭之前会阻止与应用其余部分的交互。
 
 `Modal` 渲染 `ui-modal`。绑定 `v-model:open` 即可打开和关闭它：

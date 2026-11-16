@@ -5,8 +5,6 @@ description: "TitleBar rendert ui-title-bar von Shopify App Bridge in Vue 3, wob
 
 # TitleBar {#title-bar}
 
-Bevor Sie beginnen, lesen Sie [Installation](/de/app-bridge/#install).
-
 Die Titelleiste erscheint oben in Ihrer App im Shopify-Adminbereich; Shopifys [TitleBar-Referenz](https://shopify.dev/docs/api/app-bridge-library/react-components/titlebar) beschreibt, wie Sie sie anpassen.
 
 `TitleBar` rendert `ui-title-bar`, wobei `title` als Attribut gesetzt wird. In einem `Modal` legt sie

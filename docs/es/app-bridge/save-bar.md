@@ -5,8 +5,6 @@ description: "SaveBar renderiza ui-save-bar de Shopify App Bridge en Vue 3, con 
 
 # SaveBar {#save-bar}
 
-Antes de empezar, consulta [Instalación](/es/app-bridge/#install); para `open`, consulta [Modal](/es/app-bridge/modal).
-
 La barra de guardado indica que un formulario de la página actual tiene información sin guardar, como lo describe la [referencia de SaveBar](https://shopify.dev/docs/api/app-bridge-library/react-components/savebar) de Shopify.
 
 `SaveBar` renderiza `ui-save-bar`. Como describen los tipos de `ui-save-bar`, "the button with
@@ -36,7 +34,7 @@ function discard(): void {
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` y el ocultado al desmontar funcionan igual que en `Modal`.
+`open`, `v-model:open`, `show`/`hide` y el ocultado al desmontar funcionan igual que en [`Modal`](/es/app-bridge/modal).
 `discardConfirmation` ("whether to show a confirmation dialog when the discard button is
 clicked") se establece como la propiedad `discardConfirmation` del elemento.
 

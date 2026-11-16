@@ -5,8 +5,6 @@ description: "Modal renderiza ui-modal de Shopify App Bridge en Vue 3: enlaza v-
 
 # Modal {#modal}
 
-Antes de empezar, consulta [Instalación](/es/app-bridge/#install).
-
 Un modal es una superposición que impide interactuar con el resto de la app hasta que se cierra, como lo describe la [referencia de Modal](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) de Shopify.
 
 `Modal` renderiza `ui-modal`. Enlaza `v-model:open` para abrirlo y cerrarlo:

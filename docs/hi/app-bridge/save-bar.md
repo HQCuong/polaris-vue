@@ -5,8 +5,6 @@ description: "SaveBar Vue 3 में Shopify App Bridge के ui-save-bar क�
 
 # SaveBar {#save-bar}
 
-शुरू करने से पहले [Install](/hi/app-bridge/#install) देखें; `open` के लिए [Modal](/hi/app-bridge/modal) देखें।
-
 Save bar बताता है कि मौजूदा page के किसी form में बिना save की गई जानकारी है, जैसा Shopify का [SaveBar reference](https://shopify.dev/docs/api/app-bridge-library/react-components/savebar) बताता है।
 
 `SaveBar` `ui-save-bar` को render करता है। जैसा `ui-save-bar` types बताते हैं, "the button with
@@ -36,7 +34,7 @@ function discard(): void {
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` और unmount पर छिपना `Modal` की तरह ही काम करते हैं।
+`open`, `v-model:open`, `show`/`hide` और unmount पर छिपना [`Modal`](/hi/app-bridge/modal) की तरह ही काम करते हैं।
 `discardConfirmation` ("whether to show a confirmation dialog when the discard button is
 clicked") element की `discardConfirmation` property के रूप में सेट होता है।
 

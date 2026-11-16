@@ -5,8 +5,6 @@ description: "AppWindow は Vue 3 で、Shopify 管理画面のフルスクリ�
 
 # AppWindow {#app-window}
 
-始める前に[インストール](/ja/app-bridge/#install)を、`open` については [Modal](/ja/app-bridge/modal) を参照してください。
-
 Shopify の [s-app-window リファレンス](https://shopify.dev/docs/api/app-home/v2.0/app-bridge-web-components/app-window)では、専用の画面スペースを必要とする複雑なワークフローのための、フルスクリーンのモーダルウィンドウとして説明されています。
 
 `AppWindow` は `s-app-window` をレンダリングします。`@shopify/app-bridge-types` のドキュメントでは、これを
@@ -27,7 +25,7 @@ const open = ref(false)
 </template>
 ```
 
-`open`、`v-model:open`、`show`/`hide`、およびアンマウント時の非表示は、`Modal` と同様に動作します。
+`open`、`v-model:open`、`show`/`hide`、およびアンマウント時の非表示は、[`Modal`](/ja/app-bridge/modal) と同様に動作します。
 slot はありません。
 
 ## Props とイベント {#reference}

@@ -5,8 +5,6 @@ description: "Modal Vue 3 में Shopify App Bridge के ui-modal को re
 
 # Modal {#modal}
 
-शुरू करने से पहले [Install](/hi/app-bridge/#install) देखें।
-
 Modal एक overlay है जो बंद होने तक app के बाक़ी हिस्से से interaction रोकता है, जैसा Shopify का [Modal reference](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) बताता है।
 
 `Modal` `ui-modal` को render करता है। इसे खोलने और बंद करने के लिए `v-model:open` bind करें:

@@ -5,8 +5,6 @@ description: "useAppBridge() cho Vue 3 trả về đối tượng toàn cục sh
 
 # useAppBridge() {#use-app-bridge}
 
-Trước khi bắt đầu, xem [Cài đặt](/vi/app-bridge/#install).
-
 Global `shopify` được script App Bridge định nghĩa. [Tài liệu useAppBridge](https://shopify.dev/docs/api/app-bridge-library/react-hooks/useappbridge) của Shopify mô tả nó là cách dùng các API của App Bridge như `toast` và `resourcePicker`.
 
 `useAppBridge()` trả về đối tượng toàn cục `shopify`, có type là `ShopifyGlobal`:

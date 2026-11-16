@@ -5,8 +5,6 @@ description: "Vue 3 के लिए useAppBridge() Shopify App Bridge का sh
 
 # useAppBridge() {#use-app-bridge}
 
-शुरू करने से पहले [Install](/hi/app-bridge/#install) देखें।
-
 `shopify` global को App Bridge script define करता है। Shopify का [useAppBridge reference](https://shopify.dev/docs/api/app-bridge-library/react-hooks/useappbridge) इसे `toast` और `resourcePicker` जैसी App Bridge APIs इस्तेमाल करने का तरीका बताता है।
 
 `useAppBridge()` `shopify` global लौटाता है, जिसका type `ShopifyGlobal` है:

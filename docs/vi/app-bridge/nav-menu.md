@@ -5,8 +5,6 @@ description: "Điều hướng app cho Shopify embedded app trong Vue 3: Shopify
 
 # Điều hướng app {#app-nav}
 
-Trước khi bắt đầu, xem [Cài đặt](/vi/app-bridge/#install).
-
 App nav cấu hình các mục điều hướng của app trong trang admin Shopify, như [tài liệu NavMenu](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu) của Shopify mô tả.
 
 Shopify ghi nhận `<s-app-nav>` với các con `<s-link>` cho điều hướng app; xem

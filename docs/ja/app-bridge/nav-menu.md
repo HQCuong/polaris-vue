@@ -5,8 +5,6 @@ description: "Vue 3 で作る Shopify 埋め込みアプリのアプリナビゲ
 
 # アプリナビゲーション {#app-nav}
 
-始める前に[インストール](/ja/app-bridge/#install)を参照してください。
-
 Shopify の [NavMenu リファレンス](https://shopify.dev/docs/api/app-bridge-library/react-components/navmenu)によると、アプリナビは Shopify 管理画面でアプリのナビゲーション項目を構成します。
 
 Shopify は、アプリナビゲーションとして `<s-link>` を子に持つ `<s-app-nav>` を文書化しています。

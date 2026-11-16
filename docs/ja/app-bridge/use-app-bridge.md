@@ -5,8 +5,6 @@ description: "Vue 3 の useAppBridge() は、@shopify/app-bridge-react と同様
 
 # useAppBridge() {#use-app-bridge}
 
-始める前に[インストール](/ja/app-bridge/#install)を参照してください。
-
 `shopify` グローバルは App Bridge スクリプトが定義します。Shopify の [useAppBridge リファレンス](https://shopify.dev/docs/api/app-bridge-library/react-hooks/useappbridge)では、`toast` や `resourcePicker` などの App Bridge API を使うための手段として説明されています。
 
 `useAppBridge()` は `shopify` グローバルを返します。型は `ShopifyGlobal` です。

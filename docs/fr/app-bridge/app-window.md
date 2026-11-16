@@ -5,8 +5,6 @@ description: "AppWindow génère s-app-window de Shopify App Bridge, une fenêtr
 
 # AppWindow {#app-window}
 
-Avant de commencer, consultez [Installation](/fr/app-bridge/#install) ; pour `open`, consultez [Modal](/fr/app-bridge/modal).
-
 La [référence s-app-window](https://shopify.dev/docs/api/app-home/v2.0/app-bridge-web-components/app-window) de Shopify le décrit comme une fenêtre modale plein écran pour les workflows complexes qui ont besoin d'un espace d'écran dédié.
 
 `AppWindow` génère `s-app-window`, que la documentation de `@shopify/app-bridge-types` décrit comme
@@ -27,7 +25,7 @@ const open = ref(false)
 </template>
 ```
 
-`open`, `v-model:open`, `show`/`hide` et le masquage au démontage fonctionnent comme pour `Modal`. Il n'a
+`open`, `v-model:open`, `show`/`hide` et le masquage au démontage fonctionnent comme pour [`Modal`](/fr/app-bridge/modal). Il n'a
 pas de slot.
 
 ## Props et événements {#reference}
