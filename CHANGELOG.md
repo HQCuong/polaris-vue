@@ -22,6 +22,12 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
   pages with the 128 types the App Bridge docs reach in `@shopify/app-bridge-types`, split
   by Shopify's API categories, with an A–Z index. Type names on the App Bridge pages link
   to them, and the sync job regenerates them.
+- Docs: the App Bridge types pages show each type as one card, with members listed by
+  name and type instead of three-column tables.
+- Docs: an Examples section on every App Bridge page, with 36 Vue use cases based on
+  Shopify's documentation (confirm dialogs, `src` modals, save bars with dirty tracking and
+  leave confirmation, app nav from vue-router, resource picker, toast, loading, and more).
+  They have not yet been tested in a live admin.
 
 ## [0.6.0] - 2026-11-13
 

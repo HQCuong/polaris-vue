@@ -84,7 +84,459 @@ async function toggle(): Promise<void> {
 </template>
 ```
 
-`shopify.modal.show(id)` et `shopify.modal.hide(id)` fonctionnent aussi avec l'`id`.
+L'API `shopify.modal` (`ModalApi`) accepte aussi un `id`, mais ses types et la page [Modal API](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/modal-api)
+de Shopify la décrivent pour l'élément Polaris `s-modal`. Pour `ui-modal`, appelez les méthodes de l'élément comme ci-dessus.
+
+## Exemples {#examples}
+
+Ces exemples suivent la documentation de Shopify et n'ont pas encore été testés dans une interface d'administration réelle.
+
+### Confirmer une action destructive {#example-confirm-delete}
+
+Utilisez ceci lorsqu'une action de ligne supprime quelque chose que le marchand ne peut pas récupérer.
+
+```vue
+<script setup lang="ts">
+import { computed, nextTick, ref } from 'vue'
+import {
+  SButton,
+  STable,
+  STableBody,
+  STableCell,
+  STableHeader,
+  STableHeaderRow,
+  STableRow,
+} from 'polaris-vue-elements'
+import { Modal, TitleBar, useAppBridge } from 'polaris-vue-elements/app-bridge'
+
+interface Product {
+  id: string
+  title: string
+}
+
+const products = ref<Product[]>([
+  { id: 'gid://shopify/Product/1', title: 'Wool sweater' },
+  { id: 'gid://shopify/Product/2', title: 'Linen shirt' },
+])
+const pending = ref<Product | null>(null)
+const open = ref(false)
+const deleting = ref(false)
+
+const title = computed(() => `Delete ${pending.value?.title ?? 'product'}?`)
+
+async function askToDelete(product: Product): Promise<void> {
+  pending.value = product
+  // Let Vue render the new title before the modal opens.
+  await nextTick()
+  open.value = true
+}
+
+async function confirmDelete(): Promise<void> {
+  const product = pending.value
+  if (!product || deleting.value) return
+  const shopify = useAppBridge()
+  deleting.value = true
+  try {
+    const res = await fetch(`/api/products/${encodeURIComponent(product.id)}`, {
+      method: 'DELETE',
+    })
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`)
+    products.value = products.value.filter((p) => p.id !== product.id)
+    open.value = false
+    shopify.toast.show(`${product.title} deleted`)
+  } catch {
+    shopify.toast.show('Could not delete the product', { isError: true })
+  } finally {
+    deleting.value = false
+  }
+}
+</script>
+
+<template>
+  <STable>
+    <STableHeaderRow>
+      <STableHeader>Product</STableHeader>
+      <STableHeader>Actions</STableHeader>
+    </STableHeaderRow>
+    <STableBody>
+      <STableRow v-for="product in products" :key="product.id">
+        <STableCell>{{ product.title }}</STableCell>
+        <STableCell>
+          <SButton tone="critical" @click="askToDelete(product)">Delete</SButton>
+        </STableCell>
+      </STableRow>
+    </STableBody>
+  </STable>
+
+  <Modal id="delete-product-modal" v-model:open="open" @hide="pending = null">
+    <p>This permanently deletes the product. You can't undo this.</p>
+    <TitleBar :title="title">
+      <button variant="primary" tone="critical" @click="confirmDelete">Delete</button>
+      <button @click="open = false">Cancel</button>
+    </TitleBar>
+  </Modal>
+</template>
+```
+
+- Un seul modal sert toutes les lignes. La ligne définit `pending`, et la barre de titre nomme le produit.
+  Le corps du modal reste statique, car les mises à jour Vue dans le contenu déplacé ne sont pas vérifiées.
+- Le "Simple message modal" de Shopify place le bouton Delete dans la barre de titre avec
+  `variant="primary"` et `tone="critical"`
+  ([Using modals](https://shopify.dev/docs/api/app-bridge/using-modals-in-your-app#simple-message-modal)).
+- Les boutons de la barre de titre sont des enfants directs de `ui-modal`, donc `confirmDelete` s'exécute dans votre
+  page. Le toast est affiché depuis cette page, après la requête
+  ([Toast API](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/toast-api)).
+
+### Un court formulaire dans un modal {#example-form-modal}
+
+Utilisez ceci pour recueillir une ou deux valeurs sans quitter la page, comme une note sur une commande.
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { SButton } from 'polaris-vue-elements'
+import { Modal, TitleBar, useAppBridge } from 'polaris-vue-elements/app-bridge'
+
+const props = defineProps<{ orderId: string }>()
+
+const open = ref(false)
+const note = ref('')
+const saving = ref(false)
+
+async function save(): Promise<void> {
+  if (saving.value) return
+  const shopify = useAppBridge()
+  saving.value = true
+  try {
+    const res = await fetch(`/api/orders/${encodeURIComponent(props.orderId)}/note`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ note: note.value }),
+    })
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`)
+    open.value = false
+    shopify.toast.show('Note saved')
+  } catch {
+    shopify.toast.show('Could not save the note', { isError: true })
+  } finally {
+    saving.value = false
+  }
+}
+
+function reset(): void {
+  note.value = ''
+}
+</script>
+
+<template>
+  <SButton @click="open = true">Add note</SButton>
+  <Modal id="order-note-modal" v-model:open="open" @hide="reset">
+    <form @submit.prevent="save">
+      <label>
+        Note
+        <textarea v-model="note" name="note" rows="4" />
+      </label>
+    </form>
+    <TitleBar title="Add a note">
+      <button variant="primary" @click="save">Save</button>
+      <button @click="open = false">Cancel</button>
+    </TitleBar>
+  </Modal>
+</template>
+```
+
+- Le contenu est un unique `<form>`. Shopify : "You can only provide a single parent element,
+  commonly a `p`, `form`, or a `div`"
+  ([Using modals](https://shopify.dev/docs/api/app-bridge/using-modals-in-your-app#modals-with-html-content)).
+- `@hide` efface la note quelle que soit la manière dont le modal se ferme, y compris depuis le bouton de fermeture de l'admin.
+- Non vérifié : si `v-model` sur le `<textarea>` voit la saisie du marchand. App Bridge
+  "only copies the HTML elements and stylesheets into the modal frame", et les écouteurs de Vue sont
+  du JavaScript. Si cela ne fonctionne pas, utilisez un modal `src`, comme dans l'exemple suivant.
+- La version de Shopify de ce formulaire a aussi `data-save-bar`, qui le relie à la barre d'enregistrement
+  ([Simple form](https://shopify.dev/docs/api/app-bridge/using-modals-in-your-app#simple-form)).
+
+### Un éditeur dans un modal src {#example-src-modal}
+
+Utilisez ceci pour un contenu qui a besoin de votre propre JavaScript, comme un éditeur riche. Le modal charge
+une route de votre app, et les deux frames communiquent avec `postMessage`.
+
+::: code-group
+
+```ts [editor-messages.ts]
+// Messages between the page and the modal route. Both sides import this file.
+export type ToEditor = { type: 'load'; html: string } | { type: 'request-save' }
+
+export type FromEditor = { type: 'ready' } | { type: 'save'; html: string }
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null
+}
+
+export function isToEditor(data: unknown): data is ToEditor {
+  if (!isRecord(data)) return false
+  return data.type === 'request-save' || (data.type === 'load' && typeof data.html === 'string')
+}
+
+export function isFromEditor(data: unknown): data is FromEditor {
+  if (!isRecord(data)) return false
+  return data.type === 'ready' || (data.type === 'save' && typeof data.html === 'string')
+}
+```
+
+```vue [ProductDescription.vue]
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { SButton } from 'polaris-vue-elements'
+import { Modal, TitleBar, useAppBridge } from 'polaris-vue-elements/app-bridge'
+import { isFromEditor, type ToEditor } from './editor-messages'
+
+const props = defineProps<{ productId: string; description: string }>()
+const emit = defineEmits<{ saved: [html: string] }>()
+
+const modal = ref<InstanceType<typeof Modal> | null>(null)
+const open = ref(false)
+
+function post(message: ToEditor): void {
+  // contentWindow is only available while the modal is open.
+  modal.value?.$el.contentWindow?.postMessage(message, location.origin)
+}
+
+async function save(html: string): Promise<void> {
+  const shopify = useAppBridge()
+  shopify.loading(true)
+  try {
+    const res = await fetch(`/api/products/${encodeURIComponent(props.productId)}/description`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ html }),
+    })
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`)
+    emit('saved', html)
+    open.value = false
+    shopify.toast.show('Description saved')
+  } catch {
+    shopify.toast.show('Could not save the description', { isError: true })
+  } finally {
+    shopify.loading(false)
+  }
+}
+
+function onMessage(event: MessageEvent): void {
+  if (event.origin !== location.origin) return
+  if (event.source !== modal.value?.$el.contentWindow) return
+  const message: unknown = event.data
+  if (!isFromEditor(message)) return
+  if (message.type === 'ready') post({ type: 'load', html: props.description })
+  else void save(message.html)
+}
+
+onMounted(() => window.addEventListener('message', onMessage))
+onBeforeUnmount(() => window.removeEventListener('message', onMessage))
+</script>
+
+<template>
+  <SButton @click="open = true">Edit description</SButton>
+  <Modal
+    ref="modal"
+    id="description-editor"
+    src="/modals/description-editor"
+    variant="max"
+    v-model:open="open"
+  >
+    <TitleBar title="Edit description">
+      <button variant="primary" @click="post({ type: 'request-save' })">Save</button>
+      <button @click="open = false">Cancel</button>
+    </TitleBar>
+  </Modal>
+</template>
+```
+
+```vue [DescriptionEditor.vue]
+<script setup lang="ts">
+// The route at /modals/description-editor, loaded inside the modal.
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { STextArea } from 'polaris-vue-elements'
+import { isToEditor, type FromEditor } from './editor-messages'
+
+const html = ref('')
+const loaded = ref(false)
+
+function opener(): Window | null {
+  // The app page that opened this modal.
+  return window.opener as Window | null
+}
+
+function post(message: FromEditor): void {
+  opener()?.postMessage(message, location.origin)
+}
+
+function onMessage(event: MessageEvent): void {
+  if (event.origin !== location.origin || event.source !== opener()) return
+  const message: unknown = event.data
+  if (!isToEditor(message)) return
+  if (message.type === 'load') {
+    html.value = message.html
+    loaded.value = true
+  } else {
+    post({ type: 'save', html: html.value })
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('message', onMessage)
+  post({ type: 'ready' })
+})
+onBeforeUnmount(() => window.removeEventListener('message', onMessage))
+</script>
+
+<template>
+  <STextArea v-model="html" label="Description" :rows="20" :disabled="!loaded" />
+</template>
+```
+
+:::
+
+- Dans le modal, `window.opener` est la page de votre app. Dans la page, le `contentWindow` du modal est
+  la route ([How to communicate with your main app frame](https://shopify.dev/docs/api/app-bridge/using-modals-in-your-app#how-to-communicate-with-your-main-app-frame)).
+  `contentWindow` "can only be accessed when the modal is open" (`UIModalElement`), donc la
+  route envoie d'abord `ready` et la page répond avec le contenu.
+- L'exemple de Shopify envoie avec `location.origin` comme origine cible. Les vérifications de `event.origin`
+  et `event.source` sont ajoutées ici, pour que chaque côté n'accepte que les messages de
+  l'autre.
+- Le bouton Save se trouve dans la barre de titre de la page. Il demande son contenu à la route, et
+  la page l'enregistre et affiche le toast. "You're not able to access App Bridge features
+  such as toast directly in your modal"
+  ([Modals with a route](https://shopify.dev/docs/api/app-bridge/using-modals-in-your-app#modals-with-a-route)).
+- La route a besoin de la balise de script `app-bridge.js` ainsi que de son propre CSS et JS. Dans une app Vite,
+  chaque route est servie depuis `index.html`, qui contient déjà le script.
+- `variant="max"` doit être défini avant l'affichage du modal. Ensuite, seuls `small`, `base`
+  et `large` peuvent être définis (`UIModalElement`).
+
+### Ouvrir un modal depuis un autre composant {#example-modal-by-id}
+
+Utilisez ceci lorsque le bouton qui ouvre un modal se trouve dans un autre composant que le modal,
+par exemple une modale d'aide ouverte depuis plusieurs lignes d'un tableau.
+
+::: code-group
+
+```ts [useModalById.ts]
+/// <reference types="@shopify/app-bridge-types" />
+
+export interface ModalControls {
+  show: () => Promise<void>
+  hide: () => Promise<void>
+}
+
+// Finds the ui-modal element by its id when it is needed, as in Shopify's
+// document.getElementById('my-modal').show() example.
+export function useModalById(id: string): ModalControls {
+  const element = (): UIModalElement | null =>
+    document.getElementById(id) as unknown as UIModalElement | null
+  return {
+    show: async () => {
+      await element()?.show()
+    },
+    hide: async () => {
+      await element()?.hide()
+    },
+  }
+}
+```
+
+```vue [ShippingHelpModal.vue]
+<script setup lang="ts">
+import { Modal, TitleBar } from 'polaris-vue-elements/app-bridge'
+</script>
+
+<template>
+  <Modal id="shipping-help">
+    <div>
+      <p>Rates are calculated at checkout from the package weight.</p>
+      <p>Free shipping applies after discounts.</p>
+    </div>
+    <TitleBar title="How shipping rates work" />
+  </Modal>
+</template>
+```
+
+```vue [RatesTable.vue]
+<script setup lang="ts">
+import { SButton } from 'polaris-vue-elements'
+import { useModalById } from './useModalById'
+
+const help = useModalById('shipping-help')
+</script>
+
+<template>
+  <SButton variant="tertiary" icon="question-circle" accessibilityLabel="How rates work" @click="help.show()" />
+</template>
+```
+
+:::
+
+- Montez `ShippingHelpModal` une seule fois, par exemple dans votre layout, et appelez `show()` depuis n'importe quel
+  composant. Les méthodes `show()` et `hide()` sont sur `UIModalElement` ; l'
+  [exemple de modal src](https://shopify.dev/docs/api/app-bridge/using-modals-in-your-app#modals-with-a-route) de Shopify
+  les appelle via `document.getElementById`.
+- Le modal n'a pas de `v-model:open`, donc rien d'autre n'a besoin de savoir s'il est ouvert.
+- La page [Modal API](https://shopify.dev/docs/api/app-home/apis/user-interface-and-interactions/modal-api)
+  de Shopify montre `shopify.modal.show(id)` avec l'élément Polaris `s-modal`.
+
+### Actualiser la page à la fermeture d'un modal {#example-show-hide-events}
+
+Utilisez ceci lorsqu'un modal modifie des données que la page affiche, comme un import qui ajoute des produits.
+
+```vue
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { SButton, SSection, SStack, SText } from 'polaris-vue-elements'
+import { Modal, TitleBar } from 'polaris-vue-elements/app-bridge'
+
+const open = ref(false)
+const importing = ref(false)
+const count = ref<number | null>(null)
+
+async function loadCount(): Promise<void> {
+  const res = await fetch('/api/products/count')
+  if (res.ok) count.value = ((await res.json()) as { count: number }).count
+}
+
+function onShow(): void {
+  importing.value = true
+}
+
+async function onHide(): Promise<void> {
+  importing.value = false
+  await loadCount()
+}
+
+onMounted(loadCount)
+</script>
+
+<template>
+  <SSection heading="Catalog">
+    <SStack direction="inline" gap="base" alignItems="center">
+      <SText>{{ count ?? '…' }} products</SText>
+      <SButton :disabled="importing" @click="open = true">Import products</SButton>
+    </SStack>
+  </SSection>
+
+  <Modal
+    id="import-products"
+    src="/modals/import-products"
+    v-model:open="open"
+    @show="onShow"
+    @hide="onHide"
+  >
+    <TitleBar title="Import products" />
+  </Modal>
+</template>
+```
+
+- `hide` se déclenche quelle que soit la manière dont le modal se ferme, y compris par le bouton de fermeture de l'admin, donc la
+  page recharge ses données une seule fois, à un seul endroit. `show` et `hide` sont les événements que
+  liste `UIModalElement`.
+- `v-model:open` suit déjà le modal. Utilisez `@show` et `@hide` pour les effets de bord.
 
 ## Props et événements {#reference}
 

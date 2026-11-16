@@ -28,6 +28,202 @@ const open = ref(false)
 `open`、`v-model:open`、`show`/`hide` 以及卸载时隐藏的行为与 [`Modal`](/zh/app-bridge/modal) 相同。它
 没有 slot。
 
+## 示例 {#examples}
+
+这些示例依据 Shopify 的文档编写，尚未在真实的后台中测试。
+
+### 全屏编辑器 {#example-window-editor}
+
+用于需要占满整个屏幕的编辑器，从记录列表中打开。
+
+::: code-group
+
+```vue [ProductList.vue]
+<script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
+import { SButton, SSection, SStack, SText } from 'polaris-vue-elements'
+import { AppWindow } from 'polaris-vue-elements/app-bridge'
+
+interface Product {
+  id: string
+  title: string
+}
+
+const products = ref<Product[]>([])
+const editingId = ref<string | null>(null)
+const open = ref(false)
+
+// The window loads this route of your app in an iframe.
+const src = computed(() =>
+  editingId.value ? `/products/${encodeURIComponent(editingId.value)}/editor` : null,
+)
+
+function edit(product: Product): void {
+  editingId.value = product.id
+  open.value = true
+}
+
+async function reload(): Promise<void> {
+  const res = await fetch('/api/products')
+  if (res.ok) products.value = (await res.json()) as Product[]
+}
+
+onMounted(reload)
+</script>
+
+<template>
+  <SSection heading="Products">
+    <SStack gap="base">
+      <SStack v-for="product in products" :key="product.id" direction="inline" gap="base">
+        <SText>{{ product.title }}</SText>
+        <SButton @click="edit(product)">Open editor</SButton>
+      </SStack>
+    </SStack>
+  </SSection>
+  <AppWindow v-if="src" id="product-editor" :src="src" v-model:open="open" @hide="reload" />
+</template>
+```
+
+```vue [ProductEditor.vue]
+<script setup lang="ts">
+// The route at /products/:id/editor, loaded inside the window.
+import { computed, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { SBanner, SPage, SSection, SStack, STextArea, STextField } from 'polaris-vue-elements'
+
+interface ProductDraft {
+  title: string
+  description: string
+}
+
+const route = useRoute()
+const url = computed(() => `/api/products/${encodeURIComponent(String(route.params.id))}`)
+
+const saved = ref<ProductDraft>({ title: '', description: '' })
+const form = ref<ProductDraft>({ ...saved.value })
+const error = ref(false)
+
+onMounted(async () => {
+  const res = await fetch(url.value)
+  if (!res.ok) return
+  saved.value = (await res.json()) as ProductDraft
+  form.value = { ...saved.value }
+})
+
+async function onSubmit(): Promise<void> {
+  const values = { ...form.value }
+  const res = await fetch(url.value, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(values),
+  })
+  error.value = !res.ok
+  if (res.ok) saved.value = values
+}
+
+function onReset(): void {
+  form.value = { ...saved.value }
+}
+</script>
+
+<template>
+  <SPage :heading="saved.title || 'Product editor'">
+    <SBanner v-if="error" tone="critical">The product could not be saved.</SBanner>
+    <form data-save-bar @submit.prevent="onSubmit" @reset="onReset">
+      <SSection>
+        <SStack gap="base">
+          <STextField v-model="form.title" label="Product title" name="title" />
+          <STextArea v-model="form.description" label="Description" name="description" :rows="12" />
+        </SStack>
+      </SSection>
+    </form>
+  </SPage>
+</template>
+```
+
+:::
+
+- `src` “必须指向你应用内的一个路由”，并且“窗口打开时，该 URL 会在 iframe 中加载”
+  （`SAppWindowAttributes`）。在窗口打开期间更改 `src`，会让它导航到新的 URL
+  （`SAppWindowElement`）。
+- Shopify 对窗口的最佳实践：只通过明确的操作打开它，在窗口内容中用 `s-page` 设置标题，
+  给其中的表单添加 `data-save-bar`，并在关闭时让商家回到起始位置
+  （[App window](https://shopify.dev/docs/api/app-home/app-bridge-web-components/app-window#best-practices)）。
+- 选定记录之后才会渲染窗口，因为 `src` 是必需的。
+- `@hide="reload"` 在每次关闭后刷新列表。Shopify 把“更新 UI 状态”列为 `hide` 事件的用途之一
+  （`SAppWindowElement`）。
+- 表单遵循 [data-save-bar 示例](/zh/app-bridge/save-bar#example-data-save-bar)。
+  当它有未保存的更改时，窗口的 `hide()` 会在关闭前询问商家。
+- 编辑器在页面中显示错误。Shopify 没有说明窗口内部哪些 App Bridge API
+  （例如 toast）可以使用。
+- Shopify 没有记录窗口的路由如何关闭窗口，或如何把数据发回你的页面。页面可以通过元素的
+  `contentWindow` 访问该路由（“用它通过 `postMessage()` 与 iframe 内容通信”），
+  但仅限窗口打开期间。
+
+### 批量编辑所选项目 {#example-window-bulk-edit}
+
+当商家选择多行并在全屏视图中一起编辑时使用。
+
+```vue
+<script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
+import { SButton, SCheckbox, SSection, SStack } from 'polaris-vue-elements'
+import { AppWindow } from 'polaris-vue-elements/app-bridge'
+
+interface Product {
+  id: string
+  title: string
+}
+
+const products = ref<Product[]>([])
+const selected = ref<string[]>([])
+const open = ref(false)
+
+// The selection travels in the URL, which the bulk-edit route reads.
+const src = computed(() => `/bulk-edit?ids=${encodeURIComponent(selected.value.join(','))}`)
+
+function toggle(id: string): void {
+  selected.value = selected.value.includes(id)
+    ? selected.value.filter((x) => x !== id)
+    : [...selected.value, id]
+}
+
+async function load(): Promise<void> {
+  const res = await fetch('/api/products')
+  if (res.ok) products.value = (await res.json()) as Product[]
+}
+
+async function onHide(): Promise<void> {
+  selected.value = []
+  await load()
+}
+
+onMounted(load)
+</script>
+
+<template>
+  <SSection heading="Products">
+    <SStack gap="small-200">
+      <SCheckbox
+        v-for="product in products"
+        :key="product.id"
+        :label="product.title"
+        :checked="selected.includes(product.id)"
+        @change="toggle(product.id)"
+      />
+    </SStack>
+    <SButton :disabled="selected.length === 0" @click="open = true">
+      Edit {{ selected.length }} selected
+    </SButton>
+  </SSection>
+  <AppWindow id="bulk-editor" :src="src" v-model:open="open" @hide="onHide" />
+</template>
+```
+
+- Shopify 把批量编辑器列为 `src` 的用途之一（`SAppWindowAttributes`）。该路由是
+  你应用的普通页面，因此它从查询字符串中读取所选项目。
+- 窗口关闭后，`onHide` 会清除选择并重新加载列表。
+
 ## Props 和事件 {#reference}
 
 ### Props {#props}
