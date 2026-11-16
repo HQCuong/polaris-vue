@@ -7,6 +7,8 @@ description: "Modal renderiza o ui-modal do Shopify App Bridge em Vue 3: vincule
 
 Antes de começar, veja [Instalação](/pt/app-bridge/#install).
 
+Um modal é uma sobreposição que impede a interação com o resto do app até ser fechado, como descreve a [referência do Modal](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) da Shopify.
+
 `Modal` renderiza `ui-modal`. Vincule `v-model:open` para abri-lo e fechá-lo:
 
 ```vue
@@ -85,3 +87,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)` e `shopify.modal.hide(id)` também funcionam com o `id`.
+
+## Props e eventos {#reference}
+
+### Props {#props}
+
+| Prop | Tipo | Descrição |
+| --- | --- | --- |
+| `open` | `boolean` | Se o modal está sendo exibido. Use `v-model:open` para mantê-lo sincronizado quando o App Bridge fecha o modal. Padrão: `false`. |
+| `id` | `string` | Um identificador único para o modal. |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | O tamanho do modal. Padrão: `"base"`. Antes de o modal ser exibido, pode receber qualquer um desses valores; depois, apenas `small`, `base` ou `large`. |
+| `src` | `string` | A URL do conteúdo exibido no modal. Com `src`, os filhos que não sejam `ui-title-bar` e `ui-save-bar` são ignorados. |
+
+`open` é uma prop do componente; `id`, `variant` e `src` são atributos de `ui-modal`, repassados ao elemento.
+
+### Events {#events}
+
+| Event | Tipo | Descrição |
+| --- | --- | --- |
+| `show` | `Event` | O modal foi exibido. |
+| `hide` | `Event` | O modal foi ocultado. |
+| `update:open` | `boolean` | Emitido depois de `show` ou `hide` quando o novo estado é diferente de `open`, para `v-model:open`. |
+
+### Slots {#slots}
+
+| Slot | Descrição |
+| --- | --- |
+| `default` | O conteúdo do modal. Um `TitleBar` (ou `<ui-title-bar>`) configura a barra de título do modal. Ele e um `SaveBar` (ou `<ui-save-bar>`) continuam sendo filhos diretos de `ui-modal`; todo o resto é renderizado no `content` do modal. |

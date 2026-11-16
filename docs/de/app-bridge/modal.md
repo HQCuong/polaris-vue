@@ -7,6 +7,8 @@ description: "Modal rendert ui-modal von Shopify App Bridge in Vue 3: Binden Sie
 
 Bevor Sie beginnen, lesen Sie [Installation](/de/app-bridge/#install).
 
+Ein Modal ist ein Overlay, das die Interaktion mit dem Rest der App verhindert, bis es geschlossen wird, wie Shopifys [Modal-Referenz](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) es beschreibt.
+
 `Modal` rendert `ui-modal`. Binden Sie `v-model:open`, um es zu öffnen und zu schließen:
 
 ```vue
@@ -85,3 +87,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)` und `shopify.modal.hide(id)` funktionieren ebenfalls mit der `id`.
+
+## Props und Events {#reference}
+
+### Props {#props}
+
+| Prop | Typ | Beschreibung |
+| --- | --- | --- |
+| `open` | `boolean` | Ob das Modal angezeigt wird. Verwenden Sie `v-model:open`, um es synchron zu halten, wenn App Bridge das Modal schließt. Standard: `false`. |
+| `id` | `string` | Eine eindeutige Kennung für das Modal. |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | Die Größe des Modals. Standard: `"base"`. Bevor das Modal angezeigt wird, kann jeder dieser Werte gesetzt werden; danach nur noch `small`, `base` oder `large`. |
+| `src` | `string` | Die URL des Inhalts, der im Modal angezeigt wird. Mit `src` werden andere Kinder als `ui-title-bar` und `ui-save-bar` ignoriert. |
+
+`open` ist ein Prop der Komponente; `id`, `variant` und `src` sind Attribute von `ui-modal`, die an das Element weitergegeben werden.
+
+### Events {#events}
+
+| Event | Typ | Beschreibung |
+| --- | --- | --- |
+| `show` | `Event` | Das Modal wurde angezeigt. |
+| `hide` | `Event` | Das Modal wurde ausgeblendet. |
+| `update:open` | `boolean` | Wird nach `show` oder `hide` emittiert, wenn der neue Zustand von `open` abweicht, für `v-model:open`. |
+
+### Slots {#slots}
+
+| Slot | Beschreibung |
+| --- | --- |
+| `default` | Der Inhalt des Modals. Eine `TitleBar` (oder `<ui-title-bar>`) konfiguriert die Titelleiste des Modals. Sie und eine `SaveBar` (oder `<ui-save-bar>`) bleiben direkte Kinder von `ui-modal`; alles andere wird in `content` des Modals gerendert. |

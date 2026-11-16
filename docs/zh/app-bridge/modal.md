@@ -7,6 +7,8 @@ description: "Modal 在 Vue 3 中渲染 Shopify App Bridge 的 ui-modal：绑定
 
 开始之前，请参阅[安装](/zh/app-bridge/#install)。
 
+按照 Shopify 的 [Modal 参考文档](https://shopify.dev/docs/api/app-bridge-library/react-components/modal)的描述，modal 是一个覆盖层，在关闭之前会阻止与应用其余部分的交互。
+
 `Modal` 渲染 `ui-modal`。绑定 `v-model:open` 即可打开和关闭它：
 
 ```vue
@@ -83,3 +85,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)` 和 `shopify.modal.hide(id)` 同样可以通过 `id` 使用。
+
+## Props 和事件 {#reference}
+
+### Props {#props}
+
+| Prop | 类型 | 说明 |
+| --- | --- | --- |
+| `open` | `boolean` | modal 是否显示。使用 `v-model:open` 在 App Bridge 关闭 modal 时保持同步。默认值：`false`。 |
+| `id` | `string` | modal 的唯一标识符。 |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | modal 的尺寸。默认值：`"base"`。modal 显示之前可以设为其中任意值；显示之后只能在 `small`、`base` 和 `large` 之间切换。 |
+| `src` | `string` | 在 modal 中显示的内容的 URL。设置 `src` 后，除 `ui-title-bar` 和 `ui-save-bar` 之外的子元素都会被忽略。 |
+
+`open` 是组件的 prop；`id`、`variant` 和 `src` 是 `ui-modal` 的属性，会传递给元素。
+
+### Events {#events}
+
+| Event | 类型 | 说明 |
+| --- | --- | --- |
+| `show` | `Event` | modal 已显示。 |
+| `hide` | `Event` | modal 已隐藏。 |
+| `update:open` | `boolean` | 当新状态与 `open` 不同时，在 `show` 或 `hide` 之后触发，供 `v-model:open` 使用。 |
+
+### Slots {#slots}
+
+| Slot | 说明 |
+| --- | --- |
+| `default` | modal 的内容。`TitleBar`（或 `<ui-title-bar>`）用于配置 modal 的标题栏。它和 `SaveBar`（或 `<ui-save-bar>`）仍是 `ui-modal` 的直接子元素；其余所有内容都渲染到 modal 的 `content` 中。 |

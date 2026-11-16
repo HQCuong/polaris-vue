@@ -7,6 +7,8 @@ description: "Modal은 Vue 3에서 Shopify App Bridge의 ui-modal을 렌더링�
 
 시작하기 전에 [설치](/ko/app-bridge/#install)를 참고하세요.
 
+Shopify의 [Modal 레퍼런스](https://shopify.dev/docs/api/app-bridge-library/react-components/modal)에 따르면, 모달은 닫힐 때까지 앱의 나머지 부분과 상호작용하지 못하게 하는 오버레이입니다.
+
 `Modal`은 `ui-modal`을 렌더링합니다. `v-model:open`을 바인딩해 열고 닫습니다.
 
 ```vue
@@ -84,3 +86,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)`와 `shopify.modal.hide(id)`도 `id`로 사용할 수 있습니다.
+
+## Props와 이벤트 {#reference}
+
+### Props {#props}
+
+| Prop | 타입 | 설명 |
+| --- | --- | --- |
+| `open` | `boolean` | 모달이 표시되는지 여부입니다. App Bridge가 모달을 닫을 때 동기화를 유지하려면 `v-model:open`을 사용하세요. 기본값: `false`. |
+| `id` | `string` | 모달의 고유 식별자입니다. |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | 모달의 크기입니다. 기본값: `"base"`. 모달이 표시되기 전에는 이 값 중 어느 것으로든 설정할 수 있고, 그 후에는 `small`, `base`, `large` 사이에서만 바꿀 수 있습니다. |
+| `src` | `string` | 모달에 표시할 콘텐츠의 URL입니다. `src`가 있으면 `ui-title-bar`와 `ui-save-bar` 이외의 자식은 무시됩니다. |
+
+`open`은 컴포넌트의 prop이고, `id`, `variant`, `src`는 요소에 전달되는 `ui-modal` 속성입니다.
+
+### Events {#events}
+
+| Event | 타입 | 설명 |
+| --- | --- | --- |
+| `show` | `Event` | 모달이 표시되었습니다. |
+| `hide` | `Event` | 모달이 숨겨졌습니다. |
+| `update:open` | `boolean` | 새 상태가 `open`과 다를 때 `show` 또는 `hide` 다음에 emit되며, `v-model:open`에 사용됩니다. |
+
+### Slots {#slots}
+
+| Slot | 설명 |
+| --- | --- |
+| `default` | 모달 콘텐츠입니다. `TitleBar`(또는 `<ui-title-bar>`)는 모달의 타이틀 바를 구성합니다. 이것과 `SaveBar`(또는 `<ui-save-bar>`)는 `ui-modal`의 직접 자식으로 유지되고, 나머지는 모두 모달의 `content`에 렌더링됩니다. |

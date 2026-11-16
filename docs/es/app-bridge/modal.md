@@ -7,6 +7,8 @@ description: "Modal renderiza ui-modal de Shopify App Bridge en Vue 3: enlaza v-
 
 Antes de empezar, consulta [Instalación](/es/app-bridge/#install).
 
+Un modal es una superposición que impide interactuar con el resto de la app hasta que se cierra, como lo describe la [referencia de Modal](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) de Shopify.
+
 `Modal` renderiza `ui-modal`. Enlaza `v-model:open` para abrirlo y cerrarlo:
 
 ```vue
@@ -85,3 +87,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)` y `shopify.modal.hide(id)` también funcionan con el `id`.
+
+## Props y eventos {#reference}
+
+### Props {#props}
+
+| Prop | Tipo | Descripción |
+| --- | --- | --- |
+| `open` | `boolean` | Si el modal se muestra. Usa `v-model:open` para mantenerlo sincronizado cuando App Bridge cierra el modal. Por defecto: `false`. |
+| `id` | `string` | Un identificador único para el modal. |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | El tamaño del modal. Por defecto: `"base"`. Antes de mostrar el modal, se puede establecer cualquiera de estos valores; después, solo `small`, `base` o `large`. |
+| `src` | `string` | La URL del contenido que se muestra en el modal. Con `src`, se ignoran los hijos que no sean `ui-title-bar` y `ui-save-bar`. |
+
+`open` es una prop del componente; `id`, `variant` y `src` son atributos de `ui-modal` que se pasan al elemento.
+
+### Events {#events}
+
+| Event | Tipo | Descripción |
+| --- | --- | --- |
+| `show` | `Event` | El modal se mostró. |
+| `hide` | `Event` | El modal se ocultó. |
+| `update:open` | `boolean` | Se emite después de `show` o `hide` cuando el nuevo estado difiere de `open`, para `v-model:open`. |
+
+### Slots {#slots}
+
+| Slot | Descripción |
+| --- | --- |
+| `default` | El contenido del modal. Un `TitleBar` (o `<ui-title-bar>`) configura la barra de título del modal. Este y un `SaveBar` (o `<ui-save-bar>`) siguen siendo hijos directos de `ui-modal`; todo lo demás se renderiza en el `content` del modal. |

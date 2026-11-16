@@ -7,6 +7,8 @@ description: "Modal は Vue 3 で Shopify App Bridge の ui-modal をレンダ�
 
 始める前に[インストール](/ja/app-bridge/#install)を参照してください。
 
+Shopify の [Modal リファレンス](https://shopify.dev/docs/api/app-bridge-library/react-components/modal)によると、モーダルは閉じられるまでアプリの他の部分の操作を妨げるオーバーレイです。
+
 `Modal` は `ui-modal` をレンダリングします。`v-model:open` をバインドして開閉します。
 
 ```vue
@@ -83,3 +85,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)` と `shopify.modal.hide(id)` も `id` を使って動作します。
+
+## Props とイベント {#reference}
+
+### Props {#props}
+
+| Prop | 型 | 説明 |
+| --- | --- | --- |
+| `open` | `boolean` | モーダルが表示されているかどうか。App Bridge がモーダルを閉じたときに同期を保つには `v-model:open` を使います。デフォルト：`false`。 |
+| `id` | `string` | モーダルの一意の識別子。 |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | モーダルのサイズ。デフォルト：`"base"`。モーダルが表示される前はこれらのどの値にも設定でき、表示後は `small`、`base`、`large` の間でのみ変更できます。 |
+| `src` | `string` | モーダルに表示するコンテンツの URL。`src` がある場合、`ui-title-bar` と `ui-save-bar` 以外の子は無視されます。 |
+
+`open` はコンポーネントの prop で、`id`、`variant`、`src` は要素に渡される `ui-modal` の属性です。
+
+### Events {#events}
+
+| Event | 型 | 説明 |
+| --- | --- | --- |
+| `show` | `Event` | モーダルが表示されました。 |
+| `hide` | `Event` | モーダルが非表示になりました。 |
+| `update:open` | `boolean` | 新しい状態が `open` と異なるとき、`show` または `hide` の後に emit されます。`v-model:open` 用です。 |
+
+### Slots {#slots}
+
+| Slot | 説明 |
+| --- | --- |
+| `default` | モーダルのコンテンツ。`TitleBar`（または `<ui-title-bar>`）はモーダルのタイトルバーを構成します。これと `SaveBar`（または `<ui-save-bar>`）は `ui-modal` の直接の子のままになり、それ以外はすべてモーダルの `content` にレンダリングされます。 |

@@ -7,6 +7,8 @@ description: "Modal génère ui-modal de Shopify App Bridge en Vue 3 : liez v-mo
 
 Avant de commencer, consultez [Installation](/fr/app-bridge/#install).
 
+Un modal est une surcouche qui empêche toute interaction avec le reste de l'app jusqu'à sa fermeture, comme le décrit la [référence Modal](https://shopify.dev/docs/api/app-bridge-library/react-components/modal) de Shopify.
+
 `Modal` génère `ui-modal`. Liez `v-model:open` pour l'ouvrir et le fermer :
 
 ```vue
@@ -85,3 +87,30 @@ async function toggle(): Promise<void> {
 ```
 
 `shopify.modal.show(id)` et `shopify.modal.hide(id)` fonctionnent aussi avec l'`id`.
+
+## Props et événements {#reference}
+
+### Props {#props}
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `open` | `boolean` | Indique si le modal est affiché. Utilisez `v-model:open` pour rester synchronisé quand App Bridge ferme le modal. Par défaut : `false`. |
+| `id` | `string` | Un identifiant unique pour le modal. |
+| `variant` | `"small" \| "base" \| "large" \| "max"` | La taille du modal. Par défaut : `"base"`. Avant l'affichage du modal, n'importe laquelle de ces valeurs peut être définie ; ensuite, seulement `small`, `base` ou `large`. |
+| `src` | `string` | L'URL du contenu à afficher dans le modal. Avec `src`, les enfants autres que `ui-title-bar` et `ui-save-bar` sont ignorés. |
+
+`open` est une prop du composant ; `id`, `variant` et `src` sont des attributs de `ui-modal`, transmis à l'élément.
+
+### Events {#events}
+
+| Event | Type | Description |
+| --- | --- | --- |
+| `show` | `Event` | Le modal a été affiché. |
+| `hide` | `Event` | Le modal a été masqué. |
+| `update:open` | `boolean` | Émis après `show` ou `hide` quand le nouvel état diffère de `open`, pour `v-model:open`. |
+
+### Slots {#slots}
+
+| Slot | Description |
+| --- | --- |
+| `default` | Le contenu du modal. Un `TitleBar` (ou `<ui-title-bar>`) configure la barre de titre du modal. Lui et un `SaveBar` (ou `<ui-save-bar>`) restent des enfants directs de `ui-modal` ; tout le reste est rendu dans le `content` du modal. |
