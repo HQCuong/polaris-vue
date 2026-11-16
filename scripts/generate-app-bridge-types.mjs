@@ -352,27 +352,41 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     return `<code v-pre>${html}</code>`
   }
 
+  // One member as a row of the member list: its declaration as TypeScript prints it
+  // (`readonly action: string`, `invoke?(query: IntentQuery): Promise<IntentActivity>`), with
+  // its name and `?` marked for styling, then its description.
   function memberRow(member, outerScope, ctx) {
-    const optional = member.questionToken ? '?' : ''
-    const readonly = member.modifiers?.some((m) => m.kind === ts.SyntaxKind.ReadonlyKeyword) ? 'readonly ' : ''
-    let label
-    let typeText
-    if (ts.isPropertySignature(member)) {
-      label = `${readonly}${member.name.getText(sf)}${optional}`
-      typeText = member.type ? print(member.type) : 'any'
-    } else if (ts.isMethodSignature(member) || ts.isCallSignatureDeclaration(member) || ts.isConstructSignatureDeclaration(member)) {
-      const fn = ts.factory.createFunctionTypeNode(member.typeParameters, member.parameters, member.type ?? ts.factory.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword))
-      typeText = print(fn)
-      if (ts.isConstructSignatureDeclaration(member)) typeText = `new ${typeText}`
-      label = ts.isMethodSignature(member) ? `${member.name.getText(sf)}${optional}()` : ts.isCallSignatureDeclaration(member) ? '()' : 'new ()'
-    } else if (ts.isIndexSignatureDeclaration(member)) {
-      label = `${readonly}[${member.parameters.map((p) => print(p)).join(', ')}]`
-      typeText = print(member.type)
-    } else {
+    if (
+      !ts.isPropertySignature(member) &&
+      !ts.isMethodSignature(member) &&
+      !ts.isCallSignatureDeclaration(member) &&
+      !ts.isConstructSignatureDeclaration(member) &&
+      !ts.isIndexSignatureDeclaration(member)
+    ) {
       fail(`app-bridge types: unsupported member ${ts.SyntaxKind[member.kind]} at ${sf.getLineAndCharacterOfPosition(member.getStart(sf)).line + 1}`)
     }
-    const description = describe(member, ctx, { inline: true })
-    return [`\`${label}\``, codeHtml(typeText, ctx, { scope: outerScope }), description || ctx.t.notDescribed]
+    const printed = print(member).replace(/;\s*$/, '')
+    // A property without a type annotation is `any`, as the old table said.
+    const text = ts.isPropertySignature(member) && !member.type ? `${printed}: any` : printed
+    let html = codeHtml(text, ctx, { prefix: 'interface __T { ', suffix: ' }', scope: outerScope })
+    if (ts.isPropertySignature(member) || ts.isMethodSignature(member)) {
+      const name = escapeHtml(member.name.getText(sf))
+      const head = `<code v-pre>${text.startsWith('readonly ') ? 'readonly ' : ''}`
+      assert(html.startsWith(head + name), `member ${name} is not printed name first: ${html}`)
+      const optional = member.questionToken ? '<span class="ab-opt">?</span>' : ''
+      html = `${head}<span class="ab-name">${name}</span>${optional}${html.slice(head.length + name.length + (member.questionToken ? 1 : 0))}`
+    }
+    const description = describe(member, ctx)
+    return [
+      '<div class="ab-member">',
+      '',
+      `<p class="ab-sig">${html}</p>`,
+      '',
+      description || `<p class="ab-none">${escapeHtml(ctx.t.notDescribed)}</p>`,
+      '',
+      '</div>',
+      '',
+    ]
   }
 
   // -------------------------------------------------------------------------
@@ -396,10 +410,10 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
       .join('')
   }
 
-  // Markdown for a run of JSDoc text: paragraphs and list items kept apart with `<br>` (one
-  // line in a table cell), `<` and `>` escaped outside code spans so VitePress never reads
-  // them as HTML, and pipes escaped for tables.
-  function markdown(text, { inline }) {
+  // Markdown for a run of JSDoc text: paragraphs and list items kept apart, `<` and `>`
+  // escaped outside code spans so VitePress never reads them as HTML, and `{` so it never
+  // reads `{ type: 'x' }` at the end of a block as attributes.
+  function markdown(text) {
     const lines = text.split('\n').map((l) => l.trim())
     let out = ''
     let blank = false
@@ -408,14 +422,14 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
         blank = out !== ''
         continue
       }
-      const sep = out === '' ? '' : blank ? (inline ? '<br><br>' : '\n\n') : /^[-*] /.test(line) ? (inline ? '<br>' : '\n') : ' '
+      const sep = out === '' ? '' : blank ? '\n\n' : /^[-*] /.test(line) ? '\n' : ' '
       out += sep + line
       blank = false
     }
-    return escapeOutsideCode(out, inline)
+    return escapeOutsideCode(out)
   }
 
-  function escapeOutsideCode(text, inline) {
+  function escapeOutsideCode(text) {
     let out = ''
     let i = 0
     while (i < text.length) {
@@ -426,7 +440,7 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
         if (close !== -1) {
           const span = text.slice(i, close + run)
           if (span.includes('{{')) fail(`app-bridge types: "{{" in a code span would be read by Vue: ${span}`)
-          out += inline ? span.replace(/\|/g, '\\|') : span
+          out += span
           i = close + run
           continue
         }
@@ -437,34 +451,34 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
         continue
       }
       const ch = text[i]
-      out += ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch === '{' && text[i + 1] === '{' ? '&#123;' : ch === '|' && inline ? '\\|' : ch
+      out += ch === '<' ? '&lt;' : ch === '>' ? '&gt;' : ch === '{' ? '&#123;' : ch
       i++
     }
     return out
   }
 
   // Summary plus @deprecated, @default/@defaultValue and @see, as markdown.
-  function describe(node, ctx, { inline }) {
+  function describe(node, ctx) {
     const { t } = ctx
     const docs = (node.jsDoc ?? []).filter((d) => ts.isJSDoc(d))
     const doc = docs.at(-1)
     if (!doc) return ''
     const parts = []
     const summary = commentText(doc.comment, ctx).trim()
-    if (summary) parts.push(markdown(summary, { inline }))
+    if (summary) parts.push(markdown(summary))
     for (const tag of doc.tags ?? []) {
       const name = tag.tagName.text
       const text = commentText(tag.comment, ctx).trim()
       if (name === 'deprecated') {
-        parts.push(text ? `**${t.deprecated}** ${markdown(text, { inline })}` : `**${t.deprecated}**`)
+        parts.push(text ? `**${t.deprecated}** ${markdown(text)}` : `**${t.deprecated}**`)
       } else if (name === 'default' || name === 'defaultValue') {
-        if (text) parts.push(`${t.default} ${/`/.test(text) ? markdown(text, { inline }) : `\`${inline ? text.replace(/\|/g, '\\|') : text}\``}`)
+        if (text) parts.push(`${t.default} ${/`/.test(text) ? markdown(text) : `\`${text}\``}`)
       } else if (name === 'see') {
         const target = `${tag.name ? tag.name.getText(sf) : ''}${text}`.trim()
-        if (target) parts.push(`${t.see} ${/^https?:\/\/\S+$/.test(target) ? `[${target}](${target})` : markdown(target, { inline })}`)
+        if (target) parts.push(`${t.see} ${/^https?:\/\/\S+$/.test(target) ? `[${target}](${target})` : markdown(target)}`)
       }
     }
-    return parts.join(inline ? ' ' : '\n\n')
+    return parts.join('\n\n')
   }
 
   // -------------------------------------------------------------------------
@@ -497,52 +511,77 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     return mentions
   }
 
+  // A type as one block: a header (its heading and kind), its description, import and
+  // heritage lines, its members or declaration, and a footer with what it references and
+  // where it is used. An H2 (an API or element on its page, or `ShopifyGlobal`) is a section;
+  // an H3 is an entry under it.
   function renderType(d, level, ctx) {
     const { t, mentions } = ctx
-    const lines = [`${'#'.repeat(level)} \`${d.name}\` {#${anchorOf(d.name)}}`, '']
-    const description = describe(d.jsDocHost, ctx, { inline: false })
-    if (description) lines.push(description, '')
-
-    if (d.exported) lines.push(`${t.exported} \`import type { ${d.name} } from '${subpath}'\``, '')
-    if (d.global) lines.push(t.global, '')
-
     const node = d.node
     const scope = ts.isVariableStatement(node) ? new Set() : typeParamsOf(node)
     const isObjectAlias = ts.isTypeAliasDeclaration(node) && ts.isTypeLiteralNode(node.type)
+    const kind = ts.isTypeAliasDeclaration(node) && ts.isFunctionTypeNode(node.type) ? 'function' : d.kind
+
+    const lines = [
+      `<div class="ab-type ${level === 2 ? 'ab-section' : 'ab-entry'}">`,
+      '',
+      '<div class="ab-head">',
+      '',
+      `${'#'.repeat(level)} \`${d.name}\` {#${anchorOf(d.name)}}`,
+      '',
+      `<div class="ab-kind">${kind}</div>`,
+      '',
+      '</div>',
+      '',
+    ]
+    const description = describe(d.jsDocHost, ctx)
+    if (description) lines.push(description, '')
+
+    const meta = []
+    if (d.exported) meta.push(`${t.exported} \`import type { ${d.name} } from '${subpath}'\``)
+    if (d.global) meta.push(t.global)
+    const footer = []
 
     if (ts.isInterfaceDeclaration(node) || isObjectAlias) {
       if (node.typeParameters?.length) {
         const text = node.typeParameters.map((p) => print(p)).join(', ')
-        lines.push(`${t.typeParameters} ${codeHtml(text, ctx, { prefix: 'type __T<', suffix: '> = 0;' })}`, '')
+        meta.push(`${t.typeParameters} ${codeHtml(text, ctx, { prefix: 'type __T<', suffix: '> = 0;' })}`)
       }
       const heritage = ts.isInterfaceDeclaration(node) ? (node.heritageClauses?.flatMap((c) => c.types) ?? []) : []
       if (heritage.length > 0) {
-        lines.push(`${t.extends} ${heritage.map((h) => codeHtml(print(h), ctx, { scope })).join(', ')}`, '')
+        meta.push(`${t.extends} ${heritage.map((h) => codeHtml(print(h), ctx, { scope })).join(', ')}`)
       }
+    }
+    if (meta.length > 0) lines.push('<div class="ab-meta">', '', ...meta.flatMap((m) => [m, '']), '</div>', '')
+
+    if (ts.isInterfaceDeclaration(node) || isObjectAlias) {
       const members = ts.isInterfaceDeclaration(node) ? node.members : node.type.members
       if (members.length > 0) {
-        lines.push(`| ${t.table.member} | ${t.table.type} | ${t.table.description} |`, '| --- | --- | --- |')
-        for (const m of members) lines.push(`| ${memberRow(m, scope, ctx).join(' | ')} |`)
-        lines.push('')
+        lines.push('<div class="ab-members">', '')
+        for (const m of members) lines.push(...memberRow(m, scope, ctx))
+        lines.push('</div>', '')
       }
     } else {
-      lines.push('```ts', print(node), '```', '')
+      lines.push('<div class="ab-decl">', '', '```ts', print(node), '```', '', '</div>', '')
       const refs = [...d.refs].filter((r) => onPage.has(r)).toSorted(compareNames)
-      if (refs.length > 0) lines.push(`${t.references} ${refs.map((r) => typeLink(r, ctx)).join(', ')}`, '')
+      if (refs.length > 0) footer.push(`<span class="ab-foot-part">${t.references} ${refs.map((r) => typeLink(r, ctx)).join(', ')}</span>`)
     }
 
     const usedIn = [
       ...(mentions.get(d.name) ?? []),
       ...referencedBy.get(d.name).toSorted(compareNames).map((r) => typeLink(r, ctx)),
     ]
-    if (usedIn.length > 0) lines.push(`${t.usedIn} ${usedIn.join(', ')}`, '')
+    if (usedIn.length > 0) footer.push(`<span class="ab-foot-part">${t.usedIn} ${usedIn.join(', ')}</span>`)
+    if (footer.length > 0) lines.push('<div class="ab-foot">', '', footer.join('\n'), '', '</div>', '')
+    lines.push('</div>', '')
     return lines.join('\n')
   }
 
   // The page's APIs or elements, linked, joined with the locale's list separator.
   const rootList = (page, ctx) => rootsOn(page).map((n) => typeLink(n, ctx)).join(ctx.t.listSeparator)
 
-  // The A–Z index on the overview: one line per initial letter, `_` prefixes ignored.
+  // The A–Z index on the overview: one group per initial letter, `_` prefixes ignored, laid
+  // out in columns by the theme CSS.
   function azIndex(ctx) {
     const byLetter = new Map()
     for (const name of types.map((d) => d.name).toSorted(compareNames)) {
@@ -550,7 +589,10 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
       if (!byLetter.has(letter)) byLetter.set(letter, [])
       byLetter.get(letter).push(typeLink(name, ctx))
     }
-    return [...byLetter].map(([letter, links]) => `**${letter}** · ${links.join(' · ')}`).join('\n\n')
+    const groups = [...byLetter].map(([letter, links]) =>
+      ['<div class="ab-az-group">', '', `<p class="ab-az-letter">${letter}</p>`, '', ...links.map((l) => `- ${l}`), '', '</div>'].join('\n'),
+    )
+    return ['<div class="ab-az">', '', ...groups.flatMap((g) => [g, '']), '</div>'].join('\n')
   }
 
   const jsonTypes = Object.fromEntries(
@@ -597,6 +639,8 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
         '---',
         `title: ${JSON.stringify(strings.title)}`,
         `description: ${JSON.stringify(strings.description)}`,
+        // Scopes the types-page styles in docs/.vitepress/theme/custom.css ("App Bridge types").
+        'pageClass: ab-types',
         '---',
         `<!-- Generated by scripts/generate-app-bridge-types.mjs from ${PACKAGE}@${version} — DO NOT EDIT. -->`,
         '',

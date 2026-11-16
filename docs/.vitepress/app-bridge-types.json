@@ -322,6 +322,14 @@
       "page": "elements",
       "anchor": "sappwindowattributes"
     },
+    "SAppWindowElement": {
+      "page": "elements",
+      "anchor": "sappwindowelement"
+    },
+    "_SAppWindowElement": {
+      "page": "elements",
+      "anchor": "_sappwindowelement"
+    },
     "SaveBarApi": {
       "page": "user-interface-and-interactions",
       "anchor": "savebarapi"
