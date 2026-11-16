@@ -1,6 +1,6 @@
 ---
-title: AppWindow
-description: "AppWindow génère s-app-window, que la documentation de @shopify/app-bridge-types décrit comme \"a fullscreen modal window in the Shopify admin\"."
+title: "AppWindow (s-app-window) – App Bridge pour Vue 3"
+description: "AppWindow génère s-app-window de Shopify App Bridge, une fenêtre modale plein écran dans l'admin Shopify, en Vue 3 : src est requis, ouverture avec v-model:open."
 ---
 
 # AppWindow {#app-window}

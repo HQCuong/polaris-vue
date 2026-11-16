@@ -216,3 +216,6 @@ wrapper와 같은 방식으로 태그를 검사합니다. 유니온 타입 props
 
 Shopify 앱을 만들고 있다면 [Vue 3로 Shopify 임베디드 앱 만들기](/ko/guide/shopify-embedded-app)에서
 Vue에서 App Bridge를 로드하는 방법, 인증된 요청, App Bridge API 사용법을 확인하세요.
+
+App Bridge를 사용한다면 `polaris-vue-elements/app-bridge`에 Modal, SaveBar, TitleBar 등을 위한
+Vue 컴포넌트가 있습니다. [App Bridge 컴포넌트](/ko/app-bridge/)를 확인하세요.

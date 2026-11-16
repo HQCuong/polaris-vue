@@ -1,6 +1,6 @@
 ---
-title: Điều hướng app
-description: Shopify ghi nhận <s-app-nav> với các con <s-link> cho điều hướng app; xem hướng dẫn embedded app và tài liệu tham khảo app nav của Shopify.
+title: "NavMenu (ui-nav-menu) – App Bridge cho Vue 3"
+description: "Điều hướng app cho Shopify embedded app trong Vue 3: Shopify ghi nhận s-app-nav, dùng được như thẻ thô, còn NavMenu render ui-nav-menu cũ hơn của App Bridge."
 ---
 
 # Điều hướng app {#app-nav}

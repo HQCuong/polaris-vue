@@ -1,6 +1,6 @@
 ---
-title: TitleBar
-description: TitleBar は ui-title-bar をレンダリングし、title は属性として設定されます。Modal 内では、モーダルのヘッダーとフッターを設定します。
+title: "TitleBar (ui-title-bar) – Vue 3 向け App Bridge"
+description: "TitleBar は Vue 3 で Shopify App Bridge の ui-title-bar をレンダリングし、title は属性として設定されます。Modal 内ではヘッダーとフッターを設定します。Shopify 埋め込みアプリ向けです。"
 ---
 
 # TitleBar {#title-bar}

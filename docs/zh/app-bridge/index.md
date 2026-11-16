@@ -1,6 +1,6 @@
 ---
-title: 适用于 Vue 的 App Bridge 组件
-description: 与 Shopify 的 @shopify/app-bridge-react 组件对应的 Vue 3 组件——Modal、SaveBar、AppWindow、TitleBar、NavMenu 和 useAppBridge——来自 polaris-vue-elements/app-bridge。
+title: "适用于 Vue 3 的 Shopify App Bridge 组件"
+description: "面向嵌入式应用中 Shopify App Bridge 的带类型 Vue 3 组件：Modal、SaveBar、AppWindow、TitleBar、NavMenu 和 useAppBridge()，与 @shopify/app-bridge-react 一一对应。"
 ---
 
 # 适用于 Vue 的 App Bridge 组件 {#app-bridge-components-for-vue}

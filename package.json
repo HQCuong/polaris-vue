@@ -1,7 +1,7 @@
 {
   "name": "polaris-vue-elements",
   "version": "0.6.0",
-  "description": "Typed Vue 3 components for Shopify Polaris web components — build Shopify app UIs (App Home) in Vue with props, events and v-model.",
+  "description": "Typed Vue 3 components for Shopify Polaris web components and App Bridge — build Shopify embedded app UIs (App Home) in Vue with props, events and v-model.",
   "license": "MIT",
   "homepage": "https://polaris-vue-elements.dev",
   "repository": {
@@ -19,7 +19,10 @@
     "vue",
     "vue3",
     "typescript",
-    "wrapper"
+    "wrapper",
+    "app-bridge",
+    "shopify-app-bridge",
+    "embedded-app"
   ],
   "type": "module",
   "main": "./dist/index.js",

@@ -1,6 +1,6 @@
 ---
-title: useAppBridge()
-description: useAppBridge() trả về đối tượng toàn cục shopify, có type là ShopifyGlobal.
+title: "useAppBridge() – Shopify App Bridge cho Vue 3"
+description: "useAppBridge() cho Vue 3 trả về đối tượng toàn cục shopify của Shopify App Bridge, có type là ShopifyGlobal, giống trong @shopify/app-bridge-react. Dành cho Shopify embedded app."
 ---
 
 # useAppBridge() {#use-app-bridge}

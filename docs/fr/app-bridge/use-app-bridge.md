@@ -1,6 +1,6 @@
 ---
-title: useAppBridge()
-description: "useAppBridge() renvoie l'objet global shopify, typé ShopifyGlobal."
+title: "useAppBridge() – Shopify App Bridge pour Vue 3"
+description: "useAppBridge() pour Vue 3 renvoie l'objet global shopify de Shopify App Bridge, typé ShopifyGlobal, comme dans @shopify/app-bridge-react. Pour les apps Shopify intégrées."
 ---
 
 # useAppBridge() {#use-app-bridge}

@@ -218,3 +218,6 @@ setting बनाए रखें। Wrappers से दो अंतर:
 
 Shopify app बना रहे हैं? Vue से App Bridge लोड करने, authenticated requests भेजने और App Bridge APIs
 इस्तेमाल करने के लिए [Vue 3 के साथ Shopify embedded app बनाएँ](/hi/guide/shopify-embedded-app) देखें।
+
+App Bridge इस्तेमाल कर रहे हैं? `polaris-vue-elements/app-bridge` में Modal, SaveBar, TitleBar आदि के लिए
+Vue components हैं: देखें [App Bridge components](/hi/app-bridge/)।

@@ -217,3 +217,6 @@ wrapper と同じように生のタグをチェックします。union 型の pr
 
 Shopify アプリを作る場合は、[Vue 3 で Shopify 埋め込みアプリを作る](/ja/guide/shopify-embedded-app)を参照してください。
 Vue から App Bridge を読み込む方法、認証付きリクエスト、App Bridge API について説明しています。
+
+App Bridge を使う場合は、`polaris-vue-elements/app-bridge` に Modal、SaveBar、TitleBar などの
+Vue コンポーネントがあります。[App Bridge コンポーネント](/ja/app-bridge/)を参照してください。

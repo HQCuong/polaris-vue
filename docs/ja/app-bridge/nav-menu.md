@@ -1,6 +1,6 @@
 ---
-title: アプリナビゲーション
-description: Shopify は、アプリナビゲーションとして <s-link> を子に持つ <s-app-nav> を文書化しています。
+title: "NavMenu (ui-nav-menu) – Vue 3 向け App Bridge"
+description: "Vue 3 で作る Shopify 埋め込みアプリのアプリナビゲーション。Shopify は s-app-nav を文書化しており、そのままのタグで使えます。NavMenu は旧来の App Bridge ui-nav-menu をレンダリングします。"
 ---
 
 # アプリナビゲーション {#app-nav}

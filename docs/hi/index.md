@@ -49,6 +49,39 @@ const name = ref('')
 </div>
 </section>
 
+<section class="home-section home-intro vp-doc">
+<div class="home-intro-text">
+
+## Shopify App Bridge, Vue में भी {#shopify-app-bridge-in-vue-too}
+
+`polaris-vue-elements/app-bridge` में Shopify के `@shopify/app-bridge-react` के
+components और hook के Vue 3 समकक्ष हैं: `Modal`, `SaveBar`, `AppWindow`, `TitleBar`,
+`NavMenu` और `useAppBridge()`। यह अभी beta में है, और मुख्य `polaris-vue-elements` entry
+यह code import नहीं करती, इसलिए जो apps इसे इस्तेमाल नहीं करते वे इसे लोड नहीं करते।
+देखें [Vue के लिए App Bridge components](/hi/app-bridge/)।
+
+</div>
+<div class="home-intro-code">
+
+```vue
+<script setup lang="ts">
+import { useAppBridge } from 'polaris-vue-elements/app-bridge'
+
+const shopify = useAppBridge()
+
+function generate(): void {
+  shopify.toast.show('Blog post template generated')
+}
+</script>
+
+<template>
+  <button @click="generate">Generate blog post</button>
+</template>
+```
+
+</div>
+</section>
+
 <section class="home-section home-all vp-doc">
 
 ## सभी components {#all-components}

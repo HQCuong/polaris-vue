@@ -1,6 +1,6 @@
 ---
-title: TitleBar
-description: TitleBar render ui-title-bar, với title được đặt làm attribute.
+title: "TitleBar (ui-title-bar) – App Bridge cho Vue 3"
+description: "TitleBar render ui-title-bar của Shopify App Bridge trong Vue 3, với title được đặt làm attribute; trong Modal nó đặt header và footer. Dành cho Shopify embedded app."
 ---
 
 # TitleBar {#title-bar}

@@ -1,6 +1,6 @@
 ---
-title: useAppBridge()
-description: useAppBridge() returns the shopify global, typed as ShopifyGlobal.
+title: "useAppBridge() – Shopify App Bridge for Vue 3"
+description: "useAppBridge() for Vue 3 returns the Shopify App Bridge shopify global, typed as ShopifyGlobal, as in @shopify/app-bridge-react. For Shopify embedded apps."
 ---
 
 # useAppBridge() {#use-app-bridge}

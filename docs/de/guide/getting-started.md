@@ -222,3 +222,6 @@ bevor man selbst darauf stößt.
 
 Eine Shopify-App entwickeln? Siehe [Eine eingebettete Shopify-App mit Vue 3 bauen](/de/guide/shopify-embedded-app)
 zum Laden von App Bridge, zu authentifizierten Requests und zu App-Bridge-APIs aus Vue.
+
+Sie verwenden App Bridge? `polaris-vue-elements/app-bridge` enthält Vue-Komponenten für Modal,
+SaveBar, TitleBar und mehr: siehe [App-Bridge-Komponenten](/de/app-bridge/).

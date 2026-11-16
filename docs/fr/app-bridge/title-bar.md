@@ -1,6 +1,6 @@
 ---
-title: TitleBar
-description: TitleBar génère ui-title-bar, avec title défini comme attribut.
+title: "TitleBar (ui-title-bar) – App Bridge pour Vue 3"
+description: "TitleBar génère ui-title-bar de Shopify App Bridge en Vue 3, avec title défini comme attribut ; dans un Modal, il définit l'en-tête et le pied. Pour les apps Shopify intégrées."
 ---
 
 # TitleBar {#title-bar}

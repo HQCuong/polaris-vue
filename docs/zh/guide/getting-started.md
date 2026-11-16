@@ -217,3 +217,6 @@ function openModal(): void {
 
 正在构建 Shopify 应用？请参阅[使用 Vue 3 构建 Shopify 嵌入式应用](/zh/guide/shopify-embedded-app)，
 了解如何在 Vue 中加载 App Bridge、发送经过身份验证的请求以及使用 App Bridge API。
+
+正在使用 App Bridge？`polaris-vue-elements/app-bridge` 提供了 Modal、SaveBar、TitleBar 等的 Vue 组件，
+请参阅 [App Bridge 组件](/zh/app-bridge/)。

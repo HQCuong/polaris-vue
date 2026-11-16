@@ -1,6 +1,6 @@
 ---
-title: TitleBar
-description: TitleBar 渲染 ui-title-bar，并将 title 设为 attribute。在 Modal 中，它用于设置 modal 的页眉和页脚。
+title: "TitleBar (ui-title-bar) – 适用于 Vue 3 的 App Bridge"
+description: "TitleBar 在 Vue 3 中渲染 Shopify App Bridge 的 ui-title-bar，并将 title 设为 attribute；在 Modal 中，它用于设置页眉和页脚。适用于 Shopify 嵌入式应用。"
 ---
 
 # TitleBar {#title-bar}

@@ -219,5 +219,8 @@ run into them yourself.
 Building a Shopify app? See [Build a Shopify embedded app with Vue 3](/guide/shopify-embedded-app)
 for loading App Bridge, authenticated requests and App Bridge APIs from Vue.
 
+Using App Bridge? `polaris-vue-elements/app-bridge` has Vue components for Modal, SaveBar,
+TitleBar and more: see [App Bridge components](/app-bridge/).
+
 Writing CSS of your own around the components? Use the [Polaris CSS variables](/css-variables/)
 (`--p-space-*`, `--p-color-*`, …) so your layout matches their spacing and colors.

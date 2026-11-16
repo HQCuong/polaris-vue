@@ -1,6 +1,6 @@
 ---
-title: Modal
-description: "Modal 渲染 ui-modal。绑定 v-model:open 即可打开和关闭它。"
+title: "Modal (ui-modal) – 适用于 Vue 3 的 App Bridge modal"
+description: "Modal 在 Vue 3 中渲染 Shopify App Bridge 的 ui-modal：绑定 v-model:open，接收 show 和 hide 事件，并添加 TitleBar。从 polaris-vue-elements/app-bridge 导入。"
 ---
 
 # Modal {#modal}

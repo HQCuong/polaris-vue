@@ -49,6 +49,38 @@ const name = ref('')
 </div>
 </section>
 
+<section class="home-section home-intro vp-doc">
+<div class="home-intro-text">
+
+## Shopify App Bridge，同样适用于 Vue {#shopify-app-bridge-in-vue-too}
+
+`polaris-vue-elements/app-bridge` 提供了与 Shopify 的 `@shopify/app-bridge-react`
+中的组件和 hook 对应的 Vue 3 组件与组合式函数：`Modal`、`SaveBar`、`AppWindow`、
+`TitleBar`、`NavMenu` 和 `useAppBridge()`。它目前处于测试版阶段，并且 `polaris-vue-elements`
+的主入口不会导入这些代码，因此不使用它们的应用不会加载它们。请参阅[适用于 Vue 的 App Bridge 组件](/zh/app-bridge/)。
+
+</div>
+<div class="home-intro-code">
+
+```vue
+<script setup lang="ts">
+import { useAppBridge } from 'polaris-vue-elements/app-bridge'
+
+const shopify = useAppBridge()
+
+function generate(): void {
+  shopify.toast.show('Blog post template generated')
+}
+</script>
+
+<template>
+  <button @click="generate">Generate blog post</button>
+</template>
+```
+
+</div>
+</section>
+
 <section class="home-section home-all vp-doc">
 
 ## 所有组件 {#all-components}

@@ -1,6 +1,6 @@
 ---
-title: TitleBar
-description: TitleBar ui-title-bar को render करता है, जिसमें title एक attribute के रूप में सेट होता है।
+title: "TitleBar (ui-title-bar) – Vue 3 के लिए App Bridge"
+description: "TitleBar Vue 3 में Shopify App Bridge के ui-title-bar को render करता है, title attribute के रूप में सेट होता है; Modal में यह header और footer सेट करता है। Shopify embedded apps के लिए।"
 ---
 
 # TitleBar {#title-bar}

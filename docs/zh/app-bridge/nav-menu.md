@@ -1,6 +1,6 @@
 ---
-title: 应用导航
-description: Shopify 记录的应用导航使用带有 <s-link> 子元素的 <s-app-nav>；请参阅嵌入式应用指南以及 Shopify 的 app nav 参考文档。
+title: "NavMenu (ui-nav-menu) – 适用于 Vue 3 的 App Bridge"
+description: "Vue 3 Shopify 嵌入式应用的应用导航：Shopify 记录的是 s-app-nav，可直接作为原生标签使用；NavMenu 渲染较早的 App Bridge ui-nav-menu。"
 ---
 
 # 应用导航 {#app-nav}

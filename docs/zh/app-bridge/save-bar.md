@@ -1,6 +1,6 @@
 ---
-title: SaveBar
-description: "SaveBar 渲染 ui-save-bar。正如 ui-save-bar 的类型说明所述，\"the button with variant primary is the Save button and the button without a variant is the Discard button\"。"
+title: "SaveBar (ui-save-bar) – 适用于 Vue 3 的 App Bridge"
+description: "SaveBar 在 Vue 3 中渲染 Shopify App Bridge 的 ui-save-bar，支持 v-model:open、show 和 hide 事件以及 discardConfirmation。适用于 Shopify 嵌入式应用。"
 ---
 
 # SaveBar {#save-bar}

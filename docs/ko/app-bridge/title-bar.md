@@ -1,6 +1,6 @@
 ---
-title: TitleBar
-description: TitleBar는 title을 속성으로 설정해 ui-title-bar를 렌더링합니다. Modal 안에서는 모달의 헤더와 푸터를 설정합니다.
+title: "TitleBar (ui-title-bar) – Vue 3용 App Bridge"
+description: "TitleBar는 Vue 3에서 title을 속성으로 설정해 Shopify App Bridge의 ui-title-bar를 렌더링합니다. Modal 안에서는 헤더와 푸터를 설정합니다. Shopify 임베디드 앱용입니다."
 ---
 
 # TitleBar {#title-bar}

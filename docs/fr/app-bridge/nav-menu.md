@@ -1,6 +1,6 @@
 ---
-title: "Navigation de l'app"
-description: "Shopify documente <s-app-nav> avec des enfants <s-link> pour la navigation de l'app ; voir le guide de l'app intégrée et la référence app nav de Shopify."
+title: "NavMenu (ui-nav-menu) – App Bridge pour Vue 3"
+description: "Navigation d'une app Shopify intégrée en Vue 3 : Shopify documente s-app-nav, qui fonctionne comme balise brute, et NavMenu génère l'ancien élément App Bridge ui-nav-menu."
 ---
 
 # Navigation de l'app {#app-nav}

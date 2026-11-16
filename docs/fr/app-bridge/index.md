@@ -1,6 +1,6 @@
 ---
-title: Composants App Bridge pour Vue
-description: Équivalents Vue 3 des composants @shopify/app-bridge-react de Shopify — Modal, SaveBar, AppWindow, TitleBar, NavMenu et useAppBridge, depuis polaris-vue-elements/app-bridge.
+title: "Composants Shopify App Bridge pour Vue 3"
+description: "Composants Vue 3 typés pour Shopify App Bridge dans les apps intégrées : Modal, SaveBar, AppWindow, TitleBar, NavMenu et useAppBridge(), équivalents de @shopify/app-bridge-react."
 ---
 
 # Composants App Bridge pour Vue {#app-bridge-components-for-vue}

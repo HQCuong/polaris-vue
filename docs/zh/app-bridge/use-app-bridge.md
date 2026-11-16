@@ -1,6 +1,6 @@
 ---
-title: useAppBridge()
-description: useAppBridge() 返回全局 shopify，类型为 ShopifyGlobal。
+title: "useAppBridge() – 适用于 Vue 3 的 Shopify App Bridge"
+description: "Vue 3 中的 useAppBridge() 返回 Shopify App Bridge 的全局 shopify，类型为 ShopifyGlobal，与 @shopify/app-bridge-react 一致。适用于 Shopify 嵌入式应用。"
 ---
 
 # useAppBridge() {#use-app-bridge}

@@ -1,6 +1,6 @@
 ---
-title: Modal
-description: "Modal renderiza ui-modal. Vincule v-model:open para abri-lo e fechá-lo."
+title: "Modal (ui-modal) – modal do App Bridge para Vue 3"
+description: "Modal renderiza o ui-modal do Shopify App Bridge em Vue 3: vincule v-model:open, receba os events show e hide e adicione uma TitleBar. Importe de polaris-vue-elements/app-bridge."
 ---
 
 # Modal {#modal}

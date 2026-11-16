@@ -218,3 +218,6 @@ tự mình gặp phải chúng.
 
 Đang xây dựng một Shopify app? Xem [Xây dựng Shopify embedded app với Vue 3](/vi/guide/shopify-embedded-app)
 để biết cách nạp App Bridge, gửi request đã xác thực và dùng các API của App Bridge từ Vue.
+
+Đang dùng App Bridge? `polaris-vue-elements/app-bridge` có các component Vue cho Modal, SaveBar,
+TitleBar và nhiều hơn nữa: xem [Component App Bridge](/vi/app-bridge/).

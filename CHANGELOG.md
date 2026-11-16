@@ -15,6 +15,9 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 - Docs: the App Bridge pages carry a beta notice, and the sidebar marks the section as
   beta, until the components have been tested in a live Shopify admin.
+- Docs: clearer page titles and descriptions on the App Bridge pages, an App Bridge
+  section on the homepage, and a link from Getting started.
+- `package.json`: the description and keywords mention App Bridge and Shopify embedded apps.
 
 ## [0.6.0] - 2026-11-13
 

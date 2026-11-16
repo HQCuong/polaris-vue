@@ -1,6 +1,6 @@
 ---
-title: App navigation
-description: Shopify app navigation के लिए <s-link> children वाले <s-app-nav> को document करता है; देखें embedded-app guide और Shopify का app nav reference।
+title: "NavMenu (ui-nav-menu) – Vue 3 के लिए App Bridge"
+description: "Vue 3 वाले Shopify embedded app का app navigation: Shopify s-app-nav को document करता है, जो raw tag के रूप में काम करता है; NavMenu पुराने App Bridge ui-nav-menu को render करता है।"
 ---
 
 # App navigation {#app-nav}

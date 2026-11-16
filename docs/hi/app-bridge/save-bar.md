@@ -1,6 +1,6 @@
 ---
-title: SaveBar
-description: "SaveBar ui-save-bar को render करता है। जैसा ui-save-bar types बताते हैं, \"the button with variant primary is the Save button and the button without a variant is the Discard button\"।"
+title: "SaveBar (ui-save-bar) – Vue 3 के लिए App Bridge"
+description: "SaveBar Vue 3 में Shopify App Bridge के ui-save-bar को render करता है, v-model:open, show और hide events और discardConfirmation के साथ। Shopify embedded apps के लिए।"
 ---
 
 # SaveBar {#save-bar}

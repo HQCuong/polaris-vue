@@ -1,6 +1,6 @@
 ---
-title: 앱 내비게이션
-description: Shopify는 앱 내비게이션에 <s-link> 자식을 가진 <s-app-nav>를 문서화합니다. 임베디드 앱 가이드와 Shopify의 app nav 참고 문서를 참고하세요.
+title: "NavMenu (ui-nav-menu) – Vue 3용 App Bridge"
+description: "Vue 3로 만드는 Shopify 임베디드 앱의 앱 내비게이션: Shopify는 s-app-nav를 문서화하며 이 태그는 그대로 사용할 수 있고, NavMenu는 이전 App Bridge ui-nav-menu를 렌더링합니다."
 ---
 
 # 앱 내비게이션 {#app-nav}
