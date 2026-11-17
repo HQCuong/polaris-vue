@@ -1,4 +1,4 @@
-<sub>[English](../../CODE_OF_CONDUCT.md) | [Tiếng Việt](../vi/CODE_OF_CONDUCT.md) | [한국어](../ko/CODE_OF_CONDUCT.md) | [简体中文](../zh/CODE_OF_CONDUCT.md) | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md) | [Español](../es/CODE_OF_CONDUCT.md) | **हिन्दी** | [Português (Brasil)](../pt/CODE_OF_CONDUCT.md)</sub>
+<sub>[English](../../CODE_OF_CONDUCT.md) | [Tiếng Việt](../vi/CODE_OF_CONDUCT.md) | [한국어](../ko/CODE_OF_CONDUCT.md) | [简体中文](../zh/CODE_OF_CONDUCT.md) | [日本語](../ja/CODE_OF_CONDUCT.md) | [Deutsch](../de/CODE_OF_CONDUCT.md) | [Français](../fr/CODE_OF_CONDUCT.md) | [Español](../es/CODE_OF_CONDUCT.md) | **हिन्दी** | [Português (Brasil)](../pt/CODE_OF_CONDUCT.md) | [Русский](../ru/CODE_OF_CONDUCT.md)</sub>
 
 > Contributor Covenant 2.1 का कोई आधिकारिक हिन्दी अनुवाद उपलब्ध नहीं है, इसलिए यह अंग्रेज़ी संस्करण का अनुवाद है।
 > किसी भी अंतर की स्थिति में [अंग्रेज़ी संस्करण](../../CODE_OF_CONDUCT.md) ही मान्य है।

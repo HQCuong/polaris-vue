@@ -1,0 +1,292 @@
+[
+  {
+    "text": "Действия",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SButton",
+        "link": "/ru/components/s-button"
+      },
+      {
+        "text": "SButtonGroup",
+        "link": "/ru/components/s-button-group"
+      },
+      {
+        "text": "SClickable",
+        "link": "/ru/components/s-clickable"
+      },
+      {
+        "text": "SClickableChip",
+        "link": "/ru/components/s-clickable-chip"
+      },
+      {
+        "text": "SLink",
+        "link": "/ru/components/s-link"
+      },
+      {
+        "text": "SMenu",
+        "link": "/ru/components/s-menu"
+      },
+      {
+        "text": "SPressButton",
+        "link": "/ru/components/s-press-button"
+      }
+    ]
+  },
+  {
+    "text": "Обратная связь и статус",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBadge",
+        "link": "/ru/components/s-badge"
+      },
+      {
+        "text": "SBanner",
+        "link": "/ru/components/s-banner"
+      },
+      {
+        "text": "SEmptyState",
+        "link": "/ru/components/s-empty-state"
+      },
+      {
+        "text": "SProgress",
+        "link": "/ru/components/s-progress"
+      },
+      {
+        "text": "SSpinner",
+        "link": "/ru/components/s-spinner"
+      }
+    ]
+  },
+  {
+    "text": "Формы",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SCheckbox",
+        "link": "/ru/components/s-checkbox"
+      },
+      {
+        "text": "SChoice",
+        "link": "/ru/components/s-choice"
+      },
+      {
+        "text": "SChoiceList",
+        "link": "/ru/components/s-choice-list"
+      },
+      {
+        "text": "SColorField",
+        "link": "/ru/components/s-color-field"
+      },
+      {
+        "text": "SColorPicker",
+        "link": "/ru/components/s-color-picker"
+      },
+      {
+        "text": "SDateField",
+        "link": "/ru/components/s-date-field"
+      },
+      {
+        "text": "SDatePicker",
+        "link": "/ru/components/s-date-picker"
+      },
+      {
+        "text": "SDropZone",
+        "link": "/ru/components/s-drop-zone"
+      },
+      {
+        "text": "SEmailField",
+        "link": "/ru/components/s-email-field"
+      },
+      {
+        "text": "SMoneyField",
+        "link": "/ru/components/s-money-field"
+      },
+      {
+        "text": "SNumberField",
+        "link": "/ru/components/s-number-field"
+      },
+      {
+        "text": "SOption",
+        "link": "/ru/components/s-option"
+      },
+      {
+        "text": "SOptionGroup",
+        "link": "/ru/components/s-option-group"
+      },
+      {
+        "text": "SPasswordField",
+        "link": "/ru/components/s-password-field"
+      },
+      {
+        "text": "SSearchField",
+        "link": "/ru/components/s-search-field"
+      },
+      {
+        "text": "SSelect",
+        "link": "/ru/components/s-select"
+      },
+      {
+        "text": "SSwitch",
+        "link": "/ru/components/s-switch"
+      },
+      {
+        "text": "STextArea",
+        "link": "/ru/components/s-text-area"
+      },
+      {
+        "text": "STextField",
+        "link": "/ru/components/s-text-field"
+      },
+      {
+        "text": "SUrlField",
+        "link": "/ru/components/s-url-field"
+      }
+    ]
+  },
+  {
+    "text": "Макет и структура",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SBox",
+        "link": "/ru/components/s-box"
+      },
+      {
+        "text": "SDivider",
+        "link": "/ru/components/s-divider"
+      },
+      {
+        "text": "SGrid",
+        "link": "/ru/components/s-grid"
+      },
+      {
+        "text": "SGridItem",
+        "link": "/ru/components/s-grid-item"
+      },
+      {
+        "text": "SListItem",
+        "link": "/ru/components/s-list-item"
+      },
+      {
+        "text": "SOrderedList",
+        "link": "/ru/components/s-ordered-list"
+      },
+      {
+        "text": "SPage",
+        "link": "/ru/components/s-page"
+      },
+      {
+        "text": "SQueryContainer",
+        "link": "/ru/components/s-query-container"
+      },
+      {
+        "text": "SScrollBox",
+        "link": "/ru/components/s-scroll-box"
+      },
+      {
+        "text": "SSection",
+        "link": "/ru/components/s-section"
+      },
+      {
+        "text": "SStack",
+        "link": "/ru/components/s-stack"
+      },
+      {
+        "text": "STable",
+        "link": "/ru/components/s-table"
+      },
+      {
+        "text": "STableBody",
+        "link": "/ru/components/s-table-body"
+      },
+      {
+        "text": "STableCell",
+        "link": "/ru/components/s-table-cell"
+      },
+      {
+        "text": "STableHeader",
+        "link": "/ru/components/s-table-header"
+      },
+      {
+        "text": "STableHeaderRow",
+        "link": "/ru/components/s-table-header-row"
+      },
+      {
+        "text": "STableRow",
+        "link": "/ru/components/s-table-row"
+      },
+      {
+        "text": "SUnorderedList",
+        "link": "/ru/components/s-unordered-list"
+      }
+    ]
+  },
+  {
+    "text": "Медиа и визуальные элементы",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SAvatar",
+        "link": "/ru/components/s-avatar"
+      },
+      {
+        "text": "SIcon",
+        "link": "/ru/components/s-icon"
+      },
+      {
+        "text": "SImage",
+        "link": "/ru/components/s-image"
+      },
+      {
+        "text": "SThumbnail",
+        "link": "/ru/components/s-thumbnail"
+      }
+    ]
+  },
+  {
+    "text": "Оверлеи",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SModal",
+        "link": "/ru/components/s-modal"
+      },
+      {
+        "text": "SPopover",
+        "link": "/ru/components/s-popover"
+      }
+    ]
+  },
+  {
+    "text": "Типографика и контент",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "SChip",
+        "link": "/ru/components/s-chip"
+      },
+      {
+        "text": "SHeading",
+        "link": "/ru/components/s-heading"
+      },
+      {
+        "text": "SNumber",
+        "link": "/ru/components/s-number"
+      },
+      {
+        "text": "SParagraph",
+        "link": "/ru/components/s-paragraph"
+      },
+      {
+        "text": "SText",
+        "link": "/ru/components/s-text"
+      },
+      {
+        "text": "STooltip",
+        "link": "/ru/components/s-tooltip"
+      }
+    ]
+  }
+]

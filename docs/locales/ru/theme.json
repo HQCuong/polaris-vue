@@ -1,0 +1,156 @@
+{
+  "label": "Русский",
+  "lang": "ru-RU",
+  "hreflang": "ru",
+  "ogLocale": "ru_RU",
+  "siteDescription": "Типизированные обёртки Vue 3 для веб-компонентов Shopify Polaris: пропсы, события и v-model генерируются из официального Custom Elements Manifest.",
+  "home": {
+    "pill": {
+      "lead": "Внешний вид Built for Shopify.",
+      "emphasis": "Из коробки."
+    },
+    "headline": {
+      "first": "Shopify Polaris.",
+      "second": "Теперь с типами для Vue 3."
+    },
+    "tagline": {
+      "before": "Типизированные компоненты Vue 3 вокруг веб-компонентов Shopify Polaris (",
+      "after": ", ...) — без отдельной дизайн-системы для Vue, которую нужно изучать."
+    },
+    "getStarted": "Начать",
+    "components": "Компоненты",
+    "codeLabel": "Пример: STextField с v-model и основная кнопка SButton",
+    "kicker": "Обёртки Vue 3 для Shopify Polaris",
+    "featuresLine": "Весь Polaris. Ничего не нужно учить заново.",
+    "features": {
+      "typed": {
+        "title": "Типизированные пропсы и события",
+        "details": "Пропсы и события каждой обёртки генерируются из официального Custom Elements Manifest от Shopify, поэтому автодополнение и проверка типов соответствуют реальному API компонента."
+      },
+      "vModel": {
+        "title": "v-model в 17 компонентах форм",
+        "details": "Текстовые поля, флажки, переключатели, выпадающие списки, списки вариантов, выбор даты и другие компоненты поддерживают v-model из коробки: он связан с нужной парой пропса и события каждого элемента."
+      },
+      "degrades": {
+        "title": "Плавная деградация",
+        "details": "Неизвестные пропсы передаются напрямую через $attrs, а содержимое слотов пересылается без изменений. Устаревшая версия обёртки не ломает существующий код — ей лишь не хватает типов для новых возможностей."
+      },
+      "synced": {
+        "title": "Синхронизация с манифестом",
+        "details": "Определения компонентов и типов генерируются прямо из Custom Elements Manifest от Shopify, поэтому интерфейс обёрток соответствует рантайму Polaris, который отдаётся с CDN."
+      }
+    },
+    "typedWrappers": "Типизированных обёрток Vue: {count}",
+    "componentsLine": "Компонентов: {count}. Один импорт."
+  },
+  "backToTop": "Наверх",
+  "nav": {
+    "guide": "Руководство",
+    "components": "Компоненты",
+    "appBridge": "App Bridge",
+    "cssVariables": "CSS-переменные"
+  },
+  "sidebarGuide": {
+    "title": "Руководство",
+    "gettingStarted": "Начало работы",
+    "embeddedApp": "Создание встроенного приложения Shopify",
+    "quirks": "Особенности и подводные камни",
+    "aiAgents": "Работа с ИИ-агентами для программирования",
+    "allComponents": "Все компоненты"
+  },
+  "sidebarAppBridge": {
+    "title": "App Bridge",
+    "overview": "Обзор",
+    "useAppBridge": "useAppBridge()",
+    "modal": "Modal",
+    "titleBar": "TitleBar",
+    "saveBar": "SaveBar",
+    "appWindow": "AppWindow",
+    "navMenu": "NavMenu",
+    "types": "Типы",
+    "typesPages": {
+      "authentication-and-data": "Аутентификация и данные",
+      "user-interface-and-interactions": "Пользовательский интерфейс и взаимодействия",
+      "device-and-platform-integration": "Интеграция с устройствами и платформами",
+      "elements": "Элементы и атрибуты",
+      "other": "Другие API и типы"
+    },
+    "beta": "Бета"
+  },
+  "appBridgeBeta": {
+    "title": "Бета",
+    "text": "Эти компоненты App Bridge новые и ещё не проверены в реальной админке Shopify. Пока они в бете, их API может измениться в минорном релизе. Если что-то не работает, <a href=\"https://github.com/HQCuong/polaris-vue/issues\" target=\"_blank\" rel=\"noreferrer\">создайте issue</a>."
+  },
+  "sidebarCssVariables": {
+    "title": "CSS-переменные",
+    "overview": "Обзор",
+    "allVariables": "Все переменные",
+    "migration": "Переход с @shopify/polaris-tokens"
+  },
+  "cssVariables": {
+    "variable": "Переменная",
+    "value": "Значение",
+    "preview": "Предпросмотр",
+    "copy": "Копировать",
+    "copied": "Скопировано",
+    "base": "base",
+    "search": "Поиск переменных",
+    "searchPlaceholder": "Фильтр по имени или значению: critical, 400, #fff",
+    "clear": "Очистить",
+    "theme": "Тема",
+    "baseTheme": "Base",
+    "copyAs": "Копировать как",
+    "count": "Переменных: {count}",
+    "countOne": "Переменных: 1",
+    "empty": "Нет переменных, подходящих под {query}. Попробуйте более короткий запрос.",
+    "copiedAnnounce": "Скопировано: {value}",
+    "showValue": "Показать значение",
+    "differs": "Значение отличается между Base и admin-next",
+    "specimenLabel": "Пример карточки, созданной на CSS-переменных Polaris",
+    "specimenTitle": "Заказ №1024",
+    "specimenText": "3 товара, готовы к отправке",
+    "specimenChip": "Оплачен",
+    "specimenButton": "Выполнить заказ",
+    "specimenHint": "Наведите курсор на переменную или переведите на неё фокус, чтобы увидеть, где её использует карточка. Нажмите, чтобы скопировать.",
+    "legendSurface": "Фон карточки",
+    "legendShadow": "Граница и тень карточки",
+    "legendRadius": "Радиус скругления",
+    "legendPadding": "Отступы",
+    "legendText": "Текст заголовка",
+    "legendChip": "Чип статуса",
+    "legendDivider": "Разделитель",
+    "legendButton": "Кнопка",
+    "migrationShared": "Имён, существующих в обоих наборах: {count}.",
+    "migrationLegacyOnly": "В {package} {version}, но не определены рантаймом веб-компонентов ({count})",
+    "migrationRuntimeOnly": "Определены рантаймом веб-компонентов, но отсутствуют в {package} ({count})"
+  },
+  "footer": {
+    "message": "Распространяется по лицензии MIT. Логотип Vue — <a href=\"https://github.com/vuejs/art\">Evan You</a>, CC BY-NC-SA 4.0.",
+    "copyright": "Обёртки вокруг веб-компонентов Shopify Polaris. Проект не связан с Shopify."
+  },
+  "ui": {
+    "outlineLabel": "На этой странице",
+    "prev": "Предыдущая страница",
+    "next": "Следующая страница",
+    "lastUpdated": "Последнее обновление",
+    "darkModeSwitchLabel": "Оформление",
+    "lightModeSwitchTitle": "Переключить на светлую тему",
+    "darkModeSwitchTitle": "Переключить на тёмную тему",
+    "sidebarMenuLabel": "Меню",
+    "returnToTopLabel": "Наверх",
+    "langMenuLabel": "Сменить язык",
+    "notFoundTitle": "СТРАНИЦА НЕ НАЙДЕНА",
+    "notFoundQuote": "Страница, которую вы ищете, не существует или была перемещена.",
+    "notFoundLink": "На главную"
+  },
+  "search": {
+    "buttonText": "Поиск",
+    "displayDetails": "Показать подробности",
+    "resetButtonTitle": "Очистить поиск",
+    "backButtonTitle": "Закрыть поиск",
+    "noResultsText": "Нет результатов для",
+    "selectText": "выбрать",
+    "navigateText": "перейти",
+    "closeText": "закрыть"
+  }
+}

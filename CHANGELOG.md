@@ -22,7 +22,9 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
   every English page (`/components/s-button.md`), linked from each page with
   `<link rel="alternate" type="text/markdown">`.
 - Docs: a [Using AI coding agents](https://polaris-vue-elements.dev/guide/ai-agents) guide,
-  in all ten languages.
+  in all eleven languages.
+- Russian docs ([`/ru/`](https://polaris-vue-elements.dev/ru/)): every page of the site, and
+  Russian copies of the README, CONTRIBUTING, SECURITY and CODE_OF_CONDUCT in `i18n/ru/`.
 
 ## [0.6.1] - 2026-11-16
 
