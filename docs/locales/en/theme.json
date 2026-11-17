@@ -55,6 +55,7 @@
     "gettingStarted": "Getting started",
     "embeddedApp": "Build a Shopify embedded app",
     "quirks": "Known quirks & gotchas",
+    "aiAgents": "Using AI coding agents",
     "allComponents": "All components"
   },
   "sidebarAppBridge": {

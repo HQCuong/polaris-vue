@@ -21,7 +21,7 @@ The APIs Shopify lists under user interface and interactions, and the types only
 
 <div class="ab-meta">
 
-Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
+Extends: <llm-exclude><code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code></llm-exclude><llm-only>`PublicIntentsApi`</llm-only>
 
 </div>
 
@@ -30,6 +30,12 @@ Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">register</span>(callback: (intent: <a href="#intent">Intent</a>) =&gt; void): () =&gt; void</code></p>
+
+<llm-only>
+
+`register(callback: (intent: Intent) => void): () => void`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -61,6 +67,12 @@ Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
 
 <p class="ab-sig"><code v-pre>readonly <span class="ab-name">action</span>: string</code></p>
 
+<llm-only>
+
+`readonly action: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -68,6 +80,12 @@ Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre>readonly <span class="ab-name">type</span>: string</code></p>
+
+<llm-only>
+
+`readonly type: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -77,6 +95,12 @@ Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
 
 <p class="ab-sig"><code v-pre>readonly <span class="ab-name">data</span>: { [key: string]: any; }</code></p>
 
+<llm-only>
+
+`readonly data: { [key: string]: any; }`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -84,6 +108,12 @@ Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">finish</span>: <a href="#finish">Finish</a></code></p>
+
+<llm-only>
+
+`finish: Finish`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -115,6 +145,12 @@ Extends: <code v-pre><a href="#publicintentsapi">PublicIntentsApi</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">request</span>: <a href="#intentrequestapi">IntentRequestApi</a></code></p>
 
+<llm-only>
+
+`request: IntentRequestApi`
+
+</llm-only>
+
 The current intent request as a subscribable.
 
 When the app isn't running inside an intent workflow, the current value is `null`.
@@ -125,6 +161,12 @@ When the app isn't running inside an intent workflow, the current value is `null
 
 <p class="ab-sig"><code v-pre><span class="ab-name">invoke</span><span class="ab-opt">?</span>(query: <a href="#intentquery">IntentQuery</a>): Promise&lt;<a href="#intentactivity">IntentActivity</a>&gt;</code></p>
 
+<llm-only>
+
+`invoke?(query: IntentQuery): Promise<IntentActivity>`
+
+</llm-only>
+
 Invoke an intent using the object syntax.
 
 </div>
@@ -132,6 +174,12 @@ Invoke an intent using the object syntax.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">invoke</span><span class="ab-opt">?</span>(intentURL: string, options?: <a href="#intentqueryoptions">IntentQueryOptions</a>): Promise&lt;<a href="#intentactivity">IntentActivity</a>&gt;</code></p>
+
+<llm-only>
+
+`invoke?(intentURL: string, options?: IntentQueryOptions): Promise<IntentActivity>`
+
+</llm-only>
 
 Invoke an intent using the URL syntax.
 
@@ -142,6 +190,12 @@ URL format: `action:type[,value][?params]`.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">response</span><span class="ab-opt">?</span>: <a href="#intentresponseapi">IntentResponseApi</a></code></p>
+
+<llm-only>
+
+`response?: IntentResponseApi`
+
+</llm-only>
 
 If in an intent workflow, provides mechanisms to resolve the intent with a given response.
 
@@ -199,6 +253,12 @@ type Finish = (data?: any) => void;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">complete</span><span class="ab-opt">?</span>: Promise&lt;<a href="#intentresponse">IntentResponse</a>&gt;</code></p>
 
+<llm-only>
+
+`complete?: Promise<IntentResponse>`
+
+</llm-only>
+
 A Promise that resolves when the intent workflow completes, returning the response.
 
 </div>
@@ -225,7 +285,7 @@ A Promise that resolves when the intent workflow completes, returning the respon
 
 <div class="ab-meta">
 
-Extends: <code v-pre><a href="#intentqueryoptions">IntentQueryOptions</a></code>
+Extends: <llm-exclude><code v-pre><a href="#intentqueryoptions">IntentQueryOptions</a></code></llm-exclude><llm-only>`IntentQueryOptions`</llm-only>
 
 </div>
 
@@ -235,6 +295,12 @@ Extends: <code v-pre><a href="#intentqueryoptions">IntentQueryOptions</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">action</span>: <a href="#intentaction">IntentAction</a></code></p>
 
+<llm-only>
+
+`action: IntentAction`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -242,6 +308,12 @@ Extends: <code v-pre><a href="#intentqueryoptions">IntentQueryOptions</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">type</span>: <a href="#intenttype">IntentType</a></code></p>
+
+<llm-only>
+
+`type: IntentType`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -273,6 +345,12 @@ Extends: <code v-pre><a href="#intentqueryoptions">IntentQueryOptions</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">value</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`value?: string`
+
+</llm-only>
+
 The resource identifier for edit actions (e.g., 'gid://shopify/Product/123').
 
 </div>
@@ -280,6 +358,12 @@ The resource identifier for edit actions (e.g., 'gid://shopify/Product/123').
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">data</span><span class="ab-opt">?</span>: { [key: string]: unknown; }</code></p>
+
+<llm-only>
+
+`data?: { [key: string]: unknown; }`
+
+</llm-only>
 
 Additional data required for certain intent types. For example:
 - Discount creation requires &#123; type: 'amount-off-product' | 'amount-off-order' | 'buy-x-get-y' | 'free-shipping' }
@@ -314,6 +398,12 @@ Additional data required for certain intent types. For example:
 
 <p class="ab-sig"><code v-pre>readonly <span class="ab-name">value</span>: <a href="#intentrequest">IntentRequest</a> &#124; null</code></p>
 
+<llm-only>
+
+`readonly value: IntentRequest | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -321,6 +411,12 @@ Additional data required for certain intent types. For example:
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">subscribe</span>(callback: (value: <a href="#intentrequest">IntentRequest</a> &#124; null) =&gt; void): () =&gt; void</code></p>
+
+<llm-only>
+
+`subscribe(callback: (value: IntentRequest | null) => void): () => void`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -352,6 +448,12 @@ Additional data required for certain intent types. For example:
 
 <p class="ab-sig"><code v-pre><span class="ab-name">ok</span>: (data?: <a href="#successintentresponse">SuccessIntentResponse</a>["data"]) =&gt; Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`ok: (data?: SuccessIntentResponse["data"]) => Promise<void>`
+
+</llm-only>
+
 If in an intent workflow, resolves the intent with a success response and the provided data, if any.
 
 </div>
@@ -360,6 +462,12 @@ If in an intent workflow, resolves the intent with a success response and the pr
 
 <p class="ab-sig"><code v-pre><span class="ab-name">error</span>: (message: string, issues?: StandardSchemaV1.Issue[]) =&gt; Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`error: (message: string, issues?: StandardSchemaV1.Issue[]) => Promise<void>`
+
+</llm-only>
+
 If in an intent workflow, resolves the intent with an error response and the provided message and issues, if any.
 
 </div>
@@ -367,6 +475,12 @@ If in an intent workflow, resolves the intent with an error response and the pro
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">closed</span>: () =&gt; Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`closed: () => Promise<void>`
+
+</llm-only>
 
 If in an intent workflow, resolves the intent with a closed response.
 
@@ -477,6 +591,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 
 <p class="ab-sig"><code v-pre><span class="ab-name">action</span>: string</code></p>
 
+<llm-only>
+
+`action: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -484,6 +604,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">type</span>: string</code></p>
+
+<llm-only>
+
+`type: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -493,6 +619,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 
 <p class="ab-sig"><code v-pre><span class="ab-name">value</span><span class="ab-opt">?</span>: unknown</code></p>
 
+<llm-only>
+
+`value?: unknown`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -500,6 +632,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">data</span><span class="ab-opt">?</span>: { [key: string]: unknown; }</code></p>
+
+<llm-only>
+
+`data?: { [key: string]: unknown; }`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -531,6 +669,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 
 <p class="ab-sig"><code v-pre><span class="ab-name">code</span><span class="ab-opt">?</span>: "ok"</code></p>
 
+<llm-only>
+
+`code?: "ok"`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -538,6 +682,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">data</span><span class="ab-opt">?</span>: { [key: string]: unknown; }</code></p>
+
+<llm-only>
+
+`data?: { [key: string]: unknown; }`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -569,6 +719,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 
 <p class="ab-sig"><code v-pre><span class="ab-name">code</span><span class="ab-opt">?</span>: "closed"</code></p>
 
+<llm-only>
+
+`code?: "closed"`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -599,6 +755,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 
 <p class="ab-sig"><code v-pre><span class="ab-name">code</span><span class="ab-opt">?</span>: "error"</code></p>
 
+<llm-only>
+
+`code?: "error"`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -607,6 +769,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 
 <p class="ab-sig"><code v-pre><span class="ab-name">message</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`message?: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -614,6 +782,12 @@ type IntentType = "settings/LocationDefault" | "settings/OrderIDFormat" | "setti
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">issues</span><span class="ab-opt">?</span>: StandardSchemaV1.Issue[]</code></p>
+
+<llm-only>
+
+`issues?: StandardSchemaV1.Issue[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -667,7 +841,7 @@ type LoadingApi = (isLoading?: boolean) => void;
 
 <div class="ab-meta">
 
-Extends: <code v-pre>Required&lt;<a href="#_modalapi">_ModalApi</a>&gt;</code>
+Extends: <llm-exclude><code v-pre>Required&lt;<a href="#_modalapi">_ModalApi</a>&gt;</code></llm-exclude><llm-only>`Required<_ModalApi>`</llm-only>
 
 </div>
 
@@ -695,6 +869,12 @@ Extends: <code v-pre>Required&lt;<a href="#_modalapi">_ModalApi</a>&gt;</code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">show</span><span class="ab-opt">?</span>(id: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`show?(id: string): Promise<void>`
+
+</llm-only>
+
 Shows the modal element. An alternative to the `showOverlay` instance method on the `s-modal` component.
 
 </div>
@@ -703,6 +883,12 @@ Shows the modal element. An alternative to the `showOverlay` instance method on 
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hide</span><span class="ab-opt">?</span>(id: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`hide?(id: string): Promise<void>`
+
+</llm-only>
+
 Hides the modal element. An alternative to the `hideOverlay` instance method on the `s-modal` component.
 
 </div>
@@ -710,6 +896,12 @@ Hides the modal element. An alternative to the `hideOverlay` instance method on 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">toggle</span><span class="ab-opt">?</span>(id: string): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`toggle?(id: string): Promise<void>`
+
+</llm-only>
 
 Toggles the modal element visibility. An alternative to the `toggleOverlay` instance method on the `s-modal` component.
 
@@ -770,6 +962,12 @@ type PickerApi = (options: PickerOptions) => Promise<{
 
 <p class="ab-sig"><code v-pre><span class="ab-name">heading</span>: string</code></p>
 
+<llm-only>
+
+`heading: string`
+
+</llm-only>
+
 The heading displayed at the top of the picker modal. Use a clear, descriptive title that tells merchants what they're selecting.
 
 </div>
@@ -777,6 +975,12 @@ The heading displayed at the top of the picker modal. Use a clear, descriptive t
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">multiple</span><span class="ab-opt">?</span>: boolean &#124; number</code></p>
+
+<llm-only>
+
+`multiple?: boolean | number`
+
+</llm-only>
 
 The selection mode for the picker. Pass `true` to allow unlimited selections, `false` for single-item selection only, or a number to set a maximum selection limit (for example, `3` allows up to three items).
 
@@ -788,6 +992,12 @@ Default: `false`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">headers</span><span class="ab-opt">?</span>: <a href="#header">Header</a>[]</code></p>
 
+<llm-only>
+
+`headers?: Header[]`
+
+</llm-only>
+
 The column headers for the picker table. Define headers to label and organize the data columns displayed for each item. The header order determines the column layout.
 
 </div>
@@ -795,6 +1005,12 @@ The column headers for the picker table. Define headers to label and organize th
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">items</span>: <a href="#pickeritem">PickerItem</a>[]</code></p>
+
+<llm-only>
+
+`items: PickerItem[]`
+
+</llm-only>
 
 The list of items that merchants can select from. Each item appears as a row in the picker table.
 
@@ -826,6 +1042,12 @@ The list of items that merchants can select from. Each item appears as a row in 
 
 <p class="ab-sig"><code v-pre><span class="ab-name">content</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`content?: string`
+
+</llm-only>
+
 The label text displayed at the top of the table column. Use clear, concise labels that describe the data in that column (for example, "Price", "Status", "Last Updated").
 
 </div>
@@ -833,6 +1055,12 @@ The label text displayed at the top of the table column. Use clear, concise labe
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">type</span><span class="ab-opt">?</span>: "string" &#124; "number"</code></p>
+
+<llm-only>
+
+`type?: "string" | "number"`
+
+</llm-only>
 
 The data type that controls column formatting and text alignment. Use `'number'` for currency, prices, or numeric values (displays right-aligned), or `'string'` for text content (displays left-aligned).
 
@@ -866,6 +1094,12 @@ Default: `'string'`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: string</code></p>
 
+<llm-only>
+
+`id: string`
+
+</llm-only>
+
 The unique identifier for this item. This ID is returned in the selection array when the merchant selects this item. Use an ID that helps you identify the item in your system (for example, template IDs, review IDs, or custom option keys).
 
 </div>
@@ -873,6 +1107,12 @@ The unique identifier for this item. This ID is returned in the selection array 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">heading</span>: string</code></p>
+
+<llm-only>
+
+`heading: string`
+
+</llm-only>
 
 The primary text displayed in the first column. This is typically the item's name or title and is the most prominent text in the row.
 
@@ -882,6 +1122,12 @@ The primary text displayed in the first column. This is typically the item's nam
 
 <p class="ab-sig"><code v-pre><span class="ab-name">data</span><span class="ab-opt">?</span>: <a href="#datapoint">DataPoint</a>[]</code></p>
 
+<llm-only>
+
+`data?: DataPoint[]`
+
+</llm-only>
+
 Additional data displayed in subsequent columns after the heading. Each value appears in its own column, and the order must match the `headers` array. For example, if headers are `["Price", "Status"]`, then data would be `[19.99, "Active"]`.
 
 </div>
@@ -889,6 +1135,12 @@ Additional data displayed in subsequent columns after the heading. Each value ap
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">disabled</span><span class="ab-opt">?</span>: boolean</code></p>
+
+<llm-only>
+
+`disabled?: boolean`
+
+</llm-only>
 
 Whether the item can be selected. When `true`, the item is disabled and can't be selected. Disabled items appear grayed out. Use this for items that are unavailable or don't meet selection criteria.
 
@@ -900,6 +1152,12 @@ Default: `false`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">selected</span><span class="ab-opt">?</span>: boolean</code></p>
 
+<llm-only>
+
+`selected?: boolean`
+
+</llm-only>
+
 Whether the item is preselected when the picker opens. When `true`, the item appears selected by default. Merchants can still deselect preselected items. Use this to show current selections or suggest default choices.
 
 </div>
@@ -908,6 +1166,12 @@ Whether the item is preselected when the picker opens. When `true`, the item app
 
 <p class="ab-sig"><code v-pre><span class="ab-name">badges</span><span class="ab-opt">?</span>: <a href="#badge">Badge</a>[]</code></p>
 
+<llm-only>
+
+`badges?: Badge[]`
+
+</llm-only>
+
 Status or context badges displayed next to the heading in the first column. Use badges to highlight item state, completion status, or other important attributes (for example, "Draft", "Published", "Incomplete").
 
 </div>
@@ -915,6 +1179,12 @@ Status or context badges displayed next to the heading in the first column. Use 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">thumbnail</span><span class="ab-opt">?</span>: { url: string; }</code></p>
+
+<llm-only>
+
+`thumbnail?: { url: string; }`
+
+</llm-only>
 
 A small preview image or icon displayed at the start of the row. Thumbnails help merchants visually identify items at a glance. Provide a URL to the image file.
 
@@ -946,6 +1216,12 @@ A small preview image or icon displayed at the start of the row. Thumbnails help
 
 <p class="ab-sig"><code v-pre><span class="ab-name">content</span>: string</code></p>
 
+<llm-only>
+
+`content: string`
+
+</llm-only>
+
 The text content of the badge. Keep this short and descriptive (for example, "Draft", "Active", "Incomplete").
 
 </div>
@@ -954,6 +1230,12 @@ The text content of the badge. Keep this short and descriptive (for example, "Dr
 
 <p class="ab-sig"><code v-pre><span class="ab-name">tone</span><span class="ab-opt">?</span>: <a href="#tone">Tone</a></code></p>
 
+<llm-only>
+
+`tone?: Tone`
+
+</llm-only>
+
 The visual tone indicating status or importance. Choose a tone that matches the badge's meaning.
 
 </div>
@@ -961,6 +1243,12 @@ The visual tone indicating status or importance. Choose a tone that matches the 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">progress</span><span class="ab-opt">?</span>: <a href="#progress">Progress</a></code></p>
+
+<llm-only>
+
+`progress?: Progress`
+
+</llm-only>
 
 The progress indicator for the badge. Use this to show completion status for items that have progress states.
 
@@ -1093,7 +1381,7 @@ type ResourcePickerApi = <ResourceType extends keyof ResourceTypes = keyof Resou
 
 <div class="ab-meta">
 
-Type parameters: <code v-pre>ResourceType extends keyof <a href="#resourcetypes">ResourceTypes</a> = keyof <a href="#resourcetypes">ResourceTypes</a></code>
+Type parameters: <llm-exclude><code v-pre>ResourceType extends keyof <a href="#resourcetypes">ResourceTypes</a> = keyof <a href="#resourcetypes">ResourceTypes</a></code></llm-exclude><llm-only>`ResourceType extends keyof ResourceTypes = keyof ResourceTypes`</llm-only>
 
 </div>
 
@@ -1103,6 +1391,12 @@ Type parameters: <code v-pre>ResourceType extends keyof <a href="#resourcetypes"
 
 <p class="ab-sig"><code v-pre><span class="ab-name">type</span>: ResourceType</code></p>
 
+<llm-only>
+
+`type: ResourceType`
+
+</llm-only>
+
 The type of Shopify resource to select: `'product'` for products, `'variant'` for specific product variants, or `'collection'` for collections. This determines what appears in the picker and what data structure is returned.
 
 </div>
@@ -1110,6 +1404,12 @@ The type of Shopify resource to select: `'product'` for products, `'variant'` fo
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">action</span><span class="ab-opt">?</span>: "add" &#124; "select"</code></p>
+
+<llm-only>
+
+`action?: "add" | "select"`
+
+</llm-only>
 
 The action verb that appears in the title as the primary action of the resource picker. "Add" prompts merchants that they are appending to an existing list, while "select" they'll choose a resource for a specific purpose or replacing selections.
 
@@ -1121,6 +1421,12 @@ Default: `'add'`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">filter</span><span class="ab-opt">?</span>: <a href="#filters">Filters</a></code></p>
 
+<llm-only>
+
+`filter?: Filters`
+
+</llm-only>
+
 Filtering options that control which resources appear in the resourcepicker. Use filters to restrict resources by publication status, include or exclude variants, or apply custom search criteria. This helps merchants find relevant items faster.
 
 </div>
@@ -1128,6 +1434,12 @@ Filtering options that control which resources appear in the resourcepicker. Use
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">multiple</span><span class="ab-opt">?</span>: boolean &#124; number</code></p>
+
+<llm-only>
+
+`multiple?: boolean | number`
+
+</llm-only>
 
 Whether to allow selecting multiple items of a specific type. If a number is provided, limit selections to that maximum. When `type` is `'product'`, merchants can still select multiple variants from a single product even when `multiple` is `false`.
 
@@ -1139,6 +1451,12 @@ Default: `false`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">query</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`query?: string`
+
+</llm-only>
+
 Initial GraphQL search query for filtering resources available in the resource picker. See [search syntax](https://shopify.dev/docs/api/usage/search-syntax) for more information. This is displayed in the search bar when the picker is opened and can be edited by users. For most use cases, you should use the `filter.query` option instead which doesn't show the query in the UI.
 
 Default: `''`
@@ -1148,6 +1466,12 @@ Default: `''`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">selectionIds</span><span class="ab-opt">?</span>: <a href="#baseresource">BaseResource</a>[]</code></p>
+
+<llm-only>
+
+`selectionIds?: BaseResource[]`
+
+</llm-only>
 
 Resources that should be preselected when the picker is opened. Use this for edit workflows to show what products are already in a bundle, collection, or promotional set. Merchants can see current selections and modify them before confirming.
 
@@ -1181,6 +1505,12 @@ Default: `[]`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">product</span>: <a href="#product">Product</a></code></p>
 
+<llm-only>
+
+`product: Product`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1189,6 +1519,12 @@ Default: `[]`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">variant</span>: <a href="#productvariant">ProductVariant</a></code></p>
 
+<llm-only>
+
+`variant: ProductVariant`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1196,6 +1532,12 @@ Default: `[]`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">collection</span>: <a href="#collection">Collection</a></code></p>
+
+<llm-only>
+
+`collection: Collection`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1250,7 +1592,7 @@ type SelectPayload<Type extends keyof ResourceTypes> = WithSelection<ResourceSel
 
 <div class="ab-meta">
 
-Extends: <code v-pre><a href="#resource">Resource</a></code>
+Extends: <llm-exclude><code v-pre><a href="#resource">Resource</a></code></llm-exclude><llm-only>`Resource`</llm-only>
 
 </div>
 
@@ -1259,6 +1601,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">variants</span><span class="ab-opt">?</span>: <a href="#resource">Resource</a>[]</code></p>
+
+<llm-only>
+
+`variants?: Resource[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1290,6 +1638,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hidden</span><span class="ab-opt">?</span>: boolean</code></p>
 
+<llm-only>
+
+`hidden?: boolean`
+
+</llm-only>
+
 Whether to show hidden resources, referring to products that are not published on any sales channels.
 
 Default: `true`
@@ -1299,6 +1653,12 @@ Default: `true`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">variants</span><span class="ab-opt">?</span>: boolean</code></p>
+
+<llm-only>
+
+`variants?: boolean`
+
+</llm-only>
 
 Whether to show product variants. Only applies to the Product resource type picker.
 
@@ -1310,6 +1670,12 @@ Default: `true`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">draft</span><span class="ab-opt">?</span>: boolean &#124; undefined</code></p>
 
+<llm-only>
+
+`draft?: boolean | undefined`
+
+</llm-only>
+
 Whether to show [draft products](https://help.shopify.com/en/manual/products/details?shpxid=70af7d87-E0F2-4973-8B09-B972AAF0ADFD#product-availability). Only applies to the Product resource type picker. Setting this to undefined will show a badge on draft products.
 
 Default: `true`
@@ -1320,6 +1686,12 @@ Default: `true`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">archived</span><span class="ab-opt">?</span>: boolean &#124; undefined</code></p>
 
+<llm-only>
+
+`archived?: boolean | undefined`
+
+</llm-only>
+
 Whether to show [archived products](https://help.shopify.com/en/manual/products/details?shpxid=70af7d87-E0F2-4973-8B09-B972AAF0ADFD#product-availability). Only applies to the Product resource type picker. Setting this to undefined will show a badge on draft products.
 
 Default: `true`
@@ -1329,6 +1701,12 @@ Default: `true`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">query</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`query?: string`
+
+</llm-only>
 
 GraphQL initial search query for filtering resources available in the picker. See [search syntax](https://shopify.dev/docs/api/usage/search-syntax) for more information. This query is not visible to merchants and runs server-side. Use it to programmatically restrict results (for example, `vendor:Acme`) without exposing the filter logic.
 
@@ -1358,7 +1736,7 @@ GraphQL initial search query for filtering resources available in the picker. Se
 
 Import: `import type { Collection } from 'polaris-vue-elements/app-bridge'`
 
-Extends: <code v-pre><a href="#resource">Resource</a></code>
+Extends: <llm-exclude><code v-pre><a href="#resource">Resource</a></code></llm-exclude><llm-only>`Resource`</llm-only>
 
 </div>
 
@@ -1368,6 +1746,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">availablePublicationCount</span>: number</code></p>
 
+<llm-only>
+
+`availablePublicationCount: number`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1375,6 +1759,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">description</span>: string</code></p>
+
+<llm-only>
+
+`description: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1384,6 +1774,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">descriptionHtml</span>: string</code></p>
 
+<llm-only>
+
+`descriptionHtml: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1391,6 +1787,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">handle</span>: string</code></p>
+
+<llm-only>
+
+`handle: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1400,6 +1802,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: string</code></p>
 
+<llm-only>
+
+`id: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1407,6 +1815,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">image</span><span class="ab-opt">?</span>: <a href="#image">Image</a> &#124; null</code></p>
+
+<llm-only>
+
+`image?: Image | null`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1416,6 +1830,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">productsAutomaticallySortedCount</span>: number</code></p>
 
+<llm-only>
+
+`productsAutomaticallySortedCount: number`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1423,6 +1843,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">productsCount</span>: number</code></p>
+
+<llm-only>
+
+`productsCount: number`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1432,6 +1858,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">productsManuallySortedCount</span>: number</code></p>
 
+<llm-only>
+
+`productsManuallySortedCount: number`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1439,6 +1871,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">publicationCount</span>: number</code></p>
+
+<llm-only>
+
+`publicationCount: number`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1448,6 +1886,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">ruleSet</span><span class="ab-opt">?</span>: <a href="#ruleset">RuleSet</a> &#124; null</code></p>
 
+<llm-only>
+
+`ruleSet?: RuleSet | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1455,6 +1899,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">seo</span>: { description?: string &#124; null; title?: string &#124; null; }</code></p>
+
+<llm-only>
+
+`seo: { description?: string | null; title?: string | null; }`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1464,6 +1914,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">sortOrder</span>: <a href="#collectionsortorder">CollectionSortOrder</a></code></p>
 
+<llm-only>
+
+`sortOrder: CollectionSortOrder`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1471,6 +1927,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">storefrontId</span>: string</code></p>
+
+<llm-only>
+
+`storefrontId: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1480,6 +1942,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">templateSuffix</span><span class="ab-opt">?</span>: string &#124; null</code></p>
 
+<llm-only>
+
+`templateSuffix?: string | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1488,6 +1956,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">title</span>: string</code></p>
 
+<llm-only>
+
+`title: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1495,6 +1969,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">updatedAt</span>: string</code></p>
+
+<llm-only>
+
+`updatedAt: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1524,7 +2004,7 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 Import: `import type { Product } from 'polaris-vue-elements/app-bridge'`
 
-Extends: <code v-pre><a href="#resource">Resource</a></code>
+Extends: <llm-exclude><code v-pre><a href="#resource">Resource</a></code></llm-exclude><llm-only>`Resource`</llm-only>
 
 </div>
 
@@ -1534,6 +2014,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">availablePublicationCount</span>: number</code></p>
 
+<llm-only>
+
+`availablePublicationCount: number`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1541,6 +2027,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">createdAt</span>: string</code></p>
+
+<llm-only>
+
+`createdAt: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1550,6 +2042,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">descriptionHtml</span>: string</code></p>
 
+<llm-only>
+
+`descriptionHtml: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1557,6 +2055,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">handle</span>: string</code></p>
+
+<llm-only>
+
+`handle: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1566,6 +2070,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hasOnlyDefaultVariant</span>: boolean</code></p>
 
+<llm-only>
+
+`hasOnlyDefaultVariant: boolean`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1573,6 +2083,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">images</span>: <a href="#image">Image</a>[]</code></p>
+
+<llm-only>
+
+`images: Image[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1582,6 +2098,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">options</span>: { id: string; name: string; position: number; values: string[]; }[]</code></p>
 
+<llm-only>
+
+`options: { id: string; name: string; position: number; values: string[]; }[]`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1589,6 +2111,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">productType</span>: string</code></p>
+
+<llm-only>
+
+`productType: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1598,6 +2126,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">publishedAt</span><span class="ab-opt">?</span>: string &#124; null</code></p>
 
+<llm-only>
+
+`publishedAt?: string | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1605,6 +2139,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">tags</span>: string[]</code></p>
+
+<llm-only>
+
+`tags: string[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1614,6 +2154,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">templateSuffix</span><span class="ab-opt">?</span>: string &#124; null</code></p>
 
+<llm-only>
+
+`templateSuffix?: string | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1621,6 +2167,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">title</span>: string</code></p>
+
+<llm-only>
+
+`title: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1630,6 +2182,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">totalInventory</span>: number</code></p>
 
+<llm-only>
+
+`totalInventory: number`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1637,6 +2195,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">totalVariants</span>: number</code></p>
+
+<llm-only>
+
+`totalVariants: number`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1646,6 +2210,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">tracksInventory</span>: boolean</code></p>
 
+<llm-only>
+
+`tracksInventory: boolean`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1653,6 +2223,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">variants</span>: Partial&lt;<a href="#productvariant">ProductVariant</a>&gt;[]</code></p>
+
+<llm-only>
+
+`variants: Partial<ProductVariant>[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1662,6 +2238,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">vendor</span>: string</code></p>
 
+<llm-only>
+
+`vendor: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1670,6 +2252,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">updatedAt</span>: string</code></p>
 
+<llm-only>
+
+`updatedAt: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1677,6 +2265,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">status</span>: <a href="#productstatus">ProductStatus</a></code></p>
+
+<llm-only>
+
+`status: ProductStatus`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1706,7 +2300,7 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 Import: `import type { ProductVariant } from 'polaris-vue-elements/app-bridge'`
 
-Extends: <code v-pre><a href="#resource">Resource</a></code>
+Extends: <llm-exclude><code v-pre><a href="#resource">Resource</a></code></llm-exclude><llm-only>`Resource`</llm-only>
 
 </div>
 
@@ -1716,6 +2310,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">availableForSale</span>: boolean</code></p>
 
+<llm-only>
+
+`availableForSale: boolean`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1723,6 +2323,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">barcode</span><span class="ab-opt">?</span>: string &#124; null</code></p>
+
+<llm-only>
+
+`barcode?: string | null`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1732,6 +2338,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">compareAtPrice</span><span class="ab-opt">?</span>: <a href="#money">Money</a> &#124; null</code></p>
 
+<llm-only>
+
+`compareAtPrice?: Money | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1739,6 +2351,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">createdAt</span>: string</code></p>
+
+<llm-only>
+
+`createdAt: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1748,6 +2366,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">displayName</span>: string</code></p>
 
+<llm-only>
+
+`displayName: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1755,6 +2379,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">fulfillmentService</span><span class="ab-opt">?</span>: { id: string; inventoryManagement: boolean; productBased: boolean; serviceName: string; type: <a href="#fulfillmentservicetype">FulfillmentServiceType</a>; }</code></p>
+
+<llm-only>
+
+`fulfillmentService?: { id: string; inventoryManagement: boolean; productBased: boolean; serviceName: string; type: FulfillmentServiceType; }`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1764,6 +2394,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">image</span><span class="ab-opt">?</span>: <a href="#image">Image</a> &#124; null</code></p>
 
+<llm-only>
+
+`image?: Image | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1771,6 +2407,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">inventoryItem</span>: { id: string; }</code></p>
+
+<llm-only>
+
+`inventoryItem: { id: string; }`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1780,6 +2422,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">inventoryManagement</span>: <a href="#productvariantinventorymanagement">ProductVariantInventoryManagement</a></code></p>
 
+<llm-only>
+
+`inventoryManagement: ProductVariantInventoryManagement`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1787,6 +2435,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">inventoryPolicy</span>: <a href="#productvariantinventorypolicy">ProductVariantInventoryPolicy</a></code></p>
+
+<llm-only>
+
+`inventoryPolicy: ProductVariantInventoryPolicy`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1796,6 +2450,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">inventoryQuantity</span><span class="ab-opt">?</span>: number &#124; null</code></p>
 
+<llm-only>
+
+`inventoryQuantity?: number | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1803,6 +2463,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">position</span>: number</code></p>
+
+<llm-only>
+
+`position: number`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1812,6 +2478,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">price</span>: <a href="#money">Money</a></code></p>
 
+<llm-only>
+
+`price: Money`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1819,6 +2491,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">product</span>: Partial&lt;<a href="#product">Product</a>&gt;</code></p>
+
+<llm-only>
+
+`product: Partial<Product>`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1828,6 +2506,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">requiresShipping</span>: boolean</code></p>
 
+<llm-only>
+
+`requiresShipping: boolean`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1835,6 +2519,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">selectedOptions</span>: { value?: string &#124; null; }[]</code></p>
+
+<llm-only>
+
+`selectedOptions: { value?: string | null; }[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1844,6 +2534,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">sku</span><span class="ab-opt">?</span>: string &#124; null</code></p>
 
+<llm-only>
+
+`sku?: string | null`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1851,6 +2547,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">taxable</span>: boolean</code></p>
+
+<llm-only>
+
+`taxable: boolean`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1860,6 +2562,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">title</span>: string</code></p>
 
+<llm-only>
+
+`title: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1867,6 +2575,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">weight</span><span class="ab-opt">?</span>: number &#124; null</code></p>
+
+<llm-only>
+
+`weight?: number | null`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1876,6 +2590,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">weightUnit</span>: <a href="#weightunit">WeightUnit</a></code></p>
 
+<llm-only>
+
+`weightUnit: WeightUnit`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -1883,6 +2603,12 @@ Extends: <code v-pre><a href="#resource">Resource</a></code>
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">updatedAt</span>: string</code></p>
+
+<llm-only>
+
+`updatedAt: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -1969,6 +2695,12 @@ type WithSelection<T> = T & {
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: string</code></p>
 
+<llm-only>
+
+`id: string`
+
+</llm-only>
+
 in GraphQL id format, ie 'gid://shopify/Product/1'
 
 </div>
@@ -2035,6 +2767,12 @@ declare enum CollectionSortOrder {
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: string</code></p>
 
+<llm-only>
+
+`id: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2043,6 +2781,12 @@ declare enum CollectionSortOrder {
 
 <p class="ab-sig"><code v-pre><span class="ab-name">altText</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`altText?: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2050,6 +2794,12 @@ declare enum CollectionSortOrder {
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">originalSrc</span>: string</code></p>
+
+<llm-only>
+
+`originalSrc: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -2081,6 +2831,12 @@ declare enum CollectionSortOrder {
 
 <p class="ab-sig"><code v-pre><span class="ab-name">appliedDisjunctively</span>: boolean</code></p>
 
+<llm-only>
+
+`appliedDisjunctively: boolean`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2088,6 +2844,12 @@ declare enum CollectionSortOrder {
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">rules</span>: <a href="#collectionrule">CollectionRule</a>[]</code></p>
+
+<llm-only>
+
+`rules: CollectionRule[]`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -2295,6 +3057,12 @@ declare enum WeightUnit {
 
 <p class="ab-sig"><code v-pre><span class="ab-name">column</span>: string</code></p>
 
+<llm-only>
+
+`column: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2303,6 +3071,12 @@ declare enum WeightUnit {
 
 <p class="ab-sig"><code v-pre><span class="ab-name">condition</span>: string</code></p>
 
+<llm-only>
+
+`condition: string`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2310,6 +3084,12 @@ declare enum WeightUnit {
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">relation</span>: string</code></p>
+
+<llm-only>
+
+`relation: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -2340,6 +3120,12 @@ declare enum WeightUnit {
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">request</span>(): Promise&lt;<a href="#reviewrequestresponse">ReviewRequestResponse</a>&gt;</code></p>
+
+<llm-only>
+
+`request(): Promise<ReviewRequestResponse>`
+
+</llm-only>
 
 Requests an app review modal. The modal only displays if rate limits and eligibility conditions are met. Returns a Promise that resolves to a response object with `success`, `code`, and `message` properties indicating whether the modal was shown and, if not, the reason why.
 
@@ -2398,6 +3184,12 @@ type ReviewRequestResponse = ReviewRequestSuccessResponse | ReviewRequestDecline
 
 <p class="ab-sig"><code v-pre><span class="ab-name">success</span>: false</code></p>
 
+<llm-only>
+
+`success: false`
+
+</llm-only>
+
 Indicates the review modal was not displayed.
 
 </div>
@@ -2406,6 +3198,12 @@ Indicates the review modal was not displayed.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">code</span>: <a href="#reviewrequestdeclinedcode">ReviewRequestDeclinedCode</a></code></p>
 
+<llm-only>
+
+`code: ReviewRequestDeclinedCode`
+
+</llm-only>
+
 A code identifying why the modal was not displayed, such as rate limits or merchant eligibility.
 
 </div>
@@ -2413,6 +3211,12 @@ A code identifying why the modal was not displayed, such as rate limits or merch
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">message</span>: string</code></p>
+
+<llm-only>
+
+`message: string`
+
+</llm-only>
 
 A human-readable message explaining why the modal was not displayed.
 
@@ -2444,6 +3248,12 @@ A human-readable message explaining why the modal was not displayed.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">success</span>: true</code></p>
 
+<llm-only>
+
+`success: true`
+
+</llm-only>
+
 Indicates the review modal was successfully displayed.
 
 </div>
@@ -2452,6 +3262,12 @@ Indicates the review modal was successfully displayed.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">code</span>: "success"</code></p>
 
+<llm-only>
+
+`code: "success"`
+
+</llm-only>
+
 The response code. Always `'success'` for a successful request.
 
 </div>
@@ -2459,6 +3275,12 @@ The response code. Always `'success'` for a successful request.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">message</span>: "Review modal shown successfully"</code></p>
+
+<llm-only>
+
+`message: "Review modal shown successfully"`
+
+</llm-only>
 
 A human-readable message confirming the modal was shown.
 
@@ -2512,7 +3334,7 @@ type ReviewRequestDeclinedCode = "mobile-app" | "already-reviewed" | "annual-lim
 
 <div class="ab-meta">
 
-Extends: <code v-pre>Required&lt;<a href="#_savebarapi">_SaveBarApi</a>&gt;</code>
+Extends: <llm-exclude><code v-pre>Required&lt;<a href="#_savebarapi">_SaveBarApi</a>&gt;</code></llm-exclude><llm-only>`Required<_SaveBarApi>`</llm-only>
 
 </div>
 
@@ -2540,6 +3362,12 @@ Extends: <code v-pre>Required&lt;<a href="#_savebarapi">_SaveBarApi</a>&gt;</cod
 
 <p class="ab-sig"><code v-pre><span class="ab-name">show</span><span class="ab-opt">?</span>(id: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`show?(id: string): Promise<void>`
+
+</llm-only>
+
 Displays the save bar to indicate unsaved changes. Call this when you want to prompt the merchant to save.
 
 </div>
@@ -2547,6 +3375,12 @@ Displays the save bar to indicate unsaved changes. Call this when you want to pr
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hide</span><span class="ab-opt">?</span>(id: string): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`hide?(id: string): Promise<void>`
+
+</llm-only>
 
 Hides the save bar. Call this after the merchant saves or discards their changes.
 
@@ -2556,6 +3390,12 @@ Hides the save bar. Call this after the merchant saves or discards their changes
 
 <p class="ab-sig"><code v-pre><span class="ab-name">toggle</span><span class="ab-opt">?</span>(id: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`toggle?(id: string): Promise<void>`
+
+</llm-only>
+
 Toggles save bar visibility between shown and hidden states.
 
 </div>
@@ -2563,6 +3403,12 @@ Toggles save bar visibility between shown and hidden states.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">leaveConfirmation</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`leaveConfirmation?(): Promise<void>`
+
+</llm-only>
 
 Prompts the merchant to confirm before leaving the page when there are unsaved changes. The promise resolves when the merchant confirms or when no save bar is visible. Use this before programmatic navigation (for example, using `window.location` or custom routing) to prevent accidental data loss.
 
@@ -2594,6 +3440,12 @@ Prompts the merchant to confirm before leaving the page when there are unsaved c
 
 <p class="ab-sig"><code v-pre><span class="ab-name">isEnabled</span>(): Promise&lt;boolean&gt;</code></p>
 
+<llm-only>
+
+`isEnabled(): Promise<boolean>`
+
+</llm-only>
+
 Checks whether Sidekick is available to the app on this store. Call it before showing a launch entry point.
 
 </div>
@@ -2601,6 +3453,12 @@ Checks whether Sidekick is available to the app on this store. Call it before sh
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">isOpen</span>(): Promise&lt;boolean&gt;</code></p>
+
+<llm-only>
+
+`isOpen(): Promise<boolean>`
+
+</llm-only>
 
 Checks whether the Sidekick panel is open.
 
@@ -2610,6 +3468,12 @@ Checks whether the Sidekick panel is open.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">open</span>(): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`open(): Promise<void>`
+
+</llm-only>
+
 Opens the Sidekick panel without sending a prompt.
 
 </div>
@@ -2617,6 +3481,12 @@ Opens the Sidekick panel without sending a prompt.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">launch</span>(request: <a href="#sidekicklaunchrequest">SidekickLaunchRequest</a> &#124; string): Promise&lt;<a href="#sidekickconversation">SidekickConversation</a>&gt;</code></p>
+
+<llm-only>
+
+`launch(request: SidekickLaunchRequest | string): Promise<SidekickConversation>`
+
+</llm-only>
 
 Opens Sidekick and sends `message` as the merchant's prompt. A string is shorthand for `{message}`. Call it from a merchant action, such as a button click. Shopify screens the prompt first and rejects with an error whose message starts with `sidekick.launch:` when it refuses to send it.
 
@@ -2656,6 +3526,12 @@ Import: `import type { SidekickConversation } from 'polaris-vue-elements/app-bri
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: string</code></p>
 
+<llm-only>
+
+`id: string`
+
+</llm-only>
+
 The conversation ID.
 
 </div>
@@ -2694,6 +3570,12 @@ Import: `import type { SidekickLaunchRequest } from 'polaris-vue-elements/app-br
 
 <p class="ab-sig"><code v-pre><span class="ab-name">message</span>: string</code></p>
 
+<llm-only>
+
+`message: string`
+
+</llm-only>
+
 The prompt to send to Sidekick as the merchant's message. Required, and must be non-empty after trimming. Shopify trims surrounding whitespace and rejects a prompt longer than a merchant could type into Sidekick.
 
 </div>
@@ -2723,6 +3605,12 @@ The prompt to send to Sidekick as the merchant's message. Required, and must be 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">registerHandler</span><span class="ab-opt">?</span>: (callback: <a href="#supportcallback">SupportCallback</a> &#124; null) =&gt; Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`registerHandler?: (callback: SupportCallback | null) => Promise<void>`
+
+</llm-only>
 
 Registers a callback function to run when the merchant clicks the support button. Pass `null` to unregister a previously registered handler.
 
@@ -2780,6 +3668,12 @@ type SupportCallback = () => void | Promise<void>;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">show</span>: <a href="#toastshow">ToastShow</a></code></p>
 
+<llm-only>
+
+`show: ToastShow`
+
+</llm-only>
+
 Displays a Toast notification in the Shopify admin.
 
 </div>
@@ -2787,6 +3681,12 @@ Displays a Toast notification in the Shopify admin.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hide</span>: <a href="#toasthide">ToastHide</a></code></p>
+
+<llm-only>
+
+`hide: ToastHide`
+
+</llm-only>
 
 Hides a Toast notification in the Shopify admin.
 
@@ -2877,6 +3777,12 @@ Import: `import type { ToastOptions } from 'polaris-vue-elements/app-bridge'`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">duration</span><span class="ab-opt">?</span>: number</code></p>
 
+<llm-only>
+
+`duration?: number`
+
+</llm-only>
+
 The length of time in milliseconds the toast message should persist.
 
 Default: `5000`
@@ -2886,6 +3792,12 @@ Default: `5000`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">isError</span><span class="ab-opt">?</span>: boolean</code></p>
+
+<llm-only>
+
+`isError?: boolean`
+
+</llm-only>
 
 Display an error-styled toast.
 
@@ -2897,6 +3809,12 @@ Default: `false`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">action</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`action?: string`
+
+</llm-only>
+
 Content of an action button.
 
 </div>
@@ -2905,6 +3823,12 @@ Content of an action button.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">onAction</span><span class="ab-opt">?</span>: () =&gt; void</code></p>
 
+<llm-only>
+
+`onAction?: () => void`
+
+</llm-only>
+
 Callback fired when the action button is clicked.
 
 </div>
@@ -2912,6 +3836,12 @@ Callback fired when the action button is clicked.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">onDismiss</span><span class="ab-opt">?</span>: () =&gt; void</code></p>
+
+<llm-only>
+
+`onDismiss?: () => void`
+
+</llm-only>
 
 Callback fired when the dismiss icon is clicked.
 
@@ -2943,6 +3873,12 @@ Callback fired when the dismiss icon is clicked.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">register</span>: <a href="#registerfunction">RegisterFunction</a></code></p>
 
+<llm-only>
+
+`register: RegisterFunction`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2951,6 +3887,12 @@ Callback fired when the dismiss icon is clicked.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">unregister</span>: <a href="#unregisterfunction">UnregisterFunction</a></code></p>
 
+<llm-only>
+
+`unregister: UnregisterFunction`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -2958,6 +3900,12 @@ Callback fired when the dismiss icon is clicked.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">clear</span>: <a href="#clearfunction">ClearFunction</a></code></p>
+
+<llm-only>
+
+`clear: ClearFunction`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 

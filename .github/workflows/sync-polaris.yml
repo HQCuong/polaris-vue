@@ -76,7 +76,8 @@ jobs:
 
       # Fails by design when Shopify ships a new component: scripts/generate-docs.mjs
       # requires every tag to be filed in its hand-maintained CATEGORIES map. Report it
-      # on the PR instead of blocking the sync.
+      # on the PR instead of blocking the sync. Also rewrites the component list in
+      # AGENTS.md; this job's PR step has no add-paths, so it commits every change.
       - name: Regenerate docs pages
         id: check_docs
         if: steps.versions.outputs.changed == 'true'
@@ -320,9 +321,12 @@ jobs:
           base: main
           delete-branch: true
           # The docs page's migration lists compare tokens.json with @shopify/polaris-tokens.
+          # docs:generate also writes both lists into the pages' Markdown-for-LLMs blocks.
           add-paths: |
             tokens/
             docs/.vitepress/polaris-tokens-migration.json
+            docs/css-variables/reference.md
+            docs/css-variables/migration.md
 
   # The hand-written wrappers in src/lib/app-bridge mirror @shopify/app-bridge-react and are
   # typed from @shopify/app-bridge-types. Separate job and branch, so an App Bridge bump never

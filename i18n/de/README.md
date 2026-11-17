@@ -99,6 +99,12 @@ Alles Weitere unter **[polaris-vue-elements.dev](https://polaris-vue-elements.de
 
 Der Quellcode der Website liegt in [`docs/`](../../docs); lokal starten mit `npm run docs:dev`.
 
+## Verwendung mit KI-Coding-Agenten
+
+Das Paket enthält [`AGENTS.md`](../../AGENTS.md), eine Anleitung für KI-Coding-Agenten, die mit dieser Bibliothek Vue-Code schreiben. Nach der Installation liegt sie unter `node_modules/polaris-vue-elements/AGENTS.md` und passt damit zur installierten Version; verweisen Sie in den Agenten-Anweisungen Ihres Projekts darauf.
+
+Die Dokumentation wird außerdem als Markdown veröffentlicht: [`llms.txt`](https://polaris-vue-elements.dev/llms.txt) (ein Index), [`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt) (alle englischen Seiten in einer Datei) und eine `.md`-Kopie jeder Seite, etwa [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md). Siehe [polaris-vue-elements mit KI-Agenten verwenden](https://polaris-vue-elements.dev/de/guide/ai-agents).
+
 ## Funktionsweise
 
 Alles, was sich aus dem Manifest von Shopify ableiten lässt, wird maschinell generiert; menschliches Urteilsvermögen steckt in einer einzigen kleinen Datei.

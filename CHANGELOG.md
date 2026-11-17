@@ -11,6 +11,19 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Added
+
+- `AGENTS.md` in the npm package (`node_modules/polaris-vue-elements/AGENTS.md`): a compact
+  guide for AI coding agents writing a Vue 3 app with the library, with setup, imports,
+  `v-model`, SSR and App Bridge notes, the known quirks and a generated list of every
+  component with its tag.
+- Docs: [`/llms.txt`](https://polaris-vue-elements.dev/llms.txt),
+  [`/llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt) and a Markdown copy of
+  every English page (`/components/s-button.md`), linked from each page with
+  `<link rel="alternate" type="text/markdown">`.
+- Docs: a [Using AI coding agents](https://polaris-vue-elements.dev/guide/ai-agents) guide,
+  in all ten languages.
+
 ## [0.6.1] - 2026-11-16
 
 ### Changed

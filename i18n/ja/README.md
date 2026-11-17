@@ -99,6 +99,12 @@ const name = ref('')
 
 サイトのソースは [`docs/`](../../docs) にあります。`npm run docs:dev` でローカル実行できます。
 
+## AI コーディングエージェントで使う
+
+パッケージには [`AGENTS.md`](../../AGENTS.md) が同梱されています。これは、このライブラリで Vue コードを書く AI コーディングエージェント向けのガイドです。インストール後は `node_modules/polaris-vue-elements/AGENTS.md` にあり、お使いのバージョンと一致します。プロジェクトのエージェント向け指示から、このファイルを参照させてください。
+
+ドキュメントは Markdown としても公開されています。[`llms.txt`](https://polaris-vue-elements.dev/llms.txt)（索引）、[`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt)（英語版の全ページを 1 つにまとめたファイル）、そして [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md) のような各ページの `.md` コピーです。詳しくは [Using polaris-vue-elements with AI agents](https://polaris-vue-elements.dev/ja/guide/ai-agents) を参照してください。
+
 ## 仕組み
 
 Shopify のマニフェストから導出できるものはすべて機械的に生成されます。人の判断が必要な部分は、小さなファイル 1 つにまとまっています。

@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Docs as Markdown for LLMs and coding agents (https://llmstxt.org): https://polaris-vue-elements.dev/llms.txt
+# Every page in one file: https://polaris-vue-elements.dev/llms-full.txt
+
 Sitemap: https://polaris-vue-elements.dev/sitemap.xml

@@ -27,6 +27,12 @@ APIs that shopify.dev does not list under a category, and the types used by more
 
 <p class="ab-sig"><code v-pre><span class="ab-name">available</span>(): Promise&lt;boolean&gt;</code></p>
 
+<llm-only>
+
+`available(): Promise<boolean>`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -34,6 +40,12 @@ APIs that shopify.dev does not list under a category, and the types used by more
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">ready</span>(): Promise&lt;<a href="#shopifyqlstatus">ShopifyQLStatus</a>&gt;</code></p>
+
+<llm-only>
+
+`ready(): Promise<ShopifyQLStatus>`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 

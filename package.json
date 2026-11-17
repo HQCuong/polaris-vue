@@ -50,7 +50,8 @@
     "dist",
     "tokens/tokens.css",
     "tokens/tokens.json",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "AGENTS.md"
   ],
   "sideEffects": [
     "*.css"
@@ -114,6 +115,7 @@
     "vite": "^8.1.5",
     "vite-plugin-vue-devtools": "^8.1.5",
     "vitepress": "^1.6.4",
+    "vitepress-plugin-llms": "1.14.0",
     "vitest": "^5.0.5",
     "vue": "^3.5.40",
     "vue-eslint-parser": "^10.4.1",
@@ -136,6 +138,9 @@
     "minimatch@>=7.0.0 <11.0.1": "^11.0.1",
     "js-beautify": {
       "glob": "^14.0.2"
+    },
+    "vitepress-plugin-llms": {
+      "minimatch": "^11.0.1"
     }
   }
 }

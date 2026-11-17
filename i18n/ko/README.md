@@ -99,6 +99,12 @@ const name = ref('')
 
 사이트의 소스는 [`docs/`](../../docs)에 있습니다. `npm run docs:dev`로 로컬에서 실행할 수 있습니다.
 
+## AI 코딩 에이전트와 함께 사용하기
+
+패키지에는 이 라이브러리로 Vue 코드를 작성하는 AI 코딩 에이전트를 위한 가이드인 [`AGENTS.md`](../../AGENTS.md)가 포함되어 있습니다. 설치하면 `node_modules/polaris-vue-elements/AGENTS.md`에 위치하므로 사용 중인 버전과 일치합니다. 프로젝트의 에이전트 지침이 이 파일을 가리키도록 하세요.
+
+문서는 Markdown으로도 게시됩니다. [`llms.txt`](https://polaris-vue-elements.dev/llms.txt)(색인), [`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt)(모든 영어 페이지를 하나의 파일로 합친 것), 그리고 [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md)처럼 각 페이지의 `.md` 사본이 있습니다. [AI 에이전트와 함께 polaris-vue-elements 사용하기](https://polaris-vue-elements.dev/ko/guide/ai-agents)를 참고하세요.
+
 ## 동작 방식
 
 Shopify의 manifest에서 도출할 수 있는 것은 모두 자동으로 생성되며, 사람의 판단이 필요한 부분은 작은 파일 하나에만 있습니다.

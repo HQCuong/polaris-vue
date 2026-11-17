@@ -99,6 +99,12 @@ Tudo está em **[polaris-vue-elements.dev](https://polaris-vue-elements.dev/pt/)
 
 O código-fonte do site está em [`docs/`](../../docs); execute-o localmente com `npm run docs:dev`.
 
+## Usando com agentes de código de IA
+
+O pacote inclui o [`AGENTS.md`](../../AGENTS.md), um guia para agentes de código de IA que escrevem código Vue com esta biblioteca. Após a instalação, ele fica em `node_modules/polaris-vue-elements/AGENTS.md`, então corresponde à versão que você tem; aponte as instruções de agente do seu projeto para ele.
+
+A documentação também é publicada em Markdown: [`llms.txt`](https://polaris-vue-elements.dev/llms.txt) (um índice), [`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt) (todas as páginas em inglês em um único arquivo) e uma cópia `.md` de cada página, como [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md). Veja [Usando o polaris-vue-elements com agentes de IA](https://polaris-vue-elements.dev/pt/guide/ai-agents).
+
 ## Como funciona
 
 Tudo o que pode ser derivado do manifest da Shopify é gerado automaticamente; o julgamento humano fica em um único arquivo pequeno.

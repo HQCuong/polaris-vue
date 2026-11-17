@@ -21,6 +21,7 @@ import path from 'node:path'
 import { domEventType } from './dom-event-types.mjs'
 import { generateAppBridgeTypes } from './generate-app-bridge-types.mjs'
 import { polarisTokensMigration } from './polaris-tokens-migration.mjs'
+import { groupTokens } from './token-groups.mjs'
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '..')
@@ -1045,3 +1046,97 @@ writeFileSync(migrationPath, JSON.stringify(migration, null, 2) + '\n')
 console.warn(
   `[generate-docs] ${path.relative(repoRoot, migrationPath)}: ${migration.shared} shared, ${migration.legacyOnly.length} only in ${migration.package} ${migration.version}, ${migration.runtimeOnly.length} new`,
 )
+
+// ---------------------------------------------------------------------------
+// Generated blocks in hand-written files
+//
+// Each block sits between `<!-- BEGIN GENERATED: <name> -->` and
+// `<!-- END GENERATED: <name> -->`; only the lines in between are rewritten.
+// ---------------------------------------------------------------------------
+
+function replaceGeneratedBlocks(file, blocks) {
+  const rel = path.relative(repoRoot, file)
+  const text = readFileSync(file, 'utf8')
+  const names = [...text.matchAll(/<!-- BEGIN GENERATED: (.+?) -->/g)].map((m) => m[1])
+  const missing = Object.keys(blocks).filter((name) => !names.includes(name))
+  const unknown = names.filter((name) => !(name in blocks))
+  assert(missing.length === 0, `${rel} has no "<!-- BEGIN GENERATED: …" block for: ${missing.join(', ')}`)
+  assert(unknown.length === 0, `${rel} has generated blocks nothing writes: ${unknown.join(', ')}. Remove them.`)
+  let next = text
+  for (const [name, body] of Object.entries(blocks)) {
+    const begin = `<!-- BEGIN GENERATED: ${name} -->`
+    const end = `<!-- END GENERATED: ${name} -->`
+    const start = next.indexOf(begin)
+    const stop = next.indexOf(end, start)
+    assert(start !== -1 && stop !== -1 && next.indexOf(begin, start + 1) === -1, `${rel} must have exactly one "${begin}" … "${end}" pair`)
+    next = `${next.slice(0, start + begin.length)}\n\n${body.trim()}\n\n${next.slice(stop)}`
+  }
+  if (next !== text) writeFileSync(file, next)
+}
+
+// Markdown code span, with a backtick run longer than any inside the text.
+function codeSpan(text) {
+  const fence = '`'.repeat(Math.max(0, ...(text.match(/`+/g) ?? []).map((run) => run.length)) + 1)
+  const pad = text.startsWith('`') || text.endsWith('`') ? ' ' : ''
+  return `${fence}${pad}${text}${pad}${fence}`
+}
+
+// <llm-only> content is kept only in the Markdown copies the docs build writes for LLMs
+// (vitepress-plugin-llms, English pages); the HTML pages never show it.
+const llmOnly = (lines) => ['<llm-only>', '', ...lines, '', '</llm-only>'].join('\n')
+
+// AGENTS.md (shipped in the npm package): every component with its tag, the same one-line
+// summary as its docs page, and its v-model binding, grouped by the CATEGORIES above.
+const agentsPath = path.join(repoRoot, 'AGENTS.md')
+const componentList = [
+  `All ${components.length} wrappers, grouped the way Shopify's reference groups them. Reference for each: \`https://polaris-vue-elements.dev/components/<tag>.md\`.`,
+  '',
+]
+for (const category of CATEGORIES) {
+  componentList.push(`### ${category.text}`, '', '| Component | Tag | v-model | What it is |', '| --- | --- | --- | --- |')
+  for (const c of categoryComponents(category)) {
+    const vModel = vModelOverrides.get(c.tagName)
+    componentList.push(
+      `| \`${c.exportName}\` | \`<${c.tagName}>\` | ${vModel ? `\`${vModel.prop}\` / \`${vModel.event}\`` : ''} | ${escapeTableCell(SUMMARIES[c.tagName])} |`,
+    )
+  }
+  componentList.push('')
+}
+replaceGeneratedBlocks(agentsPath, { components: componentList.join('\n') })
+
+// docs/css-variables/reference.md and migration.md render their lists with Vue components,
+// which the Markdown copies can't run. Each list is written out under the component too.
+const tokensJson = JSON.parse(readFileSync(path.join(repoRoot, 'tokens', 'tokens.json'), 'utf8'))
+const adminNext = tokensJson.themes?.['admin-next'] ?? {}
+replaceGeneratedBlocks(
+  path.join(repoRoot, 'docs', 'css-variables', 'reference.md'),
+  Object.fromEntries(
+    groupTokens(tokensJson.tokens).map(([group, entries]) => [
+      `css-variables ${group}`,
+      llmOnly(
+        entries.map(([name, value]) => {
+          const next = adminNext[name]
+          return `- ${codeSpan(name)}: ${codeSpan(value)}${next !== undefined && next !== value ? ` (admin-next: ${codeSpan(next)})` : ''}`
+        }),
+      ),
+    ]),
+  ),
+)
+
+const enCss = JSON.parse(readFileSync(path.join(localesDir, 'en', 'theme.json'), 'utf8')).cssVariables
+const fill = (template, values) => template.replace(/\{(\w+)\}/g, (_, key) => String(values[key]))
+const migrationValues = { package: migration.package, version: migration.version }
+replaceGeneratedBlocks(path.join(repoRoot, 'docs', 'css-variables', 'migration.md'), {
+  'migration lists': llmOnly([
+    fill(enCss.migrationShared, { count: migration.shared }),
+    '',
+    `${fill(enCss.migrationLegacyOnly, { ...migrationValues, count: migration.legacyOnly.length })}:`,
+    '',
+    ...migration.legacyOnly.map((name) => `- ${codeSpan(name)}`),
+    '',
+    `${fill(enCss.migrationRuntimeOnly, { ...migrationValues, count: migration.runtimeOnly.length })}:`,
+    '',
+    ...migration.runtimeOnly.map((name) => `- ${codeSpan(name)}`),
+  ]),
+})
+console.warn('[generate-docs] AGENTS.md component list and the LLM-only lists in docs/css-variables/ are up to date')

@@ -99,6 +99,12 @@ Toàn bộ tài liệu ở **[polaris-vue-elements.dev](https://polaris-vue-elem
 
 Mã nguồn của site nằm trong [`docs/`](../../docs); chạy ở máy bằng `npm run docs:dev`.
 
+## Dùng với AI coding agent
+
+Package đi kèm [`AGENTS.md`](../../AGENTS.md), một hướng dẫn cho AI coding agent viết code Vue với thư viện này. Sau khi cài, file nằm ở `node_modules/polaris-vue-elements/AGENTS.md` nên luôn khớp với phiên bản bạn đang dùng; hãy trỏ phần hướng dẫn agent của dự án tới file này.
+
+Tài liệu cũng được xuất bản dưới dạng Markdown: [`llms.txt`](https://polaris-vue-elements.dev/llms.txt) (mục lục), [`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt) (mọi trang tiếng Anh trong một file) và bản `.md` của từng trang, chẳng hạn [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md). Xem [Dùng polaris-vue-elements với AI agent](https://polaris-vue-elements.dev/vi/guide/ai-agents).
+
 ## Cách hoạt động
 
 Mọi thứ suy ra được từ manifest của Shopify đều được generate tự động; phần cần con người quyết định chỉ nằm trong một file nhỏ.

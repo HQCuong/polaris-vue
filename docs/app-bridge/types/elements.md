@@ -33,6 +33,12 @@ Import: `import type { SAppWindowAttributes } from 'polaris-vue-elements/app-bri
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`id?: string`
+
+</llm-only>
+
 A unique identifier you assign to the app window element. Used when connecting buttons via `commandFor` or accessing the element with `document.getElementById()`. Choose a descriptive name like `"settings-window"` or `"edit-modal"`.
 
 </div>
@@ -40,6 +46,12 @@ A unique identifier you assign to the app window element. Used when connecting b
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">src</span>: string</code></p>
+
+<llm-only>
+
+`src: string`
+
+</llm-only>
 
 The URL of the content to display within the app window. Must point to a route within your app that renders the window content. The URL is loaded in an iframe when the window opens. Commonly used for multi-step workflows, bulk editors, or detailed views that need full-screen space.
 
@@ -69,7 +81,7 @@ The URL of the content to display within the app window. Must point to a route w
 
 Declared in `declare global`, so it is available without an import.
 
-Extends: <code v-pre>Omit&lt;HTMLElement, "addEventListener" &#124; "removeEventListener"&gt;</code>, <code v-pre>Required&lt;Omit&lt;<a href="#_sappwindowelement">_SAppWindowElement</a>, "src" &#124; "contentWindow"&gt;&gt;</code>, <code v-pre>Pick&lt;<a href="#_sappwindowelement">_SAppWindowElement</a>, "src" &#124; "contentWindow"&gt;</code>
+Extends: <llm-exclude><code v-pre>Omit&lt;HTMLElement, "addEventListener" &#124; "removeEventListener"&gt;</code>, <code v-pre>Required&lt;Omit&lt;<a href="#_sappwindowelement">_SAppWindowElement</a>, "src" &#124; "contentWindow"&gt;&gt;</code>, <code v-pre>Pick&lt;<a href="#_sappwindowelement">_SAppWindowElement</a>, "src" &#124; "contentWindow"&gt;</code></llm-exclude><llm-only>`Omit<HTMLElement, "addEventListener" | "removeEventListener">`, `Required<Omit<_SAppWindowElement, "src" | "contentWindow">>`, `Pick<_SAppWindowElement, "src" | "contentWindow">`</llm-only>
 
 </div>
 
@@ -97,6 +109,12 @@ Extends: <code v-pre>Omit&lt;HTMLElement, "addEventListener" &#124; "removeEvent
 
 <p class="ab-sig"><code v-pre><span class="ab-name">src</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`src?: string`
+
+</llm-only>
+
 Gets or sets the URL of the content displayed in the app window. Changing this value while the window is open navigates to the new URL. Commonly used for dynamic navigation within an open window.
 
 </div>
@@ -104,6 +122,12 @@ Gets or sets the URL of the content displayed in the app window. Changing this v
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre>readonly <span class="ab-name">contentWindow</span><span class="ab-opt">?</span>: Window &#124; null</code></p>
+
+<llm-only>
+
+`readonly contentWindow?: Window | null`
+
+</llm-only>
 
 Returns the Window object of the app window iframe, or `null` if the window is closed. Use this to communicate with the iframe content via `postMessage()` or access its document. Only accessible when the app window is open.
 
@@ -113,6 +137,12 @@ Returns the Window object of the app window iframe, or `null` if the window is c
 
 <p class="ab-sig"><code v-pre><span class="ab-name">show</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`show?(): Promise<void>`
+
+</llm-only>
+
 Opens the app window and displays the content from the `src` URL. Returns a Promise that resolves when the window is fully visible. Use `await` or `.then()` to run code after the window opens. Commonly used for launching workflows triggered by user actions.
 
 </div>
@@ -120,6 +150,12 @@ Opens the app window and displays the content from the `src` URL. Returns a Prom
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hide</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`hide?(): Promise<void>`
+
+</llm-only>
 
 Closes the app window. Returns a Promise that resolves when the window is fully hidden. Any unsaved changes in forms with `data-save-bar` will prompt the user before closing. Commonly used for programmatic close after completing a workflow.
 
@@ -129,6 +165,12 @@ Closes the app window. Returns a Promise that resolves when the window is fully 
 
 <p class="ab-sig"><code v-pre><span class="ab-name">toggle</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`toggle?(): Promise<void>`
+
+</llm-only>
+
 Toggles the app window between open and closed states. Returns a Promise that resolves when the transition completes. Opens the window if closed, closes it if open. Commonly used for toggle buttons that control window visibility.
 
 </div>
@@ -137,6 +179,12 @@ Toggles the app window between open and closed states. Returns a Promise that re
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addEventListener</span><span class="ab-opt">?</span>(type: "show" &#124; "hide", listener: EventListenerOrEventListenerObject): void</code></p>
 
+<llm-only>
+
+`addEventListener?(type: "show" | "hide", listener: EventListenerOrEventListenerObject): void`
+
+</llm-only>
+
 Adds an event listener for app window lifecycle events. Supported events: `show` fires when the window opens, `hide` fires when the window closes. Commonly used for tracking analytics, updating UI state, or cleaning up resources when the window closes.
 
 </div>
@@ -144,6 +192,12 @@ Adds an event listener for app window lifecycle events. Supported events: `show`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeEventListener</span><span class="ab-opt">?</span>(type: "show" &#124; "hide", listener: EventListenerOrEventListenerObject): void</code></p>
+
+<llm-only>
+
+`removeEventListener?(type: "show" | "hide", listener: EventListenerOrEventListenerObject): void`
+
+</llm-only>
 
 Removes a previously added event listener. Pass the same event type and listener function that was used with `addEventListener()`. Commonly used for cleanup when a component unmounts to prevent memory leaks.
 
@@ -173,7 +227,7 @@ Removes a previously added event listener. Pass the same event type and listener
 
 Declared in `declare global`, so it is available without an import.
 
-Extends: <code v-pre>Omit&lt;HTMLElement, "addEventListener" &#124; "removeEventListener"&gt;</code>, <code v-pre>Required&lt;Omit&lt;<a href="#_uimodalelement">_UIModalElement</a>, "content" &#124; "src" &#124; "contentWindow"&gt;&gt;</code>, <code v-pre>Pick&lt;<a href="#_uimodalelement">_UIModalElement</a>, "content" &#124; "src" &#124; "contentWindow"&gt;</code>
+Extends: <llm-exclude><code v-pre>Omit&lt;HTMLElement, "addEventListener" &#124; "removeEventListener"&gt;</code>, <code v-pre>Required&lt;Omit&lt;<a href="#_uimodalelement">_UIModalElement</a>, "content" &#124; "src" &#124; "contentWindow"&gt;&gt;</code>, <code v-pre>Pick&lt;<a href="#_uimodalelement">_UIModalElement</a>, "content" &#124; "src" &#124; "contentWindow"&gt;</code></llm-exclude><llm-only>`Omit<HTMLElement, "addEventListener" | "removeEventListener">`, `Required<Omit<_UIModalElement, "content" | "src" | "contentWindow">>`, `Pick<_UIModalElement, "content" | "src" | "contentWindow">`</llm-only>
 
 </div>
 
@@ -201,6 +255,12 @@ Extends: <code v-pre>Omit&lt;HTMLElement, "addEventListener" &#124; "removeEvent
 
 <p class="ab-sig"><code v-pre><span class="ab-name">variant</span><span class="ab-opt">?</span>: "small" &#124; "base" &#124; "large" &#124; "max"</code></p>
 
+<llm-only>
+
+`variant?: "small" | "base" | "large" | "max"`
+
+</llm-only>
+
 A getter/setter that is used to set modal variant.
 
 </div>
@@ -208,6 +268,12 @@ A getter/setter that is used to set modal variant.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">content</span><span class="ab-opt">?</span>: HTMLElement</code></p>
+
+<llm-only>
+
+`content?: HTMLElement`
+
+</llm-only>
 
 A getter/setter that is used to get the DOM content of the modal element and update the content after the modal has been opened.
 
@@ -217,6 +283,12 @@ A getter/setter that is used to get the DOM content of the modal element and upd
 
 <p class="ab-sig"><code v-pre><span class="ab-name">src</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`src?: string`
+
+</llm-only>
+
 A getter/setter that is used to set modal src.
 
 </div>
@@ -224,6 +296,12 @@ A getter/setter that is used to set modal src.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre>readonly <span class="ab-name">contentWindow</span><span class="ab-opt">?</span>: Window &#124; null</code></p>
+
+<llm-only>
+
+`readonly contentWindow?: Window | null`
+
+</llm-only>
 
 A getter that is used to get the Window object of the modal iframe when the modal is used with a `src` attribute. This can only be accessed when the modal is open, so it is recommended to use `await modal.show()` before accessing this property.
 
@@ -233,6 +311,12 @@ A getter that is used to get the Window object of the modal iframe when the moda
 
 <p class="ab-sig"><code v-pre><span class="ab-name">show</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`show?(): Promise<void>`
+
+</llm-only>
+
 Shows the modal element
 
 </div>
@@ -240,6 +324,12 @@ Shows the modal element
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">hide</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`hide?(): Promise<void>`
+
+</llm-only>
 
 Hides the modal element
 
@@ -249,6 +339,12 @@ Hides the modal element
 
 <p class="ab-sig"><code v-pre><span class="ab-name">toggle</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`toggle?(): Promise<void>`
+
+</llm-only>
+
 Toggles the modal element between the showing and hidden states
 
 </div>
@@ -257,6 +353,12 @@ Toggles the modal element between the showing and hidden states
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addEventListener</span><span class="ab-opt">?</span>(type: "show" &#124; "hide", listener: EventListenerOrEventListenerObject): void</code></p>
 
+<llm-only>
+
+`addEventListener?(type: "show" | "hide", listener: EventListenerOrEventListenerObject): void`
+
+</llm-only>
+
 Add 'show' | 'hide' event listeners.
 
 </div>
@@ -264,6 +366,12 @@ Add 'show' | 'hide' event listeners.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeEventListener</span><span class="ab-opt">?</span>(type: "show" &#124; "hide", listener: EventListenerOrEventListenerObject): void</code></p>
+
+<llm-only>
+
+`removeEventListener?(type: "show" | "hide", listener: EventListenerOrEventListenerObject): void`
+
+</llm-only>
 
 Remove 'show' | 'hide' event listeners.
 
@@ -300,6 +408,12 @@ Import: `import type { UINavMenuAttributes } from 'polaris-vue-elements/app-brid
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">children</span><span class="ab-opt">?</span>: any</code></p>
+
+<llm-only>
+
+`children?: any`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 

@@ -99,6 +99,12 @@ const name = ref('')
 
 文档站点的源码位于 [`docs/`](../../docs)；可通过 `npm run docs:dev` 在本地运行。
 
+## 搭配 AI 编程智能体使用
+
+本包附带 [`AGENTS.md`](../../AGENTS.md)，这是一份供使用本库编写 Vue 代码的 AI 编程智能体阅读的指南。安装后它位于 `node_modules/polaris-vue-elements/AGENTS.md`，因此与你所用的版本一致；请让项目的智能体说明文件指向它。
+
+文档同时以 Markdown 形式发布：[`llms.txt`](https://polaris-vue-elements.dev/llms.txt)（索引）、[`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt)（所有英文页面合并为一个文件），以及每个页面的 `.md` 副本，例如 [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md)。参见[通过 AI 智能体使用 polaris-vue-elements](https://polaris-vue-elements.dev/zh/guide/ai-agents)。
+
 ## 工作原理
 
 所有能从 Shopify 的 manifest 推导出的内容都由机器生成；需要人工判断的部分只放在一个小文件里。

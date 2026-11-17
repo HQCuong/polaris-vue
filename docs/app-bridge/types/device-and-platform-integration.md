@@ -25,6 +25,12 @@ The APIs Shopify lists under device and platform integration, and the types only
 
 <p class="ab-sig"><code v-pre><span class="ab-name">cart</span>: <a href="#poscart">PosCart</a></code></p>
 
+<llm-only>
+
+`cart: PosCart`
+
+</llm-only>
+
 Provides methods to read and modify the current POS cart, including line items, discounts, customers, and properties.
 
 </div>
@@ -32,6 +38,12 @@ Provides methods to read and modify the current POS cart, including line items, 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">close</span>: <a href="#posclose">PosClose</a></code></p>
+
+<llm-only>
+
+`close: PosClose`
+
+</llm-only>
 
 Closes the app and returns to the POS screen.
 
@@ -41,6 +53,12 @@ Closes the app and returns to the POS screen.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">device</span>: <a href="#posdevice">PosDevice</a></code></p>
 
+<llm-only>
+
+`device: PosDevice`
+
+</llm-only>
+
 Returns information about the POS device, including its name and serial number.
 
 </div>
@@ -48,6 +66,12 @@ Returns information about the POS device, including its name and serial number.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">location</span>: <a href="#poslocation">PosLocation</a></code></p>
+
+<llm-only>
+
+`location: PosLocation`
+
+</llm-only>
 
 Returns information about the current POS location, including its ID, name, address, and status.
 
@@ -186,6 +210,12 @@ type PosLocation = () => Promise<Location>;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">fetch</span><span class="ab-opt">?</span>(): Promise&lt;<a href="#cart">Cart</a>&gt;</code></p>
 
+<llm-only>
+
+`fetch?(): Promise<Cart>`
+
+</llm-only>
+
 Fetch the current cart.
 
 </div>
@@ -193,6 +223,12 @@ Fetch the current cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">subscribe</span><span class="ab-opt">?</span>(onSubscribe: <a href="#cartsubscriber">CartSubscriber</a>): <a href="#unsubscribe">Unsubscribe</a></code></p>
+
+<llm-only>
+
+`subscribe?(onSubscribe: CartSubscriber): Unsubscribe`
+
+</llm-only>
 
 Subscribe the cart changes.
 
@@ -202,6 +238,12 @@ Subscribe the cart changes.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">setCustomer</span><span class="ab-opt">?</span>(customer: <a href="#customer">Customer</a>): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`setCustomer?(customer: Customer): Promise<void>`
+
+</llm-only>
+
 Add a new or existing customer to the cart.
 
 </div>
@@ -209,6 +251,12 @@ Add a new or existing customer to the cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeCustomer</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`removeCustomer?(): Promise<void>`
+
+</llm-only>
 
 Remove the current customer from the cart.
 
@@ -218,6 +266,12 @@ Remove the current customer from the cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addAddress</span><span class="ab-opt">?</span>(address: <a href="#address">Address</a>): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`addAddress?(address: Address): Promise<void>`
+
+</llm-only>
+
 Add a new address to a customer.
 
 </div>
@@ -225,6 +279,12 @@ Add a new address to a customer.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">updateAddress</span><span class="ab-opt">?</span>(index: number, address: <a href="#address">Address</a>): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`updateAddress?(index: number, address: Address): Promise<void>`
+
+</llm-only>
 
 Update an address for a customer.
 
@@ -234,6 +294,12 @@ Update an address for a customer.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">applyCartDiscount</span><span class="ab-opt">?</span>(type: <a href="#discounttype">DiscountType</a>, discountDescription: string, amount: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`applyCartDiscount?(type: DiscountType, discountDescription: string, amount: string): Promise<void>`
+
+</llm-only>
+
 Apply a percentage or fixed amount discount to the whole cart.
 
 </div>
@@ -241,6 +307,12 @@ Apply a percentage or fixed amount discount to the whole cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">applyCartCodeDiscount</span><span class="ab-opt">?</span>(code: string): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`applyCartCodeDiscount?(code: string): Promise<void>`
+
+</llm-only>
 
 Apply a code discount to the whole cart.
 
@@ -250,6 +322,12 @@ Apply a code discount to the whole cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeCartDiscount</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`removeCartDiscount?(): Promise<void>`
+
+</llm-only>
+
 Remove the discount applied to the whole cart.
 
 </div>
@@ -257,6 +335,12 @@ Remove the discount applied to the whole cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeAllDiscounts</span><span class="ab-opt">?</span>(disableAutomaticDiscounts: boolean): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`removeAllDiscounts?(disableAutomaticDiscounts: boolean): Promise<void>`
+
+</llm-only>
 
 Clears all applied discounts from the cart and optionally disables automatic discounts.
 
@@ -266,6 +350,12 @@ Clears all applied discounts from the cart and optionally disables automatic dis
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addCartProperties</span><span class="ab-opt">?</span>(properties: Record&lt;string, string&gt;): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`addCartProperties?(properties: Record<string, string>): Promise<void>`
+
+</llm-only>
+
 Add properties for the cart.
 
 </div>
@@ -273,6 +363,12 @@ Add properties for the cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeCartProperties</span><span class="ab-opt">?</span>(keys: string[]): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`removeCartProperties?(keys: string[]): Promise<void>`
+
+</llm-only>
 
 Remove properties from the cart.
 
@@ -282,6 +378,12 @@ Remove properties from the cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addCustomSale</span><span class="ab-opt">?</span>(customSale: <a href="#customsale">CustomSale</a>): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`addCustomSale?(customSale: CustomSale): Promise<void>`
+
+</llm-only>
+
 Add custom sale for the cart.
 
 </div>
@@ -289,6 +391,12 @@ Add custom sale for the cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">clear</span><span class="ab-opt">?</span>(): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`clear?(): Promise<void>`
+
+</llm-only>
 
 Clear all contents from the cart.
 
@@ -298,6 +406,12 @@ Clear all contents from the cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addLineItem</span><span class="ab-opt">?</span>(variantId: number, quantity: number): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`addLineItem?(variantId: number, quantity: number): Promise<void>`
+
+</llm-only>
+
 Add a product to the cart.
 
 </div>
@@ -305,6 +419,12 @@ Add a product to the cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">updateLineItem</span><span class="ab-opt">?</span>(uuid: string, quantity: number): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`updateLineItem?(uuid: string, quantity: number): Promise<void>`
+
+</llm-only>
 
 Make changes to a line item in the cart.
 
@@ -314,6 +434,12 @@ Make changes to a line item in the cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeLineItem</span><span class="ab-opt">?</span>(uuid: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`removeLineItem?(uuid: string): Promise<void>`
+
+</llm-only>
+
 Remove a line item in the cart.
 
 </div>
@@ -321,6 +447,12 @@ Remove a line item in the cart.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">setLineItemDiscount</span><span class="ab-opt">?</span>(uuid: string, type: <a href="#discounttype">DiscountType</a>, discountDescription: string, amount: string): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`setLineItemDiscount?(uuid: string, type: DiscountType, discountDescription: string, amount: string): Promise<void>`
+
+</llm-only>
 
 Apply a discount to a line item.
 
@@ -330,6 +462,12 @@ Apply a discount to a line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeLineItemDiscount</span><span class="ab-opt">?</span>(uuid: string): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`removeLineItemDiscount?(uuid: string): Promise<void>`
+
+</llm-only>
+
 Remove a discount from a line item.
 
 </div>
@@ -338,6 +476,12 @@ Remove a discount from a line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">addLineItemProperties</span><span class="ab-opt">?</span>(uuid: string, properties: Record&lt;string, string&gt;): Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`addLineItemProperties?(uuid: string, properties: Record<string, string>): Promise<void>`
+
+</llm-only>
+
 Add properties to a line item.
 
 </div>
@@ -345,6 +489,12 @@ Add properties to a line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">removeLineItemProperties</span><span class="ab-opt">?</span>(uuid: string, properties: string[]): Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`removeLineItemProperties?(uuid: string, properties: string[]): Promise<void>`
+
+</llm-only>
 
 Remove properties from a line item.
 
@@ -376,6 +526,12 @@ Remove properties from a line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">name</span>: string</code></p>
 
+<llm-only>
+
+`name: string`
+
+</llm-only>
+
 The name of the device.
 
 </div>
@@ -383,6 +539,12 @@ The name of the device.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">serialNumber</span>: string</code></p>
+
+<llm-only>
+
+`serialNumber: string`
+
+</llm-only>
 
 The unique ID associated device ID and app ID..
 
@@ -414,6 +576,12 @@ The unique ID associated device ID and app ID..
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: number</code></p>
 
+<llm-only>
+
+`id: number`
+
+</llm-only>
+
 The ID of current location.
 
 </div>
@@ -421,6 +589,12 @@ The ID of current location.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">active</span>: boolean</code></p>
+
+<llm-only>
+
+`active: boolean`
+
+</llm-only>
 
 The status of current location.
 
@@ -430,6 +604,12 @@ The status of current location.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">name</span>: string</code></p>
 
+<llm-only>
+
+`name: string`
+
+</llm-only>
+
 The name of current location.
 
 </div>
@@ -437,6 +617,12 @@ The name of current location.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">locationType</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`locationType?: string`
+
+</llm-only>
 
 The type of current location.
 
@@ -446,6 +632,12 @@ The type of current location.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">address1</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`address1?: string`
+
+</llm-only>
+
 The primary address of current location.
 
 </div>
@@ -453,6 +645,12 @@ The primary address of current location.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">address2</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`address2?: string`
+
+</llm-only>
 
 Any extra information associated with the address (Apartment #, Suite #, Unit #, etc.).
 
@@ -462,6 +660,12 @@ Any extra information associated with the address (Apartment #, Suite #, Unit #,
 
 <p class="ab-sig"><code v-pre><span class="ab-name">zip</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`zip?: string`
+
+</llm-only>
+
 The ZIP or postal code of the address.
 
 </div>
@@ -469,6 +673,12 @@ The ZIP or postal code of the address.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">city</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`city?: string`
+
+</llm-only>
 
 The name of the city.
 
@@ -478,6 +688,12 @@ The name of the city.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">province</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`province?: string`
+
+</llm-only>
+
 TThe province or state of the address.
 
 </div>
@@ -485,6 +701,12 @@ TThe province or state of the address.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">countryCode</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`countryCode?: string`
+
+</llm-only>
 
 The Country Code in ISO 3166-1 (alpha-2) format.
 
@@ -494,6 +716,12 @@ The Country Code in ISO 3166-1 (alpha-2) format.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">countryName</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`countryName?: string`
+
+</llm-only>
+
 The country of the address.
 
 </div>
@@ -501,6 +729,12 @@ The country of the address.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">phone</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`phone?: string`
+
+</llm-only>
 
 The phone number of the location.
 
@@ -532,6 +766,12 @@ The phone number of the location.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">address1</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`address1?: string`
+
+</llm-only>
+
 The customer's primary address.
 
 </div>
@@ -539,6 +779,12 @@ The customer's primary address.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">address2</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`address2?: string`
+
+</llm-only>
 
 Any extra information associated with the address (Apartment #, Suite #, Unit #, etc.).
 
@@ -548,6 +794,12 @@ Any extra information associated with the address (Apartment #, Suite #, Unit #,
 
 <p class="ab-sig"><code v-pre><span class="ab-name">city</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`city?: string`
+
+</llm-only>
+
 The name of the customer's city.
 
 </div>
@@ -555,6 +807,12 @@ The name of the customer's city.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">company</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`company?: string`
+
+</llm-only>
 
 The company name associated with address.
 
@@ -564,6 +822,12 @@ The company name associated with address.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">firstName</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`firstName?: string`
+
+</llm-only>
+
 The first name of the customer.
 
 </div>
@@ -571,6 +835,12 @@ The first name of the customer.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">lastName</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`lastName?: string`
+
+</llm-only>
 
 The last name of the customer.
 
@@ -580,6 +850,12 @@ The last name of the customer.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">phone</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`phone?: string`
+
+</llm-only>
+
 The phone number of the customer.
 
 </div>
@@ -587,6 +863,12 @@ The phone number of the customer.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">province</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`province?: string`
+
+</llm-only>
 
 The province or state of the address.
 
@@ -596,6 +878,12 @@ The province or state of the address.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">country</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`country?: string`
+
+</llm-only>
+
 The country of the address.
 
 </div>
@@ -603,6 +891,12 @@ The country of the address.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">zip</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`zip?: string`
+
+</llm-only>
 
 The ZIP or postal code of the address.
 
@@ -612,6 +906,12 @@ The ZIP or postal code of the address.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">name</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`name?: string`
+
+</llm-only>
+
 The name of the address.
 
 </div>
@@ -620,6 +920,12 @@ The name of the address.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">provinceCode</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`provinceCode?: string`
+
+</llm-only>
+
 The acronym of the province or state.
 
 </div>
@@ -627,6 +933,12 @@ The acronym of the province or state.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">countryCode</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`countryCode?: string`
+
+</llm-only>
 
 The Country Code in ISO 3166-1 (alpha-2) format.
 
@@ -658,6 +970,12 @@ The Country Code in ISO 3166-1 (alpha-2) format.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">subTotal</span>: string</code></p>
 
+<llm-only>
+
+`subTotal: string`
+
+</llm-only>
+
 The total cost of the current cart including discounts, but before taxes and shipping. Value is based on the shop's existing currency settings.
 
 </div>
@@ -665,6 +983,12 @@ The total cost of the current cart including discounts, but before taxes and shi
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">taxTotal</span>: string</code></p>
+
+<llm-only>
+
+`taxTotal: string`
+
+</llm-only>
 
 The sum of taxes for the current cart. Value is based on the shop's existing currency settings.
 
@@ -674,6 +998,12 @@ The sum of taxes for the current cart. Value is based on the shop's existing cur
 
 <p class="ab-sig"><code v-pre><span class="ab-name">grandTotal</span>: string</code></p>
 
+<llm-only>
+
+`grandTotal: string`
+
+</llm-only>
+
 The total cost of the current cart, after taxes and discounts have been applied. Value is based on the shop's existing currency settings.
 
 </div>
@@ -681,6 +1011,12 @@ The total cost of the current cart, after taxes and discounts have been applied.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">cartDiscount</span><span class="ab-opt">?</span>: <a href="#discount">Discount</a></code></p>
+
+<llm-only>
+
+`cartDiscount?: Discount`
+
+</llm-only>
 
 The current discount applied to the entire cart.
 
@@ -690,6 +1026,12 @@ The current discount applied to the entire cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">cartDiscounts</span><span class="ab-opt">?</span>: <a href="#discount">Discount</a>[]</code></p>
 
+<llm-only>
+
+`cartDiscounts?: Discount[]`
+
+</llm-only>
+
 All current discounts applied to the entire cart and line items.
 
 </div>
@@ -697,6 +1039,12 @@ All current discounts applied to the entire cart and line items.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">customer</span><span class="ab-opt">?</span>: <a href="#customer">Customer</a></code></p>
+
+<llm-only>
+
+`customer?: Customer`
+
+</llm-only>
 
 The customer associated to the current cart.
 
@@ -706,6 +1054,12 @@ The customer associated to the current cart.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">lineItems</span>: <a href="#lineitem">LineItem</a>[]</code></p>
 
+<llm-only>
+
+`lineItems: LineItem[]`
+
+</llm-only>
+
 A list of lineItem objects.
 
 </div>
@@ -713,6 +1067,12 @@ A list of lineItem objects.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">properties</span>: Record&lt;string, string&gt;</code></p>
+
+<llm-only>
+
+`properties: Record<string, string>`
+
+</llm-only>
 
 A list of objects containing cart properties.
 
@@ -771,6 +1131,12 @@ type CartSubscriber = (cart: Cart) => void;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: number</code></p>
 
+<llm-only>
+
+`id: number`
+
+</llm-only>
+
 The ID of existing customer.
 
 </div>
@@ -778,6 +1144,12 @@ The ID of existing customer.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">email</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`email?: string`
+
+</llm-only>
 
 The email for a new customer.
 
@@ -787,6 +1159,12 @@ The email for a new customer.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">firstName</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`firstName?: string`
+
+</llm-only>
+
 The first name for new customer.
 
 </div>
@@ -795,6 +1173,12 @@ The first name for new customer.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">lastName</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`lastName?: string`
+
+</llm-only>
+
 The last name for new customer.
 
 </div>
@@ -802,6 +1186,12 @@ The last name for new customer.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">note</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`note?: string`
+
+</llm-only>
 
 The note for new customer.
 
@@ -833,6 +1223,12 @@ The note for new customer.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">price</span>: number</code></p>
 
+<llm-only>
+
+`price: number`
+
+</llm-only>
+
 Price of line item
 
 </div>
@@ -840,6 +1236,12 @@ Price of line item
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">quantity</span>: number</code></p>
+
+<llm-only>
+
+`quantity: number`
+
+</llm-only>
 
 Quantity of line item.
 
@@ -849,6 +1251,12 @@ Quantity of line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">title</span>: string</code></p>
 
+<llm-only>
+
+`title: string`
+
+</llm-only>
+
 Title of line item.
 
 </div>
@@ -856,6 +1264,12 @@ Title of line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">taxable</span>: boolean</code></p>
+
+<llm-only>
+
+`taxable: boolean`
+
+</llm-only>
 
 If line item charges tax.
 
@@ -939,6 +1353,12 @@ type Unsubscribe = () => void;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">amount</span>: number</code></p>
 
+<llm-only>
+
+`amount: number`
+
+</llm-only>
+
 Amount of discount. Only for fixed or percentage discounts.
 
 </div>
@@ -947,6 +1367,12 @@ Amount of discount. Only for fixed or percentage discounts.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">discountDescription</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`discountDescription?: string`
+
+</llm-only>
+
 Description of discount.
 
 </div>
@@ -954,6 +1380,12 @@ Description of discount.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">type</span>: <a href="#discounttype">DiscountType</a></code></p>
+
+<llm-only>
+
+`type: DiscountType`
+
+</llm-only>
 
 Type of discount.
 
@@ -985,6 +1417,12 @@ Type of discount.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">uuid</span>: string</code></p>
 
+<llm-only>
+
+`uuid: string`
+
+</llm-only>
+
 Unique id of line item
 
 </div>
@@ -992,6 +1430,12 @@ Unique id of line item
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">price</span><span class="ab-opt">?</span>: number</code></p>
+
+<llm-only>
+
+`price?: number`
+
+</llm-only>
 
 Price of line item
 
@@ -1001,6 +1445,12 @@ Price of line item
 
 <p class="ab-sig"><code v-pre><span class="ab-name">quantity</span>: number</code></p>
 
+<llm-only>
+
+`quantity: number`
+
+</llm-only>
+
 Quantity of line item.
 
 </div>
@@ -1008,6 +1458,12 @@ Quantity of line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">title</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`title?: string`
+
+</llm-only>
 
 Title of line item.
 
@@ -1017,6 +1473,12 @@ Title of line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">variantId</span><span class="ab-opt">?</span>: number</code></p>
 
+<llm-only>
+
+`variantId?: number`
+
+</llm-only>
+
 Variant identifier for line item.
 
 </div>
@@ -1024,6 +1486,12 @@ Variant identifier for line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">productId</span><span class="ab-opt">?</span>: number</code></p>
+
+<llm-only>
+
+`productId?: number`
+
+</llm-only>
 
 Product identifier for line item.
 
@@ -1033,6 +1501,12 @@ Product identifier for line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">discounts</span>: <a href="#discount">Discount</a>[]</code></p>
 
+<llm-only>
+
+`discounts: Discount[]`
+
+</llm-only>
+
 Discount applied to line item.
 
 </div>
@@ -1040,6 +1514,12 @@ Discount applied to line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">taxable</span>: boolean</code></p>
+
+<llm-only>
+
+`taxable: boolean`
+
+</llm-only>
 
 If line item charges tax.
 
@@ -1049,6 +1529,12 @@ If line item charges tax.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">sku</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`sku?: string`
+
+</llm-only>
+
 Stock keeping unit of the line item.
 
 </div>
@@ -1056,6 +1542,12 @@ Stock keeping unit of the line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">vendor</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`vendor?: string`
+
+</llm-only>
 
 Vendor of line item.
 
@@ -1065,6 +1557,12 @@ Vendor of line item.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">properties</span>: { [key: string]: string; }</code></p>
 
+<llm-only>
+
+`properties: { [key: string]: string; }`
+
+</llm-only>
+
 Properties of the line item.
 
 </div>
@@ -1072,6 +1570,12 @@ Properties of the line item.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">isGiftCard</span>: boolean</code></p>
+
+<llm-only>
+
+`isGiftCard: boolean`
+
+</llm-only>
 
 If the line item is a gift card.
 
@@ -1103,6 +1607,12 @@ If the line item is a gift card.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">capture</span>(): Promise&lt;<a href="#scannerpayload">ScannerPayload</a>&gt;</code></p>
 
+<llm-only>
+
+`capture(): Promise<ScannerPayload>`
+
+</llm-only>
+
 Opens the device camera to scan a barcode. Returns a Promise that resolves to a `ScannerPayload` containing the scanned data.
 
 </div>
@@ -1133,6 +1643,12 @@ Opens the device camera to scan a barcode. Returns a Promise that resolves to a 
 
 <p class="ab-sig"><code v-pre><span class="ab-name">data</span>: string</code></p>
 
+<llm-only>
+
+`data: string`
+
+</llm-only>
+
 The scanned barcode data as a string.
 
 </div>
@@ -1162,6 +1678,12 @@ The scanned barcode data as a string.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">onReport</span><span class="ab-opt">?</span>: (callback: <a href="#webvitalscallback">WebVitalsCallback</a> &#124; null) =&gt; Promise&lt;void&gt;</code></p>
+
+<llm-only>
+
+`onReport?: (callback: WebVitalsCallback | null) => Promise<void>`
+
+</llm-only>
 
 Registers a callback to receive Web Vitals performance data. Pass `null` to unregister a previously registered callback.
 
@@ -1220,6 +1742,12 @@ type WebVitalsCallback = (payload: WebVitalsReport) => void | Promise<void>;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">metrics</span>: <a href="#webvitalsmetric">WebVitalsMetric</a>[]</code></p>
 
+<llm-only>
+
+`metrics: WebVitalsMetric[]`
+
+</llm-only>
+
 The array of Web Vitals metric measurements included in this report.
 
 </div>
@@ -1250,6 +1778,12 @@ The array of Web Vitals metric measurements included in this report.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span>: string</code></p>
 
+<llm-only>
+
+`id: string`
+
+</llm-only>
+
 A unique identifier for this metric measurement instance.
 
 </div>
@@ -1257,6 +1791,12 @@ A unique identifier for this metric measurement instance.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">name</span>: string</code></p>
+
+<llm-only>
+
+`name: string`
+
+</llm-only>
 
 The name of the metric, such as `LCP`, `FCP`, `CLS`, `INP`, or `TTFB`.
 
@@ -1266,6 +1806,12 @@ The name of the metric, such as `LCP`, `FCP`, `CLS`, `INP`, or `TTFB`.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">value</span>: number</code></p>
 
+<llm-only>
+
+`value: number`
+
+</llm-only>
+
 The measured value of the metric. Units depend on the metric name (milliseconds for timing metrics, unitless for CLS).
 
 </div>
@@ -1274,6 +1820,12 @@ The measured value of the metric. Units depend on the metric name (milliseconds 
 
 <p class="ab-sig"><code v-pre><span class="ab-name">country</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`country?: string`
+
+</llm-only>
+
 The country code where the metric was collected, if available.
 
 </div>
@@ -1281,6 +1833,12 @@ The country code where the metric was collected, if available.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">version</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`version?: string`
+
+</llm-only>
 
 The App Bridge build version that produced the metric, in the form `<package-version>` or `<package-version>+<short-commit-sha>`. Used to attribute reports to a specific deploy.
 

@@ -98,6 +98,12 @@ Everything lives at **[polaris-vue-elements.dev](https://polaris-vue-elements.de
 
 The site's source is in [`docs/`](./docs); run it locally with `npm run docs:dev`.
 
+## Using with AI coding agents
+
+The package ships [`AGENTS.md`](./AGENTS.md), a guide for AI coding agents that write Vue code with this library. After install it is at `node_modules/polaris-vue-elements/AGENTS.md`, so it matches the version you have; point your project's agent instructions at it.
+
+The docs are also published as Markdown: [`llms.txt`](https://polaris-vue-elements.dev/llms.txt) (an index), [`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt) (every English page in one file) and a `.md` copy of each page, such as [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md). See [Using polaris-vue-elements with AI agents](https://polaris-vue-elements.dev/guide/ai-agents).
+
 ## How it works
 
 Everything derivable from Shopify's manifest is machine-generated; human judgment lives in one small file.

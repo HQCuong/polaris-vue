@@ -99,6 +99,12 @@ const name = ref('')
 
 साइट का source [`docs/`](../../docs) में है; इसे local रूप से `npm run docs:dev` से चलाएँ।
 
+## AI coding agents के साथ इस्तेमाल
+
+Package में [`AGENTS.md`](../../AGENTS.md) आती है, जो इस library से Vue code लिखने वाले AI coding agents के लिए एक गाइड है। इंस्टॉल के बाद यह `node_modules/polaris-vue-elements/AGENTS.md` पर होती है, इसलिए यह आपके version से मेल खाती है; अपने project के agent instructions को इसकी ओर इशारा करें।
+
+Docs Markdown के रूप में भी प्रकाशित हैं: [`llms.txt`](https://polaris-vue-elements.dev/llms.txt) (एक index), [`llms-full.txt`](https://polaris-vue-elements.dev/llms-full.txt) (सभी अंग्रेज़ी pages एक file में) और हर page की `.md` copy, जैसे [`/components/s-button.md`](https://polaris-vue-elements.dev/components/s-button.md)। देखें [AI agents के साथ polaris-vue-elements का इस्तेमाल](https://polaris-vue-elements.dev/hi/guide/ai-agents)।
+
 ## यह कैसे काम करता है
 
 Shopify के manifest से जो कुछ भी निकाला जा सकता है, वह machine-generated है; इंसानी निर्णय केवल एक छोटी-सी file में रहता है।

@@ -25,6 +25,12 @@ The APIs Shopify lists under authentication and data, and the types only they us
 
 <p class="ab-sig"><code v-pre><span class="ab-name">extensions</span>(): Promise&lt;<a href="#extensioninfo">ExtensionInfo</a>[]&gt;</code></p>
 
+<llm-only>
+
+`extensions(): Promise<ExtensionInfo[]>`
+
+</llm-only>
+
 The list of extensions from the current app.
 
 </div>
@@ -51,7 +57,7 @@ The list of extensions from the current app.
 
 <div class="ab-meta">
 
-Type parameters: <code v-pre>Type extends <a href="#extensiontype">ExtensionType</a> = <a href="#extensiontype">ExtensionType</a></code>
+Type parameters: <llm-exclude><code v-pre>Type extends <a href="#extensiontype">ExtensionType</a> = <a href="#extensiontype">ExtensionType</a></code></llm-exclude><llm-only>`Type extends ExtensionType = ExtensionType`</llm-only>
 
 </div>
 
@@ -61,6 +67,12 @@ Type parameters: <code v-pre>Type extends <a href="#extensiontype">ExtensionType
 
 <p class="ab-sig"><code v-pre><span class="ab-name">handle</span>: string</code></p>
 
+<llm-only>
+
+`handle: string`
+
+</llm-only>
+
 The unique identifier for the extension.
 
 </div>
@@ -68,6 +80,12 @@ The unique identifier for the extension.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">activations</span>: Type extends "ui_extension" ? <a href="#uiextensionactivation">UiExtensionActivation</a>[] : Type extends "theme_app_extension" ? <a href="#themeextensionactivation">ThemeExtensionActivation</a>[] : never</code></p>
+
+<llm-only>
+
+`activations: Type extends "ui_extension" ? UiExtensionActivation[] : Type extends "theme_app_extension" ? ThemeExtensionActivation[] : never`
+
+</llm-only>
 
 List of activation records for the extension. The shape depends on the extension type:
 - UI extensions have activations with only `target`
@@ -78,6 +96,12 @@ List of activation records for the extension. The shape depends on the extension
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">type</span>: Type</code></p>
+
+<llm-only>
+
+`type: Type`
+
+</llm-only>
 
 The type of the extension.
 
@@ -135,6 +159,12 @@ type ExtensionType = "ui_extension" | "theme_app_extension";
 
 <p class="ab-sig"><code v-pre><span class="ab-name">target</span>: <a href="#themeappblocktarget">ThemeAppBlockTarget</a> &#124; <a href="#themeappembedtarget">ThemeAppEmbedTarget</a></code></p>
 
+<llm-only>
+
+`target: ThemeAppBlockTarget | ThemeAppEmbedTarget`
+
+</llm-only>
+
 The target location type for this block/embed.
 - `section` for blocks
 - `head`, `body`, or `compliance_head` for embeds
@@ -145,6 +175,12 @@ The target location type for this block/embed.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">handle</span>: string</code></p>
 
+<llm-only>
+
+`handle: string`
+
+</llm-only>
+
 The filename of the block/embed within the theme app extension (without extension). This is configured by the developer when creating the block file.
 
 </div>
@@ -152,6 +188,12 @@ The filename of the block/embed within the theme app extension (without extensio
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">name</span>: string</code></p>
+
+<llm-only>
+
+`name: string`
+
+</llm-only>
 
 The developer-configured display name of this block/embed, defined in the block's schema.
 
@@ -163,6 +205,12 @@ See: [https://shopify.dev/docs/apps/build/online-store/theme-app-extensions/conf
 
 <p class="ab-sig"><code v-pre><span class="ab-name">status</span>: <a href="#activationstatus">ActivationStatus</a></code></p>
 
+<llm-only>
+
+`status: ActivationStatus`
+
+</llm-only>
+
 The availability status of this block/embed.
 
 </div>
@@ -170,6 +218,12 @@ The availability status of this block/embed.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">activations</span>: <a href="#themeappblockactivation">ThemeAppBlockActivation</a>[]</code></p>
+
+<llm-only>
+
+`activations: ThemeAppBlockActivation[]`
+
+</llm-only>
 
 List of theme-specific activations for this block/embed. Contains where the block is actually placed within themes.
 
@@ -200,6 +254,12 @@ List of theme-specific activations for this block/embed. Contains where the bloc
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">target</span>: string</code></p>
+
+<llm-only>
+
+`target: string`
+
+</llm-only>
 
 The target identifier for the extension activation. For example, `purchase.thank-you.block.render`.
 
@@ -257,6 +317,12 @@ type ActivationStatus = "active" | "available" | "unavailable";
 
 <p class="ab-sig"><code v-pre><span class="ab-name">target</span>: string</code></p>
 
+<llm-only>
+
+`target: string`
+
+</llm-only>
+
 The target identifier for the block/embed placement within the theme. For example, `template--product.alternate/main/my_app_product_rating_GPzUYy`.
 
 </div>
@@ -264,6 +330,12 @@ The target identifier for the block/embed placement within the theme. For exampl
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">themeId</span>: string</code></p>
+
+<llm-only>
+
+`themeId: string`
+
+</llm-only>
 
 The theme ID where this block/embed is activated. Format: `gid://shopify/OnlineStoreTheme/{id}`
 
@@ -347,6 +419,12 @@ type ThemeAppEmbedTarget = "head" | "body" | "compliance_head";
 
 <p class="ab-sig"><code v-pre><span class="ab-name">apiKey</span>: string</code></p>
 
+<llm-only>
+
+`apiKey: string`
+
+</llm-only>
+
 The client ID (also known as the API key) for your application, found in the Shopify Partner Dashboard under your app's settings.
 
 You must provide this value using a `<meta name="shopify-api-key">` tag.
@@ -356,6 +434,12 @@ You must provide this value using a `<meta name="shopify-api-key">` tag.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">appOrigins</span><span class="ab-opt">?</span>: string[]</code></p>
+
+<llm-only>
+
+`appOrigins?: string[]`
+
+</llm-only>
 
 An allowlist of origins that your app can send authenticated fetch requests to.
 
@@ -369,6 +453,12 @@ Each value must be an origin in the format `scheme://hostname` or `scheme://host
 
 <p class="ab-sig"><code v-pre><span class="ab-name">debug</span><span class="ab-opt">?</span>: <a href="#debugoptions">DebugOptions</a></code></p>
 
+<llm-only>
+
+`debug?: DebugOptions`
+
+</llm-only>
+
 Configuration for enabling Web Vitals performance logging.
 
 Use this property during development for identifying performance issues.
@@ -378,6 +468,12 @@ Use this property during development for identifying performance issues.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">disabledFeatures</span><span class="ab-opt">?</span>: string[]</code></p>
+
+<llm-only>
+
+`disabledFeatures?: string[]`
+
+</llm-only>
 
 An array of App Bridge feature names to disable in your app.
 
@@ -391,6 +487,12 @@ Supported values:
 
 <p class="ab-sig"><code v-pre><span class="ab-name">experimentalFeatures</span><span class="ab-opt">?</span>: string[]</code></p>
 
+<llm-only>
+
+`experimentalFeatures?: string[]`
+
+</llm-only>
+
 The experimental features to enable in your app.
 
 This allows app developers to opt-in to experiement features.
@@ -401,6 +503,12 @@ This allows app developers to opt-in to experiement features.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">host</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`host?: string`
+
+</llm-only>
+
 The base64-encoded host of the shop that's embedding your app. When decoded, the value has the format `admin.shopify.com/store/{shop-name}`.
 
 This property is automatically set by the host environment.
@@ -410,6 +518,12 @@ This property is automatically set by the host environment.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">locale</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`locale?: string`
+
+</llm-only>
 
 The locale of the admin user viewing your app, as an IETF BCP 47 language tag (for example, `'en-US'`, `'fr-FR'`, `'ja-JP'`).
 
@@ -424,6 +538,12 @@ Default: `'en-US'`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">shop</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`shop?: string`
+
+</llm-only>
 
 The permanent `.myshopify.com` domain of the shop that's embedding your app (for example, `'my-store.myshopify.com'`). This is always the Shopify-assigned domain, not a custom domain.
 
@@ -457,6 +577,12 @@ This property is automatically set by the host environment.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">webVitals</span><span class="ab-opt">?</span>: boolean</code></p>
 
+<llm-only>
+
+`webVitals?: boolean`
+
+</llm-only>
+
 Enables or disables the logging of web performance metrics (Web Vitals) in the browser's console.
 
 When set to `true`, the app will log Core Web Vitals (such as LCP, INP, and CLS) and other relevant performance metrics to help developers understand the real-world performance of their app. This can be useful for debugging performance issues during development or in a staging environment.
@@ -489,7 +615,7 @@ Default: `false`
 
 <div class="ab-meta">
 
-Extends: <code v-pre>Required&lt;<a href="#_environmentapi">_EnvironmentApi</a>&gt;</code>
+Extends: <llm-exclude><code v-pre>Required&lt;<a href="#_environmentapi">_EnvironmentApi</a>&gt;</code></llm-exclude><llm-only>`Required<_EnvironmentApi>`</llm-only>
 
 </div>
 
@@ -517,6 +643,12 @@ Extends: <code v-pre>Required&lt;<a href="#_environmentapi">_EnvironmentApi</a>&
 
 <p class="ab-sig"><code v-pre><span class="ab-name">mobile</span><span class="ab-opt">?</span>: boolean</code></p>
 
+<llm-only>
+
+`mobile?: boolean`
+
+</llm-only>
+
 Whether the app is running inside the Shopify Mobile app.
 
 </div>
@@ -524,6 +656,12 @@ Whether the app is running inside the Shopify Mobile app.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">embedded</span><span class="ab-opt">?</span>: boolean</code></p>
+
+<llm-only>
+
+`embedded?: boolean`
+
+</llm-only>
 
 Whether the app is embedded in the Shopify admin.
 
@@ -533,6 +671,12 @@ Whether the app is embedded in the Shopify admin.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">pos</span><span class="ab-opt">?</span>: boolean</code></p>
 
+<llm-only>
+
+`pos?: boolean`
+
+</llm-only>
+
 Whether the app is running inside the Shopify POS app.
 
 </div>
@@ -540,6 +684,12 @@ Whether the app is running inside the Shopify POS app.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">intent</span><span class="ab-opt">?</span>: boolean</code></p>
+
+<llm-only>
+
+`intent?: boolean`
+
+</llm-only>
 
 Whether the app is running as an intent.
 
@@ -597,6 +747,12 @@ type IdTokenApi = () => Promise<string>;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">query</span>: () =&gt; Promise&lt;<a href="#scopesdetail">ScopesDetail</a>&gt;</code></p>
 
+<llm-only>
+
+`query: () => Promise<ScopesDetail>`
+
+</llm-only>
+
 Returns the current access scopes for this app on this shop, including which are granted, required, and optional.
 
 </div>
@@ -604,6 +760,12 @@ Returns the current access scopes for this app on this shop, including which are
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">request</span>: (scopes: <a href="#scope">Scope</a>[]) =&gt; Promise&lt;<a href="#scopesrequestresponse">ScopesRequestResponse</a>&gt;</code></p>
+
+<llm-only>
+
+`request: (scopes: Scope[]) => Promise<ScopesRequestResponse>`
+
+</llm-only>
 
 Opens a permission grant modal asking the merchant to grant the specified scopes.
 
@@ -616,6 +778,12 @@ See the [permission grant modal](https://shopify.dev/docs/apps/build/authenticat
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">revoke</span>: (scopes: <a href="#scope">Scope</a>[]) =&gt; Promise&lt;<a href="#scopesrevokeresponse">ScopesRevokeResponse</a>&gt;</code></p>
+
+<llm-only>
+
+`revoke: (scopes: Scope[]) => Promise<ScopesRevokeResponse>`
+
+</llm-only>
 
 Revokes the specified optional scopes from this app on this shop.
 
@@ -675,6 +843,12 @@ type Scope = string;
 
 <p class="ab-sig"><code v-pre><span class="ab-name">granted</span>: <a href="#scope">Scope</a>[]</code></p>
 
+<llm-only>
+
+`granted: Scope[]`
+
+</llm-only>
+
 The scopes currently granted to this app on this shop. This includes both required and optional scopes.
 
 </div>
@@ -683,6 +857,12 @@ The scopes currently granted to this app on this shop. This includes both requir
 
 <p class="ab-sig"><code v-pre><span class="ab-name">required</span>: <a href="#scope">Scope</a>[]</code></p>
 
+<llm-only>
+
+`required: Scope[]`
+
+</llm-only>
+
 The scopes declared as required in your app configuration. These are always granted at install time and cannot be revoked by the app.
 
 </div>
@@ -690,6 +870,12 @@ The scopes declared as required in your app configuration. These are always gran
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">optional</span>: <a href="#scope">Scope</a>[]</code></p>
+
+<llm-only>
+
+`optional: Scope[]`
+
+</llm-only>
 
 The scopes declared as optional in your app configuration. These may or may not be currently granted — check `granted` to see which are active.
 
@@ -721,6 +907,12 @@ The scopes declared as optional in your app configuration. These may or may not 
 
 <p class="ab-sig"><code v-pre><span class="ab-name">result</span>: <a href="#userresult">UserResult</a></code></p>
 
+<llm-only>
+
+`result: UserResult`
+
+</llm-only>
+
 The merchant's response: `'granted-all'` if they accepted all requested scopes, or `'declined-all'` if they declined.
 
 </div>
@@ -728,6 +920,12 @@ The merchant's response: `'granted-all'` if they accepted all requested scopes, 
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">detail</span>: <a href="#scopesdetail">ScopesDetail</a></code></p>
+
+<llm-only>
+
+`detail: ScopesDetail`
+
+</llm-only>
 
 The updated scopes for this app on this shop after the merchant's response.
 
@@ -758,6 +956,12 @@ The updated scopes for this app on this shop after the merchant's response.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">detail</span>: <a href="#scopesdetail">ScopesDetail</a></code></p>
+
+<llm-only>
+
+`detail: ScopesDetail`
+
+</llm-only>
 
 The updated scopes for this app on this shop after the revocation.
 
@@ -838,7 +1042,7 @@ type UserApi = () => Promise<User>;
 
 <div class="ab-meta">
 
-Extends: <code v-pre><a href="#privilegedadminuser">PrivilegedAdminUser</a></code>, <code v-pre><a href="#adminuser">AdminUser</a></code>, <code v-pre><a href="#posuser">POSUser</a></code>
+Extends: <llm-exclude><code v-pre><a href="#privilegedadminuser">PrivilegedAdminUser</a></code>, <code v-pre><a href="#adminuser">AdminUser</a></code>, <code v-pre><a href="#posuser">POSUser</a></code></llm-exclude><llm-only>`PrivilegedAdminUser`, `AdminUser`, `POSUser`</llm-only>
 
 </div>
 
@@ -866,6 +1070,12 @@ Extends: <code v-pre><a href="#privilegedadminuser">PrivilegedAdminUser</a></cod
 
 <p class="ab-sig"><code v-pre><span class="ab-name">accountAccess</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`accountAccess?: string`
+
+</llm-only>
+
 The account access level of the logged-in user.
 
 </div>
@@ -873,6 +1083,12 @@ The account access level of the logged-in user.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">locale</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`locale?: string`
+
+</llm-only>
 
 Host regional format. Copied onto `shopify.config.locale`.
 
@@ -904,6 +1120,12 @@ Host regional format. Copied onto `shopify.config.locale`.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span><span class="ab-opt">?</span>: number</code></p>
 
+<llm-only>
+
+`id?: number`
+
+</llm-only>
+
 The staff member's numeric ID.
 
 </div>
@@ -911,6 +1133,12 @@ The staff member's numeric ID.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">firstName</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`firstName?: string`
+
+</llm-only>
 
 The user's first name.
 
@@ -920,6 +1148,12 @@ The user's first name.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">lastName</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`lastName?: string`
+
+</llm-only>
+
 The user's last name.
 
 </div>
@@ -927,6 +1161,12 @@ The user's last name.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">email</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`email?: string`
+
+</llm-only>
 
 The user's email address.
 
@@ -936,6 +1176,12 @@ The user's email address.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">accountAccess</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`accountAccess?: string`
+
+</llm-only>
+
 The account access level of the logged-in user.
 
 </div>
@@ -943,6 +1189,12 @@ The account access level of the logged-in user.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">accountType</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`accountType?: string`
+
+</llm-only>
 
 The user's account type.
 
@@ -970,7 +1222,7 @@ The user's account type.
 
 <div class="ab-meta">
 
-Extends: <code v-pre><a href="#adminuser">AdminUser</a></code>
+Extends: <llm-exclude><code v-pre><a href="#adminuser">AdminUser</a></code></llm-exclude><llm-only>`AdminUser`</llm-only>
 
 </div>
 
@@ -980,6 +1232,12 @@ Extends: <code v-pre><a href="#adminuser">AdminUser</a></code>
 
 <p class="ab-sig"><code v-pre><span class="ab-name">id</span><span class="ab-opt">?</span>: number</code></p>
 
+<llm-only>
+
+`id?: number`
+
+</llm-only>
+
 The staff member's numeric ID.
 
 </div>
@@ -988,6 +1246,12 @@ The staff member's numeric ID.
 
 <p class="ab-sig"><code v-pre><span class="ab-name">name</span><span class="ab-opt">?</span>: string</code></p>
 
+<llm-only>
+
+`name?: string`
+
+</llm-only>
+
 The staff member's full name.
 
 </div>
@@ -995,6 +1259,12 @@ The staff member's full name.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">email</span><span class="ab-opt">?</span>: string</code></p>
+
+<llm-only>
+
+`email?: string`
+
+</llm-only>
 
 The staff member's email address.
 

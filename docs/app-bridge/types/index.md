@@ -39,6 +39,12 @@ Import: `import type { ShopifyGlobal } from 'polaris-vue-elements/app-bridge'`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">config</span>: <a href="/app-bridge/types/authentication-and-data#appbridgeconfig">AppBridgeConfig</a></code></p>
 
+<llm-only>
+
+`config: AppBridgeConfig`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -46,6 +52,12 @@ Import: `import type { ShopifyGlobal } from 'polaris-vue-elements/app-bridge'`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">origin</span>: string</code></p>
+
+<llm-only>
+
+`origin: string`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -55,6 +67,12 @@ Import: `import type { ShopifyGlobal } from 'polaris-vue-elements/app-bridge'`
 
 <p class="ab-sig"><code v-pre><span class="ab-name">ready</span>: Promise&lt;void&gt;</code></p>
 
+<llm-only>
+
+`ready: Promise<void>`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -62,6 +80,12 @@ Import: `import type { ShopifyGlobal } from 'polaris-vue-elements/app-bridge'`
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">setSignals</span>(RealSignal: any): void</code></p>
+
+<llm-only>
+
+`setSignals(RealSignal: any): void`
+
+</llm-only>
 
 Registers a signals implementation (e.g. from `@preact/signals`) so that reactive values returned by App Bridge use the app's own Signal class instead of the built-in lightweight shim. Any signals created before this call are migrated to the provided implementation.
 
@@ -71,6 +95,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">environment</span>: <a href="/app-bridge/types/authentication-and-data#environmentapi">EnvironmentApi</a></code></p>
 
+<llm-only>
+
+`environment: EnvironmentApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -78,6 +108,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">loading</span>: <a href="/app-bridge/types/user-interface-and-interactions#loadingapi">LoadingApi</a></code></p>
+
+<llm-only>
+
+`loading: LoadingApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -87,6 +123,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">idToken</span>: <a href="/app-bridge/types/authentication-and-data#idtokenapi">IdTokenApi</a></code></p>
 
+<llm-only>
+
+`idToken: IdTokenApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -94,6 +136,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">user</span>: <a href="/app-bridge/types/authentication-and-data#userapi">UserApi</a></code></p>
+
+<llm-only>
+
+`user: UserApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -103,6 +151,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">toast</span>: <a href="/app-bridge/types/user-interface-and-interactions#toastapi">ToastApi</a></code></p>
 
+<llm-only>
+
+`toast: ToastApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -110,6 +164,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">resourcePicker</span>: <a href="/app-bridge/types/user-interface-and-interactions#resourcepickerapi">ResourcePickerApi</a></code></p>
+
+<llm-only>
+
+`resourcePicker: ResourcePickerApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -119,6 +179,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">scanner</span>: <a href="/app-bridge/types/device-and-platform-integration#scannerapi">ScannerApi</a></code></p>
 
+<llm-only>
+
+`scanner: ScannerApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -126,6 +192,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">modal</span>: <a href="/app-bridge/types/user-interface-and-interactions#modalapi">ModalApi</a></code></p>
+
+<llm-only>
+
+`modal: ModalApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -135,6 +207,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">saveBar</span>: <a href="/app-bridge/types/user-interface-and-interactions#savebarapi">SaveBarApi</a></code></p>
 
+<llm-only>
+
+`saveBar: SaveBarApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -142,6 +220,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">pos</span>: <a href="/app-bridge/types/device-and-platform-integration#posapi">PosApi</a></code></p>
+
+<llm-only>
+
+`pos: PosApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -151,6 +235,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">intents</span>: <a href="/app-bridge/types/user-interface-and-interactions#intentsapi">IntentsApi</a></code></p>
 
+<llm-only>
+
+`intents: IntentsApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -158,6 +248,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">webVitals</span>: <a href="/app-bridge/types/device-and-platform-integration#webvitalsapi">WebVitalsApi</a></code></p>
+
+<llm-only>
+
+`webVitals: WebVitalsApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -167,6 +263,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">support</span>: <a href="/app-bridge/types/user-interface-and-interactions#supportapi">SupportApi</a></code></p>
 
+<llm-only>
+
+`support: SupportApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -174,6 +276,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">reviews</span>: <a href="/app-bridge/types/user-interface-and-interactions#reviewsapi">ReviewsApi</a></code></p>
+
+<llm-only>
+
+`reviews: ReviewsApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -183,6 +291,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">scopes</span>: <a href="/app-bridge/types/authentication-and-data#scopes">Scopes</a></code></p>
 
+<llm-only>
+
+`scopes: Scopes`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -190,6 +304,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">picker</span>: <a href="/app-bridge/types/user-interface-and-interactions#pickerapi">PickerApi</a></code></p>
+
+<llm-only>
+
+`picker: PickerApi`
+
+</llm-only>
 
 <p class="ab-none">Not described in the types.</p>
 
@@ -199,6 +319,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">app</span>: <a href="/app-bridge/types/authentication-and-data#appapi">AppApi</a></code></p>
 
+<llm-only>
+
+`app: AppApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -207,6 +333,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 
 <p class="ab-sig"><code v-pre><span class="ab-name">shopifyQL</span>: <a href="/app-bridge/types/other#shopifyqlapi">ShopifyQLApi</a></code></p>
 
+<llm-only>
+
+`shopifyQL: ShopifyQLApi`
+
+</llm-only>
+
 <p class="ab-none">Not described in the types.</p>
 
 </div>
@@ -214,6 +346,12 @@ Registers a signals implementation (e.g. from `@preact/signals`) so that reactiv
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">sidekick</span>: <a href="/app-bridge/types/user-interface-and-interactions#sidekickapi">SidekickApi</a></code></p>
+
+<llm-only>
+
+`sidekick: SidekickApi`
+
+</llm-only>
 
 Start Sidekick conversations for the merchant from your app.
 
@@ -224,6 +362,12 @@ Start Sidekick conversations for the merchant from your app.
 <div class="ab-member">
 
 <p class="ab-sig"><code v-pre><span class="ab-name">tools</span>: <a href="/app-bridge/types/user-interface-and-interactions#tools">Tools</a></code></p>
+
+<llm-only>
+
+`tools: Tools`
+
+</llm-only>
 
 Entry point for Shopify tools.
 

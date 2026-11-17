@@ -55,6 +55,7 @@
     "gettingStarted": "快速开始",
     "embeddedApp": "构建 Shopify 嵌入式应用",
     "quirks": "已知问题与注意事项",
+    "aiAgents": "使用 AI 编程智能体",
     "allComponents": "所有组件"
   },
   "sidebarAppBridge": {

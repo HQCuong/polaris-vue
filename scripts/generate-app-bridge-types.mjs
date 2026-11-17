@@ -325,7 +325,9 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
 
   // The page being written: its locale's strings, "Used in" mentions and link prefix.
   // `href(name)` is `#anchor` for a type on the same page, else the other page's URL.
-  /** @typedef {{ t: Record<string, any>, mentions: Map<string, string[]>, page: string, href: (name: string) => string }} Ctx */
+  // `llm` is set for the English pages, the only ones the docs build copies to Markdown for
+  // LLMs (vitepress-plugin-llms in docs/.vitepress/config.ts).
+  /** @typedef {{ t: Record<string, any>, mentions: Map<string, string[]>, page: string, href: (name: string) => string, llm: boolean }} Ctx */
 
   // Printed type text as `<code>` HTML, with each type on the pages linked to its heading.
   // The text is parsed again so that only identifiers in type positions are linked.
@@ -382,6 +384,8 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
       '',
       `<p class="ab-sig">${html}</p>`,
       '',
+      // The Markdown copy drops HTML, so it gets the signature as plain inline code.
+      ...(ctx.llm ? ['<llm-only>', '', codeSpan(text), '', '</llm-only>', ''] : []),
       description || `<p class="ab-none">${escapeHtml(ctx.t.notDescribed)}</p>`,
       '',
       '</div>',
@@ -545,11 +549,12 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
     if (ts.isInterfaceDeclaration(node) || isObjectAlias) {
       if (node.typeParameters?.length) {
         const text = node.typeParameters.map((p) => print(p)).join(', ')
-        meta.push(`${t.typeParameters} ${codeHtml(text, ctx, { prefix: 'type __T<', suffix: '> = 0;' })}`)
+        meta.push(`${t.typeParameters} ${llmAlternative(codeHtml(text, ctx, { prefix: 'type __T<', suffix: '> = 0;' }), codeSpan(text), ctx)}`)
       }
       const heritage = ts.isInterfaceDeclaration(node) ? (node.heritageClauses?.flatMap((c) => c.types) ?? []) : []
       if (heritage.length > 0) {
-        meta.push(`${t.extends} ${heritage.map((h) => codeHtml(print(h), ctx, { scope })).join(', ')}`)
+        const html = heritage.map((h) => codeHtml(print(h), ctx, { scope })).join(', ')
+        meta.push(`${t.extends} ${llmAlternative(html, heritage.map((h) => codeSpan(print(h))).join(', '), ctx)}`)
       }
     }
     if (meta.length > 0) lines.push('<div class="ab-meta">', '', ...meta.flatMap((m) => [m, '']), '</div>', '')
@@ -629,6 +634,7 @@ export function generateAppBridgeTypes({ repoRoot, packageName, locales, fail })
         t,
         mentions,
         page,
+        llm: loc.code === 'en',
         href: (name) => {
           const target = placement.get(name).page
           return `${target === page ? '' : pageUrl(loc, target)}#${anchorOf(name)}`
@@ -713,6 +719,19 @@ const shopifyLinks = (text) =>
 const displayOf = (raw) => raw.replace(/\$\d+$/, '')
 
 const anchorOf = (name) => name.toLowerCase()
+
+// Type text as one Markdown code span, with a backtick run longer than any inside it.
+function codeSpan(text) {
+  const flat = text.replace(/\n\s*/g, ' ')
+  const fence = '`'.repeat(Math.max(0, ...(flat.match(/`+/g) ?? []).map((run) => run.length)) + 1)
+  const pad = flat.startsWith('`') || flat.endsWith('`') ? ' ' : ''
+  return `${fence}${pad}${flat}${pad}${fence}`
+}
+
+// Inline HTML for the page and its Markdown equivalent for the LLM copy (English only):
+// the plugin removes `<llm-exclude>` content from the copy and `<llm-only>` from the page.
+const llmAlternative = (html, markdown, ctx) =>
+  ctx.llm ? `<llm-exclude>${html}</llm-exclude><llm-only>${markdown}</llm-only>` : html
 
 const typeParamsOf = (node) => new Set((node.typeParameters ?? []).map((p) => p.name.text))
 
