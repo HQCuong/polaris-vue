@@ -11,6 +11,8 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-11-17
+
 ### Added
 
 - `AGENTS.md` in the npm package (`node_modules/polaris-vue-elements/AGENTS.md`): a compact
@@ -217,7 +219,8 @@ Initial release: typed Vue 3 wrappers for the 59 Shopify Polaris web components 
   `showOverlay()` / `hideOverlay()` / `toggleOverlay()`).
 - ESM build with bundled type declarations; `vue` ^3.5 as a peer dependency.
 
-[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/HQCuong/polaris-vue/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/HQCuong/polaris-vue/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/HQCuong/polaris-vue/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/HQCuong/polaris-vue/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/HQCuong/polaris-vue/compare/v0.4.2...v0.5.0
