@@ -11,6 +11,10 @@ major your app loads (`polaris-1.js`, `polaris-2.js`, …).
 
 ## [Unreleased]
 
+### Changed
+
+- App Bridge wrappers checked against `@shopify/app-bridge-types` 0.7.5 (was 0.7.4).
+
 ## [0.7.0] - 2026-11-17
 
 ### Added
