@@ -1,6 +1,6 @@
 {
   "package": "@shopify/app-bridge-types",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "types": {
     "ActivationStatus": {
       "page": "authentication-and-data",
@@ -21,6 +21,18 @@
     "AppBridgeConfig": {
       "page": "authentication-and-data",
       "anchor": "appbridgeconfig"
+    },
+    "AppEventAttributeValue": {
+      "page": "other",
+      "anchor": "appeventattributevalue"
+    },
+    "AppEventEmitResult": {
+      "page": "other",
+      "anchor": "appeventemitresult"
+    },
+    "AppEventsApi": {
+      "page": "other",
+      "anchor": "appeventsapi"
     },
     "Badge": {
       "page": "user-interface-and-interactions",
